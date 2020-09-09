@@ -21,7 +21,6 @@ namespace Centaurus
         {
             InitializeComponent();
         }
-
         private void CarregarInformacoes()
         {
             dataGridViewSubCategoria.DataSource = SubcategoriaDAO.SelecionarTodasSubCategoria();

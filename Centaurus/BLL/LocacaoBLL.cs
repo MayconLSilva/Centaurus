@@ -13,6 +13,7 @@ namespace Centaurus.BLL
     {
         LocacaoDAO locacaoDao = new LocacaoDAO();
 
+
         public void salvarLoca(LocacaoModelo locacaoModelo)
         {
             try

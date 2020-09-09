@@ -21,6 +21,7 @@ namespace Centaurus.Dao
         
         MySqlCommand comando = null;
         MySqlDataReader dr;
+
         public string numeroIncluido { get; set; }
 
         public void salvar(ParticipanteModelo participante)

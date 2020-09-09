@@ -15,6 +15,7 @@ namespace Centaurus
 {
     public partial class FrmMarca : Form
     {
+
         int flag = 0;
         MarcaDAO marcaDAO = new MarcaDAO();
 

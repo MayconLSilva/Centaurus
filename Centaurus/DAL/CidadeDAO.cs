@@ -13,6 +13,7 @@ namespace Centaurus.Dao
     {
         MySqlCommand comando = null;
 
+
         public DataTable SelecionarTodasCidades() 
         {
             DataTable dt = new DataTable();

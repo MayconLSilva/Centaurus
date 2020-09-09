@@ -16,6 +16,7 @@ namespace Centaurus
 {
     public partial class FrmCategoria : Form
     {
+
         int flag = 0;
         CategoriaDAO categoriaDAO = new CategoriaDAO();
 

@@ -8,6 +8,7 @@ namespace Centaurus.Model
 {
     public class CidadeModelo
     {
+
         public int idCidade { get; set; }
 
         public string  nomeCidade { get; set; }

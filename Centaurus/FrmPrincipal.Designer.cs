@@ -36,10 +36,11 @@
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipalMovimentos = new System.Windows.Forms.ToolStripMenuItem();
+            this.locaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devLocaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelPrincipal = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelUsuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.locaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripPrincipal.SuspendLayout();
             this.painelPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -107,10 +108,25 @@
             // MenuPrincipalMovimentos
             // 
             this.MenuPrincipalMovimentos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.locaçãoToolStripMenuItem});
+            this.locaçãoToolStripMenuItem,
+            this.devLocaçãoToolStripMenuItem});
             this.MenuPrincipalMovimentos.Name = "MenuPrincipalMovimentos";
             this.MenuPrincipalMovimentos.Size = new System.Drawing.Size(95, 20);
             this.MenuPrincipalMovimentos.Text = "MOVIMENTOS";
+            // 
+            // locaçãoToolStripMenuItem
+            // 
+            this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.locaçãoToolStripMenuItem.Text = "Locação";
+            this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
+            // 
+            // devLocaçãoToolStripMenuItem
+            // 
+            this.devLocaçãoToolStripMenuItem.Name = "devLocaçãoToolStripMenuItem";
+            this.devLocaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.devLocaçãoToolStripMenuItem.Text = "Dev. Locação";
+            this.devLocaçãoToolStripMenuItem.Click += new System.EventHandler(this.devLocaçãoToolStripMenuItem_Click);
             // 
             // painelPrincipal
             // 
@@ -136,13 +152,6 @@
             this.labelUsuarioLogado.Name = "labelUsuarioLogado";
             this.labelUsuarioLogado.Size = new System.Drawing.Size(118, 17);
             this.labelUsuarioLogado.Text = "toolStripStatusLabel1";
-            // 
-            // locaçãoToolStripMenuItem
-            // 
-            this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
-            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.locaçãoToolStripMenuItem.Text = "Locação";
-            this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -180,6 +189,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labelUsuarioLogado;
         private System.Windows.Forms.ToolStripMenuItem locaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devLocaçãoToolStripMenuItem;
     }
 }
 

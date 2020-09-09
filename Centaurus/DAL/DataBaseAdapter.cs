@@ -8,5 +8,6 @@ namespace Centaurus.DAL
 {
     class DataBaseAdapter
     {
+
     }
 }

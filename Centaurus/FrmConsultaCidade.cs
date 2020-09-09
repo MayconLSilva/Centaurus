@@ -13,7 +13,6 @@ namespace Centaurus
 {
     public partial class FrmConsultaCidade : Form        
     {
-
         CidadeDAO cidadeDAO = new CidadeDAO();
         public string cidadeClicada { get; set; }
         public string ufClicada { get; set; }

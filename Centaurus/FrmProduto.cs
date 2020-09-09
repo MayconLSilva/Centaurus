@@ -17,7 +17,6 @@ namespace Centaurus
 {
     public partial class FrmProduto : Form
     {
-
         string botaoClicado = "INICIAR";
         int flag = 0;
         FrmConsultaMarca frmConsultaMarca;

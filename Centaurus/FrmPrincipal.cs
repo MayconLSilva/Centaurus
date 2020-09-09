@@ -87,7 +87,12 @@ namespace Centaurus
             painelPrincipal.Controls.Add(janelaLocacao);
         }
 
-        
+        private void devLocaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

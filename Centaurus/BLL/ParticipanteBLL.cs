@@ -14,6 +14,7 @@ namespace Centaurus.Bll
     {
         ParticipanteDAO participanteDAO = new ParticipanteDAO();
 
+
         public void salvar (ParticipanteModelo participante) 
         {
             try 

@@ -13,7 +13,6 @@ namespace Centaurus
 {
     public partial class FrmConsultaProduto : Form
     {
-
         ProdutoDAO produtoDAO = new ProdutoDAO();
         public string idProdutoClicado { get; set; }
         public string idProdutoVariacaoClicado { get; set; }

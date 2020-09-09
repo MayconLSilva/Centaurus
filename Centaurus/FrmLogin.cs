@@ -15,6 +15,7 @@ namespace Centaurus
     {
         FrmLogin frmLogin;
         int contador = 0;
+
         public string usuarioLogado { get; set; }
 
         public FrmLogin()

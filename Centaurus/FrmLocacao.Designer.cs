@@ -72,6 +72,7 @@
             this.labelVolume = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStripLocacao.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).BeginInit();
@@ -485,11 +486,21 @@
             this.button1.TabIndex = 108;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(178, 428);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(25, 24);
+            this.button2.TabIndex = 111;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // FrmLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelVolume);
             this.Controls.Add(this.textBox1);
@@ -577,5 +588,6 @@
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -98,6 +98,8 @@
             this.labelCustoFinal = new System.Windows.Forms.Label();
             this.tabPageVariacoesUnidade = new System.Windows.Forms.TabPage();
             this.groupBoxVariacoesUnidade = new System.Windows.Forms.GroupBox();
+            this.labelCodBarrasVariacao = new System.Windows.Forms.Label();
+            this.textBoxCodBarrasVariacao = new System.Windows.Forms.TextBox();
             this.dataGridViewVariacoes = new System.Windows.Forms.DataGridView();
             this.comboBoxUnidadeVariacao = new System.Windows.Forms.ComboBox();
             this.buttonExcluirVariacao = new System.Windows.Forms.Button();
@@ -107,8 +109,6 @@
             this.comboBoxFatorVariacao = new System.Windows.Forms.ComboBox();
             this.textBoxQtdVariacao = new System.Windows.Forms.TextBox();
             this.labelFatorVariacao = new System.Windows.Forms.Label();
-            this.textBoxCodBarrasVariacao = new System.Windows.Forms.TextBox();
-            this.labelCodBarrasVariacao = new System.Windows.Forms.Label();
             this.menuStripParticipante.SuspendLayout();
             this.tabControlProduto.SuspendLayout();
             this.tabPagePrincipal.SuspendLayout();
@@ -834,6 +834,22 @@
             this.groupBoxVariacoesUnidade.TabStop = false;
             this.groupBoxVariacoesUnidade.Text = "Variações da Unidade";
             // 
+            // labelCodBarrasVariacao
+            // 
+            this.labelCodBarrasVariacao.AutoSize = true;
+            this.labelCodBarrasVariacao.Location = new System.Drawing.Point(188, 20);
+            this.labelCodBarrasVariacao.Name = "labelCodBarrasVariacao";
+            this.labelCodBarrasVariacao.Size = new System.Drawing.Size(61, 13);
+            this.labelCodBarrasVariacao.TabIndex = 59;
+            this.labelCodBarrasVariacao.Text = "Cod. barras";
+            // 
+            // textBoxCodBarrasVariacao
+            // 
+            this.textBoxCodBarrasVariacao.Location = new System.Drawing.Point(191, 37);
+            this.textBoxCodBarrasVariacao.Name = "textBoxCodBarrasVariacao";
+            this.textBoxCodBarrasVariacao.Size = new System.Drawing.Size(146, 20);
+            this.textBoxCodBarrasVariacao.TabIndex = 58;
+            // 
             // dataGridViewVariacoes
             // 
             this.dataGridViewVariacoes.AllowUserToAddRows = false;
@@ -927,22 +943,6 @@
             this.labelFatorVariacao.Size = new System.Drawing.Size(31, 13);
             this.labelFatorVariacao.TabIndex = 53;
             this.labelFatorVariacao.Text = "Fator";
-            // 
-            // textBoxCodBarrasVariacao
-            // 
-            this.textBoxCodBarrasVariacao.Location = new System.Drawing.Point(191, 37);
-            this.textBoxCodBarrasVariacao.Name = "textBoxCodBarrasVariacao";
-            this.textBoxCodBarrasVariacao.Size = new System.Drawing.Size(146, 20);
-            this.textBoxCodBarrasVariacao.TabIndex = 58;
-            // 
-            // labelCodBarrasVariacao
-            // 
-            this.labelCodBarrasVariacao.AutoSize = true;
-            this.labelCodBarrasVariacao.Location = new System.Drawing.Point(188, 20);
-            this.labelCodBarrasVariacao.Name = "labelCodBarrasVariacao";
-            this.labelCodBarrasVariacao.Size = new System.Drawing.Size(61, 13);
-            this.labelCodBarrasVariacao.TabIndex = 59;
-            this.labelCodBarrasVariacao.Text = "Cod. barras";
             // 
             // FrmProduto
             // 

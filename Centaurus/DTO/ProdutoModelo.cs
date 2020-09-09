@@ -8,6 +8,7 @@ namespace Centaurus.Model
 {
     public class ProdutoModelo
     {
+
         public int idProduto { get; set; }
         public bool ativoProduto { get; set; }
         public bool descontinuadoProduto { get; set; }

@@ -16,6 +16,7 @@ namespace Centaurus.Dao
         protected MySqlConnection conexao = null;
         //MySqlCommand comando = null;
 
+
         private DataTable data;
         private MySqlDataAdapter da;
         private MySqlDataReader dr;

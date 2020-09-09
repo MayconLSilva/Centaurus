@@ -16,6 +16,7 @@ namespace Centaurus
 {
     public partial class FrmParticipante : Form
     {
+
         int flag = 0;
         FrmConsultaParticipante frm2;
         FrmConsultaCidade frm3;

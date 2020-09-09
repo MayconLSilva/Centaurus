@@ -13,7 +13,6 @@ namespace Centaurus
 {
     public partial class FrmConsultaMarca : Form        
     {
-
         MarcaDAO marcaDAO = new MarcaDAO();
         public string marcaClicada { get; set; }
         public string idClicada { get; set; }

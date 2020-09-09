@@ -403,7 +403,7 @@
             this.textBoxCep.Name = "textBoxCep";
             this.textBoxCep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCep_KeyPress);
             // 
-            // FrmCliente
+            // FrmParticipante
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -443,7 +443,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStripParticipante;
             this.MaximizeBox = false;
-            this.Name = "FrmCliente";
+            this.Name = "FrmParticipante";
             this.menuStripParticipante.ResumeLayout(false);
             this.menuStripParticipante.PerformLayout();
             this.panel1.ResumeLayout(false);

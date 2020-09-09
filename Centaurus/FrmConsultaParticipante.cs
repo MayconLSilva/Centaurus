@@ -16,6 +16,7 @@ namespace Centaurus
     {
         ParticipanteDAO participanteDAO = new ParticipanteDAO();
 
+
         public string idClicada { get; set; }
         public string nomeClienteClicado { get; set; }
         public string cpfCnpjClicado { get; set; }

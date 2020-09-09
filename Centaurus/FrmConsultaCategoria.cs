@@ -13,6 +13,7 @@ namespace Centaurus
 {
     public partial class FrmConsultaCategoria : Form        
     {
+
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         public string idCategoria { get; set; }
         public string nomeCategoria { get; set; }

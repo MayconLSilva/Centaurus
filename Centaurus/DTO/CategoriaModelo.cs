@@ -12,5 +12,6 @@ namespace Centaurus.Model
         public string nomeCategoria { get; set; }
         public bool ativoCategoria { get; set; }
         public char tipoCategoria { get; set; }
+
     }
 }

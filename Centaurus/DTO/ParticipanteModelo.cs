@@ -8,6 +8,7 @@ namespace Centaurus.Model
 {
     public class ParticipanteModelo
     {
+
         public int idParticipante { get; set; }
 
         public string nomeParticipante { get; set; }
