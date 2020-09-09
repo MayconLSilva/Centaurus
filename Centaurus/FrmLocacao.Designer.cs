@@ -70,9 +70,8 @@
             this.textBoxUsuarioLocacao = new System.Windows.Forms.TextBox();
             this.labelUsuarioLocacao = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxVolume = new System.Windows.Forms.TextBox();
+            this.buttonCalcularDesconto = new System.Windows.Forms.Button();
             this.menuStripLocacao.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).BeginInit();
@@ -260,7 +259,6 @@
             this.textBoxDesconto.Size = new System.Drawing.Size(90, 20);
             this.textBoxDesconto.TabIndex = 96;
             this.textBoxDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDesconto_KeyPress);
-            this.textBoxDesconto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxDesconto_KeyUp);
             // 
             // label8
             // 
@@ -470,40 +468,31 @@
             this.labelVolume.TabIndex = 107;
             this.labelVolume.Text = "Volume:";
             // 
-            // textBox1
+            // textBoxVolume
             // 
-            this.textBox1.Location = new System.Drawing.Point(18, 431);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 106;
+            this.textBoxVolume.Location = new System.Drawing.Point(18, 431);
+            this.textBoxVolume.Name = "textBoxVolume";
+            this.textBoxVolume.Size = new System.Drawing.Size(68, 20);
+            this.textBoxVolume.TabIndex = 106;
             // 
-            // button1
+            // buttonCalcularDesconto
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(605, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 24);
-            this.button1.TabIndex = 108;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(178, 428);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(25, 24);
-            this.button2.TabIndex = 111;
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCalcularDesconto.Image = ((System.Drawing.Image)(resources.GetObject("buttonCalcularDesconto.Image")));
+            this.buttonCalcularDesconto.Location = new System.Drawing.Point(605, 427);
+            this.buttonCalcularDesconto.Name = "buttonCalcularDesconto";
+            this.buttonCalcularDesconto.Size = new System.Drawing.Size(25, 24);
+            this.buttonCalcularDesconto.TabIndex = 108;
+            this.buttonCalcularDesconto.UseVisualStyleBackColor = true;
+            this.buttonCalcularDesconto.Click += new System.EventHandler(this.buttonCalcularDesconto_Click);
             // 
             // FrmLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCalcularDesconto);
             this.Controls.Add(this.labelVolume);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxVolume);
             this.Controls.Add(this.labelUsuarioLocacao);
             this.Controls.Add(this.textBoxUsuarioLocacao);
             this.Controls.Add(this.toolStripMenusConsultaParticipante);
@@ -586,8 +575,7 @@
         private System.Windows.Forms.TextBox textBoxUsuarioLocacao;
         private System.Windows.Forms.Label labelUsuarioLocacao;
         private System.Windows.Forms.Label labelVolume;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxVolume;
+        private System.Windows.Forms.Button buttonCalcularDesconto;
     }
 }

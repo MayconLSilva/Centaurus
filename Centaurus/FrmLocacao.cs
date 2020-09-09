@@ -90,12 +90,14 @@ namespace Centaurus
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
                     menuLocacaoEditar.Enabled = false;
                     menuLocacaoCancelar.Enabled = false;
                     menuLocacaoExcluir.Enabled = false;
+                    buttonCalcularDesconto.Enabled = false;
 
                     toolStripDropDownButtonFuncoes.Enabled = false;
 
@@ -118,6 +120,7 @@ namespace Centaurus
                     labelNomeProduto.Text = "";
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
+                    textBoxVolume.Clear();
 
                     dataGridViewLocao.Enabled = false;
 
@@ -139,16 +142,18 @@ namespace Centaurus
                     buttonExcluirItem.Enabled = true;
                     textBoxDataLancamento.Enabled = false;
                     textBoxQtdItem.Enabled = false;
-                    textBoxDesconto.Enabled = true;
+                    textBoxDesconto.Enabled = false;
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = true;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = false;
                     menuLocacaoGravar.Enabled = true;
                     menuLocacaoEditar.Enabled = false;
                     menuLocacaoCancelar.Enabled = true;
                     menuLocacaoExcluir.Enabled = false;
+                    buttonCalcularDesconto.Enabled = true;
 
                     toolStripDropDownButtonFuncoes.Enabled = true;
 
@@ -172,6 +177,7 @@ namespace Centaurus
                     textBoxTotal.Clear();
                     labelNomeProduto.Text = "";
                     textBoxUsuarioLocacao.Clear();
+                    textBoxVolume.Clear();
 
                     textBoxQtdItem.Text = "0";
                     textBoxDesconto.Text = "0";
@@ -201,12 +207,14 @@ namespace Centaurus
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
                     menuLocacaoEditar.Enabled = true;
                     menuLocacaoCancelar.Enabled = false;
                     menuLocacaoExcluir.Enabled = true;
+                    buttonCalcularDesconto.Enabled = false;
 
                     labelNomeProduto.Text = "";
                     textBoxQuantidadeItem.Clear();
@@ -233,16 +241,18 @@ namespace Centaurus
                     buttonExcluirItem.Enabled = true;
                     textBoxDataLancamento.Enabled = false;
                     textBoxQtdItem.Enabled = false;
-                    textBoxDesconto.Enabled = true;
+                    textBoxDesconto.Enabled = false;
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = true;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = false;
                     menuLocacaoGravar.Enabled = true;
                     menuLocacaoEditar.Enabled = false;
                     menuLocacaoCancelar.Enabled = true;
                     menuLocacaoExcluir.Enabled = false;
+                    buttonCalcularDesconto.Enabled = true;
 
                     toolStripDropDownButtonFuncoes.Enabled = true;
 
@@ -270,12 +280,14 @@ namespace Centaurus
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
                     menuLocacaoEditar.Enabled = false;
                     menuLocacaoCancelar.Enabled = false;
                     menuLocacaoExcluir.Enabled = false;
+                    buttonCalcularDesconto.Enabled = false;
 
                     toolStripDropDownButtonFuncoes.Enabled = false;
 
@@ -300,6 +312,7 @@ namespace Centaurus
                     labelNomeProduto.Text = "";
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
+                    textBoxVolume.Clear();
 
                     break;
 
@@ -323,12 +336,14 @@ namespace Centaurus
                     textBoxTotal.Enabled = false;
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
+                    textBoxVolume.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
                     menuLocacaoEditar.Enabled = false;
                     menuLocacaoCancelar.Enabled = false;
                     menuLocacaoExcluir.Enabled = false;
+                    buttonCalcularDesconto.Enabled = false;
 
                     toolStripDropDownButtonFuncoes.Enabled = false;
 
@@ -353,6 +368,7 @@ namespace Centaurus
                     labelNomeProduto.Text = "";
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
+                    textBoxVolume.Clear();
 
                     break;
             }
@@ -514,24 +530,28 @@ namespace Centaurus
             }
         }
 
-        private void textBoxDesconto_KeyUp(object sender, KeyEventArgs e)
+        
+        private void buttonCalcularDesconto_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ainda não implementado");
+            /*
             float valorTotal, valorDesconto;
 
             //Método para fazer o calculo de desconto e aplicar no campo total
             valorTotal = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
-            if(String.IsNullOrEmpty(textBoxDesconto.Text) == true)
+            if (String.IsNullOrEmpty(textBoxDesconto.Text) == true)
             {
                 valorDesconto = 0;
             }
             else
             {
                 valorDesconto = Convert.ToSingle(textBoxDesconto.Text);
-            }            
+            }
             float total = valorTotal - valorDesconto;
             decimal resultado;
             resultado = Convert.ToDecimal(total.ToString("N2"));
             textBoxTotal.Text = Convert.ToString(resultado);
+            */
         }
 
         private void buttonBuscarItem_Click(object sender, EventArgs e)
@@ -654,6 +674,7 @@ namespace Centaurus
         public void configurarDataGridView()
         {
             float valorTotal,valorDesconto;
+            int qtdRegistros;
 
             //Renomeando as colunas
             dataGridViewLocao.Columns[0].HeaderText = "Código";
@@ -699,11 +720,9 @@ namespace Centaurus
             resultado = Convert.ToDecimal(total.ToString("N2"));
             textBoxTotal.Text = Convert.ToString(resultado);
 
-            /*
-             //Conta a quantidade de registro e seta no campo
-            qtdRegistros = dataGridViewParticipantes.Rows.Count;
-            labelQuantidadeDeRegistros.Text = "Qtd. registros: " + qtdRegistros;
-             */
+            //Conta a quantidade de volumes e seta no campo
+            qtdRegistros = dataGridViewLocao.Rows.Count;
+            textBoxVolume.Text = Convert.ToString(qtdRegistros);            
 
         }
 
