@@ -11,6 +11,7 @@ using Centaurus.DTO;
 using Centaurus.BLL;
 using Centaurus.Dao;
 using System.Globalization;
+using Microsoft.VisualBasic;
 
 namespace Centaurus
 {
@@ -30,6 +31,9 @@ namespace Centaurus
         string idProdutoReturn, idVariacaoProdutoReturn, valorProdutoReturn, custoProdutoReturn,valorOriginalProdutoReturn,nomeProdutoReturn;
         FrmConsultaProduto frmConsultaProduto;
 
+        //Váriavel para guardar o valor de retorno da consulta da locacação
+        FrmConsultaLocacao frmConsultaLocacao;
+
         LocacaoBLL locacaoBLL = new LocacaoBLL();
         LocacaoDAO locacaoDAO = new LocacaoDAO();
 
@@ -43,7 +47,6 @@ namespace Centaurus
 
             //inativaAtivaCampos();
         }
-
 
         public FrmLocacao(string valorRetornado)
         {
@@ -123,6 +126,12 @@ namespace Centaurus
                     textBoxVolume.Clear();
 
                     dataGridViewLocao.Enabled = false;
+
+                    break;
+
+                case "PESQUISAR":
+                                        
+                    menuLocacaoEditar.Enabled = true;
 
                     break;
 
@@ -511,7 +520,7 @@ namespace Centaurus
         {
             
 
-            locacaoDAO.teste();
+            
         }
 
         //Método validação para aceitar somente caractér númerico no campo
@@ -533,7 +542,38 @@ namespace Centaurus
         
         private void buttonCalcularDesconto_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ainda não implementado");
+            string message, title, defaultValue;
+            object myValue;
+
+            //Set prompt.
+            message = "Pleaase input your Full name.";
+
+            //Set title.
+            title = "testesss";
+
+            //Set default value.
+            defaultValue = "valor padrão";
+
+            //Display message, title, and default value.
+            myValue = Interaction.InputBox(message, title, defaultValue);
+
+            //if user has clicked cancel, set myvalue to defaultValue
+            if((string)myValue == "")
+            {
+                myValue = defaultValue;
+                Microsoft.VisualBasic.Interaction.MsgBox("myValue = " + myValue.ToString(),
+                    MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "C# msgBox Demonstration");
+            }
+            else
+            {
+                Interaction.MsgBox("Hello, " + myValue.ToString() + "!"
+                    + Environment.NewLine + "Nice to meet you!",
+                    MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "C# MsgBox Demonstration");
+            }
+
+
+
+            
             /*
             float valorTotal, valorDesconto;
 
@@ -552,6 +592,33 @@ namespace Centaurus
             resultado = Convert.ToDecimal(total.ToString("N2"));
             textBoxTotal.Text = Convert.ToString(resultado);
             */
+        }
+
+        private void buttonBuscarLocacoes_Click(object sender, EventArgs e)
+        {
+            frmConsultaLocacao = new FrmConsultaLocacao();
+            DialogResult dr = frmConsultaLocacao.ShowDialog(this);
+
+            idClienteReturn = frmConsultaLocacao.idClienteEnvia;
+            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            {
+                MessageBox.Show("Você não selecionou nenhuma locação!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                botaoClicado = "PESQUISAR";
+
+                textBoxCodigo.Text = frmConsultaLocacao.idLocacaoEnvia;
+                string nomeClienteReturn = frmConsultaLocacao.NomeClienteEnvia;
+                textBoxCliente.Text = idClienteReturn + " - " + nomeClienteReturn;
+                textBoxDataLancamento.Text = frmConsultaLocacao.DataLancamentoEnvia;
+                textBoxUsuarioLocacao.Text = frmConsultaLocacao.UsuarioEnvia;
+                //dateTimePickerDataEntrega.sele
+                textBoxDesconto.Text = frmConsultaLocacao.ValorDescontoEnvia;
+                textBoxTotal.Text = frmConsultaLocacao.ValorTotalEnvia;
+
+                inativaAtivaCampos();
+            }
         }
 
         private void buttonBuscarItem_Click(object sender, EventArgs e)
@@ -725,6 +792,10 @@ namespace Centaurus
             textBoxVolume.Text = Convert.ToString(qtdRegistros);            
 
         }
+
+
+
+        
 
     }
 }

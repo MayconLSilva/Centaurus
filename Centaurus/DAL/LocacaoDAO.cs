@@ -198,37 +198,49 @@ namespace Centaurus.Dao
             return dt;
         }
 
-
-
-
-        //Metodo criar tabela
-        public void teste()
+        //Método utilizado para excluir locação, irá exclui
+        public void excluirLocacao(LocacaoModelo locacaoModelo)
         {
             try
             {
-                AbrirConexao();
-                //comando = new MySqlCommand("CREATE TABLE  tabelaTeste
-                comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS tabelaTeste (Processo varchar(30) NOT NULL, " +
-                " Competencia varchar(7) NOT NULL, "+
-                " Data_Entrada date NOT NULL, " +
-                " Evento decimal(10, 2) NOT NULL, "+
-                " Evento2 decimal(10, 2) NOT NULL, " +
-                " Indice decimal(10, 2) DEFAULT 0.00, " +
-                " Qtde_Horas time DEFAULT NULL, "+
-                " Valor decimal(10, 2) DEFAULT 0.00, "+
-                " PRIMARY KEY(Processo, Competencia, Data_Entrada)) " +
-                " ENGINE = InnoDB DEFAULT CHARSET = latin1", conexao);
-                comando.ExecuteNonQuery();
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                string comando = "delete from locacao where id_locacao=" + locacaoModelo.idLocacao;
+                conexao.ExecutarComandoSQL(comando);
             }
-            catch (Exception erro)
+            catch(Exception erro)
             {
-                throw new Exception("erro ao criar tabela" + erro.Message); 
+                throw new Exception("Erro ao excluir locação, classe DAO: " + erro.Message);
             }
             finally
             {
                 FecharConexao();
             }
         }
+
+        //Método listar locação na pesquisa
+        public DataTable listarLocacao()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                dt = conexao.RetDataTable("select *from viewlocacao where TipoLocacao = 'L'");
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao consultar locação, classe DAO " + erro.Message);
+            }
+            return dt;
+        }
+
+
+
+
+
+
 
 
 

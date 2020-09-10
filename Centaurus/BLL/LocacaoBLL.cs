@@ -74,5 +74,17 @@ namespace Centaurus.BLL
             }
         }
 
+        public void excluirLocacao(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                locacaoDao.excluirLocacao(locacaoModelo);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao excluir locação, Classe BLL: " + erro.Message);
+            }
+        }
+
     }
 }
