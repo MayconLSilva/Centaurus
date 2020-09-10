@@ -34,6 +34,9 @@ namespace Centaurus
         //Váriavel para guardar o valor de retorno da consulta da locacação
         FrmConsultaLocacao frmConsultaLocacao;
 
+        //Váriavel para pegar a informação do item clicado e sua respectiva exclusão
+        string idProdutoExcluir, nomeProdutoExcluir;
+
         LocacaoBLL locacaoBLL = new LocacaoBLL();
         LocacaoDAO locacaoDAO = new LocacaoDAO();
 
@@ -132,6 +135,8 @@ namespace Centaurus
                 case "PESQUISAR":
                                         
                     menuLocacaoEditar.Enabled = true;
+                    menuLocacaoCancelar.Enabled = true;
+                    menuLocacaoExcluir.Enabled = true;
 
                     break;
 
@@ -148,7 +153,7 @@ namespace Centaurus
                     buttonBuscarItem.Enabled = true;
                     textBoxValor.Enabled = true;
                     buttonAdicionarItem.Enabled = true;
-                    buttonExcluirItem.Enabled = true;
+                    buttonExcluirItem.Enabled = false;
                     textBoxDataLancamento.Enabled = false;
                     textBoxQtdItem.Enabled = false;
                     textBoxDesconto.Enabled = false;
@@ -247,7 +252,7 @@ namespace Centaurus
                     buttonBuscarItem.Enabled = true;
                     textBoxValor.Enabled = true;
                     buttonAdicionarItem.Enabled = true;
-                    buttonExcluirItem.Enabled = true;
+                    buttonExcluirItem.Enabled = false;
                     textBoxDataLancamento.Enabled = false;
                     textBoxQtdItem.Enabled = false;
                     textBoxDesconto.Enabled = false;
@@ -403,9 +408,19 @@ namespace Centaurus
         }
 
         private void menuLocacaoExcluir_Click(object sender, EventArgs e)
-        {
-            botaoClicado = "EXCLUIR";
-            inativaAtivaCampos();
+        {      
+            var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Locação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                LocacaoBLL locacaoBLL = new LocacaoBLL();
+                LocacaoModelo locacaoModelo = new LocacaoModelo();
+
+                locacaoModelo.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
+                locacaoBLL.excluirLocacao(locacaoModelo);
+
+                botaoClicado = "EXCLUIR";
+                inativaAtivaCampos();
+            }
         }
 
         //Método validação para aceitar somente caractér númerico no campo
@@ -456,15 +471,23 @@ namespace Centaurus
                     locacaoModelo.totalLocao = Convert.ToSingle(textBoxTotal.Text);
                     locacaoModelo.usuarioLocacao = textBoxUsuarioLocacao.Text;
 
-                    locacaoBLL.salvarLoca(locacaoModelo);
-                    MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    botaoClicado = "GRAVAR";
-                    inativaAtivaCampos();
+                    if(String.IsNullOrEmpty(textBoxCliente.Text) == true)
+                    {
+                        MessageBox.Show("Informe o cliente antes de salvar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        locacaoBLL.salvarLoca(locacaoModelo);
+                        MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        botaoClicado = "GRAVAR";
+                        inativaAtivaCampos();
 
-                    //Método chama o ultimo registro
-                    locacaoDAO.UltimoRegistro(idClienteReturn);
-                    string idReturn = locacaoDAO.numeroIncluido;
-                    textBoxCodigo.Text = idReturn;
+                        //Método chama o ultimo registro
+                        locacaoDAO.UltimoRegistro(idClienteReturn);
+                        string idReturn = locacaoDAO.numeroIncluido;
+                        textBoxCodigo.Text = idReturn;
+                    }
+                    
                 }
                 //Condição utilizada para salvar a locação com update após o botão inserir já ter gerada a id da locação
                 else if (textBoxCodigo.Text != "0" && botaoInserir == "NAOCLICADO")
@@ -477,10 +500,17 @@ namespace Centaurus
                     locacaoModelo.usuarioLocacao = textBoxUsuarioLocacao.Text;
                     locacaoModelo.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
 
-                    locacaoBLL.finalizarLoca(locacaoModelo);
-                    MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    botaoClicado = "GRAVAR";
-                    inativaAtivaCampos();
+                    if (String.IsNullOrEmpty(textBoxCliente.Text) == true)
+                    {
+                        MessageBox.Show("Informe o cliente antes de salvar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        locacaoBLL.finalizarLoca(locacaoModelo);
+                        MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        botaoClicado = "GRAVAR";
+                        inativaAtivaCampos();
+                    }  
                 }
             }
             //Condição utilizada para  atualização ou alteração de uma locação que foi pesquisada
@@ -516,11 +546,21 @@ namespace Centaurus
             }
         }
 
+        //Método exluir item
         private void buttonExcluirItem_Click(object sender, EventArgs e)
         {
-            
+            var result = MessageBox.Show("Deseja realmente excluir o produto? \n" +nomeProdutoExcluir, "Excluir Locação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                LocacaoBLL locacaoBLL = new LocacaoBLL();
+                LocacaoModelo locacaoModelo = new LocacaoModelo();
 
-            
+                locacaoModelo.idProdutoLocacaoItens = Convert.ToInt32(idProdutoExcluir);
+                locacaoBLL.excluirItemLocacao(locacaoModelo);
+
+                carregarItens();
+                idProdutoExcluir = null;
+            }
         }
 
         //Método validação para aceitar somente caractér númerico no campo
@@ -538,8 +578,7 @@ namespace Centaurus
                 e.Handled = true;
             }
         }
-
-        
+                
         private void buttonCalcularDesconto_Click(object sender, EventArgs e)
         {
             string message, title, defaultValue;
@@ -592,6 +631,14 @@ namespace Centaurus
             resultado = Convert.ToDecimal(total.ToString("N2"));
             textBoxTotal.Text = Convert.ToString(resultado);
             */
+        }
+
+        private void dataGridViewLocao_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idProdutoExcluir = dataGridViewLocao.Rows[e.RowIndex].Cells[12].Value.ToString();
+            nomeProdutoExcluir = dataGridViewLocao.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+            buttonExcluirItem.Enabled = true;
         }
 
         private void buttonBuscarLocacoes_Click(object sender, EventArgs e)
@@ -770,6 +817,7 @@ namespace Centaurus
             //Ocultando algumas colunas na tabela
             dataGridViewLocao.Columns["CodigoProdutoVariacao"].Visible = false;
             dataGridViewLocao.Columns["idLocacao_locacaoitens"].Visible = false;
+            dataGridViewLocao.Columns["idlocacaoitens"].Visible = false;
 
             //Convertendo as colunas do dataGridView            
             this.dataGridViewLocao.Columns[5].ValueType = typeof(decimal);

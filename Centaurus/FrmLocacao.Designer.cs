@@ -300,6 +300,7 @@
             this.dataGridViewLocao.Name = "dataGridViewLocao";
             this.dataGridViewLocao.Size = new System.Drawing.Size(721, 169);
             this.dataGridViewLocao.TabIndex = 101;
+            this.dataGridViewLocao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLocao_CellClick);
             // 
             // dateTimePickerDataEntrega
             // 

@@ -39,7 +39,7 @@
             this.textBoxDataLancamentoClicadoLocacao = new System.Windows.Forms.TextBox();
             this.textBoxNomeClicadoLocacao = new System.Windows.Forms.TextBox();
             this.textBoxDataDevolucaoClicadoLocacao = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDataDevolucao = new System.Windows.Forms.Label();
             this.labelQuantidadeDeRegistros = new System.Windows.Forms.Label();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocacao)).BeginInit();
@@ -71,12 +71,10 @@
             this.toolStripComboBoxTipoFiltroLocacao.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripComboBoxTipoFiltroLocacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripComboBoxTipoFiltroLocacao.Items.AddRange(new object[] {
+            "TODOS",
             "CLIENTE",
-            "",
             "DATA LANÇAMENTO",
-            "",
             "DATA DEVOLUÇÃO",
-            "",
             "USUÁRIO"});
             this.toolStripComboBoxTipoFiltroLocacao.Margin = new System.Windows.Forms.Padding(3, 0, 1, 0);
             this.toolStripComboBoxTipoFiltroLocacao.Name = "toolStripComboBoxTipoFiltroLocacao";
@@ -92,6 +90,7 @@
             this.toolStripButtonFiltrarLocacao.Name = "toolStripButtonFiltrarLocacao";
             this.toolStripButtonFiltrarLocacao.Size = new System.Drawing.Size(71, 22);
             this.toolStripButtonFiltrarLocacao.Text = "PESQUISAR";
+            this.toolStripButtonFiltrarLocacao.Click += new System.EventHandler(this.toolStripButtonFiltrarLocacao_Click);
             // 
             // dataGridViewLocacao
             // 
@@ -102,7 +101,7 @@
             this.dataGridViewLocacao.ReadOnly = true;
             this.dataGridViewLocacao.Size = new System.Drawing.Size(660, 216);
             this.dataGridViewLocacao.TabIndex = 51;
-            this.dataGridViewLocacao.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLocacao_CellContentClick);
+            this.dataGridViewLocacao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLocacao_CellClick);
             // 
             // labelCPFCNPJ
             // 
@@ -146,14 +145,14 @@
             this.textBoxDataDevolucaoClicadoLocacao.Size = new System.Drawing.Size(138, 20);
             this.textBoxDataDevolucaoClicadoLocacao.TabIndex = 56;
             // 
-            // label1
+            // labelDataDevolucao
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Data devolução:";
+            this.labelDataDevolucao.AutoSize = true;
+            this.labelDataDevolucao.Location = new System.Drawing.Point(153, 47);
+            this.labelDataDevolucao.Name = "labelDataDevolucao";
+            this.labelDataDevolucao.Size = new System.Drawing.Size(86, 13);
+            this.labelDataDevolucao.TabIndex = 57;
+            this.labelDataDevolucao.Text = "Data devolução:";
             // 
             // labelQuantidadeDeRegistros
             // 
@@ -170,7 +169,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.labelQuantidadeDeRegistros);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDataDevolucao);
             this.Controls.Add(this.textBoxDataDevolucaoClicadoLocacao);
             this.Controls.Add(this.labelCPFCNPJ);
             this.Controls.Add(this.labelNome);
@@ -204,7 +203,7 @@
         private System.Windows.Forms.TextBox textBoxDataLancamentoClicadoLocacao;
         private System.Windows.Forms.TextBox textBoxNomeClicadoLocacao;
         private System.Windows.Forms.TextBox textBoxDataDevolucaoClicadoLocacao;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDataDevolucao;
         private System.Windows.Forms.Label labelQuantidadeDeRegistros;
     }
 }

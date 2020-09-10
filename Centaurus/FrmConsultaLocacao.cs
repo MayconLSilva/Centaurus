@@ -31,7 +31,7 @@ namespace Centaurus
 
         private void carregarLocacoes()
         {
-            dataGridViewLocacao.DataSource = locacaoDAO.listarLocacao();
+            dataGridViewLocacao.DataSource = locacaoDAO.listarLocacao(toolStripComboBoxTipoFiltroLocacao.Text, toolStripTextBoxFiltroLocacao.Text);
             configurarDataGridView();
         }
 
@@ -44,9 +44,9 @@ namespace Centaurus
             dataGridViewLocacao.Columns[0].HeaderText = "Código";
             dataGridViewLocacao.Columns[1].HeaderText = "Cód. Cliente";
             dataGridViewLocacao.Columns[2].HeaderText = "Cliente";
-            //dataGridViewLocacao.Columns[3].HeaderText = "Data lançamento";
-            //dataGridViewLocacao.Columns[4].HeaderText = "Data Prev. Entrega";
-            //dataGridViewLocacao.Columns[5].HeaderText = "Data Devolução";
+            dataGridViewLocacao.Columns[3].HeaderText = "Data lançamento";
+            dataGridViewLocacao.Columns[4].HeaderText = "Data Prev. Entrega";
+            dataGridViewLocacao.Columns[5].HeaderText = "Data Devolução";
             dataGridViewLocacao.Columns[6].HeaderText = "Nº Devolução";
             dataGridViewLocacao.Columns[7].HeaderText = "R$";
             dataGridViewLocacao.Columns[8].HeaderText = "Usuário";
@@ -55,21 +55,19 @@ namespace Centaurus
             dataGridViewLocacao.Columns[0].Width = 45;
             dataGridViewLocacao.Columns[1].Width = 50;
             dataGridViewLocacao.Columns[2].Width = 170;
-            dataGridViewLocacao.Columns[3].Width = 60;
-            dataGridViewLocacao.Columns[4].Width = 60;
-            dataGridViewLocacao.Columns[5].Width = 60;
-            dataGridViewLocacao.Columns[6].Width = 50;
+            dataGridViewLocacao.Columns[3].Width = 90;
+            dataGridViewLocacao.Columns[4].Width = 90;
+            dataGridViewLocacao.Columns[5].Width = 90;
+            dataGridViewLocacao.Columns[6].Width = 60;
             dataGridViewLocacao.Columns[7].Width = 60;
-            dataGridViewLocacao.Columns[8].Width = 60;
+            dataGridViewLocacao.Columns[8].Width = 80;
 
             //Ocultando algumas colunas na tabela
             dataGridViewLocacao.Columns["DescontoLocacao"].Visible = false;
             dataGridViewLocacao.Columns["QtdItensLocacao"].Visible = false;
             dataGridViewLocacao.Columns["TipoLocacao"].Visible = false;
+            
 
-            dataGridViewLocacao.Columns["DataLancamento"].Visible = false;
-            dataGridViewLocacao.Columns["DataPrevisaoEntrega"].Visible = false;
-            dataGridViewLocacao.Columns["DataDevolucao"].Visible = false;
 
             //Convertendo as colunas do dataGridView            
             this.dataGridViewLocacao.Columns[7].ValueType = typeof(decimal);
@@ -77,16 +75,18 @@ namespace Centaurus
 
             //Conta a quantidade de volumes e seta no campo
             qtdRegistros = dataGridViewLocacao.Rows.Count;
-            label1.Text = Convert.ToString(qtdRegistros);
+            labelQuantidadeDeRegistros.Text = Convert.ToString(qtdRegistros);
 
         }
 
         private void FrmConsultaLocacao_Load(object sender, EventArgs e)
         {
+            toolStripComboBoxTipoFiltroLocacao.SelectedIndex = toolStripComboBoxTipoFiltroLocacao.FindStringExact("TODOS");
+
             carregarLocacoes();
         }
 
-        private void dataGridViewLocacao_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewLocacao_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idLocacaoEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[0].Value.ToString();
             idClienteEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -101,5 +101,11 @@ namespace Centaurus
             textBoxDataLancamentoClicadoLocacao.Text = DataLancamentoEnvia;
             textBoxDataDevolucaoClicadoLocacao.Text = DataDevEntregaEnvia;
         }
+
+        private void toolStripButtonFiltrarLocacao_Click(object sender, EventArgs e)
+        {
+            carregarLocacoes();
+        }
+
     }
 }

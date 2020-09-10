@@ -218,8 +218,28 @@ namespace Centaurus.Dao
             }
         }
 
+        //Método utilizado para excluir um item dalocação
+        public void excluirItemLocacao(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                string comando = "delete from locacaoitens where id_locacaoitens=" + locacaoModelo.idProdutoLocacaoItens;
+                conexao.ExecutarComandoSQL(comando);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao excluir o item da locação, classe DAO: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
         //Método listar locação na pesquisa
-        public DataTable listarLocacao()
+        public DataTable listarLocacao(string tipoFiltro,string filtro)
         {
             DataTable dt = new DataTable();
 
@@ -227,7 +247,58 @@ namespace Centaurus.Dao
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from viewlocacao where TipoLocacao = 'L'");
+                if(tipoFiltro == "TODOS")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao "+
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = '' " +
+                    " or TipoLocacao = 'L'");
+                }
+                else if(tipoFiltro == "CLIENTE")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '%"+filtro+"%' and TipoLocacao = 'L' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = ''");
+                }
+                else if (tipoFiltro == "DATA LANÇAMENTO")
+                {
+                    //Método chama o ultimo registro
+                    var dataConvertida = DateTime.Parse(filtro).ToString("yyyy-MM-dd HH:mm:ss");
+                                        
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = ''");
+                    
+                }
+                else if (tipoFiltro == "DATA DEVOLUÇÃO")
+                {
+                    //Método chama o ultimo registro
+                    var dataConvertida = DateTime.Parse(filtro).ToString("yyyy-MM-dd HH:mm:ss");
+
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = ''");
+                }
+                else if (tipoFiltro == "USUÁRIO")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '" + filtro + "' and TipoLocacao = 'L'" +
+                    " or TipoLocacao = ''");
+                }
             }
             catch (Exception erro)
             {
