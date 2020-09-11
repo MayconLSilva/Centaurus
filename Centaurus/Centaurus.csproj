@@ -58,10 +58,12 @@
     <Compile Include="DAL\CategoriaDAO.cs" />
     <Compile Include="DAL\DataBaseAdapter.cs" />
     <Compile Include="DAL\LocacaoDAO.cs" />
+    <Compile Include="DAL\LoginDAO.cs" />
     <Compile Include="DAL\MarcaDAO.cs" />
     <Compile Include="DAL\ParticipanteDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
     <Compile Include="DTO\LocacaoModelo.cs" />
+    <Compile Include="DTO\LoginModelo.cs" />
     <Compile Include="FrmConsultaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>

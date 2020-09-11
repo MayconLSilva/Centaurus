@@ -23,6 +23,7 @@ namespace Centaurus
         public string ValorTotalEnvia { get; set; }
         public string UsuarioEnvia { get; set; }
         public string idLocacaoEnvia { get; set; }
+        public string DataPrevEntregaEnvia { get; set; }
 
         public FrmConsultaLocacao()
         {
@@ -92,13 +93,15 @@ namespace Centaurus
             idClienteEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[1].Value.ToString();
             NomeClienteEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[2].Value.ToString();
             DataLancamentoEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[3].Value.ToString();
-            DataDevEntregaEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[4].Value.ToString();
+            DataPrevEntregaEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[4].Value.ToString();
+            DataDevEntregaEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[5].Value.ToString();
             ValorDescontoEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[9].Value.ToString();
             ValorTotalEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[7].Value.ToString();
             UsuarioEnvia = dataGridViewLocacao.Rows[e.RowIndex].Cells[8].Value.ToString();
 
             textBoxNomeClicadoLocacao.Text = NomeClienteEnvia;
             textBoxDataLancamentoClicadoLocacao.Text = DataLancamentoEnvia;
+            textBoxDataPrevEntregaClicadoLocacao.Text = DataPrevEntregaEnvia;
             textBoxDataDevolucaoClicadoLocacao.Text = DataDevEntregaEnvia;
         }
 

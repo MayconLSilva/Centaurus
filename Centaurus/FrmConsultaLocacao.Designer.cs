@@ -38,9 +38,11 @@
             this.labelNome = new System.Windows.Forms.Label();
             this.textBoxDataLancamentoClicadoLocacao = new System.Windows.Forms.TextBox();
             this.textBoxNomeClicadoLocacao = new System.Windows.Forms.TextBox();
-            this.textBoxDataDevolucaoClicadoLocacao = new System.Windows.Forms.TextBox();
+            this.textBoxDataPrevEntregaClicadoLocacao = new System.Windows.Forms.TextBox();
             this.labelDataDevolucao = new System.Windows.Forms.Label();
             this.labelQuantidadeDeRegistros = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxDataDevolucaoClicadoLocacao = new System.Windows.Forms.TextBox();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocacao)).BeginInit();
             this.SuspendLayout();
@@ -137,22 +139,22 @@
             this.textBoxNomeClicadoLocacao.Size = new System.Drawing.Size(216, 20);
             this.textBoxNomeClicadoLocacao.TabIndex = 52;
             // 
-            // textBoxDataDevolucaoClicadoLocacao
+            // textBoxDataPrevEntregaClicadoLocacao
             // 
-            this.textBoxDataDevolucaoClicadoLocacao.Enabled = false;
-            this.textBoxDataDevolucaoClicadoLocacao.Location = new System.Drawing.Point(156, 65);
-            this.textBoxDataDevolucaoClicadoLocacao.Name = "textBoxDataDevolucaoClicadoLocacao";
-            this.textBoxDataDevolucaoClicadoLocacao.Size = new System.Drawing.Size(138, 20);
-            this.textBoxDataDevolucaoClicadoLocacao.TabIndex = 56;
+            this.textBoxDataPrevEntregaClicadoLocacao.Enabled = false;
+            this.textBoxDataPrevEntregaClicadoLocacao.Location = new System.Drawing.Point(156, 65);
+            this.textBoxDataPrevEntregaClicadoLocacao.Name = "textBoxDataPrevEntregaClicadoLocacao";
+            this.textBoxDataPrevEntregaClicadoLocacao.Size = new System.Drawing.Size(138, 20);
+            this.textBoxDataPrevEntregaClicadoLocacao.TabIndex = 56;
             // 
             // labelDataDevolucao
             // 
             this.labelDataDevolucao.AutoSize = true;
             this.labelDataDevolucao.Location = new System.Drawing.Point(153, 47);
             this.labelDataDevolucao.Name = "labelDataDevolucao";
-            this.labelDataDevolucao.Size = new System.Drawing.Size(86, 13);
+            this.labelDataDevolucao.Size = new System.Drawing.Size(100, 13);
             this.labelDataDevolucao.TabIndex = 57;
-            this.labelDataDevolucao.Text = "Data devolução:";
+            this.labelDataDevolucao.Text = "Data Prev. entrega:";
             // 
             // labelQuantidadeDeRegistros
             // 
@@ -163,14 +165,33 @@
             this.labelQuantidadeDeRegistros.TabIndex = 58;
             this.labelQuantidadeDeRegistros.Text = "label1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(297, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Data devolução:";
+            // 
+            // textBoxDataDevolucaoClicadoLocacao
+            // 
+            this.textBoxDataDevolucaoClicadoLocacao.Enabled = false;
+            this.textBoxDataDevolucaoClicadoLocacao.Location = new System.Drawing.Point(300, 65);
+            this.textBoxDataDevolucaoClicadoLocacao.Name = "textBoxDataDevolucaoClicadoLocacao";
+            this.textBoxDataDevolucaoClicadoLocacao.Size = new System.Drawing.Size(138, 20);
+            this.textBoxDataDevolucaoClicadoLocacao.TabIndex = 59;
+            // 
             // FrmConsultaLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxDataDevolucaoClicadoLocacao);
             this.Controls.Add(this.labelQuantidadeDeRegistros);
             this.Controls.Add(this.labelDataDevolucao);
-            this.Controls.Add(this.textBoxDataDevolucaoClicadoLocacao);
+            this.Controls.Add(this.textBoxDataPrevEntregaClicadoLocacao);
             this.Controls.Add(this.labelCPFCNPJ);
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.textBoxDataLancamentoClicadoLocacao);
@@ -202,8 +223,10 @@
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.TextBox textBoxDataLancamentoClicadoLocacao;
         private System.Windows.Forms.TextBox textBoxNomeClicadoLocacao;
-        private System.Windows.Forms.TextBox textBoxDataDevolucaoClicadoLocacao;
+        private System.Windows.Forms.TextBox textBoxDataPrevEntregaClicadoLocacao;
         private System.Windows.Forms.Label labelDataDevolucao;
         private System.Windows.Forms.Label labelQuantidadeDeRegistros;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxDataDevolucaoClicadoLocacao;
     }
 }

@@ -660,9 +660,12 @@ namespace Centaurus
                 textBoxCliente.Text = idClienteReturn + " - " + nomeClienteReturn;
                 textBoxDataLancamento.Text = frmConsultaLocacao.DataLancamentoEnvia;
                 textBoxUsuarioLocacao.Text = frmConsultaLocacao.UsuarioEnvia;
-                //dateTimePickerDataEntrega.sele
+                string dataPrevEntrega = frmConsultaLocacao.DataPrevEntregaEnvia;
+                dateTimePickerDataEntrega.Value = Convert.ToDateTime(dataPrevEntrega);
                 textBoxDesconto.Text = frmConsultaLocacao.ValorDescontoEnvia;
                 textBoxTotal.Text = frmConsultaLocacao.ValorTotalEnvia;
+
+                carregarItens();
 
                 inativaAtivaCampos();
             }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.DTO;
+using Centaurus.DAL;
 
 namespace Centaurus
 {
@@ -45,50 +47,13 @@ namespace Centaurus
             */
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (textBoxNome.Text == "MAYCON" && textBoxSenha.Text == "123")
-            {
-                //this.DialogResult = DialogResult.OK;
-                //this.Close();
-                //Dispose();
-                usuarioLogado = "aaaaa";
-
-                //this.Hide();
-
-
-                /* Funcionou opção 1
-                if(frmLogin.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Run();
-                }
-                */
-
-                chamaTelaPrincipal_logar();
-
-
-
-
-
-            }
-            else
-            {
-                contador = contador + 1;
-                MessageBox.Show("Senha e/ou Usuário incorreto! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (contador == 3)
-                {
-                    Application.Exit();
-                }
-            }
-
-        }
+        
 
         public void chamaTelaPrincipal_logar()
         {
             FrmPrincipal frmPrincipal = new FrmPrincipal(textBoxNome.Text);
             frmPrincipal.Show();
             this.Hide();
-            Console.WriteLine("chamou aqui ");
         }
 
         private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
@@ -107,5 +72,51 @@ namespace Centaurus
                 chamaTelaPrincipal_logar();
             }
         }
+
+        public void login()
+        {
+            LoginModelo loginModelo = new LoginModelo();
+            LoginDAO loginDAO = new LoginDAO();
+
+            try
+            {
+                //Método envia o nome do textBox para pesquisar usuário no banco de dados
+                loginModelo.usuarioLogin = textBoxNome.Text;
+                loginModelo = loginDAO.login(loginModelo);
+
+
+                //Método retorna o valor do usuário
+                string senhaUsuario = loginModelo.senhaLogin;
+                Console.WriteLine("senha ´´e " + senhaUsuario);
+
+                
+                if (String.IsNullOrEmpty(senhaUsuario) == true)
+                {
+                    MessageBox.Show("Usuário incorreto ou não existente no banco de dados", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if(textBoxSenha.Text == senhaUsuario)
+                    {
+                        chamaTelaPrincipal_logar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }                    
+                }
+                
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Usuário não encontrado, " + erro.Message);
+            }
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            login();
+        }
+
     }
 }
