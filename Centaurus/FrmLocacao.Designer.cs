@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocacao));
             this.menuStripLocacao = new System.Windows.Forms.MenuStrip();
+            this.menuLocacaoNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoGravar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.labelCodigo = new System.Windows.Forms.Label();
             this.textBoxCliente = new System.Windows.Forms.TextBox();
@@ -48,30 +53,27 @@
             this.textBoxQuantidadeItem = new System.Windows.Forms.TextBox();
             this.labelNomeProduto = new System.Windows.Forms.Label();
             this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
+            this.buttonExcluirItem = new System.Windows.Forms.Button();
+            this.buttonAdicionarItem = new System.Windows.Forms.Button();
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttonBuscarItem = new System.Windows.Forms.Button();
             this.textBoxCodigoItem = new System.Windows.Forms.TextBox();
             this.dataGridViewLocao = new System.Windows.Forms.DataGridView();
             this.dateTimePickerDataEntrega = new System.Windows.Forms.DateTimePicker();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
+            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxUsuarioLocacao = new System.Windows.Forms.TextBox();
             this.labelUsuarioLocacao = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
             this.textBoxVolume = new System.Windows.Forms.TextBox();
             this.buttonCalcularDesconto = new System.Windows.Forms.Button();
-            this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
-            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonExcluirItem = new System.Windows.Forms.Button();
-            this.buttonAdicionarItem = new System.Windows.Forms.Button();
-            this.buttonBuscarItem = new System.Windows.Forms.Button();
             this.buttonLimparCliente = new System.Windows.Forms.Button();
             this.buttonBuscarCliente = new System.Windows.Forms.Button();
             this.buttonBuscarLocacoes = new System.Windows.Forms.Button();
-            this.menuLocacaoNovo = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoGravar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxTotalItens = new System.Windows.Forms.TextBox();
             this.menuStripLocacao.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).BeginInit();
@@ -91,6 +93,47 @@
             this.menuStripLocacao.Name = "menuStripLocacao";
             this.menuStripLocacao.Size = new System.Drawing.Size(759, 24);
             this.menuStripLocacao.TabIndex = 2;
+            // 
+            // menuLocacaoNovo
+            // 
+            this.menuLocacaoNovo.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoNovo.Image")));
+            this.menuLocacaoNovo.Name = "menuLocacaoNovo";
+            this.menuLocacaoNovo.Size = new System.Drawing.Size(69, 20);
+            this.menuLocacaoNovo.Text = "NOVO";
+            this.menuLocacaoNovo.Click += new System.EventHandler(this.menuLocacaoNovo_Click);
+            // 
+            // menuLocacaoGravar
+            // 
+            this.menuLocacaoGravar.Enabled = false;
+            this.menuLocacaoGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoGravar.Image")));
+            this.menuLocacaoGravar.Name = "menuLocacaoGravar";
+            this.menuLocacaoGravar.Size = new System.Drawing.Size(78, 20);
+            this.menuLocacaoGravar.Text = "GRAVAR";
+            this.menuLocacaoGravar.Click += new System.EventHandler(this.menuLocacaoGravar_Click);
+            // 
+            // menuLocacaoEditar
+            // 
+            this.menuLocacaoEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoEditar.Image")));
+            this.menuLocacaoEditar.Name = "menuLocacaoEditar";
+            this.menuLocacaoEditar.Size = new System.Drawing.Size(72, 20);
+            this.menuLocacaoEditar.Text = "EDITAR";
+            this.menuLocacaoEditar.Click += new System.EventHandler(this.menuLocacaoEditar_Click);
+            // 
+            // menuLocacaoCancelar
+            // 
+            this.menuLocacaoCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoCancelar.Image")));
+            this.menuLocacaoCancelar.Name = "menuLocacaoCancelar";
+            this.menuLocacaoCancelar.Size = new System.Drawing.Size(95, 20);
+            this.menuLocacaoCancelar.Text = "CANCELAR";
+            this.menuLocacaoCancelar.Click += new System.EventHandler(this.menuLocacaoCancelar_Click);
+            // 
+            // menuLocacaoExcluir
+            // 
+            this.menuLocacaoExcluir.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoExcluir.Image")));
+            this.menuLocacaoExcluir.Name = "menuLocacaoExcluir";
+            this.menuLocacaoExcluir.Size = new System.Drawing.Size(80, 20);
+            this.menuLocacaoExcluir.Text = "EXCLUIR";
+            this.menuLocacaoExcluir.Click += new System.EventHandler(this.menuLocacaoExcluir_Click);
             // 
             // textBoxCodigo
             // 
@@ -267,6 +310,26 @@
             this.comboBoxFiltro.Size = new System.Drawing.Size(63, 21);
             this.comboBoxFiltro.TabIndex = 109;
             // 
+            // buttonExcluirItem
+            // 
+            this.buttonExcluirItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirItem.Image")));
+            this.buttonExcluirItem.Location = new System.Drawing.Point(310, 35);
+            this.buttonExcluirItem.Name = "buttonExcluirItem";
+            this.buttonExcluirItem.Size = new System.Drawing.Size(25, 24);
+            this.buttonExcluirItem.TabIndex = 107;
+            this.buttonExcluirItem.UseVisualStyleBackColor = true;
+            this.buttonExcluirItem.Click += new System.EventHandler(this.buttonExcluirItem_Click);
+            // 
+            // buttonAdicionarItem
+            // 
+            this.buttonAdicionarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdicionarItem.Image")));
+            this.buttonAdicionarItem.Location = new System.Drawing.Point(279, 35);
+            this.buttonAdicionarItem.Name = "buttonAdicionarItem";
+            this.buttonAdicionarItem.Size = new System.Drawing.Size(25, 24);
+            this.buttonAdicionarItem.TabIndex = 106;
+            this.buttonAdicionarItem.UseVisualStyleBackColor = true;
+            this.buttonAdicionarItem.Click += new System.EventHandler(this.buttonAdicionarItem_Click);
+            // 
             // textBoxValor
             // 
             this.textBoxValor.Location = new System.Drawing.Point(224, 35);
@@ -284,6 +347,17 @@
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 105;
             this.label3.Text = "R$:";
+            // 
+            // buttonBuscarItem
+            // 
+            this.buttonBuscarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarItem.Image")));
+            this.buttonBuscarItem.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarItem.Location = new System.Drawing.Point(138, 35);
+            this.buttonBuscarItem.Name = "buttonBuscarItem";
+            this.buttonBuscarItem.Size = new System.Drawing.Size(25, 24);
+            this.buttonBuscarItem.TabIndex = 103;
+            this.buttonBuscarItem.UseVisualStyleBackColor = true;
+            this.buttonBuscarItem.Click += new System.EventHandler(this.buttonBuscarItem_Click);
             // 
             // textBoxCodigoItem
             // 
@@ -321,6 +395,23 @@
             this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(759, 25);
             this.toolStripMenusConsultaParticipante.TabIndex = 103;
             this.toolStripMenusConsultaParticipante.Text = "Consulta Participante";
+            // 
+            // toolStripDropDownButtonFuncoes
+            // 
+            this.toolStripDropDownButtonFuncoes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButtonFuncoes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.devoluçãoToolStripMenuItem});
+            this.toolStripDropDownButtonFuncoes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonFuncoes.Image")));
+            this.toolStripDropDownButtonFuncoes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonFuncoes.Name = "toolStripDropDownButtonFuncoes";
+            this.toolStripDropDownButtonFuncoes.Size = new System.Drawing.Size(72, 22);
+            this.toolStripDropDownButtonFuncoes.Text = "FUNÇÕES";
+            // 
+            // devoluçãoToolStripMenuItem
+            // 
+            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // textBoxUsuarioLocacao
             // 
@@ -366,54 +457,6 @@
             this.buttonCalcularDesconto.UseVisualStyleBackColor = true;
             this.buttonCalcularDesconto.Click += new System.EventHandler(this.buttonCalcularDesconto_Click);
             // 
-            // toolStripDropDownButtonFuncoes
-            // 
-            this.toolStripDropDownButtonFuncoes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButtonFuncoes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.devoluçãoToolStripMenuItem});
-            this.toolStripDropDownButtonFuncoes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonFuncoes.Image")));
-            this.toolStripDropDownButtonFuncoes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButtonFuncoes.Name = "toolStripDropDownButtonFuncoes";
-            this.toolStripDropDownButtonFuncoes.Size = new System.Drawing.Size(72, 22);
-            this.toolStripDropDownButtonFuncoes.Text = "FUNÇÕES";
-            // 
-            // devoluçãoToolStripMenuItem
-            // 
-            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.devoluçãoToolStripMenuItem.Text = "Devolução";
-            // 
-            // buttonExcluirItem
-            // 
-            this.buttonExcluirItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirItem.Image")));
-            this.buttonExcluirItem.Location = new System.Drawing.Point(310, 35);
-            this.buttonExcluirItem.Name = "buttonExcluirItem";
-            this.buttonExcluirItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonExcluirItem.TabIndex = 107;
-            this.buttonExcluirItem.UseVisualStyleBackColor = true;
-            this.buttonExcluirItem.Click += new System.EventHandler(this.buttonExcluirItem_Click);
-            // 
-            // buttonAdicionarItem
-            // 
-            this.buttonAdicionarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdicionarItem.Image")));
-            this.buttonAdicionarItem.Location = new System.Drawing.Point(279, 35);
-            this.buttonAdicionarItem.Name = "buttonAdicionarItem";
-            this.buttonAdicionarItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonAdicionarItem.TabIndex = 106;
-            this.buttonAdicionarItem.UseVisualStyleBackColor = true;
-            this.buttonAdicionarItem.Click += new System.EventHandler(this.buttonAdicionarItem_Click);
-            // 
-            // buttonBuscarItem
-            // 
-            this.buttonBuscarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarItem.Image")));
-            this.buttonBuscarItem.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarItem.Location = new System.Drawing.Point(138, 35);
-            this.buttonBuscarItem.Name = "buttonBuscarItem";
-            this.buttonBuscarItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonBuscarItem.TabIndex = 103;
-            this.buttonBuscarItem.UseVisualStyleBackColor = true;
-            this.buttonBuscarItem.Click += new System.EventHandler(this.buttonBuscarItem_Click);
-            // 
             // buttonLimparCliente
             // 
             this.buttonLimparCliente.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimparCliente.Image")));
@@ -446,52 +489,30 @@
             this.buttonBuscarLocacoes.UseVisualStyleBackColor = true;
             this.buttonBuscarLocacoes.Click += new System.EventHandler(this.buttonBuscarLocacoes_Click);
             // 
-            // menuLocacaoNovo
+            // label4
             // 
-            this.menuLocacaoNovo.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoNovo.Image")));
-            this.menuLocacaoNovo.Name = "menuLocacaoNovo";
-            this.menuLocacaoNovo.Size = new System.Drawing.Size(69, 20);
-            this.menuLocacaoNovo.Text = "NOVO";
-            this.menuLocacaoNovo.Click += new System.EventHandler(this.menuLocacaoNovo_Click);
+            this.label4.AutoSize = true;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(406, 415);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "Total itens R$:";
             // 
-            // menuLocacaoGravar
+            // textBoxTotalItens
             // 
-            this.menuLocacaoGravar.Enabled = false;
-            this.menuLocacaoGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoGravar.Image")));
-            this.menuLocacaoGravar.Name = "menuLocacaoGravar";
-            this.menuLocacaoGravar.Size = new System.Drawing.Size(78, 20);
-            this.menuLocacaoGravar.Text = "GRAVAR";
-            this.menuLocacaoGravar.Click += new System.EventHandler(this.menuLocacaoGravar_Click);
-            // 
-            // menuLocacaoEditar
-            // 
-            this.menuLocacaoEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoEditar.Image")));
-            this.menuLocacaoEditar.Name = "menuLocacaoEditar";
-            this.menuLocacaoEditar.Size = new System.Drawing.Size(72, 20);
-            this.menuLocacaoEditar.Text = "EDITAR";
-            this.menuLocacaoEditar.Click += new System.EventHandler(this.menuLocacaoEditar_Click);
-            // 
-            // menuLocacaoCancelar
-            // 
-            this.menuLocacaoCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoCancelar.Image")));
-            this.menuLocacaoCancelar.Name = "menuLocacaoCancelar";
-            this.menuLocacaoCancelar.Size = new System.Drawing.Size(95, 20);
-            this.menuLocacaoCancelar.Text = "CANCELAR";
-            this.menuLocacaoCancelar.Click += new System.EventHandler(this.menuLocacaoCancelar_Click);
-            // 
-            // menuLocacaoExcluir
-            // 
-            this.menuLocacaoExcluir.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoExcluir.Image")));
-            this.menuLocacaoExcluir.Name = "menuLocacaoExcluir";
-            this.menuLocacaoExcluir.Size = new System.Drawing.Size(80, 20);
-            this.menuLocacaoExcluir.Text = "EXCLUIR";
-            this.menuLocacaoExcluir.Click += new System.EventHandler(this.menuLocacaoExcluir_Click);
+            this.textBoxTotalItens.Location = new System.Drawing.Point(409, 431);
+            this.textBoxTotalItens.Name = "textBoxTotalItens";
+            this.textBoxTotalItens.Size = new System.Drawing.Size(90, 20);
+            this.textBoxTotalItens.TabIndex = 109;
             // 
             // FrmLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxTotalItens);
             this.Controls.Add(this.buttonCalcularDesconto);
             this.Controls.Add(this.labelVolume);
             this.Controls.Add(this.textBoxVolume);
@@ -522,6 +543,7 @@
             this.Name = "FrmLocacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locação";
+            this.TopMost = true;
             this.menuStripLocacao.ResumeLayout(false);
             this.menuStripLocacao.PerformLayout();
             this.groupBoxItens.ResumeLayout(false);
@@ -579,5 +601,7 @@
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.TextBox textBoxVolume;
         private System.Windows.Forms.Button buttonCalcularDesconto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxTotalItens;
     }
 }

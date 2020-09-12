@@ -46,9 +46,7 @@ namespace Centaurus
             }
             */
         }
-
-        
-
+                
         public void chamaTelaPrincipal_logar()
         {
             FrmPrincipal frmPrincipal = new FrmPrincipal(textBoxNome.Text);
@@ -58,18 +56,18 @@ namespace Centaurus
 
         private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-                chamaTelaPrincipal_logar();
+                login();
             }
-           
+
         }
 
         private void textBoxSenha_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                chamaTelaPrincipal_logar();
+                login();
             }
         }
 
@@ -84,12 +82,9 @@ namespace Centaurus
                 loginModelo.usuarioLogin = textBoxNome.Text;
                 loginModelo = loginDAO.login(loginModelo);
 
-
                 //Método retorna o valor do usuário
                 string senhaUsuario = loginModelo.senhaLogin;
-                Console.WriteLine("senha ´´e " + senhaUsuario);
-
-                
+                                
                 if (String.IsNullOrEmpty(senhaUsuario) == true)
                 {
                     MessageBox.Show("Usuário incorreto ou não existente no banco de dados", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

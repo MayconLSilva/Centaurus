@@ -37,6 +37,10 @@ namespace Centaurus
         //Váriavel para pegar a informação do item clicado e sua respectiva exclusão
         string idProdutoExcluir, nomeProdutoExcluir;
 
+        //Váriavel para guardar o valor retornado do dialog desconto dado
+        FrmDialogDesconto_Locacao frmDesconto;
+        float descontoReturn,totalRetun;
+
         LocacaoBLL locacaoBLL = new LocacaoBLL();
         LocacaoDAO locacaoDAO = new LocacaoDAO();
 
@@ -97,6 +101,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
@@ -127,6 +132,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
                     textBoxVolume.Clear();
+                    textBoxTotalItens.Clear();
 
                     dataGridViewLocao.Enabled = false;
 
@@ -161,6 +167,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = true;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = false;
                     menuLocacaoGravar.Enabled = true;
@@ -173,6 +180,8 @@ namespace Centaurus
 
                     dataGridViewLocao.Enabled = true;
 
+                    idClienteReturn = null;
+                        
                     textBoxCodigo.Text = "0";
                     //buttonBuscarLocacoes
                     textBoxCliente.Clear();
@@ -196,6 +205,7 @@ namespace Centaurus
                     textBoxQtdItem.Text = "0";
                     textBoxDesconto.Text = "0";
                     textBoxTotal.Text = "0";
+                    textBoxTotalItens.Text = "0";
 
                     comboBoxFiltro.SelectedIndex = comboBoxFiltro.FindStringExact("Cód. Interno");
 
@@ -222,6 +232,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
@@ -260,6 +271,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = true;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = false;
                     menuLocacaoGravar.Enabled = true;
@@ -295,6 +307,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
@@ -306,6 +319,8 @@ namespace Centaurus
                     toolStripDropDownButtonFuncoes.Enabled = false;
 
                     dataGridViewLocao.Enabled = false;
+
+                    idClienteReturn = null;
 
                     textBoxCodigo.Clear();
                     //buttonBuscarLocacoes
@@ -327,6 +342,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
                     textBoxVolume.Clear();
+                    textBoxTotalItens.Clear();
 
                     break;
 
@@ -351,6 +367,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Enabled = false;
                     textBoxUsuarioLocacao.Enabled = false;
                     textBoxVolume.Enabled = false;
+                    textBoxTotalItens.Enabled = false;
 
                     menuLocacaoNovo.Enabled = true;
                     menuLocacaoGravar.Enabled = false;
@@ -362,6 +379,8 @@ namespace Centaurus
                     toolStripDropDownButtonFuncoes.Enabled = false;
 
                     dataGridViewLocao.Enabled = false;
+
+                    idClienteReturn = null;
 
                     textBoxCodigo.Clear();
                     //buttonBuscarLocacoes
@@ -383,6 +402,7 @@ namespace Centaurus
                     textBoxQuantidadeItem.Clear();
                     textBoxUsuarioLocacao.Clear();
                     textBoxVolume.Clear();
+                    textBoxTotalItens.Clear();
 
                     break;
             }
@@ -578,59 +598,40 @@ namespace Centaurus
                 e.Handled = true;
             }
         }
-                
+             
+        //Método chama o dialog do desconto
         private void buttonCalcularDesconto_Click(object sender, EventArgs e)
         {
-            string message, title, defaultValue;
-            object myValue;
+            frmDesconto = new FrmDialogDesconto_Locacao(Convert.ToSingle(textBoxTotalItens.Text));
+            DialogResult dr = frmDesconto.ShowDialog(this);
 
-            //Set prompt.
-            message = "Pleaase input your Full name.";
-
-            //Set title.
-            title = "testesss";
-
-            //Set default value.
-            defaultValue = "valor padrão";
-
-            //Display message, title, and default value.
-            myValue = Interaction.InputBox(message, title, defaultValue);
-
-            //if user has clicked cancel, set myvalue to defaultValue
-            if((string)myValue == "")
+            descontoReturn = frmDesconto.descontoDadoEnvia;
+            totalRetun = frmDesconto.valorFinalEnvia;
+            if (String.IsNullOrEmpty(Convert.ToString(descontoReturn)) == true)
             {
-                myValue = defaultValue;
-                Microsoft.VisualBasic.Interaction.MsgBox("myValue = " + myValue.ToString(),
-                    MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "C# msgBox Demonstration");
+                MessageBox.Show("Você não selecionou nenhum desconto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Interaction.MsgBox("Hello, " + myValue.ToString() + "!"
-                    + Environment.NewLine + "Nice to meet you!",
-                    MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "C# MsgBox Demonstration");
-            }
+                if(descontoReturn == 0)
+                {
+                    decimal resultadoDesconto;
+                    resultadoDesconto = Convert.ToDecimal(descontoReturn.ToString("N2"));
+                    textBoxDesconto.Text = Convert.ToString(resultadoDesconto);
 
+                    textBoxTotal.Text = textBoxTotalItens.Text;
+                }
+                else
+                {
+                    decimal resultadoDesconto;
+                    resultadoDesconto = Convert.ToDecimal(descontoReturn.ToString("N2"));
+                    textBoxDesconto.Text = Convert.ToString(resultadoDesconto);
 
-
-            
-            /*
-            float valorTotal, valorDesconto;
-
-            //Método para fazer o calculo de desconto e aplicar no campo total
-            valorTotal = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
-            if (String.IsNullOrEmpty(textBoxDesconto.Text) == true)
-            {
-                valorDesconto = 0;
-            }
-            else
-            {
-                valorDesconto = Convert.ToSingle(textBoxDesconto.Text);
-            }
-            float total = valorTotal - valorDesconto;
-            decimal resultado;
-            resultado = Convert.ToDecimal(total.ToString("N2"));
-            textBoxTotal.Text = Convert.ToString(resultado);
-            */
+                    decimal resultadoTotal;
+                    resultadoTotal = Convert.ToDecimal(totalRetun.ToString("N2"));
+                    textBoxTotal.Text = Convert.ToString(resultadoTotal);
+                }                          
+            }                
         }
 
         private void dataGridViewLocao_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -662,9 +663,12 @@ namespace Centaurus
                 textBoxUsuarioLocacao.Text = frmConsultaLocacao.UsuarioEnvia;
                 string dataPrevEntrega = frmConsultaLocacao.DataPrevEntregaEnvia;
                 dateTimePickerDataEntrega.Value = Convert.ToDateTime(dataPrevEntrega);
-                textBoxDesconto.Text = frmConsultaLocacao.ValorDescontoEnvia;
-                textBoxTotal.Text = frmConsultaLocacao.ValorTotalEnvia;
 
+                float valorRetunDesconto = Convert.ToSingle(frmConsultaLocacao.ValorDescontoEnvia);
+                decimal resultadoDesconto;
+                resultadoDesconto = Convert.ToDecimal(valorRetunDesconto.ToString("N2"));
+                textBoxDesconto.Text = Convert.ToString(resultadoDesconto);
+                                
                 carregarItens();
 
                 inativaAtivaCampos();
@@ -790,7 +794,7 @@ namespace Centaurus
 
         public void configurarDataGridView()
         {
-            float valorTotal,valorDesconto;
+            float somadoGrid,valorDesconto;
             int qtdRegistros;
 
             //Renomeando as colunas
@@ -830,13 +834,20 @@ namespace Centaurus
 
             //Método para contar a quantidade de itens na tabela
             textBoxQtdItem.Text = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["QtdLocada"].Value)).ToString("N2");
+            
             //Método para fazer o calculo de desconto e aplicar no campo total
-            valorTotal = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
+            somadoGrid = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
             valorDesconto = Convert.ToSingle(textBoxDesconto.Text);
-            float total = valorTotal - valorDesconto;
-            decimal resultado;
-            resultado = Convert.ToDecimal(total.ToString("N2"));
-            textBoxTotal.Text = Convert.ToString(resultado);
+            float resultadoTotal = somadoGrid - valorDesconto;
+            decimal resultadoTotalConvertido;
+            resultadoTotalConvertido = Convert.ToDecimal(resultadoTotal.ToString("N2"));
+            textBoxTotal.Text = Convert.ToString(resultadoTotalConvertido);
+
+            //Método para fazer o calculo do total de itens e setar no campo
+            float somadoGridTotalItens = dataGridViewLocao.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
+            decimal resultadoTotalItens;
+            resultadoTotalItens = Convert.ToDecimal(somadoGridTotalItens.ToString("N2"));
+            textBoxTotalItens.Text = Convert.ToString(resultadoTotalItens);
 
             //Conta a quantidade de volumes e seta no campo
             qtdRegistros = dataGridViewLocao.Rows.Count;
