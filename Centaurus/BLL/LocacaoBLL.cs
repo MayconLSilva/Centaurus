@@ -97,5 +97,19 @@ namespace Centaurus.BLL
             }
         }
 
+        /***********************************/
+
+        public void devolucaoLocacao(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                locacaoDao.inserirDevLocacao(locacaoModelo);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao gerar devolução, classe BLL " + erro.Message);
+            }
+        }
+
     }
 }

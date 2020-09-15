@@ -307,6 +307,34 @@ namespace Centaurus.Dao
             return dt;
         }
 
+        /************************************************************************/
+
+        public void inserirDevLocacao(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                AbrirConexao();
+                //comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
+                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao, "+
+                   " idCliente_locacao, " +
+                   " tipo_locacao, " +
+                   " numerolocacaodev_locacao, " +
+                   " dataDevolucao_locacao) " +
+                   " select current_timestamp(),idCliente_locacao,'D',id_locacao,current_timestamp() " +
+                   " from locacao where id_locacao = @idLocacao", conexao);
+                comando.Parameters.AddWithValue("@idLocacao", locacaoModelo.idLocacao);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
 
 
 

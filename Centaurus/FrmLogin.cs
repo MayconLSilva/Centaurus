@@ -87,7 +87,12 @@ namespace Centaurus
                                 
                 if (String.IsNullOrEmpty(senhaUsuario) == true)
                 {
+                    contador = contador + 1;
                     MessageBox.Show("Usuário incorreto ou não existente no banco de dados", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (contador == 3)
+                    {
+                        Application.Exit();
+                    }
                 }
                 else
                 {

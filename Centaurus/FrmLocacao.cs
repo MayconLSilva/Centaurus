@@ -144,6 +144,8 @@ namespace Centaurus
                     menuLocacaoCancelar.Enabled = true;
                     menuLocacaoExcluir.Enabled = true;
 
+                    toolStripDropDownButtonFuncoes.Enabled = true;
+
                     break;
 
                 case "NOVO":
@@ -176,7 +178,7 @@ namespace Centaurus
                     menuLocacaoExcluir.Enabled = false;
                     buttonCalcularDesconto.Enabled = true;
 
-                    toolStripDropDownButtonFuncoes.Enabled = true;
+                    toolStripDropDownButtonFuncoes.Enabled = false;
 
                     dataGridViewLocao.Enabled = true;
 
@@ -632,6 +634,28 @@ namespace Centaurus
                     textBoxTotal.Text = Convert.ToString(resultadoTotal);
                 }                          
             }                
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            
+            var result = MessageBox.Show("Deseja realmente gerar a devolução da locação? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                
+                LocacaoBLL locacaoBLL = new LocacaoBLL();
+                LocacaoModelo locacaoModelo = new LocacaoModelo();
+
+                locacaoModelo.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
+                locacaoBLL.devolucaoLocacao(locacaoModelo);
+                
+                //Abrir tela devolução
+
+                
+            }
+            
+            
         }
 
         private void dataGridViewLocao_CellClick(object sender, DataGridViewCellEventArgs e)

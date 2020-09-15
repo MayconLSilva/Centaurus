@@ -118,6 +118,12 @@
     <Compile Include="FrmLocacao.Designer.cs">
       <DependentUpon>FrmLocacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLocacaoDevolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocacaoDevolucao.Designer.cs">
+      <DependentUpon>FrmLocacaoDevolucao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLocacao.resx">
       <DependentUpon>FrmLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocacaoDevolucao.resx">
+      <DependentUpon>FrmLocacaoDevolucao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
