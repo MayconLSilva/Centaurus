@@ -38,7 +38,7 @@ namespace Centaurus
             //frmPartipante.MdiParent = this;
             //frmPartipante.Show();
         }
-
+                
         private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmMarca janelaMarca = new FrmMarca();
@@ -89,8 +89,12 @@ namespace Centaurus
 
         private void devLocaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmLocacaoDevolucao janelaDevLocacao = new FrmLocacaoDevolucao(null, nomeLogado);
+            janelaDevLocacao.TopLevel = false;
+            janelaDevLocacao.Visible = true;
+            painelPrincipal.Controls.Add(janelaDevLocacao);
         }
+
 
 
 

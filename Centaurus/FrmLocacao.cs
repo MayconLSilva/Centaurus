@@ -604,6 +604,7 @@ namespace Centaurus
         //Método chama o dialog do desconto
         private void buttonCalcularDesconto_Click(object sender, EventArgs e)
         {
+            
             frmDesconto = new FrmDialogDesconto_Locacao(Convert.ToSingle(textBoxTotalItens.Text));
             DialogResult dr = frmDesconto.ShowDialog(this);
 
@@ -633,12 +634,22 @@ namespace Centaurus
                     resultadoTotal = Convert.ToDecimal(totalRetun.ToString("N2"));
                     textBoxTotal.Text = Convert.ToString(resultadoTotal);
                 }                          
-            }                
+            }   
+            
         }
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var FrmPrincipal = this.ParentForm;
+            var painelPrincipal = FrmPrincipal.Controls.Find("painelPrincipal", true).FirstOrDefault();
+            FrmLocacaoDevolucao janelaDev = new FrmLocacaoDevolucao(textBoxCodigo.Text,textBoxUsuarioLocacao.Text);
+            janelaDev.TopLevel = false;
+            janelaDev.Visible = true;
+            painelPrincipal.Controls.Add(janelaDev);
+            this.Hide();           
+
+
+            /*           
             
             var result = MessageBox.Show("Deseja realmente gerar a devolução da locação? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
@@ -654,8 +665,10 @@ namespace Centaurus
 
                 
             }
-            
-            
+            */
+
+
+
         }
 
         private void dataGridViewLocao_CellClick(object sender, DataGridViewCellEventArgs e)

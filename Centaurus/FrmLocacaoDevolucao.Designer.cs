@@ -30,100 +30,102 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocacaoDevolucao));
             this.menuStripLocacao = new System.Windows.Forms.MenuStrip();
-            this.menuLocacaoNovo = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoGravar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocacaoExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoDevNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoDevGravar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoDevEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoDevCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLocacaoDevExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
             this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelVolume = new System.Windows.Forms.Label();
-            this.textBoxVolume = new System.Windows.Forms.TextBox();
+            this.textBoxVolumeDev = new System.Windows.Forms.TextBox();
             this.labelUsuarioLocacao = new System.Windows.Forms.Label();
-            this.textBoxUsuarioLocacao = new System.Windows.Forms.TextBox();
+            this.textBoxUsuarioLocacaoDev = new System.Windows.Forms.TextBox();
             this.groupBoxItens = new System.Windows.Forms.GroupBox();
             this.labelQtdItem = new System.Windows.Forms.Label();
-            this.textBoxQuantidadeItem = new System.Windows.Forms.TextBox();
+            this.textBoxQuantidadeItemDev = new System.Windows.Forms.TextBox();
             this.labelNomeProduto = new System.Windows.Forms.Label();
-            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
-            this.buttonExcluirItem = new System.Windows.Forms.Button();
-            this.buttonAdicionarItem = new System.Windows.Forms.Button();
-            this.textBoxValor = new System.Windows.Forms.TextBox();
+            this.comboBoxFiltroDev = new System.Windows.Forms.ComboBox();
+            this.buttonExcluirItemDev = new System.Windows.Forms.Button();
+            this.buttonAdicionarItemDev = new System.Windows.Forms.Button();
+            this.textBoxValorDev = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonBuscarItem = new System.Windows.Forms.Button();
-            this.textBoxCodigoItem = new System.Windows.Forms.TextBox();
-            this.dataGridViewLocao = new System.Windows.Forms.DataGridView();
+            this.buttonBuscarItemDev = new System.Windows.Forms.Button();
+            this.textBoxCodigoItemDev = new System.Windows.Forms.TextBox();
+            this.dataGridViewLocaoDev = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxQtdItem = new System.Windows.Forms.TextBox();
+            this.textBoxQtdItemDev = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.textBoxDataLancamento = new System.Windows.Forms.TextBox();
+            this.textBoxTotalDev = new System.Windows.Forms.TextBox();
+            this.textBoxDataLancamentoDev = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonLimparCliente = new System.Windows.Forms.Button();
-            this.buttonBuscarCliente = new System.Windows.Forms.Button();
-            this.textBoxCliente = new System.Windows.Forms.TextBox();
+            this.buttonLimparClienteDev = new System.Windows.Forms.Button();
+            this.buttonBuscarClienteDev = new System.Windows.Forms.Button();
+            this.textBoxClienteDev = new System.Windows.Forms.TextBox();
             this.labelFornecedor = new System.Windows.Forms.Label();
-            this.buttonBuscarLocacoes = new System.Windows.Forms.Button();
-            this.textBoxCodigo = new System.Windows.Forms.TextBox();
+            this.buttonBuscarLocacoesDev = new System.Windows.Forms.Button();
+            this.textBoxCodigoDev = new System.Windows.Forms.TextBox();
             this.labelCodigo = new System.Windows.Forms.Label();
             this.labelNumeroLocacao = new System.Windows.Forms.Label();
-            this.textBoxNumeroLocacao = new System.Windows.Forms.TextBox();
+            this.textBoxNumeroLocacaoDev = new System.Windows.Forms.TextBox();
+            this.buttonBuscarLocacao = new System.Windows.Forms.Button();
             this.menuStripLocacao.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocaoDev)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripLocacao
             // 
             this.menuStripLocacao.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStripLocacao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuLocacaoNovo,
-            this.menuLocacaoGravar,
-            this.menuLocacaoEditar,
-            this.menuLocacaoCancelar,
-            this.menuLocacaoExcluir});
+            this.menuLocacaoDevNovo,
+            this.menuLocacaoDevGravar,
+            this.menuLocacaoDevEditar,
+            this.menuLocacaoDevCancelar,
+            this.menuLocacaoDevExcluir});
             this.menuStripLocacao.Location = new System.Drawing.Point(0, 0);
             this.menuStripLocacao.Name = "menuStripLocacao";
             this.menuStripLocacao.Size = new System.Drawing.Size(759, 24);
             this.menuStripLocacao.TabIndex = 3;
             // 
-            // menuLocacaoNovo
+            // menuLocacaoDevNovo
             // 
-            this.menuLocacaoNovo.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoNovo.Image")));
-            this.menuLocacaoNovo.Name = "menuLocacaoNovo";
-            this.menuLocacaoNovo.Size = new System.Drawing.Size(69, 20);
-            this.menuLocacaoNovo.Text = "NOVO";
+            this.menuLocacaoDevNovo.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoDevNovo.Image")));
+            this.menuLocacaoDevNovo.Name = "menuLocacaoDevNovo";
+            this.menuLocacaoDevNovo.Size = new System.Drawing.Size(69, 20);
+            this.menuLocacaoDevNovo.Text = "NOVO";
+            this.menuLocacaoDevNovo.Click += new System.EventHandler(this.menuLocacaoDevNovo_Click);
             // 
-            // menuLocacaoGravar
+            // menuLocacaoDevGravar
             // 
-            this.menuLocacaoGravar.Enabled = false;
-            this.menuLocacaoGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoGravar.Image")));
-            this.menuLocacaoGravar.Name = "menuLocacaoGravar";
-            this.menuLocacaoGravar.Size = new System.Drawing.Size(78, 20);
-            this.menuLocacaoGravar.Text = "GRAVAR";
+            this.menuLocacaoDevGravar.Enabled = false;
+            this.menuLocacaoDevGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoDevGravar.Image")));
+            this.menuLocacaoDevGravar.Name = "menuLocacaoDevGravar";
+            this.menuLocacaoDevGravar.Size = new System.Drawing.Size(78, 20);
+            this.menuLocacaoDevGravar.Text = "GRAVAR";
             // 
-            // menuLocacaoEditar
+            // menuLocacaoDevEditar
             // 
-            this.menuLocacaoEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoEditar.Image")));
-            this.menuLocacaoEditar.Name = "menuLocacaoEditar";
-            this.menuLocacaoEditar.Size = new System.Drawing.Size(72, 20);
-            this.menuLocacaoEditar.Text = "EDITAR";
+            this.menuLocacaoDevEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoDevEditar.Image")));
+            this.menuLocacaoDevEditar.Name = "menuLocacaoDevEditar";
+            this.menuLocacaoDevEditar.Size = new System.Drawing.Size(72, 20);
+            this.menuLocacaoDevEditar.Text = "EDITAR";
             // 
-            // menuLocacaoCancelar
+            // menuLocacaoDevCancelar
             // 
-            this.menuLocacaoCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoCancelar.Image")));
-            this.menuLocacaoCancelar.Name = "menuLocacaoCancelar";
-            this.menuLocacaoCancelar.Size = new System.Drawing.Size(95, 20);
-            this.menuLocacaoCancelar.Text = "CANCELAR";
+            this.menuLocacaoDevCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoDevCancelar.Image")));
+            this.menuLocacaoDevCancelar.Name = "menuLocacaoDevCancelar";
+            this.menuLocacaoDevCancelar.Size = new System.Drawing.Size(95, 20);
+            this.menuLocacaoDevCancelar.Text = "CANCELAR";
             // 
-            // menuLocacaoExcluir
+            // menuLocacaoDevExcluir
             // 
-            this.menuLocacaoExcluir.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoExcluir.Image")));
-            this.menuLocacaoExcluir.Name = "menuLocacaoExcluir";
-            this.menuLocacaoExcluir.Size = new System.Drawing.Size(80, 20);
-            this.menuLocacaoExcluir.Text = "EXCLUIR";
+            this.menuLocacaoDevExcluir.Image = ((System.Drawing.Image)(resources.GetObject("menuLocacaoDevExcluir.Image")));
+            this.menuLocacaoDevExcluir.Name = "menuLocacaoDevExcluir";
+            this.menuLocacaoDevExcluir.Size = new System.Drawing.Size(80, 20);
+            this.menuLocacaoDevExcluir.Text = "EXCLUIR";
             // 
             // toolStripMenusConsultaParticipante
             // 
@@ -164,12 +166,12 @@
             this.labelVolume.TabIndex = 125;
             this.labelVolume.Text = "Volume:";
             // 
-            // textBoxVolume
+            // textBoxVolumeDev
             // 
-            this.textBoxVolume.Location = new System.Drawing.Point(18, 430);
-            this.textBoxVolume.Name = "textBoxVolume";
-            this.textBoxVolume.Size = new System.Drawing.Size(68, 20);
-            this.textBoxVolume.TabIndex = 124;
+            this.textBoxVolumeDev.Location = new System.Drawing.Point(18, 430);
+            this.textBoxVolumeDev.Name = "textBoxVolumeDev";
+            this.textBoxVolumeDev.Size = new System.Drawing.Size(68, 20);
+            this.textBoxVolumeDev.TabIndex = 124;
             // 
             // labelUsuarioLocacao
             // 
@@ -181,26 +183,26 @@
             this.labelUsuarioLocacao.TabIndex = 123;
             this.labelUsuarioLocacao.Text = "Usuário:";
             // 
-            // textBoxUsuarioLocacao
+            // textBoxUsuarioLocacaoDev
             // 
-            this.textBoxUsuarioLocacao.Location = new System.Drawing.Point(639, 91);
-            this.textBoxUsuarioLocacao.Name = "textBoxUsuarioLocacao";
-            this.textBoxUsuarioLocacao.Size = new System.Drawing.Size(110, 20);
-            this.textBoxUsuarioLocacao.TabIndex = 122;
+            this.textBoxUsuarioLocacaoDev.Location = new System.Drawing.Point(639, 91);
+            this.textBoxUsuarioLocacaoDev.Name = "textBoxUsuarioLocacaoDev";
+            this.textBoxUsuarioLocacaoDev.Size = new System.Drawing.Size(110, 20);
+            this.textBoxUsuarioLocacaoDev.TabIndex = 122;
             // 
             // groupBoxItens
             // 
             this.groupBoxItens.Controls.Add(this.labelQtdItem);
-            this.groupBoxItens.Controls.Add(this.textBoxQuantidadeItem);
+            this.groupBoxItens.Controls.Add(this.textBoxQuantidadeItemDev);
             this.groupBoxItens.Controls.Add(this.labelNomeProduto);
-            this.groupBoxItens.Controls.Add(this.comboBoxFiltro);
-            this.groupBoxItens.Controls.Add(this.buttonExcluirItem);
-            this.groupBoxItens.Controls.Add(this.buttonAdicionarItem);
-            this.groupBoxItens.Controls.Add(this.textBoxValor);
+            this.groupBoxItens.Controls.Add(this.comboBoxFiltroDev);
+            this.groupBoxItens.Controls.Add(this.buttonExcluirItemDev);
+            this.groupBoxItens.Controls.Add(this.buttonAdicionarItemDev);
+            this.groupBoxItens.Controls.Add(this.textBoxValorDev);
             this.groupBoxItens.Controls.Add(this.label3);
-            this.groupBoxItens.Controls.Add(this.buttonBuscarItem);
-            this.groupBoxItens.Controls.Add(this.textBoxCodigoItem);
-            this.groupBoxItens.Controls.Add(this.dataGridViewLocao);
+            this.groupBoxItens.Controls.Add(this.buttonBuscarItemDev);
+            this.groupBoxItens.Controls.Add(this.textBoxCodigoItemDev);
+            this.groupBoxItens.Controls.Add(this.dataGridViewLocaoDev);
             this.groupBoxItens.Location = new System.Drawing.Point(12, 174);
             this.groupBoxItens.Name = "groupBoxItens";
             this.groupBoxItens.Size = new System.Drawing.Size(733, 237);
@@ -218,13 +220,13 @@
             this.labelQtdItem.TabIndex = 106;
             this.labelQtdItem.Text = "Qtd:";
             // 
-            // textBoxQuantidadeItem
+            // textBoxQuantidadeItemDev
             // 
-            this.textBoxQuantidadeItem.Location = new System.Drawing.Point(167, 35);
-            this.textBoxQuantidadeItem.MaxLength = 5;
-            this.textBoxQuantidadeItem.Name = "textBoxQuantidadeItem";
-            this.textBoxQuantidadeItem.Size = new System.Drawing.Size(51, 20);
-            this.textBoxQuantidadeItem.TabIndex = 104;
+            this.textBoxQuantidadeItemDev.Location = new System.Drawing.Point(167, 35);
+            this.textBoxQuantidadeItemDev.MaxLength = 5;
+            this.textBoxQuantidadeItemDev.Name = "textBoxQuantidadeItemDev";
+            this.textBoxQuantidadeItemDev.Size = new System.Drawing.Size(51, 20);
+            this.textBoxQuantidadeItemDev.TabIndex = 104;
             // 
             // labelNomeProduto
             // 
@@ -235,44 +237,44 @@
             this.labelNomeProduto.TabIndex = 110;
             this.labelNomeProduto.Text = "                                                  ";
             // 
-            // comboBoxFiltro
+            // comboBoxFiltroDev
             // 
-            this.comboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFiltro.FormattingEnabled = true;
-            this.comboBoxFiltro.Items.AddRange(new object[] {
+            this.comboBoxFiltroDev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFiltroDev.FormattingEnabled = true;
+            this.comboBoxFiltroDev.Items.AddRange(new object[] {
             "Cód. Interno",
             "Cód. Sequenc.",
             "Cód. Fabric.",
             "Cód. Barras"});
-            this.comboBoxFiltro.Location = new System.Drawing.Point(6, 35);
-            this.comboBoxFiltro.Name = "comboBoxFiltro";
-            this.comboBoxFiltro.Size = new System.Drawing.Size(63, 21);
-            this.comboBoxFiltro.TabIndex = 109;
+            this.comboBoxFiltroDev.Location = new System.Drawing.Point(6, 35);
+            this.comboBoxFiltroDev.Name = "comboBoxFiltroDev";
+            this.comboBoxFiltroDev.Size = new System.Drawing.Size(63, 21);
+            this.comboBoxFiltroDev.TabIndex = 109;
             // 
-            // buttonExcluirItem
+            // buttonExcluirItemDev
             // 
-            this.buttonExcluirItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirItem.Image")));
-            this.buttonExcluirItem.Location = new System.Drawing.Point(310, 35);
-            this.buttonExcluirItem.Name = "buttonExcluirItem";
-            this.buttonExcluirItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonExcluirItem.TabIndex = 107;
-            this.buttonExcluirItem.UseVisualStyleBackColor = true;
+            this.buttonExcluirItemDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirItemDev.Image")));
+            this.buttonExcluirItemDev.Location = new System.Drawing.Point(310, 35);
+            this.buttonExcluirItemDev.Name = "buttonExcluirItemDev";
+            this.buttonExcluirItemDev.Size = new System.Drawing.Size(25, 24);
+            this.buttonExcluirItemDev.TabIndex = 107;
+            this.buttonExcluirItemDev.UseVisualStyleBackColor = true;
             // 
-            // buttonAdicionarItem
+            // buttonAdicionarItemDev
             // 
-            this.buttonAdicionarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdicionarItem.Image")));
-            this.buttonAdicionarItem.Location = new System.Drawing.Point(279, 35);
-            this.buttonAdicionarItem.Name = "buttonAdicionarItem";
-            this.buttonAdicionarItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonAdicionarItem.TabIndex = 106;
-            this.buttonAdicionarItem.UseVisualStyleBackColor = true;
+            this.buttonAdicionarItemDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdicionarItemDev.Image")));
+            this.buttonAdicionarItemDev.Location = new System.Drawing.Point(279, 35);
+            this.buttonAdicionarItemDev.Name = "buttonAdicionarItemDev";
+            this.buttonAdicionarItemDev.Size = new System.Drawing.Size(25, 24);
+            this.buttonAdicionarItemDev.TabIndex = 106;
+            this.buttonAdicionarItemDev.UseVisualStyleBackColor = true;
             // 
-            // textBoxValor
+            // textBoxValorDev
             // 
-            this.textBoxValor.Location = new System.Drawing.Point(224, 35);
-            this.textBoxValor.Name = "textBoxValor";
-            this.textBoxValor.Size = new System.Drawing.Size(49, 20);
-            this.textBoxValor.TabIndex = 104;
+            this.textBoxValorDev.Location = new System.Drawing.Point(224, 35);
+            this.textBoxValorDev.Name = "textBoxValorDev";
+            this.textBoxValorDev.Size = new System.Drawing.Size(49, 20);
+            this.textBoxValorDev.TabIndex = 104;
             // 
             // label3
             // 
@@ -284,31 +286,31 @@
             this.label3.TabIndex = 105;
             this.label3.Text = "R$:";
             // 
-            // buttonBuscarItem
+            // buttonBuscarItemDev
             // 
-            this.buttonBuscarItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarItem.Image")));
-            this.buttonBuscarItem.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarItem.Location = new System.Drawing.Point(138, 35);
-            this.buttonBuscarItem.Name = "buttonBuscarItem";
-            this.buttonBuscarItem.Size = new System.Drawing.Size(25, 24);
-            this.buttonBuscarItem.TabIndex = 103;
-            this.buttonBuscarItem.UseVisualStyleBackColor = true;
+            this.buttonBuscarItemDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarItemDev.Image")));
+            this.buttonBuscarItemDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarItemDev.Location = new System.Drawing.Point(138, 35);
+            this.buttonBuscarItemDev.Name = "buttonBuscarItemDev";
+            this.buttonBuscarItemDev.Size = new System.Drawing.Size(25, 24);
+            this.buttonBuscarItemDev.TabIndex = 103;
+            this.buttonBuscarItemDev.UseVisualStyleBackColor = true;
             // 
-            // textBoxCodigoItem
+            // textBoxCodigoItemDev
             // 
-            this.textBoxCodigoItem.Location = new System.Drawing.Point(78, 35);
-            this.textBoxCodigoItem.Name = "textBoxCodigoItem";
-            this.textBoxCodigoItem.Size = new System.Drawing.Size(54, 20);
-            this.textBoxCodigoItem.TabIndex = 102;
+            this.textBoxCodigoItemDev.Location = new System.Drawing.Point(78, 35);
+            this.textBoxCodigoItemDev.Name = "textBoxCodigoItemDev";
+            this.textBoxCodigoItemDev.Size = new System.Drawing.Size(54, 20);
+            this.textBoxCodigoItemDev.TabIndex = 102;
             // 
-            // dataGridViewLocao
+            // dataGridViewLocaoDev
             // 
-            this.dataGridViewLocao.AllowUserToAddRows = false;
-            this.dataGridViewLocao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLocao.Location = new System.Drawing.Point(6, 62);
-            this.dataGridViewLocao.Name = "dataGridViewLocao";
-            this.dataGridViewLocao.Size = new System.Drawing.Size(721, 169);
-            this.dataGridViewLocao.TabIndex = 101;
+            this.dataGridViewLocaoDev.AllowUserToAddRows = false;
+            this.dataGridViewLocaoDev.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLocaoDev.Location = new System.Drawing.Point(6, 62);
+            this.dataGridViewLocaoDev.Name = "dataGridViewLocaoDev";
+            this.dataGridViewLocaoDev.Size = new System.Drawing.Size(721, 169);
+            this.dataGridViewLocaoDev.TabIndex = 101;
             // 
             // label8
             // 
@@ -320,12 +322,12 @@
             this.label8.TabIndex = 120;
             this.label8.Text = "Qtd. Itens:";
             // 
-            // textBoxQtdItem
+            // textBoxQtdItemDev
             // 
-            this.textBoxQtdItem.Location = new System.Drawing.Point(95, 430);
-            this.textBoxQtdItem.Name = "textBoxQtdItem";
-            this.textBoxQtdItem.Size = new System.Drawing.Size(68, 20);
-            this.textBoxQtdItem.TabIndex = 119;
+            this.textBoxQtdItemDev.Location = new System.Drawing.Point(95, 430);
+            this.textBoxQtdItemDev.Name = "textBoxQtdItemDev";
+            this.textBoxQtdItemDev.Size = new System.Drawing.Size(68, 20);
+            this.textBoxQtdItemDev.TabIndex = 119;
             // 
             // label6
             // 
@@ -337,19 +339,19 @@
             this.label6.TabIndex = 118;
             this.label6.Text = "Total R$:";
             // 
-            // textBoxTotal
+            // textBoxTotalDev
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(657, 430);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(90, 20);
-            this.textBoxTotal.TabIndex = 117;
+            this.textBoxTotalDev.Location = new System.Drawing.Point(657, 430);
+            this.textBoxTotalDev.Name = "textBoxTotalDev";
+            this.textBoxTotalDev.Size = new System.Drawing.Size(90, 20);
+            this.textBoxTotalDev.TabIndex = 117;
             // 
-            // textBoxDataLancamento
+            // textBoxDataLancamentoDev
             // 
-            this.textBoxDataLancamento.Location = new System.Drawing.Point(639, 46);
-            this.textBoxDataLancamento.Name = "textBoxDataLancamento";
-            this.textBoxDataLancamento.Size = new System.Drawing.Size(110, 20);
-            this.textBoxDataLancamento.TabIndex = 115;
+            this.textBoxDataLancamentoDev.Location = new System.Drawing.Point(639, 46);
+            this.textBoxDataLancamentoDev.Name = "textBoxDataLancamentoDev";
+            this.textBoxDataLancamentoDev.Size = new System.Drawing.Size(110, 20);
+            this.textBoxDataLancamentoDev.TabIndex = 115;
             // 
             // label2
             // 
@@ -361,32 +363,32 @@
             this.label2.TabIndex = 116;
             this.label2.Text = "Data lançamento:";
             // 
-            // buttonLimparCliente
+            // buttonLimparClienteDev
             // 
-            this.buttonLimparCliente.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimparCliente.Image")));
-            this.buttonLimparCliente.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonLimparCliente.Location = new System.Drawing.Point(292, 91);
-            this.buttonLimparCliente.Name = "buttonLimparCliente";
-            this.buttonLimparCliente.Size = new System.Drawing.Size(50, 24);
-            this.buttonLimparCliente.TabIndex = 114;
-            this.buttonLimparCliente.UseVisualStyleBackColor = true;
+            this.buttonLimparClienteDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimparClienteDev.Image")));
+            this.buttonLimparClienteDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonLimparClienteDev.Location = new System.Drawing.Point(292, 91);
+            this.buttonLimparClienteDev.Name = "buttonLimparClienteDev";
+            this.buttonLimparClienteDev.Size = new System.Drawing.Size(50, 24);
+            this.buttonLimparClienteDev.TabIndex = 114;
+            this.buttonLimparClienteDev.UseVisualStyleBackColor = true;
             // 
-            // buttonBuscarCliente
+            // buttonBuscarClienteDev
             // 
-            this.buttonBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCliente.Image")));
-            this.buttonBuscarCliente.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarCliente.Location = new System.Drawing.Point(236, 91);
-            this.buttonBuscarCliente.Name = "buttonBuscarCliente";
-            this.buttonBuscarCliente.Size = new System.Drawing.Size(50, 24);
-            this.buttonBuscarCliente.TabIndex = 113;
-            this.buttonBuscarCliente.UseVisualStyleBackColor = true;
+            this.buttonBuscarClienteDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarClienteDev.Image")));
+            this.buttonBuscarClienteDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarClienteDev.Location = new System.Drawing.Point(236, 91);
+            this.buttonBuscarClienteDev.Name = "buttonBuscarClienteDev";
+            this.buttonBuscarClienteDev.Size = new System.Drawing.Size(50, 24);
+            this.buttonBuscarClienteDev.TabIndex = 113;
+            this.buttonBuscarClienteDev.UseVisualStyleBackColor = true;
             // 
-            // textBoxCliente
+            // textBoxClienteDev
             // 
-            this.textBoxCliente.Location = new System.Drawing.Point(12, 91);
-            this.textBoxCliente.Name = "textBoxCliente";
-            this.textBoxCliente.Size = new System.Drawing.Size(218, 20);
-            this.textBoxCliente.TabIndex = 111;
+            this.textBoxClienteDev.Location = new System.Drawing.Point(12, 91);
+            this.textBoxClienteDev.Name = "textBoxClienteDev";
+            this.textBoxClienteDev.Size = new System.Drawing.Size(218, 20);
+            this.textBoxClienteDev.TabIndex = 111;
             // 
             // labelFornecedor
             // 
@@ -398,22 +400,22 @@
             this.labelFornecedor.TabIndex = 112;
             this.labelFornecedor.Text = "Cliente:";
             // 
-            // buttonBuscarLocacoes
+            // buttonBuscarLocacoesDev
             // 
-            this.buttonBuscarLocacoes.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarLocacoes.Image")));
-            this.buttonBuscarLocacoes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarLocacoes.Location = new System.Drawing.Point(68, 46);
-            this.buttonBuscarLocacoes.Name = "buttonBuscarLocacoes";
-            this.buttonBuscarLocacoes.Size = new System.Drawing.Size(50, 24);
-            this.buttonBuscarLocacoes.TabIndex = 110;
-            this.buttonBuscarLocacoes.UseVisualStyleBackColor = true;
+            this.buttonBuscarLocacoesDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarLocacoesDev.Image")));
+            this.buttonBuscarLocacoesDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarLocacoesDev.Location = new System.Drawing.Point(68, 46);
+            this.buttonBuscarLocacoesDev.Name = "buttonBuscarLocacoesDev";
+            this.buttonBuscarLocacoesDev.Size = new System.Drawing.Size(50, 24);
+            this.buttonBuscarLocacoesDev.TabIndex = 110;
+            this.buttonBuscarLocacoesDev.UseVisualStyleBackColor = true;
             // 
-            // textBoxCodigo
+            // textBoxCodigoDev
             // 
-            this.textBoxCodigo.Location = new System.Drawing.Point(12, 46);
-            this.textBoxCodigo.Name = "textBoxCodigo";
-            this.textBoxCodigo.Size = new System.Drawing.Size(50, 20);
-            this.textBoxCodigo.TabIndex = 108;
+            this.textBoxCodigoDev.Location = new System.Drawing.Point(12, 46);
+            this.textBoxCodigoDev.Name = "textBoxCodigoDev";
+            this.textBoxCodigoDev.Size = new System.Drawing.Size(50, 20);
+            this.textBoxCodigoDev.TabIndex = 108;
             // 
             // labelCodigo
             // 
@@ -435,37 +437,48 @@
             this.labelNumeroLocacao.TabIndex = 127;
             this.labelNumeroLocacao.Text = "Nº locação";
             // 
-            // textBoxNumeroLocacao
+            // textBoxNumeroLocacaoDev
             // 
-            this.textBoxNumeroLocacao.Location = new System.Drawing.Point(639, 134);
-            this.textBoxNumeroLocacao.Name = "textBoxNumeroLocacao";
-            this.textBoxNumeroLocacao.Size = new System.Drawing.Size(110, 20);
-            this.textBoxNumeroLocacao.TabIndex = 126;
+            this.textBoxNumeroLocacaoDev.Location = new System.Drawing.Point(639, 134);
+            this.textBoxNumeroLocacaoDev.Name = "textBoxNumeroLocacaoDev";
+            this.textBoxNumeroLocacaoDev.Size = new System.Drawing.Size(79, 20);
+            this.textBoxNumeroLocacaoDev.TabIndex = 126;
+            // 
+            // buttonBuscarLocacao
+            // 
+            this.buttonBuscarLocacao.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarLocacao.Image")));
+            this.buttonBuscarLocacao.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarLocacao.Location = new System.Drawing.Point(724, 131);
+            this.buttonBuscarLocacao.Name = "buttonBuscarLocacao";
+            this.buttonBuscarLocacao.Size = new System.Drawing.Size(25, 24);
+            this.buttonBuscarLocacao.TabIndex = 128;
+            this.buttonBuscarLocacao.UseVisualStyleBackColor = true;
             // 
             // FrmLocacaoDevolucao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
+            this.Controls.Add(this.buttonBuscarLocacao);
             this.Controls.Add(this.labelNumeroLocacao);
-            this.Controls.Add(this.textBoxNumeroLocacao);
+            this.Controls.Add(this.textBoxNumeroLocacaoDev);
             this.Controls.Add(this.labelVolume);
-            this.Controls.Add(this.textBoxVolume);
+            this.Controls.Add(this.textBoxVolumeDev);
             this.Controls.Add(this.labelUsuarioLocacao);
-            this.Controls.Add(this.textBoxUsuarioLocacao);
+            this.Controls.Add(this.textBoxUsuarioLocacaoDev);
             this.Controls.Add(this.groupBoxItens);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxQtdItem);
+            this.Controls.Add(this.textBoxQtdItemDev);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBoxTotal);
-            this.Controls.Add(this.textBoxDataLancamento);
+            this.Controls.Add(this.textBoxTotalDev);
+            this.Controls.Add(this.textBoxDataLancamentoDev);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonLimparCliente);
-            this.Controls.Add(this.buttonBuscarCliente);
-            this.Controls.Add(this.textBoxCliente);
+            this.Controls.Add(this.buttonLimparClienteDev);
+            this.Controls.Add(this.buttonBuscarClienteDev);
+            this.Controls.Add(this.textBoxClienteDev);
             this.Controls.Add(this.labelFornecedor);
-            this.Controls.Add(this.buttonBuscarLocacoes);
-            this.Controls.Add(this.textBoxCodigo);
+            this.Controls.Add(this.buttonBuscarLocacoesDev);
+            this.Controls.Add(this.textBoxCodigoDev);
             this.Controls.Add(this.labelCodigo);
             this.Controls.Add(this.toolStripMenusConsultaParticipante);
             this.Controls.Add(this.menuStripLocacao);
@@ -479,7 +492,7 @@
             this.toolStripMenusConsultaParticipante.PerformLayout();
             this.groupBoxItens.ResumeLayout(false);
             this.groupBoxItens.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocaoDev)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,44 +501,45 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStripLocacao;
-        private System.Windows.Forms.ToolStripMenuItem menuLocacaoNovo;
-        private System.Windows.Forms.ToolStripMenuItem menuLocacaoGravar;
-        private System.Windows.Forms.ToolStripMenuItem menuLocacaoEditar;
-        private System.Windows.Forms.ToolStripMenuItem menuLocacaoCancelar;
-        private System.Windows.Forms.ToolStripMenuItem menuLocacaoExcluir;
+        private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevNovo;
+        private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevGravar;
+        private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevEditar;
+        private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevCancelar;
+        private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevExcluir;
         private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonFuncoes;
         private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
         private System.Windows.Forms.Label labelVolume;
-        private System.Windows.Forms.TextBox textBoxVolume;
+        private System.Windows.Forms.TextBox textBoxVolumeDev;
         private System.Windows.Forms.Label labelUsuarioLocacao;
-        private System.Windows.Forms.TextBox textBoxUsuarioLocacao;
+        private System.Windows.Forms.TextBox textBoxUsuarioLocacaoDev;
         private System.Windows.Forms.GroupBox groupBoxItens;
         private System.Windows.Forms.Label labelQtdItem;
-        private System.Windows.Forms.TextBox textBoxQuantidadeItem;
+        private System.Windows.Forms.TextBox textBoxQuantidadeItemDev;
         private System.Windows.Forms.Label labelNomeProduto;
-        private System.Windows.Forms.ComboBox comboBoxFiltro;
-        private System.Windows.Forms.Button buttonExcluirItem;
-        private System.Windows.Forms.Button buttonAdicionarItem;
-        private System.Windows.Forms.TextBox textBoxValor;
+        private System.Windows.Forms.ComboBox comboBoxFiltroDev;
+        private System.Windows.Forms.Button buttonExcluirItemDev;
+        private System.Windows.Forms.Button buttonAdicionarItemDev;
+        private System.Windows.Forms.TextBox textBoxValorDev;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonBuscarItem;
-        private System.Windows.Forms.TextBox textBoxCodigoItem;
-        private System.Windows.Forms.DataGridView dataGridViewLocao;
+        private System.Windows.Forms.Button buttonBuscarItemDev;
+        private System.Windows.Forms.TextBox textBoxCodigoItemDev;
+        private System.Windows.Forms.DataGridView dataGridViewLocaoDev;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxQtdItem;
+        private System.Windows.Forms.TextBox textBoxQtdItemDev;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxTotal;
-        private System.Windows.Forms.TextBox textBoxDataLancamento;
+        private System.Windows.Forms.TextBox textBoxTotalDev;
+        private System.Windows.Forms.TextBox textBoxDataLancamentoDev;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonLimparCliente;
-        private System.Windows.Forms.Button buttonBuscarCliente;
-        private System.Windows.Forms.TextBox textBoxCliente;
+        private System.Windows.Forms.Button buttonLimparClienteDev;
+        private System.Windows.Forms.Button buttonBuscarClienteDev;
+        private System.Windows.Forms.TextBox textBoxClienteDev;
         private System.Windows.Forms.Label labelFornecedor;
-        private System.Windows.Forms.Button buttonBuscarLocacoes;
-        private System.Windows.Forms.TextBox textBoxCodigo;
+        private System.Windows.Forms.Button buttonBuscarLocacoesDev;
+        private System.Windows.Forms.TextBox textBoxCodigoDev;
         private System.Windows.Forms.Label labelCodigo;
         private System.Windows.Forms.Label labelNumeroLocacao;
-        private System.Windows.Forms.TextBox textBoxNumeroLocacao;
+        private System.Windows.Forms.TextBox textBoxNumeroLocacaoDev;
+        private System.Windows.Forms.Button buttonBuscarLocacao;
     }
 }
