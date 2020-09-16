@@ -70,6 +70,7 @@
             this.labelNumeroLocacao = new System.Windows.Forms.Label();
             this.textBoxNumeroLocacaoDev = new System.Windows.Forms.TextBox();
             this.buttonBuscarLocacao = new System.Windows.Forms.Button();
+            this.labelInformativoGravar = new System.Windows.Forms.Label();
             this.menuStripLocacao.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
@@ -454,11 +455,22 @@
             this.buttonBuscarLocacao.TabIndex = 128;
             this.buttonBuscarLocacao.UseVisualStyleBackColor = true;
             // 
+            // labelInformativoGravar
+            // 
+            this.labelInformativoGravar.AutoSize = true;
+            this.labelInformativoGravar.ForeColor = System.Drawing.Color.Red;
+            this.labelInformativoGravar.Location = new System.Drawing.Point(454, 159);
+            this.labelInformativoGravar.Name = "labelInformativoGravar";
+            this.labelInformativoGravar.Size = new System.Drawing.Size(291, 13);
+            this.labelInformativoGravar.TabIndex = 129;
+            this.labelInformativoGravar.Text = "Não esqueça de clicar em gravar para finalizar a devolução!";
+            // 
             // FrmLocacaoDevolucao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
+            this.Controls.Add(this.labelInformativoGravar);
             this.Controls.Add(this.buttonBuscarLocacao);
             this.Controls.Add(this.labelNumeroLocacao);
             this.Controls.Add(this.textBoxNumeroLocacaoDev);
@@ -541,5 +553,6 @@
         private System.Windows.Forms.Label labelNumeroLocacao;
         private System.Windows.Forms.TextBox textBoxNumeroLocacaoDev;
         private System.Windows.Forms.Button buttonBuscarLocacao;
+        private System.Windows.Forms.Label labelInformativoGravar;
     }
 }

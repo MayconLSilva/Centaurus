@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.DTO;
+using Centaurus.DAL;
 
 namespace Centaurus
 {
@@ -14,6 +16,7 @@ namespace Centaurus
     {
         string botaoClicado= "INICIAL";
         string usuarioLogadoSistema;
+        string idLocacaoReturn;
 
         public FrmLocacaoDevolucao(string idLocacaoRetornada,string usuarioLogado)
         {
@@ -24,6 +27,7 @@ namespace Centaurus
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
             usuarioLogadoSistema = usuarioLogado;
+            idLocacaoReturn = idLocacaoRetornada;
 
             if(String.IsNullOrEmpty(idLocacaoRetornada) == true)
             {
@@ -34,11 +38,20 @@ namespace Centaurus
                 Console.WriteLine("locação automática "+idLocacaoRetornada);
                 botaoClicado = "INICIAL-EDIT";
                 textBoxUsuarioLocacaoDev.Text = usuarioLogadoSistema;
+                textBoxNumeroLocacaoDev.Text = idLocacaoRetornada;
+
+                buscarInformacoesLocacao();
+
+                var result = MessageBox.Show("Deseja importar os itens da locação na devolução? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    //Método importar os itens                 
+
+                }              
 
             }
 
             inativarBotoesCampos();
-
 
         }
 
@@ -199,5 +212,35 @@ namespace Centaurus
             textBoxUsuarioLocacaoDev.Text = usuarioLogadoSistema;
             textBoxDataLancamentoDev.Text = DateTime.Now.ToString();
         }
+
+        public void buscarInformacoesLocacao()
+        { 
+            LocacaoDevolucaoModelo modlocacaoDev = new LocacaoDevolucaoModelo();
+            LocacaoDevolucaoDAO locacaoDevDao = new LocacaoDevolucaoDAO();            
+
+            try
+            {
+                //Método enviar a id da locacao para pesquisar a devolução da locação
+                modlocacaoDev.idLocacao = Convert.ToInt32(idLocacaoReturn);
+                modlocacaoDev = locacaoDevDao.buscarLocacaoDev(modlocacaoDev);
+
+                string nomeCliente = modlocacaoDev.nomeClienteLocacaoDev;
+                int idCliente = modlocacaoDev.idClienteLocacaoDev;
+                textBoxClienteDev.Text = idCliente + " - " + nomeCliente;
+                int idDevLocacao = modlocacaoDev.idLocacaoDev;
+                textBoxCodigoDev.Text = Convert.ToString(idDevLocacao);
+                DateTime dataLanc = modlocacaoDev.dataLancamentoLocacaoDev;
+                textBoxDataLancamentoDev.Text = Convert.ToString(dataLanc);
+
+            }
+            catch(Exception erro)
+            {
+                throw erro;
+                //throw new Exception("Erro ao buscar locação devolução, tela devolução " + erro.Message);
+            }
+        }
+
+
+
     }
 }

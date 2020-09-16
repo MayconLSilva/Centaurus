@@ -639,36 +639,25 @@ namespace Centaurus
         }
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var FrmPrincipal = this.ParentForm;
-            var painelPrincipal = FrmPrincipal.Controls.Find("painelPrincipal", true).FirstOrDefault();
-            FrmLocacaoDevolucao janelaDev = new FrmLocacaoDevolucao(textBoxCodigo.Text,textBoxUsuarioLocacao.Text);
-            janelaDev.TopLevel = false;
-            janelaDev.Visible = true;
-            painelPrincipal.Controls.Add(janelaDev);
-            this.Hide();           
-
-
-            /*           
-            
+        {                  
             var result = MessageBox.Show("Deseja realmente gerar a devolução da locação? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
-            {
-                
-                LocacaoBLL locacaoBLL = new LocacaoBLL();
-                LocacaoModelo locacaoModelo = new LocacaoModelo();
+            {                
+                LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
+                LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
 
-                locacaoModelo.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
-                locacaoBLL.devolucaoLocacao(locacaoModelo);
-                
+                modLocacaoDev.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
+                locacaoDevBLL.devolucaoLocacao(modLocacaoDev);
+
                 //Abrir tela devolução
-
-                
+                var FrmPrincipal = this.ParentForm;
+                var painelPrincipal = FrmPrincipal.Controls.Find("painelPrincipal", true).FirstOrDefault();
+                FrmLocacaoDevolucao janelaDev = new FrmLocacaoDevolucao(textBoxCodigo.Text, textBoxUsuarioLocacao.Text);
+                janelaDev.TopLevel = false;
+                janelaDev.Visible = true;
+                painelPrincipal.Controls.Add(janelaDev);
+                this.Hide();
             }
-            */
-
-
-
         }
 
         private void dataGridViewLocao_CellClick(object sender, DataGridViewCellEventArgs e)

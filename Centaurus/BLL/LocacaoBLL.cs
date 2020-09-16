@@ -96,20 +96,6 @@ namespace Centaurus.BLL
                 throw new Exception("Erro ao excluir item, classe BLL" + erro.Message);
             }
         }
-
-        /***********************************/
-
-        public void devolucaoLocacao(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                locacaoDao.inserirDevLocacao(locacaoModelo);
-            }
-            catch(Exception erro)
-            {
-                throw new Exception("Erro ao gerar devolução, classe BLL " + erro.Message);
-            }
-        }
-
+               
     }
 }
