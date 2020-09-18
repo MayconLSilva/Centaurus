@@ -42,6 +42,29 @@ namespace Centaurus.DAL
             }
         }
 
+        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, "+
+                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) "+
+                " select idProduto_locacaoitens, valorLocado_locacaoitens,@idLocacaoDev, " +
+                " qtdLocada_locacaoitens,'D',idVariacaoProduto_locacaoitens from locacaoitens where idLocacao_locacaoitens = @idLocacaoOld", conexao);
+                comando.Parameters.AddWithValue("@idLocacaoDev", modLocacaoDev.idLocacaoDev);
+                comando.Parameters.AddWithValue("@idLocacaoOld", modLocacaoDev.idLocacao);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
         public LocacaoDevolucaoModelo buscarLocacaoDev(LocacaoDevolucaoModelo locacaoDev)
         {
             try
@@ -72,6 +95,23 @@ namespace Centaurus.DAL
                 throw new Exception("Erro ao pesquisar locação devolução " + erro.Message);
             }
             return locacaoDev;
+        }
+
+        //Método listar itens locação na tabela
+        public DataTable listarItens(string filtro)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                dt = conexao.RetDataTable("select *from viewlocacaoitens where idLocacao_locacaoitens = '" + filtro + "'");
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao consultar itens " + erro.Message);
+            }
+            return dt;
         }
 
 

@@ -26,6 +26,18 @@ namespace Centaurus.BLL
             }
         }
 
+        public void inserirItemLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                locacaoDev.inserirItemDevLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao inserir item da devolução, classe BLL " + erro.Message);
+            }
+        }
+
 
     }
 }

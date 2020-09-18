@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Centaurus.DTO;
 using Centaurus.DAL;
+using Centaurus.BLL;
 
 namespace Centaurus
 {
@@ -17,6 +18,8 @@ namespace Centaurus
         string botaoClicado= "INICIAL";
         string usuarioLogadoSistema;
         string idLocacaoReturn;
+
+        LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
 
         public FrmLocacaoDevolucao(string idLocacaoRetornada,string usuarioLogado)
         {
@@ -45,9 +48,16 @@ namespace Centaurus
                 var result = MessageBox.Show("Deseja importar os itens da locação na devolução? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    //Método importar os itens                 
+                    //Método importar os itens  
+                    LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
+                    LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
 
-                }              
+                    modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+                    modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+                    locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
+
+                    carregarItens();
+                }         
 
             }
 
@@ -236,8 +246,78 @@ namespace Centaurus
             catch(Exception erro)
             {
                 throw erro;
-                //throw new Exception("Erro ao buscar locação devolução, tela devolução " + erro.Message);
             }
+        }
+
+        private void carregarItens()
+        {
+            dataGridViewLocaoDev.DataSource = locacaoDevDAO.listarItens(textBoxCodigoDev.Text);
+            configurarDataGridView();
+        }
+
+        public void configurarDataGridView()
+        {
+            float somadoGrid, valorDesconto;
+            int qtdRegistros;
+
+            //Renomeando as colunas
+            dataGridViewLocaoDev.Columns[0].HeaderText = "Código";
+            dataGridViewLocaoDev.Columns[2].HeaderText = "Descrição";
+            dataGridViewLocaoDev.Columns[3].HeaderText = "UN";
+            dataGridViewLocaoDev.Columns[4].HeaderText = "Qtd";
+            dataGridViewLocaoDev.Columns[5].HeaderText = "R$ Unit.";
+            dataGridViewLocaoDev.Columns[6].HeaderText = "R$ Total";
+            dataGridViewLocaoDev.Columns[7].HeaderText = "Marca";
+            dataGridViewLocaoDev.Columns[8].HeaderText = "Categoria";
+            dataGridViewLocaoDev.Columns[9].HeaderText = "Sub-Categoria";
+            dataGridViewLocaoDev.Columns[10].HeaderText = "Fornecedor";
+
+            //Configurando o tamanho das colunas
+            dataGridViewLocaoDev.Columns[0].Width = 45;
+            dataGridViewLocaoDev.Columns[2].Width = 170;
+            dataGridViewLocaoDev.Columns[3].Width = 50;
+            dataGridViewLocaoDev.Columns[4].Width = 45;
+            dataGridViewLocaoDev.Columns[5].Width = 60;
+            dataGridViewLocaoDev.Columns[6].Width = 60;
+            dataGridViewLocaoDev.Columns[7].Width = 90;
+            dataGridViewLocaoDev.Columns[8].Width = 90;
+            dataGridViewLocaoDev.Columns[9].Width = 90;
+            dataGridViewLocaoDev.Columns[10].Width = 120;
+
+            //Ocultando algumas colunas na tabela
+            dataGridViewLocaoDev.Columns["CodigoProdutoVariacao"].Visible = false;
+            dataGridViewLocaoDev.Columns["idLocacao_locacaoitens"].Visible = false;
+            dataGridViewLocaoDev.Columns["idlocacaoitens"].Visible = false;
+
+            //Convertendo as colunas do dataGridView            
+            this.dataGridViewLocaoDev.Columns[5].ValueType = typeof(decimal);
+            this.dataGridViewLocaoDev.Columns[5].DefaultCellStyle.Format = "N2";
+            this.dataGridViewLocaoDev.Columns[6].ValueType = typeof(decimal);
+            this.dataGridViewLocaoDev.Columns[6].DefaultCellStyle.Format = "N2";
+
+            //Método para contar a quantidade de itens na tabela
+            textBoxQtdItemDev.Text = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["QtdLocada"].Value)).ToString("N2");
+
+            //Método para fazer o calculo de desconto e aplicar no campo total
+            /*
+            somadoGrid = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
+            valorDesconto = Convert.ToSingle(textBoxDesconto.Text);
+            float resultadoTotal = somadoGrid - valorDesconto;
+            decimal resultadoTotalConvertido;
+            resultadoTotalConvertido = Convert.ToDecimal(resultadoTotal.ToString("N2"));
+            textBoxTotal.Text = Convert.ToString(resultadoTotalConvertido);
+            */
+
+            //Método para fazer o calculo do total de itens e setar no campo
+            float somadoGridTotalItens = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
+            decimal resultadoTotalItens;
+            resultadoTotalItens = Convert.ToDecimal(somadoGridTotalItens.ToString("N2"));
+            textBoxTotalDev.Text = Convert.ToString(resultadoTotalItens);
+
+            //Conta a quantidade de volumes e seta no campo
+            qtdRegistros = dataGridViewLocaoDev.Rows.Count;
+            textBoxVolumeDev.Text = Convert.ToString(qtdRegistros);
+
         }
 
 
