@@ -16,6 +16,8 @@ namespace Centaurus.DAL
         MySqlCommand comando = null;
         MySqlDataReader dr;
 
+        public string numeroIncluido { get; set; }
+
         //Método inserir locação devolução copiando dados da locação
         public void inserirDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
@@ -123,13 +125,31 @@ namespace Centaurus.DAL
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("update locacao set qtdItens_locacao = @qtdItens,total_locacao = @totalLoca,usuario_locacao = @usuarioLoca,dataDevolucao_locacao = @dataDevLoca where id_locacao = @idLocacao", conexao);
-                comando.Parameters.AddWithValue("@qtdItens", modLocacaoDev.qtdItensLocacaoDev);                
-                comando.Parameters.AddWithValue("@totalLoca",modLocacaoDev.totalLocacaoDev);
-                comando.Parameters.AddWithValue("@usuarioLoca",modLocacaoDev.usuarioLocacaoDev);
-                comando.Parameters.AddWithValue("@dataDevLoca",modLocacaoDev.dataDevolucaoLocacaoDev);               
-                comando.Parameters.AddWithValue("@idLocacao", modLocacaoDev.idLocacaoDev);
-                comando.ExecuteNonQuery();
+                if(modLocacaoDev.idClienteLocacaoDev == null || Convert.ToString(modLocacaoDev.idClienteLocacaoDev) == "" || modLocacaoDev.idClienteLocacaoDev == 0)
+                {   //Cláusula utilizada para salvar devolução da locação quando for gerado automaticamente
+                    comando = new MySqlCommand("update locacao set qtdItens_locacao = @qtdItens,total_locacao = @totalLoca,usuario_locacao = @usuarioLoca,dataDevolucao_locacao = @dataDevLoca where id_locacao = @idLocacao", conexao);
+                    comando.Parameters.AddWithValue("@qtdItens", modLocacaoDev.qtdItensLocacaoDev);
+                    comando.Parameters.AddWithValue("@totalLoca", modLocacaoDev.totalLocacaoDev);
+                    comando.Parameters.AddWithValue("@usuarioLoca", modLocacaoDev.usuarioLocacaoDev);
+                    comando.Parameters.AddWithValue("@dataDevLoca", modLocacaoDev.dataDevolucaoLocacaoDev);
+                    comando.Parameters.AddWithValue("@idLocacao", modLocacaoDev.idLocacaoDev);
+                    comando.ExecuteNonQuery();
+                }
+                else
+                {   //Clausula utilizada para salvar devolução da locação quando for gerado manualmente
+                    comando = new MySqlCommand("update locacao set idCliente_locacao = @idCliente, qtdItens_locacao = @qtd, total_locacao = @total, "+
+                    " tipo_locacao = @tipo, numerolocacaodev_locacao = @numero, usuario_locacao = @usuario, "+
+                    " dataDevolucao_locacao = @data where id_locacao = @idlocacao", conexao);
+                    comando.Parameters.AddWithValue("@idCliente", modLocacaoDev.idClienteLocacaoDev);
+                    comando.Parameters.AddWithValue("@qtd", modLocacaoDev.qtdItensLocacaoDev);
+                    comando.Parameters.AddWithValue("@total", modLocacaoDev.totalLocacaoDev);
+                    comando.Parameters.AddWithValue("@tipo", "D");
+                    comando.Parameters.AddWithValue("@numero", modLocacaoDev.idLocacao);
+                    comando.Parameters.AddWithValue("@usuario", modLocacaoDev.usuarioLocacaoDev);
+                    comando.Parameters.AddWithValue("@data", modLocacaoDev.dataDevolucaoLocacaoDev);
+                    comando.Parameters.AddWithValue("@idlocacao", modLocacaoDev.idLocacaoDev);
+                    comando.ExecuteNonQuery();
+                }
             }
             catch (Exception erro)
             {
@@ -138,6 +158,46 @@ namespace Centaurus.DAL
             finally
             {
                 FecharConexao();
+            }
+        }
+
+        //Método utilizado para gerar a id "salvar a locação" quando clicado no botão para inserir um item
+        public void gerarIdLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
+                comando.Parameters.AddWithValue("@dataLan", modLocacaoDev.dataLancamentoLocacaoDev);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método utizado para pegar a id da ultima locação quando inserido um item e não preenchido as informações, é filtrado pela data de lançamento
+        public void pegarIdGerada(string valorReturn)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where dataLancamento_locacao = '" + valorReturn + "'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar id da locação: " + erro.Message);
             }
         }
 

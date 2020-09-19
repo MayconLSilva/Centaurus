@@ -12,13 +12,13 @@ namespace Centaurus.BLL
 {
     public class LocacaoDevolucaoBLL
     {
-        LocacaoDevolucaoDAO locacaoDev = new LocacaoDevolucaoDAO();
+        LocacaoDevolucaoDAO daoLocDev = new LocacaoDevolucaoDAO();
 
         public void devolucaoLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
             {
-                locacaoDev.inserirDevLocacao(modLocacaoDev);
+                daoLocDev.inserirDevLocacao(modLocacaoDev);
             }
             catch (Exception erro)
             {
@@ -30,7 +30,7 @@ namespace Centaurus.BLL
         {
             try
             {
-                locacaoDev.inserirItemDevLocacao(modLocacaoDev);
+                daoLocDev.inserirItemDevLocacao(modLocacaoDev);
             }
             catch(Exception erro)
             {
@@ -42,11 +42,23 @@ namespace Centaurus.BLL
         {
             try
             {
-                locacaoDev.SalvarDevLocacao(modLocacaoDev);
+                daoLocDev.SalvarDevLocacao(modLocacaoDev);
             }
             catch(Exception erro)
             {
                 throw new Exception("Erro ao finalizar locação devolução, classe BLL " + erro.Message);
+            }
+        }
+
+        public void gerarIDLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.gerarIdLocacaoDev(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao gerar id locação devolução, classe BLL " + erro.Message);
             }
         }
 

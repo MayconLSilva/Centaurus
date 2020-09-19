@@ -18,6 +18,9 @@ namespace Centaurus
         string botaoClicado= "INICIAL";
         string usuarioLogadoSistema;
         string idLocacaoReturn;
+        string idClienteReturn;
+
+        FrmConsultaLocacao frmConsultaLocacao;
 
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
 
@@ -144,6 +147,38 @@ namespace Centaurus
                     break;
 
                 case "PESQUISAR":
+
+                    menuLocacaoDevNovo.Enabled = false;
+                    menuLocacaoDevGravar.Enabled = true;
+                    menuLocacaoDevEditar.Enabled = false;
+                    menuLocacaoDevCancelar.Enabled = true;
+                    menuLocacaoDevExcluir.Enabled = false;
+
+                    buttonBuscarLocacoesDev.Enabled = false;
+                    buttonBuscarItemDev.Enabled = true;//validar se importou produto
+                    buttonAdicionarItemDev.Enabled = true;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = false;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = true;
+                    textBoxCodigoItemDev.Enabled = true;
+                    textBoxQuantidadeItemDev.Enabled = true;
+                    textBoxValorDev.Enabled = true;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;
+
+                    dataGridViewLocaoDev.Enabled = true;
+                    
+                    if(textBoxCodigoDev.Text == null)
+                    {
+                        textBoxCodigoDev.Text = "0";
+                    }
 
                     break;
 
@@ -340,18 +375,34 @@ namespace Centaurus
         {
             LocacaoDevolucaoBLL devolucaoBLL = new LocacaoDevolucaoBLL();
 
-            modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
-            modLocacao.totalLocacaoDev = Convert.ToSingle(textBoxTotalDev.Text);
-            modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
-            modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
-            modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            {   //Clausula utilizada para salvar a locação quando a mesma for gerada pela tela de locação
+                modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
+                modLocacao.totalLocacaoDev = Convert.ToSingle(textBoxTotalDev.Text);
+                modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
+                modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
+                modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
 
-            devolucaoBLL.salvarLocacao(modLocacao);
+                devolucaoBLL.salvarLocacao(modLocacao);
+            }
+            else
+            {   //Clausula utilizada para salvar a locação quando a mesma for gerda manualmente pela tela de devolução da locação
+                modLocacao.idClienteLocacaoDev = Convert.ToInt32(idClienteReturn);
+                modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
+                modLocacao.totalLocacaoDev = Convert.ToSingle(textBoxTotalDev.Text);
+                modLocacao.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+                modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
+                modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
+                modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
 
+                devolucaoBLL.salvarLocacao(modLocacao);
+            }
+            
             MessageBox.Show("Devolução da locação finalizada! ", "Devolução Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             botaoClicado = "GRAVAR";
             inativarBotoesCampos();
+           
 
         }
 
@@ -362,7 +413,61 @@ namespace Centaurus
 
         private void buttonBuscarLocacao_Click(object sender, EventArgs e)
         {
+            frmConsultaLocacao = new FrmConsultaLocacao();
+            DialogResult dr = frmConsultaLocacao.ShowDialog(this);
+
+            idClienteReturn = frmConsultaLocacao.idClienteEnvia;
+            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            {
+                MessageBox.Show("Você não selecionou nenhuma locação!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                botaoClicado = "PESQUISAR";
+
+                string nomeClienteReturn = frmConsultaLocacao.NomeClienteEnvia;
+                textBoxClienteDev.Text = idClienteReturn + " - " + nomeClienteReturn;
+                textBoxNumeroLocacaoDev.Text = frmConsultaLocacao.idLocacaoEnvia;
+
+                var result = MessageBox.Show("Deseja importar os itens da locação na devolução? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
+                    gerarIDImportarItens(modLocDev);
+
+                    carregarItens();
+                }
+
+                inativarBotoesCampos();
+            }
+        }
+
+        public void gerarIDImportarItens(LocacaoDevolucaoModelo modLocDev)
+        {
+            LocacaoDevolucaoDAO daoLocDev = new LocacaoDevolucaoDAO();
+            LocacaoDevolucaoBLL bllLocDev = new LocacaoDevolucaoBLL();
+
+            //Método gera a id da locação devolução
+            modLocDev.dataLancamentoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
+            bllLocDev.gerarIDLocacaoDev(modLocDev);
+
+
+            //Método chama o ultimo registro
+            string data = textBoxDataLancamentoDev.Text;
+            var dataConvertida = DateTime.Parse(data).ToString("yyyy-MM-dd HH:mm:ss");
+            daoLocDev.pegarIdGerada(dataConvertida);
+            string idReturn = daoLocDev.numeroIncluido;
+            textBoxCodigoDev.Text = idReturn;
+
+
+            //Método importar os itens  
+            LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
+            LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
+            modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+            modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+            locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
 
         }
+
     }
 }
