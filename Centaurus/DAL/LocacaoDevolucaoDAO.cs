@@ -16,6 +16,7 @@ namespace Centaurus.DAL
         MySqlCommand comando = null;
         MySqlDataReader dr;
 
+        //Método inserir locação devolução copiando dados da locação
         public void inserirDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
@@ -42,6 +43,7 @@ namespace Centaurus.DAL
             }
         }
 
+        //Método inserir itens locação devolução copiando dados da locação
         public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
@@ -65,6 +67,7 @@ namespace Centaurus.DAL
             }
         }
 
+        //Método busca informações da locação devolução para setar nos seus respectivos campos
         public LocacaoDevolucaoModelo buscarLocacaoDev(LocacaoDevolucaoModelo locacaoDev)
         {
             try
@@ -112,6 +115,30 @@ namespace Centaurus.DAL
                 throw new Exception("Erro ao consultar itens " + erro.Message);
             }
             return dt;
+        }
+
+        //Método salvar locação devolução, será finalizado com update
+        public void SalvarDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("update locacao set qtdItens_locacao = @qtdItens,total_locacao = @totalLoca,usuario_locacao = @usuarioLoca,dataDevolucao_locacao = @dataDevLoca where id_locacao = @idLocacao", conexao);
+                comando.Parameters.AddWithValue("@qtdItens", modLocacaoDev.qtdItensLocacaoDev);                
+                comando.Parameters.AddWithValue("@totalLoca",modLocacaoDev.totalLocacaoDev);
+                comando.Parameters.AddWithValue("@usuarioLoca",modLocacaoDev.usuarioLocacaoDev);
+                comando.Parameters.AddWithValue("@dataDevLoca",modLocacaoDev.dataDevolucaoLocacaoDev);               
+                comando.Parameters.AddWithValue("@idLocacao", modLocacaoDev.idLocacaoDev);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception ("Erro ao finalizar devolução da locação! "+erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
         }
 
 

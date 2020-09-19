@@ -34,7 +34,7 @@ namespace Centaurus
 
             if(String.IsNullOrEmpty(idLocacaoRetornada) == true)
             {
-                Console.WriteLine("locação manual");
+                
             }
             else
             {
@@ -77,8 +77,6 @@ namespace Centaurus
                     menuLocacaoDevExcluir.Enabled = false;
 
                     buttonBuscarLocacoesDev.Enabled = true;
-                    buttonBuscarClienteDev.Enabled = false;
-                    buttonLimparClienteDev.Enabled = false;
                     buttonBuscarItemDev.Enabled = false;
                     buttonAdicionarItemDev.Enabled = false;
                     buttonExcluirItemDev.Enabled = false;
@@ -122,12 +120,10 @@ namespace Centaurus
                     menuLocacaoDevCancelar.Enabled = true;
                     menuLocacaoDevExcluir.Enabled = false;
 
-                    buttonBuscarLocacoesDev.Enabled = false;
-                    buttonBuscarClienteDev.Enabled = false;
-                    buttonLimparClienteDev.Enabled = false;
+                    buttonBuscarLocacoesDev.Enabled = false;                    
                     buttonBuscarItemDev.Enabled = true;//validar se importou produto
                     buttonAdicionarItemDev.Enabled = true;
-                    buttonExcluirItemDev.Enabled = true;
+                    buttonExcluirItemDev.Enabled = false;
                     buttonBuscarLocacao.Enabled = false;
 
                     textBoxCodigoDev.Enabled = false;
@@ -144,22 +140,7 @@ namespace Centaurus
                     textBoxTotalDev.Enabled = false;
 
                     dataGridViewLocaoDev.Enabled = true;
-
-                    /*
-                    textBoxCodigoDev.Clear();
-                    textBoxClienteDev.Clear();
-                    textBoxDataLancamentoDev.Clear();
-                    textBoxUsuarioLocacaoDev.Clear();
-                    textBoxNumeroLocacaoDev.Clear();
-                    //comboBoxFiltroDev.Clear();
-                    textBoxCodigoItemDev.Clear();
-                    textBoxQuantidadeItemDev.Clear();
-                    textBoxValorDev.Clear();
-                    textBoxVolumeDev.Text = "0";
-                    textBoxQtdItemDev.Text = "0";
-                    textBoxTotalDev.Text = "0";
-                    */
-
+                  
                     break;
 
                 case "PESQUISAR":
@@ -175,11 +156,9 @@ namespace Centaurus
                     menuLocacaoDevExcluir.Enabled = false;
 
                     buttonBuscarLocacoesDev.Enabled = false;
-                    buttonBuscarClienteDev.Enabled = true;
-                    buttonLimparClienteDev.Enabled = true;
                     buttonBuscarItemDev.Enabled = true;
                     buttonAdicionarItemDev.Enabled = true;
-                    buttonExcluirItemDev.Enabled = true;
+                    buttonExcluirItemDev.Enabled = false;
                     buttonBuscarLocacao.Enabled = true;
 
                     textBoxCodigoDev.Enabled = false;
@@ -209,6 +188,37 @@ namespace Centaurus
                     textBoxVolumeDev.Text = "0";
                     textBoxQtdItemDev.Text = "0";
                     textBoxTotalDev.Text = "0";
+
+                    break;
+
+                case "GRAVAR":
+
+                    menuLocacaoDevNovo.Enabled = true;
+                    menuLocacaoDevGravar.Enabled = false;
+                    menuLocacaoDevEditar.Enabled = true;
+                    menuLocacaoDevCancelar.Enabled = false;
+                    menuLocacaoDevExcluir.Enabled = true;
+
+                    buttonBuscarLocacoesDev.Enabled = true;
+                    buttonBuscarItemDev.Enabled = false;
+                    buttonAdicionarItemDev.Enabled = false;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = true;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = false;
+                    textBoxCodigoItemDev.Enabled = false;
+                    textBoxQuantidadeItemDev.Enabled = false;
+                    textBoxValorDev.Enabled = false;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;
+
+                    dataGridViewLocaoDev.Enabled = false;
 
                     break;
             }
@@ -320,7 +330,39 @@ namespace Centaurus
 
         }
 
+        private void menuLocacaoDevGravar_Click(object sender, EventArgs e)
+        {
+            LocacaoDevolucaoModelo locDevMod = new LocacaoDevolucaoModelo();
+            finalizarLocacaoDev(locDevMod);
+        }
 
+        public void finalizarLocacaoDev(LocacaoDevolucaoModelo modLocacao)
+        {
+            LocacaoDevolucaoBLL devolucaoBLL = new LocacaoDevolucaoBLL();
 
+            modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
+            modLocacao.totalLocacaoDev = Convert.ToSingle(textBoxTotalDev.Text);
+            modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
+            modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
+            modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+
+            devolucaoBLL.salvarLocacao(modLocacao);
+
+            MessageBox.Show("Devolução da locação finalizada! ", "Devolução Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            botaoClicado = "GRAVAR";
+            inativarBotoesCampos();
+
+        }
+
+        private void dataGridViewLocaoDev_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonExcluirItemDev.Enabled = true;
+        }
+
+        private void buttonBuscarLocacao_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

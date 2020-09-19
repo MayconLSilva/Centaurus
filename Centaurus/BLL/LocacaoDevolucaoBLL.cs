@@ -38,6 +38,18 @@ namespace Centaurus.BLL
             }
         }
 
+        public void salvarLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                locacaoDev.SalvarDevLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao finalizar locação devolução, classe BLL " + erro.Message);
+            }
+        }
+
 
     }
 }

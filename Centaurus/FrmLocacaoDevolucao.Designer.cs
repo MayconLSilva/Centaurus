@@ -37,7 +37,6 @@
             this.menuLocacaoDevExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
-            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelVolume = new System.Windows.Forms.Label();
             this.textBoxVolumeDev = new System.Windows.Forms.TextBox();
             this.labelUsuarioLocacao = new System.Windows.Forms.Label();
@@ -60,8 +59,6 @@
             this.textBoxTotalDev = new System.Windows.Forms.TextBox();
             this.textBoxDataLancamentoDev = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonLimparClienteDev = new System.Windows.Forms.Button();
-            this.buttonBuscarClienteDev = new System.Windows.Forms.Button();
             this.textBoxClienteDev = new System.Windows.Forms.TextBox();
             this.labelFornecedor = new System.Windows.Forms.Label();
             this.buttonBuscarLocacoesDev = new System.Windows.Forms.Button();
@@ -106,6 +103,7 @@
             this.menuLocacaoDevGravar.Name = "menuLocacaoDevGravar";
             this.menuLocacaoDevGravar.Size = new System.Drawing.Size(78, 20);
             this.menuLocacaoDevGravar.Text = "GRAVAR";
+            this.menuLocacaoDevGravar.Click += new System.EventHandler(this.menuLocacaoDevGravar_Click);
             // 
             // menuLocacaoDevEditar
             // 
@@ -143,19 +141,11 @@
             // toolStripDropDownButtonFuncoes
             // 
             this.toolStripDropDownButtonFuncoes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButtonFuncoes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.devoluçãoToolStripMenuItem});
             this.toolStripDropDownButtonFuncoes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonFuncoes.Image")));
             this.toolStripDropDownButtonFuncoes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonFuncoes.Name = "toolStripDropDownButtonFuncoes";
             this.toolStripDropDownButtonFuncoes.Size = new System.Drawing.Size(72, 22);
             this.toolStripDropDownButtonFuncoes.Text = "FUNÇÕES";
-            // 
-            // devoluçãoToolStripMenuItem
-            // 
-            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // labelVolume
             // 
@@ -312,6 +302,7 @@
             this.dataGridViewLocaoDev.Name = "dataGridViewLocaoDev";
             this.dataGridViewLocaoDev.Size = new System.Drawing.Size(721, 169);
             this.dataGridViewLocaoDev.TabIndex = 101;
+            this.dataGridViewLocaoDev.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLocaoDev_CellClick);
             // 
             // label8
             // 
@@ -363,26 +354,6 @@
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 116;
             this.label2.Text = "Data lançamento:";
-            // 
-            // buttonLimparClienteDev
-            // 
-            this.buttonLimparClienteDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimparClienteDev.Image")));
-            this.buttonLimparClienteDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonLimparClienteDev.Location = new System.Drawing.Point(292, 91);
-            this.buttonLimparClienteDev.Name = "buttonLimparClienteDev";
-            this.buttonLimparClienteDev.Size = new System.Drawing.Size(50, 24);
-            this.buttonLimparClienteDev.TabIndex = 114;
-            this.buttonLimparClienteDev.UseVisualStyleBackColor = true;
-            // 
-            // buttonBuscarClienteDev
-            // 
-            this.buttonBuscarClienteDev.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarClienteDev.Image")));
-            this.buttonBuscarClienteDev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarClienteDev.Location = new System.Drawing.Point(236, 91);
-            this.buttonBuscarClienteDev.Name = "buttonBuscarClienteDev";
-            this.buttonBuscarClienteDev.Size = new System.Drawing.Size(50, 24);
-            this.buttonBuscarClienteDev.TabIndex = 113;
-            this.buttonBuscarClienteDev.UseVisualStyleBackColor = true;
             // 
             // textBoxClienteDev
             // 
@@ -454,6 +425,7 @@
             this.buttonBuscarLocacao.Size = new System.Drawing.Size(25, 24);
             this.buttonBuscarLocacao.TabIndex = 128;
             this.buttonBuscarLocacao.UseVisualStyleBackColor = true;
+            this.buttonBuscarLocacao.Click += new System.EventHandler(this.buttonBuscarLocacao_Click);
             // 
             // labelInformativoGravar
             // 
@@ -485,8 +457,6 @@
             this.Controls.Add(this.textBoxTotalDev);
             this.Controls.Add(this.textBoxDataLancamentoDev);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonLimparClienteDev);
-            this.Controls.Add(this.buttonBuscarClienteDev);
             this.Controls.Add(this.textBoxClienteDev);
             this.Controls.Add(this.labelFornecedor);
             this.Controls.Add(this.buttonBuscarLocacoesDev);
@@ -520,7 +490,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuLocacaoDevExcluir;
         private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonFuncoes;
-        private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
         private System.Windows.Forms.Label labelVolume;
         private System.Windows.Forms.TextBox textBoxVolumeDev;
         private System.Windows.Forms.Label labelUsuarioLocacao;
@@ -543,8 +512,6 @@
         private System.Windows.Forms.TextBox textBoxTotalDev;
         private System.Windows.Forms.TextBox textBoxDataLancamentoDev;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonLimparClienteDev;
-        private System.Windows.Forms.Button buttonBuscarClienteDev;
         private System.Windows.Forms.TextBox textBoxClienteDev;
         private System.Windows.Forms.Label labelFornecedor;
         private System.Windows.Forms.Button buttonBuscarLocacoesDev;
