@@ -201,6 +201,26 @@ namespace Centaurus.DAL
             }
         }
 
+        //Método utilizado para excluir o item da devolução da locação
+        public void excluirItemLocacaoDevolucao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                string comando = "delete from locacaoitens where id_locacaoitens=" + modLocacaoDev.codigoItem;
+                conexao.ExecutarComandoSQL(comando);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao excluir o item da devolução, classe DAO: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
 
 
     }

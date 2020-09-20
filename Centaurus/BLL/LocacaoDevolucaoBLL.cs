@@ -62,6 +62,17 @@ namespace Centaurus.BLL
             }
         }
 
+        public void excluirItemLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.excluirItemLocacaoDevolucao(modLocacaoDev);
+            }catch(Exception erro)
+            {
+                throw erro;
+            }
+        }
+
 
     }
 }

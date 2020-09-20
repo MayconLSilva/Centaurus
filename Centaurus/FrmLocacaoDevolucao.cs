@@ -20,6 +20,8 @@ namespace Centaurus
         string idLocacaoReturn;
         string idClienteReturn;
 
+        string codigoItem;//váriaveis para guardar informações para posterior exclusão do item da tabela devolução.
+
         FrmConsultaLocacao frmConsultaLocacao;
 
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
@@ -409,6 +411,8 @@ namespace Centaurus
         private void dataGridViewLocaoDev_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonExcluirItemDev.Enabled = true;
+
+            codigoItem = dataGridViewLocaoDev.Rows[e.RowIndex].Cells[12].Value.ToString();
         }
 
         private void buttonBuscarLocacao_Click(object sender, EventArgs e)
@@ -439,6 +443,27 @@ namespace Centaurus
                 }
 
                 inativarBotoesCampos();
+            }
+        }
+
+        private void menuLocacaoDevExcluir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonExcluirItemDev_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                LocacaoDevolucaoBLL bllLocaDev = new LocacaoDevolucaoBLL();
+                LocacaoDevolucaoModelo modLocaDev = new LocacaoDevolucaoModelo();
+
+                modLocaDev.codigoItem = Convert.ToInt32(codigoItem);
+                bllLocaDev.excluirItemLocacaoDev(modLocaDev);
+
+                carregarItens();
+                buttonExcluirItemDev.Enabled = false;
             }
         }
 

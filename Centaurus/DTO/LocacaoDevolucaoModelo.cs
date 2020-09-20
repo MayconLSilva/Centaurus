@@ -17,6 +17,7 @@ namespace Centaurus.DTO
         public float totalLocacaoDev { get; set; }
         public double qtdItensLocacaoDev { get; set; }
         public string usuarioLocacaoDev { get; set; }
+        public int codigoItem { get; set; }
 
     }
 }

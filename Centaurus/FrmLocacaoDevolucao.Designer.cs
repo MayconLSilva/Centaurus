@@ -125,6 +125,7 @@
             this.menuLocacaoDevExcluir.Name = "menuLocacaoDevExcluir";
             this.menuLocacaoDevExcluir.Size = new System.Drawing.Size(80, 20);
             this.menuLocacaoDevExcluir.Text = "EXCLUIR";
+            this.menuLocacaoDevExcluir.Click += new System.EventHandler(this.menuLocacaoDevExcluir_Click);
             // 
             // toolStripMenusConsultaParticipante
             // 
@@ -250,6 +251,7 @@
             this.buttonExcluirItemDev.Size = new System.Drawing.Size(25, 24);
             this.buttonExcluirItemDev.TabIndex = 107;
             this.buttonExcluirItemDev.UseVisualStyleBackColor = true;
+            this.buttonExcluirItemDev.Click += new System.EventHandler(this.buttonExcluirItemDev_Click);
             // 
             // buttonAdicionarItemDev
             // 
