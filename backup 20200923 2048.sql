@@ -91,11 +91,11 @@ CREATE TABLE `locacao` (
   `tipo_locacao` char(1) DEFAULT NULL,
   `numerolocacaodev_locacao` int(10) unsigned DEFAULT NULL,
   `usuario_locacao` varchar(20) DEFAULT NULL,
-  `dataDevolucao_locacao` datetime DEFAULT '0000-00-00 00:00:00',
+  `dataDevolucao_locacao` datetime DEFAULT NULL,
   PRIMARY KEY (`id_locacao`),
   KEY `FK_locacao_cliente` (`idCliente_locacao`),
   CONSTRAINT `FK_locacao_cliente` FOREIGN KEY (`idCliente_locacao`) REFERENCES `participante` (`id_partipante`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`locacao`
@@ -103,54 +103,89 @@ CREATE TABLE `locacao` (
 
 /*!40000 ALTER TABLE `locacao` DISABLE KEYS */;
 INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
- (1,'2020-09-02 19:04:13','2020-09-25 19:04:12',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (2,'2020-09-02 19:12:51','2020-09-30 19:12:50',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (3,'2020-09-05 11:15:42','2020-09-05 11:15:41',9,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (4,'2020-09-07 09:33:41','2020-09-07 09:33:39',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (5,'2020-09-07 10:01:50',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (13,'2020-09-07 11:08:48',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (14,'2020-09-07 11:49:36',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (15,'2020-09-07 12:06:17',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (16,'2020-09-07 12:10:49',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (17,'2020-09-07 12:15:11','2020-09-07 12:15:10',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00');
+ (1,'2020-09-02 19:04:13','2020-09-25 19:04:12',1,0,0,0,'L',NULL,'MARA',NULL),
+ (2,'2020-09-02 19:12:51','2020-09-30 19:12:50',1,0,0,0,'L',NULL,'MARA',NULL),
+ (3,'2020-09-05 11:15:42','2020-09-05 11:15:41',9,0,0,0,'L',NULL,'MARA',NULL),
+ (4,'2020-09-07 09:33:41','2020-09-07 09:33:39',1,0,0,0,'L',NULL,'MARA',NULL),
+ (5,'2020-09-07 10:01:50',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (13,'2020-09-07 11:08:48',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (14,'2020-09-07 11:49:36',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (15,'2020-09-07 12:06:17',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (16,'2020-09-07 12:10:49',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (17,'2020-09-07 12:15:11','2020-09-07 12:15:10',1,0,0,0,'L',NULL,'MARA',NULL),
+ (18,'2020-09-07 12:16:04','2020-09-30 12:16:02',1,0,0,0,'L',NULL,'MARA',NULL);
 INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
- (18,'2020-09-07 12:16:04','2020-09-30 12:16:02',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (19,'2020-09-07 12:16:52','2020-09-30 12:16:51',2,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (20,'2020-09-07 12:18:37','2020-09-30 12:18:34',3,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (21,'2020-09-07 12:19:28','2020-09-07 12:19:27',9,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (22,'2020-09-07 12:20:52','2020-09-07 12:20:51',15,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (23,'2020-09-07 12:21:26','2020-09-07 12:21:24',22,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (24,'2020-09-07 12:23:39','2020-10-01 12:23:38',2,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (25,'2020-09-07 12:26:39','2020-09-07 12:26:38',2,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (26,'2020-09-07 12:46:24','2020-09-07 12:46:23',2,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00');
+ (19,'2020-09-07 12:16:52','2020-09-30 12:16:51',2,0,0,0,'L',NULL,'MARA',NULL),
+ (20,'2020-09-07 12:18:37','2020-09-30 12:18:34',3,0,0,0,'L',NULL,'MARA',NULL),
+ (21,'2020-09-07 12:19:28','2020-09-07 12:19:27',9,0,0,0,'L',NULL,'MARA',NULL),
+ (22,'2020-09-07 12:20:52','2020-09-07 12:20:51',15,0,0,0,'L',NULL,'MARA',NULL),
+ (23,'2020-09-07 12:21:26','2020-09-07 12:21:24',22,0,0,0,'L',NULL,'MARA',NULL),
+ (24,'2020-09-07 12:23:39','2020-10-01 12:23:38',2,0,0,0,'L',NULL,'MARA',NULL),
+ (25,'2020-09-07 12:26:39','2020-09-07 12:26:38',2,0,0,0,'L',NULL,'MARA',NULL),
+ (26,'2020-09-07 12:46:24','2020-09-07 12:46:23',2,0,0,0,'L',NULL,'MARA',NULL),
+ (29,'2020-09-08 10:07:40','2020-09-08 10:07:39',1,0,0,0,'L',NULL,'MARA',NULL),
+ (30,'2020-09-08 11:46:59','2020-09-08 11:46:58',1,0,0,0,'L',NULL,'MAYCO',NULL),
+ (31,'2020-09-09 09:35:03','2020-09-09 09:35:02',9,0,0,0,'L',NULL,'MAYCON',NULL);
 INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
- (27,'2020-09-07 15:50:41','2020-09-07 15:50:40',2,0,0,0,'D',19,NULL,'0000-00-00 00:00:00'),
- (28,'2020-09-07 16:07:48','2020-09-07 16:07:47',3,0,0,0,'D',20,NULL,'0000-00-00 00:00:00'),
- (29,'2020-09-08 10:07:40','2020-09-08 10:07:39',1,0,0,0,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (30,'2020-09-08 11:46:59','2020-09-08 11:46:58',1,0,0,0,'L',NULL,'MAYCO','0000-00-00 00:00:00'),
- (31,'2020-09-09 09:35:03','2020-09-09 09:35:02',9,0,0,0,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (32,'2020-09-09 11:29:02','2020-09-09 11:29:01',15,0,0,0,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (33,'2020-09-09 13:52:29',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (34,'2020-09-09 14:07:55',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (35,'2020-09-09 14:10:51','2020-09-09 14:10:49',3,0,9,817.5,'L',NULL,'MAYCO','0000-00-00 00:00:00');
+ (33,'2020-09-09 13:52:29',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (34,'2020-09-09 14:07:55',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (35,'2020-09-09 14:10:51','2020-09-09 14:10:49',3,0,9,817.5,'L',NULL,'MAYCO',NULL),
+ (36,'2020-09-09 14:21:39','2020-09-09 14:21:38',3,5,12,831,'L',NULL,'MAYCON',NULL),
+ (37,'2020-09-09 14:38:40','2020-09-09 14:38:39',2,5,2,34.75,'L',NULL,'MAYCON',NULL),
+ (38,'2020-09-09 14:41:25','2020-09-09 14:41:24',3,7,3,56,'L',NULL,'MAYCON',NULL),
+ (39,'2020-09-09 14:59:53',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (40,'2020-09-09 15:01:47',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (41,'2020-09-09 15:03:16',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (42,'2020-09-09 15:07:58','2020-09-09 15:07:57',3,0,2,487.5,'L',NULL,'MAYCON',NULL),
+ (43,'2020-09-09 15:19:40','2020-09-09 15:19:39',9,0,1,21,'L',NULL,'MAYCON',NULL);
 INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
- (36,'2020-09-09 14:21:39','2020-09-09 14:21:38',3,5,12,831,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (37,'2020-09-09 14:38:40','2020-09-09 14:38:39',2,5,2,34.75,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (38,'2020-09-09 14:41:25','2020-09-09 14:41:24',3,7,3,56,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (39,'2020-09-09 14:59:53',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (40,'2020-09-09 15:01:47',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (41,'2020-09-09 15:03:16',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (42,'2020-09-09 15:07:58','2020-09-09 15:07:57',3,0,2,487.5,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (43,'2020-09-09 15:19:40','2020-09-09 15:19:39',9,0,1,21,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (44,'2020-09-09 15:25:38',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00');
+ (44,'2020-09-09 15:25:38',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (45,'2020-09-09 15:27:50',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (46,'2020-09-09 15:31:31',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (47,'2020-09-09 15:32:18',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (48,'2020-09-09 15:33:39',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (49,'2020-09-09 15:34:28',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (50,'2020-09-09 15:36:58','2020-09-09 15:36:56',3,20,2,985,'L',NULL,'MAYCON',NULL),
+ (51,'2020-09-09 17:26:31',NULL,NULL,NULL,NULL,NULL,'L',NULL,'MARA',NULL),
+ (53,'2020-09-10 14:46:44','2020-09-10 14:46:04',2,0,1,18.75,'L',NULL,'MAYCON',NULL),
+ (54,'2020-09-10 14:52:35','2020-09-10 14:52:34',3,0,1,18.75,'L',NULL,'MAYCON',NULL),
+ (55,'2020-09-10 17:18:58','2020-09-10 17:18:45',1,0,2,243.75,'L',NULL,'MAYCON',NULL);
 INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
- (45,'2020-09-09 15:27:50',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (46,'2020-09-09 15:31:31',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (47,'2020-09-09 15:32:18',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (48,'2020-09-09 15:33:39',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (49,'2020-09-09 15:34:28',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00'),
- (50,'2020-09-09 15:36:58','2020-09-09 15:36:56',3,20,2,985,'L',NULL,'MAYCON','0000-00-00 00:00:00'),
- (51,'2020-09-09 17:26:31',NULL,NULL,NULL,NULL,NULL,'L',NULL,NULL,'0000-00-00 00:00:00');
+ (56,'2020-09-10 17:40:08','2020-09-10 17:40:07',22,0,2,487.5,'L',NULL,'MAYCON',NULL),
+ (57,'2020-09-10 17:50:07','2020-09-10 17:50:06',2,0,1,33.3,'L',NULL,'MAYCON',NULL),
+ (58,'2020-09-10 17:58:29','2020-09-10 17:58:28',NULL,0,1,14.78,'L',NULL,'MARA',NULL),
+ (59,'2020-09-10 18:07:29','2020-09-10 18:07:28',15,0,2,124.5,'L',NULL,'MAYCON',NULL),
+ (60,'2020-09-11 17:28:51',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (61,'2020-09-12 11:30:43',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (62,'2020-09-12 11:34:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (63,'2020-09-12 11:40:07',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (64,'2020-09-12 11:44:27',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (65,'2020-09-12 12:17:25','2020-09-12 12:17:21',1,0,1,5000,'L',NULL,'MAYCON',NULL),
+ (76,'2020-09-16 20:40:17','2020-09-16 20:40:16',3,0,4,75,'L',NULL,'MARA',NULL);
+INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
+ (78,'2020-09-17 19:54:49','2020-09-17 19:54:48',15,0,1,18.75,'L',NULL,'MARA',NULL),
+ (80,'2020-09-17 20:16:39','2020-09-17 20:16:37',9,0,6,225,'L',NULL,'MARA',NULL),
+ (82,'2020-09-17 21:19:06','2020-09-17 21:19:05',3,0,6,630,'L',NULL,'MARA',NULL),
+ (84,'2020-09-19 08:55:43','2020-09-19 08:55:42',15,0,5,105,'L',NULL,'MARA',NULL),
+ (86,'2020-09-19 09:05:23','2020-09-19 09:05:22',22,0,3,63,'L',NULL,'MARA',NULL),
+ (88,'2020-09-19 09:08:43','2020-09-19 09:08:41',22,0,3,63,'L',NULL,'MARA',NULL),
+ (94,'2020-09-19 09:41:31','2020-09-19 09:41:29',22,0,1,21,'L',NULL,'MARA',NULL),
+ (101,'2020-09-19 09:58:48','2020-09-19 09:58:47',3,0,5,93.75,'L',NULL,'MARA',NULL),
+ (104,'2020-09-19 11:52:09',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (107,'2020-09-19 12:59:52',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (109,'2020-09-19 13:05:15',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
+ (111,'2020-09-19 13:13:08',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (112,'2020-09-19 13:17:36',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (113,'2020-09-19 13:19:19',NULL,3,NULL,NULL,NULL,'D',82,NULL,'2020-09-19 13:19:19'),
+ (114,'2020-09-19 13:22:14',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (115,'2020-09-19 13:24:03',NULL,1,NULL,NULL,NULL,'D',17,NULL,'2020-09-19 13:24:03'),
+ (116,'2020-09-19 13:25:47',NULL,1,NULL,NULL,NULL,'D',18,NULL,'2020-09-19 13:25:47'),
+ (117,'2020-09-19 13:36:24',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (118,'2020-09-19 13:38:09',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (119,'2020-09-19 13:39:47',NULL,3,NULL,6,630,'D',82,'MARA','2020-09-19 13:39:47'),
+ (120,'2020-09-20 10:24:43','2020-09-20 10:24:42',2,0,8,243.75,'L',NULL,'MARA',NULL),
+ (121,'2020-09-20 10:26:24',NULL,2,NULL,3,56.25,'D',120,'MARA','2020-09-20 10:26:24');
 /*!40000 ALTER TABLE `locacao` ENABLE KEYS */;
 
 
@@ -172,7 +207,7 @@ CREATE TABLE `locacaoitens` (
   PRIMARY KEY (`id_locacaoitens`),
   KEY `FK_locacaoitens_idLocacao` (`idLocacao_locacaoitens`),
   CONSTRAINT `FK_locacaoitens_idLocacao` FOREIGN KEY (`idLocacao_locacaoitens`) REFERENCES `locacao` (`id_locacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`locacaoitens`
@@ -204,14 +239,10 @@ INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLoc
  (22,5,25,25,55,25,1,NULL,0),
  (23,3,15,15,65,26,1,NULL,0),
  (24,13,65,65,5,26,1,NULL,0),
- (25,1,5,5,55,27,1,'D',0),
- (26,3,15,15,65,28,1,'D',0),
- (27,1,18.75,18.75,12.5,29,1,'L',0);
-INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
+ (27,1,18.75,18.75,12.5,29,1,'L',0),
  (28,1,18.75,18.75,12.5,30,1,'L',0),
- (29,1,900,900,600,31,1,'L',7),
- (30,1,225,225,150,32,1,'L',6),
- (31,4,21.375,21.375,14.25,32,1,'L',0),
+ (29,1,900,900,600,31,1,'L',7);
+INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
  (32,1,450,450,300,33,1,'L',1),
  (33,1,450,450,300,34,2,'L',1),
  (34,3,21,21,14,34,1,'L',0),
@@ -231,18 +262,63 @@ INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLoc
  (48,3,21,21,14,41,1,'L',0),
  (49,15,37.5,37.5,25,41,1,'L',0),
  (50,1,450,450,300,42,1,'L',1),
- (51,15,37.5,37.5,25,42,1,'L',0);
-INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
+ (51,15,37.5,37.5,25,42,1,'L',0),
  (52,3,21,21,14,43,1,'L',0),
  (53,3,21,21,14,44,1,'L',0),
  (54,3,21,21,14,45,1,'L',0),
  (55,3,21,21,14,46,1,'L',0),
- (56,3,21,21,14,47,1,'L',0),
+ (56,3,21,21,14,47,1,'L',0);
+INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
  (57,3,21,21,14,48,1,'L',0),
  (58,3,21,21,14,49,1,'L',0),
  (59,1,900,900,600,50,1,'L',7),
  (60,3,105,105,70,50,1,'L',3),
- (61,2,19.5,19.5,13,51,1,'L',0);
+ (61,2,19.5,19.5,13,51,1,'L',0),
+ (64,1,18.75,18.75,12.5,53,1,'L',0),
+ (66,1,18.75,18.75,12.5,55,1,'L',0),
+ (67,1,225,225,150,55,1,'L',6),
+ (68,1,450,450,300,56,1,'L',1),
+ (69,15,37.5,37.5,25,56,1,'L',0),
+ (73,14,33.3,33.3,22.2,57,1,'L',0),
+ (76,11,14.775,14.775,9.85,58,1,'L',0),
+ (77,2,19.5,19.5,13,59,1,'L',0),
+ (78,3,105,105,70,59,1,'L',3),
+ (79,15,37.5,37.5,25,60,1,'L',0),
+ (80,1,900,900,600,61,1,'L',7),
+ (81,1,450,450,300,62,1,'L',1),
+ (82,1,450,450,300,63,1,'L',1),
+ (83,1,450,450,300,64,1,'L',1),
+ (84,1,5000,900,600,65,1,'L',7),
+ (85,1,18.75,18.75,12.5,76,4,'L',0),
+ (87,1,18.75,18.75,12.5,78,5,'L',0),
+ (89,15,37.5,37.5,25,80,6,'L',0),
+ (91,3,105,105,70,82,6,'L',3);
+INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
+ (93,3,21,21,14,84,5,'L',0),
+ (95,3,21,21,14,86,3,'L',0),
+ (96,3,21,21,14,88,3,'L',0),
+ (104,3,21,21,14,94,1,'L',0),
+ (111,1,18.75,18.75,12.5,101,5,'L',0),
+ (114,3,21,NULL,NULL,104,3,'D',0),
+ (117,1,225,NULL,NULL,107,3,'D',6),
+ (118,3,21,NULL,NULL,107,5,'D',0),
+ (119,15,37.5,NULL,NULL,107,1,'D',0),
+ (121,1,450,NULL,NULL,109,1,'D',1),
+ (122,15,37.5,NULL,NULL,109,1,'D',0),
+ (125,1,450,NULL,NULL,111,1,'D',1),
+ (126,15,37.5,NULL,NULL,111,1,'D',0),
+ (128,6,30,NULL,NULL,112,1,'D',0),
+ (129,3,105,NULL,NULL,113,6,'D',3),
+ (130,6,30,NULL,NULL,115,1,'D',0),
+ (131,1,5,NULL,NULL,116,1,'D',0),
+ (132,1,450,NULL,NULL,117,1,'D',1),
+ (133,15,37.5,NULL,NULL,117,1,'D',0),
+ (135,1,18.75,NULL,NULL,118,4,'D',0),
+ (136,3,105,NULL,NULL,119,6,'D',3),
+ (137,1,18.75,18.75,12.5,120,3,'L',0),
+ (138,15,37.5,37.5,25,120,5,'L',0);
+INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
+ (139,1,18.75,NULL,NULL,121,3,'D',0);
 /*!40000 ALTER TABLE `locacaoitens` ENABLE KEYS */;
 
 
@@ -433,11 +509,42 @@ INSERT INTO `produtovariacao` (`id_produtovariacao`,`idproduto_produtovariacao`,
 
 
 --
+-- Table structure for table `centaurus`.`usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `login_usuario` varchar(45) DEFAULT NULL,
+  `senha_usuario` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `centaurus`.`usuario`
+--
+
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` (`id_usuario`,`login_usuario`,`senha_usuario`) VALUES 
+ (1,'MAYCON','123'),
+ (2,'MARA','123');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+
+
+--
 -- View structure for view `centaurus`.`viewbuscarproduto`
 --
 
 DROP VIEW IF EXISTS `viewbuscarproduto`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`sistema`@`%` SQL SECURITY DEFINER VIEW `centaurus`.`viewbuscarproduto` AS select `centaurus`.`produto`.`ativo_produto` AS `ativo_produto`,`centaurus`.`produto`.`descontinuado_produto` AS `descontinuado_produto`,`centaurus`.`produto`.`tipoitem_produto` AS `tipoitem_produto`,`centaurus`.`produto`.`id_produto` AS `id_produto`,`centaurus`.`produto`.`descricao_produto` AS `descricao_produto`,`centaurus`.`produto`.`unidade_produto` AS `unidade_produto`,`centaurus`.`produto`.`venda_produto` AS `venda_produto`,`centaurus`.`produto`.`saldo_produto` AS `saldo_produto`,`centaurus`.`produto`.`marca_produto` AS `marca_produto`,`centaurus`.`produto`.`categoria_produto` AS `categoria_produto`,`centaurus`.`produto`.`subcategoria_produto` AS `subcategoria_produto`,`centaurus`.`produto`.`fornecedor_produto` AS `fornecedor_produto`,`centaurus`.`produto`.`codfabricante_produto` AS `codfabricante_produto`,`centaurus`.`produto`.`codbarras_produto` AS `codbarras_produto`,`centaurus`.`produto`.`codinterno_produto` AS `codinterno_produto`,`centaurus`.`produto`.`dataCadastro_produto` AS `dataCadastro_produto`,`centaurus`.`produto`.`dataAlteracao_produto` AS `dataAlteracao_produto`,`centaurus`.`produto`.`usuarioCadastro_produto` AS `usuarioCadastro_produto`,`centaurus`.`produto`.`usuarioAlteracao_produto` AS `usuarioAlteracao_produto`,`centaurus`.`produto`.`ultimoCustoCompra_produto` AS `ultimoCustoCompra_produto`,`centaurus`.`produto`.`custoanterior_produto` AS `custoAnterior_produto`,`centaurus`.`produto`.`custofinal_produto` AS `custofinal_produto`,`marc`.`descricao_marca` AS `descricao_marca`,`cat`.`descricao_categoria` AS `categoria`,`subcat`.`descricao_categoria` AS `subcategoria`,`forne`.`nome_fantasia_participante` AS `fornecedor` from ((((`centaurus`.`produto` left join `centaurus`.`marca` `marc` on((`marc`.`id_marca` = `centaurus`.`produto`.`marca_produto`))) left join `centaurus`.`categoria` `cat` on((`cat`.`id_categoria` = `centaurus`.`produto`.`categoria_produto`))) left join `centaurus`.`categoria` `subcat` on((`subcat`.`id_categoria` = `centaurus`.`produto`.`subcategoria_produto`))) left join `centaurus`.`participante` `forne` on((`forne`.`id_partipante` = `centaurus`.`produto`.`fornecedor_produto`)));
+
+
+--
+-- View structure for view `centaurus`.`viewlistarlocacaoitensdev`
+--
+
+DROP VIEW IF EXISTS `viewlistarlocacaoitensdev`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`sistema`@`%` SQL SECURITY DEFINER VIEW `centaurus`.`viewlistarlocacaoitensdev` AS select `loci`.`idProduto_locacaoitens` AS `IDProduto`,`loci`.`idVariacaoProduto_locacaoitens` AS `IDProdutoVariacao`,`prod`.`descricao_produto` AS `Descricao`,if((`loci`.`idVariacaoProduto_locacaoitens` = 0),`prod`.`unidade_produto`,concat(`centaurus`.`produtovariacao`.`unidade_produtovariacao`,'/',`centaurus`.`produtovariacao`.`quantidade_produtovariacao`)) AS `UN`,(`loci`.`valorLocado_locacaoitens` - (select (`centaurus`.`locacao`.`desconto_locacao` / `centaurus`.`locacao`.`qtdItens_locacao`) from `centaurus`.`locacao` where (`centaurus`.`locacao`.`id_locacao` = `loc`.`id_locacao`))) AS `ValorLocado`,`loci`.`qtdLocada_locacaoitens` AS `QtdLocada`,if(((select sum(`locdev`.`qtdLocada_locacaoitens`) from (`centaurus`.`locacaoitens` `locdev` join `centaurus`.`locacao` on((`centaurus`.`locacao`.`id_locacao` = `locdev`.`idLocacao_locacaoitens`))) where ((`centaurus`.`locacao`.`numerolocacaodev_locacao` = `loc`.`id_locacao`) and (`loci`.`idProduto_locacaoitens` = `locdev`.`idProduto_locacaoitens`))) <> 0),(select sum(`locdev`.`qtdLocada_locacaoitens`) from (`centaurus`.`locacaoitens` `locdev` join `centaurus`.`locacao` on((`centaurus`.`locacao`.`id_locacao` = `locdev`.`idLocacao_locacaoitens`))) where ((`centaurus`.`locacao`.`numerolocacaodev_locacao` = `loc`.`id_locacao`) and (`loci`.`idProduto_locacaoitens` = `locdev`.`idProduto_locacaoitens`))),0) AS `QtdDevolvida`,if(((`loci`.`qtdLocada_locacaoitens` - (select sum(`locdev`.`qtdLocada_locacaoitens`) from (`centaurus`.`locacaoitens` `locdev` join `centaurus`.`locacao` on((`centaurus`.`locacao`.`id_locacao` = `locdev`.`idLocacao_locacaoitens`))) where ((`centaurus`.`locacao`.`numerolocacaodev_locacao` = `loc`.`id_locacao`) and (`loci`.`idProduto_locacaoitens` = `locdev`.`idProduto_locacaoitens`)))) = 0),(`loci`.`qtdLocada_locacaoitens` - (select sum(`locdev`.`qtdLocada_locacaoitens`) from (`centaurus`.`locacaoitens` `locdev` join `centaurus`.`locacao` on((`centaurus`.`locacao`.`id_locacao` = `locdev`.`idLocacao_locacaoitens`))) where ((`centaurus`.`locacao`.`numerolocacaodev_locacao` = `loc`.`id_locacao`) and (`loci`.`idProduto_locacaoitens` = `locdev`.`idProduto_locacaoitens`)))),`loci`.`qtdLocada_locacaoitens`) AS `Restante`,`marc`.`descricao_marca` AS `Marca`,`cat`.`descricao_categoria` AS `Categoria`,`subcat`.`descricao_categoria` AS `SubCategoria`,`forn`.`nome_fantasia_participante` AS `Fornecedor`,`prod`.`codfabricante_produto` AS `Cod.Fabricante`,`prod`.`codinterno_produto` AS `Cod.Interno`,`loc`.`id_locacao` AS `IDLocacao` from (((((((`centaurus`.`locacaoitens` `loci` join `centaurus`.`produto` `prod` on((`loci`.`idProduto_locacaoitens` = `prod`.`id_produto`))) left join `centaurus`.`marca` `marc` on((`prod`.`marca_produto` = `marc`.`id_marca`))) left join `centaurus`.`categoria` `cat` on((`cat`.`id_categoria` = `prod`.`categoria_produto`))) left join `centaurus`.`categoria` `subcat` on((`subcat`.`id_categoria` = `prod`.`subcategoria_produto`))) left join `centaurus`.`participante` `forn` on((`forn`.`id_partipante` = `prod`.`fornecedor_produto`))) left join `centaurus`.`produtovariacao` on((`centaurus`.`produtovariacao`.`id_produtovariacao` = `loci`.`idProduto_locacaoitens`))) join `centaurus`.`locacao` `loc` on((`loc`.`id_locacao` = `loci`.`idLocacao_locacaoitens`)));
 
 
 --
@@ -477,7 +584,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`sistema`@`%` SQL SECURITY DEFINER VIEW `cent
 --
 
 DROP VIEW IF EXISTS `viewlocacaoitens`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`sistema`@`%` SQL SECURITY DEFINER VIEW `centaurus`.`viewlocacaoitens` AS select `centaurus`.`locacaoitens`.`idProduto_locacaoitens` AS `Codigo`,`centaurus`.`locacaoitens`.`idVariacaoProduto_locacaoitens` AS `CodigoProdutoVariacao`,`centaurus`.`produto`.`descricao_produto` AS `Descricao`,if((`centaurus`.`locacaoitens`.`idVariacaoProduto_locacaoitens` = 0),`centaurus`.`produto`.`unidade_produto`,`centaurus`.`produtovariacao`.`unidade_produtovariacao`) AS `UN`,`centaurus`.`locacaoitens`.`qtdLocada_locacaoitens` AS `QtdLocada`,`centaurus`.`locacaoitens`.`valorLocado_locacaoitens` AS `ValorLocado`,(`centaurus`.`locacaoitens`.`valorLocado_locacaoitens` * `centaurus`.`locacaoitens`.`qtdLocada_locacaoitens`) AS `ValorTotal`,`centaurus`.`marca`.`descricao_marca` AS `Marca`,`cat`.`descricao_categoria` AS `Categoria`,`subcat`.`descricao_categoria` AS `SubCategoria`,`centaurus`.`participante`.`nome_fantasia_participante` AS `Fornecedor`,`centaurus`.`locacaoitens`.`idLocacao_locacaoitens` AS `idLocacao_locacaoitens` from ((((((`centaurus`.`locacaoitens` left join `centaurus`.`produtovariacao` on((`centaurus`.`produtovariacao`.`id_produtovariacao` = `centaurus`.`locacaoitens`.`idProduto_locacaoitens`))) join `centaurus`.`produto` on((`centaurus`.`produto`.`id_produto` = `centaurus`.`locacaoitens`.`idProduto_locacaoitens`))) left join `centaurus`.`marca` on((`centaurus`.`marca`.`id_marca` = `centaurus`.`produto`.`marca_produto`))) left join `centaurus`.`categoria` `cat` on((`cat`.`id_categoria` = `centaurus`.`produto`.`categoria_produto`))) left join `centaurus`.`categoria` `subcat` on((`subcat`.`id_categoria` = `centaurus`.`produto`.`subcategoria_produto`))) left join `centaurus`.`participante` on((`centaurus`.`participante`.`id_partipante` = `centaurus`.`produto`.`fornecedor_produto`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`sistema`@`%` SQL SECURITY DEFINER VIEW `centaurus`.`viewlocacaoitens` AS select `centaurus`.`locacaoitens`.`idProduto_locacaoitens` AS `Codigo`,`centaurus`.`locacaoitens`.`idVariacaoProduto_locacaoitens` AS `CodigoProdutoVariacao`,`centaurus`.`produto`.`descricao_produto` AS `Descricao`,if((`centaurus`.`locacaoitens`.`idVariacaoProduto_locacaoitens` = 0),`centaurus`.`produto`.`unidade_produto`,`centaurus`.`produtovariacao`.`unidade_produtovariacao`) AS `UN`,`centaurus`.`locacaoitens`.`qtdLocada_locacaoitens` AS `QtdLocada`,`centaurus`.`locacaoitens`.`valorLocado_locacaoitens` AS `ValorLocado`,(`centaurus`.`locacaoitens`.`valorLocado_locacaoitens` * `centaurus`.`locacaoitens`.`qtdLocada_locacaoitens`) AS `ValorTotal`,`centaurus`.`marca`.`descricao_marca` AS `Marca`,`cat`.`descricao_categoria` AS `Categoria`,`subcat`.`descricao_categoria` AS `SubCategoria`,`centaurus`.`participante`.`nome_fantasia_participante` AS `Fornecedor`,`centaurus`.`locacaoitens`.`idLocacao_locacaoitens` AS `idLocacao_locacaoitens`,`centaurus`.`locacaoitens`.`id_locacaoitens` AS `idlocacaoitens` from ((((((`centaurus`.`locacaoitens` left join `centaurus`.`produtovariacao` on((`centaurus`.`produtovariacao`.`id_produtovariacao` = `centaurus`.`locacaoitens`.`idProduto_locacaoitens`))) join `centaurus`.`produto` on((`centaurus`.`produto`.`id_produto` = `centaurus`.`locacaoitens`.`idProduto_locacaoitens`))) left join `centaurus`.`marca` on((`centaurus`.`marca`.`id_marca` = `centaurus`.`produto`.`marca_produto`))) left join `centaurus`.`categoria` `cat` on((`cat`.`id_categoria` = `centaurus`.`produto`.`categoria_produto`))) left join `centaurus`.`categoria` `subcat` on((`subcat`.`id_categoria` = `centaurus`.`produto`.`subcategoria_produto`))) left join `centaurus`.`participante` on((`centaurus`.`participante`.`id_partipante` = `centaurus`.`produto`.`fornecedor_produto`)));
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

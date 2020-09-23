@@ -288,6 +288,7 @@
             this.buttonBuscarItemDev.Size = new System.Drawing.Size(25, 24);
             this.buttonBuscarItemDev.TabIndex = 103;
             this.buttonBuscarItemDev.UseVisualStyleBackColor = true;
+            this.buttonBuscarItemDev.Click += new System.EventHandler(this.buttonBuscarItemDev_Click);
             // 
             // textBoxCodigoItemDev
             // 

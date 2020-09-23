@@ -24,6 +24,8 @@ namespace Centaurus
 
         FrmConsultaLocacao frmConsultaLocacao;
 
+        FrmConsultaProdutoDevolucao frmConsultaProdDev;
+
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
 
         public FrmLocacaoDevolucao(string idLocacaoRetornada,string usuarioLogado)
@@ -494,5 +496,22 @@ namespace Centaurus
 
         }
 
+        private void buttonBuscarItemDev_Click(object sender, EventArgs e)
+        {
+            frmConsultaProdDev = new FrmConsultaProdutoDevolucao();
+            DialogResult dr = frmConsultaProdDev.ShowDialog(this);
+            /*
+            idClienteReturn = frmConsultaLocacao.idClienteEnvia;
+            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            {
+                MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                
+            }
+            */
+
+        }
     }
 }
