@@ -33,9 +33,9 @@
             this.toolStripTextBoxFiltroDevLocacao = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripComboBoxTipoFiltroDevLocacao = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFiltrarDevLocacao = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSelecionarDevLocacao = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewProdutosDevLocacao = new System.Windows.Forms.DataGridView();
             this.textBoxProdutoClicado = new System.Windows.Forms.TextBox();
-            this.toolStripButtonSelecionarDevLocacao = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosDevLocacao)).BeginInit();
             this.SuspendLayout();
@@ -91,24 +91,6 @@
             this.toolStripButtonFiltrarDevLocacao.Size = new System.Drawing.Size(71, 22);
             this.toolStripButtonFiltrarDevLocacao.Text = "PESQUISAR";
             // 
-            // dataGridViewProdutosDevLocacao
-            // 
-            this.dataGridViewProdutosDevLocacao.AllowUserToAddRows = false;
-            this.dataGridViewProdutosDevLocacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProdutosDevLocacao.Location = new System.Drawing.Point(12, 91);
-            this.dataGridViewProdutosDevLocacao.Name = "dataGridViewProdutosDevLocacao";
-            this.dataGridViewProdutosDevLocacao.ReadOnly = true;
-            this.dataGridViewProdutosDevLocacao.Size = new System.Drawing.Size(660, 179);
-            this.dataGridViewProdutosDevLocacao.TabIndex = 50;
-            // 
-            // textBoxProdutoClicado
-            // 
-            this.textBoxProdutoClicado.Enabled = false;
-            this.textBoxProdutoClicado.Location = new System.Drawing.Point(12, 12);
-            this.textBoxProdutoClicado.Name = "textBoxProdutoClicado";
-            this.textBoxProdutoClicado.Size = new System.Drawing.Size(250, 20);
-            this.textBoxProdutoClicado.TabIndex = 51;
-            // 
             // toolStripButtonSelecionarDevLocacao
             // 
             this.toolStripButtonSelecionarDevLocacao.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -120,6 +102,25 @@
             this.toolStripButtonSelecionarDevLocacao.Size = new System.Drawing.Size(79, 22);
             this.toolStripButtonSelecionarDevLocacao.Text = "SELECIONAR";
             this.toolStripButtonSelecionarDevLocacao.Click += new System.EventHandler(this.toolStripButtonSelecionar_Click);
+            // 
+            // dataGridViewProdutosDevLocacao
+            // 
+            this.dataGridViewProdutosDevLocacao.AllowUserToAddRows = false;
+            this.dataGridViewProdutosDevLocacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProdutosDevLocacao.Location = new System.Drawing.Point(12, 91);
+            this.dataGridViewProdutosDevLocacao.Name = "dataGridViewProdutosDevLocacao";
+            this.dataGridViewProdutosDevLocacao.ReadOnly = true;
+            this.dataGridViewProdutosDevLocacao.Size = new System.Drawing.Size(660, 232);
+            this.dataGridViewProdutosDevLocacao.TabIndex = 50;
+            this.dataGridViewProdutosDevLocacao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProdutosDevLocacao_CellClick);
+            // 
+            // textBoxProdutoClicado
+            // 
+            this.textBoxProdutoClicado.Enabled = false;
+            this.textBoxProdutoClicado.Location = new System.Drawing.Point(12, 12);
+            this.textBoxProdutoClicado.Name = "textBoxProdutoClicado";
+            this.textBoxProdutoClicado.Size = new System.Drawing.Size(250, 20);
+            this.textBoxProdutoClicado.TabIndex = 51;
             // 
             // FrmConsultaProdutoDevolucao
             // 

@@ -46,7 +46,7 @@ namespace Centaurus.DAL
         }
 
         //Método inserir itens locação devolução copiando dados da locação
-        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        public void importarItemLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
             {
@@ -214,6 +214,45 @@ namespace Centaurus.DAL
             catch (Exception erro)
             {
                 throw new Exception("Erro ao excluir o item da devolução, classe DAO: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Inicio código fonte pesquisa os itens para devolução da locação informada
+        public DataTable listarItensParaDevolucao(string filtro)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '"+filtro+"' order by IDLocacao");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao pesquisar itens da devolução: " + ex.Message);
+            }
+            return dt;
+        }
+
+        //Método inserir item manualmente na devolução da locação
+        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, "+
+                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) values(@idProd, @valo, @idLoca, @qtd, @tipo, @idvariacao)",conexao);
+                comando.Parameters.AddWithValue("@idProd", modLocacaoDev.idClienteLocacaoDev);
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao inserir item, classe DAO " + erro.Message);
             }
             finally
             {

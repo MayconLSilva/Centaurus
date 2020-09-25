@@ -118,6 +118,7 @@
             this.menuLocacaoDevCancelar.Name = "menuLocacaoDevCancelar";
             this.menuLocacaoDevCancelar.Size = new System.Drawing.Size(95, 20);
             this.menuLocacaoDevCancelar.Text = "CANCELAR";
+            this.menuLocacaoDevCancelar.Click += new System.EventHandler(this.menuLocacaoDevCancelar_Click);
             // 
             // menuLocacaoDevExcluir
             // 
@@ -219,6 +220,7 @@
             this.textBoxQuantidadeItemDev.Name = "textBoxQuantidadeItemDev";
             this.textBoxQuantidadeItemDev.Size = new System.Drawing.Size(51, 20);
             this.textBoxQuantidadeItemDev.TabIndex = 104;
+            this.textBoxQuantidadeItemDev.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQuantidadeItemDev_KeyPress);
             // 
             // labelNomeProduto
             // 
@@ -261,6 +263,7 @@
             this.buttonAdicionarItemDev.Size = new System.Drawing.Size(25, 24);
             this.buttonAdicionarItemDev.TabIndex = 106;
             this.buttonAdicionarItemDev.UseVisualStyleBackColor = true;
+            this.buttonAdicionarItemDev.Click += new System.EventHandler(this.buttonAdicionarItemDev_Click);
             // 
             // textBoxValorDev
             // 

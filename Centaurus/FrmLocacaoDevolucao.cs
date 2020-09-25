@@ -19,6 +19,7 @@ namespace Centaurus
         string usuarioLogadoSistema;
         string idLocacaoReturn;
         string idClienteReturn;
+        string qtdRestanteProdutoReturn;
 
         string codigoItem;//váriaveis para guardar informações para posterior exclusão do item da tabela devolução.
 
@@ -40,12 +41,12 @@ namespace Centaurus
             idLocacaoReturn = idLocacaoRetornada;
 
             if(String.IsNullOrEmpty(idLocacaoRetornada) == true)
-            {
+            {   //Aqui é a locação gerada manualmente caso queira importar algo
                 
             }
             else
             {
-                Console.WriteLine("locação automática "+idLocacaoRetornada);
+                //Aqui entra na locação automática gerada a partir da tela locação
                 botaoClicado = "INICIAL-EDIT";
                 textBoxUsuarioLocacaoDev.Text = usuarioLogadoSistema;
                 textBoxNumeroLocacaoDev.Text = idLocacaoRetornada;
@@ -141,7 +142,7 @@ namespace Centaurus
                     comboBoxFiltroDev.Enabled = true;
                     textBoxCodigoItemDev.Enabled = true;
                     textBoxQuantidadeItemDev.Enabled = true;
-                    textBoxValorDev.Enabled = true;
+                    textBoxValorDev.Enabled = false;
                     textBoxVolumeDev.Enabled = false;
                     textBoxQtdItemDev.Enabled = false;
                     textBoxTotalDev.Enabled = false;
@@ -172,7 +173,7 @@ namespace Centaurus
                     comboBoxFiltroDev.Enabled = true;
                     textBoxCodigoItemDev.Enabled = true;
                     textBoxQuantidadeItemDev.Enabled = true;
-                    textBoxValorDev.Enabled = true;
+                    textBoxValorDev.Enabled = false;
                     textBoxVolumeDev.Enabled = false;
                     textBoxQtdItemDev.Enabled = false;
                     textBoxTotalDev.Enabled = false;
@@ -258,6 +259,50 @@ namespace Centaurus
                     textBoxTotalDev.Enabled = false;
 
                     dataGridViewLocaoDev.Enabled = false;
+
+                    break;
+
+                case "CANCELAR":
+
+                    menuLocacaoDevNovo.Enabled = true;
+                    menuLocacaoDevGravar.Enabled = false;
+                    menuLocacaoDevEditar.Enabled = false;
+                    menuLocacaoDevCancelar.Enabled = false;
+                    menuLocacaoDevExcluir.Enabled = false;
+
+                    buttonBuscarLocacoesDev.Enabled = true;
+                    buttonBuscarItemDev.Enabled = false;
+                    buttonAdicionarItemDev.Enabled = false;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = true;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = false;
+                    textBoxCodigoItemDev.Enabled = false;
+                    textBoxQuantidadeItemDev.Enabled = false;
+                    textBoxValorDev.Enabled = false;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;
+
+                    dataGridViewLocaoDev.Enabled = false;
+
+                    textBoxCodigoDev.Clear();
+                    textBoxClienteDev.Clear();
+                    textBoxDataLancamentoDev.Clear();
+                    textBoxUsuarioLocacaoDev.Clear();
+                    textBoxNumeroLocacaoDev.Clear();
+                    //comboBoxFiltroDev.Clear();
+                    textBoxCodigoItemDev.Clear();
+                    textBoxQuantidadeItemDev.Clear();
+                    textBoxValorDev.Clear();
+                    textBoxVolumeDev.Text = "0";
+                    textBoxQtdItemDev.Text = "0";
+                    textBoxTotalDev.Text = "0";
 
                     break;
             }
@@ -438,9 +483,18 @@ namespace Centaurus
                 var result = MessageBox.Show("Deseja importar os itens da locação na devolução? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
+                    //Método gera id da locação para vincular nos itens que serão importados
                     LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
                     gerarIDImportarItens(modLocDev);
 
+                    //Método importar os itens da locação para devolução da locação
+                    LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
+                    LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
+                    modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+                    modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+                    locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
+
+                    //Método carrega os itens na tabela
                     carregarItens();
                 }
 
@@ -469,6 +523,7 @@ namespace Centaurus
             }
         }
 
+        //Método gerar id da devolução da locação e setar no campo
         public void gerarIDImportarItens(LocacaoDevolucaoModelo modLocDev)
         {
             LocacaoDevolucaoDAO daoLocDev = new LocacaoDevolucaoDAO();
@@ -486,32 +541,77 @@ namespace Centaurus
             string idReturn = daoLocDev.numeroIncluido;
             textBoxCodigoDev.Text = idReturn;
 
-
-            //Método importar os itens  
-            LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
-            LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
-            modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
-            modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
-            locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
-
         }
 
         private void buttonBuscarItemDev_Click(object sender, EventArgs e)
         {
-            frmConsultaProdDev = new FrmConsultaProdutoDevolucao();
-            DialogResult dr = frmConsultaProdDev.ShowDialog(this);
-            /*
-            idClienteReturn = frmConsultaLocacao.idClienteEnvia;
-            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            if(String.IsNullOrEmpty(textBoxNumeroLocacaoDev.Text) == true)
             {
-                MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Você não selecionou nenhuma locação!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                frmConsultaProdDev = new FrmConsultaProdutoDevolucao(textBoxNumeroLocacaoDev.Text);
+                DialogResult dr = frmConsultaProdDev.ShowDialog(this);
                 
-            }
-            */
+                string idProduto = frmConsultaProdDev.idProdutoEnvia;
+                if (String.IsNullOrEmpty(idProduto) == true)
+                {
+                    MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    textBoxCodigoItemDev.Text = idProduto;
+                    string idProdutoVariacao = frmConsultaProdDev.idVariacaoProdutoEnvia;
+                    string valorProdutoLocado = frmConsultaProdDev.valorLocadoProdutoEnvia;
 
+                    textBoxValorDev.Text = valorProdutoLocado;
+                    textBoxQuantidadeItemDev.Text = "1";
+
+                    qtdRestanteProdutoReturn = frmConsultaProdDev.qtdRestanteProdutoEnvia;
+                }                
+            }
+        }
+
+        private void textBoxQuantidadeItemDev_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void buttonAdicionarItemDev_Click(object sender, EventArgs e)
+        {
+            if(Convert.ToInt32(textBoxQuantidadeItemDev.Text) > Convert.ToInt32(qtdRestanteProdutoReturn))
+            {
+                MessageBox.Show("Quantidade informada maior que a disponivel para devolução! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                if (String.IsNullOrEmpty(textBoxCodigoDev.Text) == true)
+                {
+                    LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
+                    gerarIDImportarItens(modLocDev);
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void menuLocacaoDevCancelar_Click(object sender, EventArgs e)
+        {
+            botaoClicado = "CANCELAR";
+            inativarBotoesCampos();
         }
     }
 }
