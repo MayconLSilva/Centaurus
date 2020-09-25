@@ -19,5 +19,12 @@ namespace Centaurus.DTO
         public string usuarioLocacaoDev { get; set; }
         public int codigoItem { get; set; }
 
+        //váriaveis ref. aos itens
+        public int idProdutoDevLocacao { get; set; }
+        public int idProdutoVariacaoDevLocacao { get; set; }
+        public float valorProdutoDevLocacao { get; set; }
+        public double qtdProdutoDevLocacao { get; set; }
+
+
     }
 }

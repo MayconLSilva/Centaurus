@@ -26,7 +26,7 @@ namespace Centaurus.BLL
             }
         }
 
-        public void inserirItemLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
+        public void importarItensLocacaoDev(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
             {
@@ -35,6 +35,18 @@ namespace Centaurus.BLL
             catch(Exception erro)
             {
                 throw new Exception("Erro ao inserir item da devolução, classe BLL " + erro.Message);
+            }
+        }
+
+        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.inserirItemDevLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao inserir o item!" + erro.Message);
             }
         }
 
@@ -70,6 +82,18 @@ namespace Centaurus.BLL
             }catch(Exception erro)
             {
                 throw erro;
+            }
+        }
+
+        public void excluirLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.excluirDevolucaoLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao excluir locação, classe BLL" + erro.Message);
             }
         }
 

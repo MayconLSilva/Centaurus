@@ -387,6 +387,7 @@
             this.buttonBuscarLocacoesDev.Size = new System.Drawing.Size(50, 24);
             this.buttonBuscarLocacoesDev.TabIndex = 110;
             this.buttonBuscarLocacoesDev.UseVisualStyleBackColor = true;
+            this.buttonBuscarLocacoesDev.Click += new System.EventHandler(this.buttonBuscarLocacoesDev_Click);
             // 
             // textBoxCodigoDev
             // 

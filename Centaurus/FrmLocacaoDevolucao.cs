@@ -17,14 +17,14 @@ namespace Centaurus
     {
         string botaoClicado= "INICIAL";
         string usuarioLogadoSistema;
-        string idLocacaoReturn;
-        string idClienteReturn;
+        string idLocacaoReturn;//Váriavel para guardar o id da locação vinda da tela locação quando gerado devolução automática
+        string idClienteReturn;//Váriavel para guardar o id do cliente vinda da tela locação quando pesquisado a locação para devolução
         string qtdRestanteProdutoReturn;
+        string idProdutovariacaoReturn;
 
-        string codigoItem;//váriaveis para guardar informações para posterior exclusão do item da tabela devolução.
+        string codigoItemClicado;//váriaveis para guardar informações para posterior exclusão do item da tabela devolução.
 
         FrmConsultaLocacao frmConsultaLocacao;
-
         FrmConsultaProdutoDevolucao frmConsultaProdDev;
 
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
@@ -62,7 +62,7 @@ namespace Centaurus
 
                     modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
                     modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
-                    locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
+                    locacaoDevBLL.importarItensLocacaoDev(modLocacaoDev);
 
                     carregarItens();
                 }         
@@ -305,6 +305,50 @@ namespace Centaurus
                     textBoxTotalDev.Text = "0";
 
                     break;
+
+                case "EXCLUIR":
+
+                    menuLocacaoDevNovo.Enabled = true;
+                    menuLocacaoDevGravar.Enabled = false;
+                    menuLocacaoDevEditar.Enabled = false;
+                    menuLocacaoDevCancelar.Enabled = false;
+                    menuLocacaoDevExcluir.Enabled = false;
+
+                    buttonBuscarLocacoesDev.Enabled = true;
+                    buttonBuscarItemDev.Enabled = false;
+                    buttonAdicionarItemDev.Enabled = false;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = true;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = false;
+                    textBoxCodigoItemDev.Enabled = false;
+                    textBoxQuantidadeItemDev.Enabled = false;
+                    textBoxValorDev.Enabled = false;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;
+
+                    dataGridViewLocaoDev.Enabled = false;
+
+                    textBoxCodigoDev.Clear();
+                    textBoxClienteDev.Clear();
+                    textBoxDataLancamentoDev.Clear();
+                    textBoxUsuarioLocacaoDev.Clear();
+                    textBoxNumeroLocacaoDev.Clear();
+                    //comboBoxFiltroDev.Clear();
+                    textBoxCodigoItemDev.Clear();
+                    textBoxQuantidadeItemDev.Clear();
+                    textBoxValorDev.Clear();
+                    textBoxVolumeDev.Text = "0";
+                    textBoxQtdItemDev.Text = "0";
+                    textBoxTotalDev.Text = "0";
+
+                    break;
             }
         }
 
@@ -392,16 +436,6 @@ namespace Centaurus
             //Método para contar a quantidade de itens na tabela
             textBoxQtdItemDev.Text = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["QtdLocada"].Value)).ToString("N2");
 
-            //Método para fazer o calculo de desconto e aplicar no campo total
-            /*
-            somadoGrid = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
-            valorDesconto = Convert.ToSingle(textBoxDesconto.Text);
-            float resultadoTotal = somadoGrid - valorDesconto;
-            decimal resultadoTotalConvertido;
-            resultadoTotalConvertido = Convert.ToDecimal(resultadoTotal.ToString("N2"));
-            textBoxTotal.Text = Convert.ToString(resultadoTotalConvertido);
-            */
-
             //Método para fazer o calculo do total de itens e setar no campo
             float somadoGridTotalItens = dataGridViewLocaoDev.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToSingle(i.Cells["ValorTotal"].Value));
             decimal resultadoTotalItens;
@@ -459,7 +493,7 @@ namespace Centaurus
         {
             buttonExcluirItemDev.Enabled = true;
 
-            codigoItem = dataGridViewLocaoDev.Rows[e.RowIndex].Cells[12].Value.ToString();
+            codigoItemClicado = dataGridViewLocaoDev.Rows[e.RowIndex].Cells[12].Value.ToString();
         }
 
         private void buttonBuscarLocacao_Click(object sender, EventArgs e)
@@ -485,14 +519,14 @@ namespace Centaurus
                 {
                     //Método gera id da locação para vincular nos itens que serão importados
                     LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
-                    gerarIDImportarItens(modLocDev);
+                    gerarID(modLocDev);
 
                     //Método importar os itens da locação para devolução da locação
                     LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
                     LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
                     modLocacaoDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
                     modLocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
-                    locacaoDevBLL.inserirItemLocacaoDev(modLocacaoDev);
+                    locacaoDevBLL.importarItensLocacaoDev(modLocacaoDev);
 
                     //Método carrega os itens na tabela
                     carregarItens();
@@ -504,7 +538,14 @@ namespace Centaurus
 
         private void menuLocacaoDevExcluir_Click(object sender, EventArgs e)
         {
-            
+            var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Locação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                botaoClicado = "EXCLUIR";
+                LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
+                exluirLocacao(modLocDev);
+                inativarBotoesCampos();
+            }            
         }
 
         private void buttonExcluirItemDev_Click(object sender, EventArgs e)
@@ -515,7 +556,7 @@ namespace Centaurus
                 LocacaoDevolucaoBLL bllLocaDev = new LocacaoDevolucaoBLL();
                 LocacaoDevolucaoModelo modLocaDev = new LocacaoDevolucaoModelo();
 
-                modLocaDev.codigoItem = Convert.ToInt32(codigoItem);
+                modLocaDev.codigoItem = Convert.ToInt32(codigoItemClicado);
                 bllLocaDev.excluirItemLocacaoDev(modLocaDev);
 
                 carregarItens();
@@ -524,7 +565,7 @@ namespace Centaurus
         }
 
         //Método gerar id da devolução da locação e setar no campo
-        public void gerarIDImportarItens(LocacaoDevolucaoModelo modLocDev)
+        public void gerarID(LocacaoDevolucaoModelo modLocDev)
         {
             LocacaoDevolucaoDAO daoLocDev = new LocacaoDevolucaoDAO();
             LocacaoDevolucaoBLL bllLocDev = new LocacaoDevolucaoBLL();
@@ -562,10 +603,13 @@ namespace Centaurus
                 else
                 {
                     textBoxCodigoItemDev.Text = idProduto;
-                    string idProdutoVariacao = frmConsultaProdDev.idVariacaoProdutoEnvia;
+                    idProdutovariacaoReturn = frmConsultaProdDev.idVariacaoProdutoEnvia;
                     string valorProdutoLocado = frmConsultaProdDev.valorLocadoProdutoEnvia;
+                    float valorProdutoConvertido = Convert.ToSingle(valorProdutoLocado);
 
-                    textBoxValorDev.Text = valorProdutoLocado;
+                    decimal valorProdutoFormatado;
+                    valorProdutoFormatado = Convert.ToDecimal(valorProdutoConvertido.ToString("N2"));
+                    textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
                     textBoxQuantidadeItemDev.Text = "1";
 
                     qtdRestanteProdutoReturn = frmConsultaProdDev.qtdRestanteProdutoEnvia;
@@ -599,19 +643,65 @@ namespace Centaurus
                 if (String.IsNullOrEmpty(textBoxCodigoDev.Text) == true)
                 {
                     LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
-                    gerarIDImportarItens(modLocDev);
+                    gerarID(modLocDev);
+
+                    inserirItemDevLocacao(modLocDev);
                 }
                 else
                 {
-
+                    LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
+                    inserirItemDevLocacao(modLocDev);
                 }
             }
         }
 
         private void menuLocacaoDevCancelar_Click(object sender, EventArgs e)
         {
-            botaoClicado = "CANCELAR";
-            inativarBotoesCampos();
+            if (String.IsNullOrEmpty(textBoxCodigoDev.Text) == true)
+            {
+                botaoClicado = "CANCELAR";
+                inativarBotoesCampos();
+            }
+            else
+            {
+                LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
+                exluirLocacao(modLocDev);
+                inativarBotoesCampos();
+            }
+            
+        }
+
+        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocDev)
+        {
+            LocacaoDevolucaoBLL bllDevLoc = new LocacaoDevolucaoBLL();
+            modLocDev.idProdutoDevLocacao = Convert.ToInt32(textBoxCodigoItemDev.Text);
+            modLocDev.idProdutoVariacaoDevLocacao = Convert.ToInt32(idProdutovariacaoReturn);
+            modLocDev.qtdProdutoDevLocacao = Convert.ToDouble(textBoxQuantidadeItemDev.Text);
+            modLocDev.valorProdutoDevLocacao = Convert.ToSingle(textBoxValorDev.Text);
+            modLocDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+            bllDevLoc.inserirItemDevLocacao(modLocDev);
+
+            textBoxCodigoItemDev.Clear();
+            textBoxQuantidadeItemDev.Clear();
+            textBoxValorDev.Clear();
+            idProdutovariacaoReturn = null;
+
+            carregarItens();
+
+        }
+
+        public void exluirLocacao(LocacaoDevolucaoModelo modLocDev)
+        {
+            LocacaoDevolucaoBLL bllLocDev = new LocacaoDevolucaoBLL();
+            modLocDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+            bllLocDev.excluirLocacao(modLocDev);
+            MessageBox.Show("Devolução da locação excluida", "Excluir Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonBuscarLocacoesDev_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

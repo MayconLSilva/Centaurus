@@ -246,13 +246,39 @@ namespace Centaurus.DAL
             {
                 AbrirConexao();
                 comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, "+
-                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) values(@idProd, @valo, @idLoca, @qtd, @tipo, @idvariacao)",conexao);
-                comando.Parameters.AddWithValue("@idProd", modLocacaoDev.idClienteLocacaoDev);
+                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) values(@idProd, @valor, @idLoca, @qtd, @tipo, @idvariacao)",conexao);
+                comando.Parameters.AddWithValue("@idProd", modLocacaoDev.idProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@valor", modLocacaoDev.valorProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@idLoca", modLocacaoDev.idLocacaoDev);
+                comando.Parameters.AddWithValue("@qtd", modLocacaoDev.qtdProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@tipo", "D");
+                comando.Parameters.AddWithValue("@idvariacao", modLocacaoDev.idProdutoVariacaoDevLocacao);
+                comando.ExecuteNonQuery();
 
             }
             catch(Exception erro)
             {
                 throw new Exception("Erro ao inserir item, classe DAO " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método excluir devolução da locação
+        public void excluirDevolucaoLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("delete from locacao where id_locacao = @idLoc", conexao);
+                comando.Parameters.AddWithValue("@idLoc", modLocacaoDev.idLocacaoDev);
+                comando.ExecuteNonQuery();
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao excluir locação, classe DAO" + erro.Message);
             }
             finally
             {
