@@ -110,5 +110,9 @@ namespace Centaurus
             carregarLocacoes();
         }
 
+        private void toolStripButtonSelecionarLocacao_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

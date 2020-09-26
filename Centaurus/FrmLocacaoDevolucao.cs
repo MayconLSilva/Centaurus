@@ -26,6 +26,7 @@ namespace Centaurus
 
         FrmConsultaLocacao frmConsultaLocacao;
         FrmConsultaProdutoDevolucao frmConsultaProdDev;
+        FrmConsultaDevolucaoLocacao frmConsultaDevLoc;
 
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
 
@@ -151,7 +152,7 @@ namespace Centaurus
                   
                     break;
 
-                case "PESQUISAR":
+                case "IMPORTARLOC":
 
                     menuLocacaoDevNovo.Enabled = false;
                     menuLocacaoDevGravar.Enabled = true;
@@ -262,6 +263,42 @@ namespace Centaurus
 
                     break;
 
+                case "EDITAR":
+
+                    menuLocacaoDevNovo.Enabled = false;
+                    menuLocacaoDevGravar.Enabled = true;
+                    menuLocacaoDevEditar.Enabled = false;
+                    menuLocacaoDevCancelar.Enabled = true;
+                    menuLocacaoDevExcluir.Enabled = false;
+
+                    buttonBuscarLocacoesDev.Enabled = false;
+                    buttonBuscarItemDev.Enabled = true;//validar se importou produto
+                    buttonAdicionarItemDev.Enabled = true;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = false;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = true;
+                    textBoxCodigoItemDev.Enabled = true;
+                    textBoxQuantidadeItemDev.Enabled = true;
+                    textBoxValorDev.Enabled = false;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;
+
+                    dataGridViewLocaoDev.Enabled = true;
+
+                    if (textBoxCodigoDev.Text == null)
+                    {
+                        textBoxCodigoDev.Text = "0";
+                    }
+                    
+                    break;
+
                 case "CANCELAR":
 
                     menuLocacaoDevNovo.Enabled = true;
@@ -347,6 +384,35 @@ namespace Centaurus
                     textBoxVolumeDev.Text = "0";
                     textBoxQtdItemDev.Text = "0";
                     textBoxTotalDev.Text = "0";
+
+                    break;
+
+                case "PESQUISAR":
+
+                    menuLocacaoDevNovo.Enabled = false;
+                    menuLocacaoDevGravar.Enabled = false;
+                    menuLocacaoDevEditar.Enabled = true;
+                    menuLocacaoDevCancelar.Enabled = false;
+                    menuLocacaoDevExcluir.Enabled = true;
+
+                    buttonBuscarLocacoesDev.Enabled = false;
+                    buttonBuscarItemDev.Enabled = false;
+                    buttonAdicionarItemDev.Enabled = false;
+                    buttonExcluirItemDev.Enabled = false;
+                    buttonBuscarLocacao.Enabled = false;
+
+                    textBoxCodigoDev.Enabled = false;
+                    textBoxClienteDev.Enabled = false;
+                    textBoxDataLancamentoDev.Enabled = false;
+                    textBoxUsuarioLocacaoDev.Enabled = false;
+                    textBoxNumeroLocacaoDev.Enabled = false;
+                    comboBoxFiltroDev.Enabled = false;
+                    textBoxCodigoItemDev.Enabled = false;
+                    textBoxQuantidadeItemDev.Enabled = false;
+                    textBoxValorDev.Enabled = false;
+                    textBoxVolumeDev.Enabled = false;
+                    textBoxQtdItemDev.Enabled = false;
+                    textBoxTotalDev.Enabled = false;                                     
 
                     break;
             }
@@ -508,7 +574,7 @@ namespace Centaurus
             }
             else
             {
-                botaoClicado = "PESQUISAR";
+                botaoClicado = "IMPORTARLOC";
 
                 string nomeClienteReturn = frmConsultaLocacao.NomeClienteEnvia;
                 textBoxClienteDev.Text = idClienteReturn + " - " + nomeClienteReturn;
@@ -662,13 +728,31 @@ namespace Centaurus
                 botaoClicado = "CANCELAR";
                 inativarBotoesCampos();
             }
-            else
+            else if(textBoxCodigoDev.Text == "0")
             {
-                LocacaoDevolucaoModelo modLocDev = new LocacaoDevolucaoModelo();
-                exluirLocacao(modLocDev);
+                botaoClicado = "CANCELAR";
                 inativarBotoesCampos();
             }
-            
+            else
+            {
+                var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    LocacaoDevolucaoBLL bllLocaDev = new LocacaoDevolucaoBLL();
+                    LocacaoDevolucaoModelo modLocaDev = new LocacaoDevolucaoModelo();
+
+                    modLocaDev.codigoItem = Convert.ToInt32(codigoItemClicado);
+                    bllLocaDev.excluirItemLocacaoDev(modLocaDev);
+
+                    carregarItens();
+                    buttonExcluirItemDev.Enabled = false;
+                }
+                else
+                {
+                    botaoClicado = "CANCELAR";
+                    inativarBotoesCampos();
+                }
+            }            
         }
 
         public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocDev)
@@ -701,7 +785,35 @@ namespace Centaurus
 
         private void buttonBuscarLocacoesDev_Click(object sender, EventArgs e)
         {
+            frmConsultaDevLoc = new FrmConsultaDevolucaoLocacao();
+            DialogResult dr = frmConsultaDevLoc.ShowDialog(this);
 
+            idClienteReturn = frmConsultaDevLoc.idClienteEnvia;
+            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            {
+                MessageBox.Show("Você não selecionou nenhuma devolução!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                botaoClicado = "PESQUISAR";
+
+                string nomeClienteReturn = frmConsultaDevLoc.NomeClienteEnvia;
+                textBoxClienteDev.Text = idClienteReturn + " - " + nomeClienteReturn;
+                textBoxCodigoDev.Text = frmConsultaDevLoc.idDevLocacaoEnvia;
+                textBoxDataLancamentoDev.Text = frmConsultaDevLoc.DataLancamentoEnvia;
+                textBoxUsuarioLocacaoDev.Text = frmConsultaDevLoc.UsuarioEnvia;
+
+                //textBoxNumeroLocacaoDev.Text = frmConsultaDevLoc.idLocacaoEnvia;
+
+                carregarItens();
+                inativarBotoesCampos();
+            }
+        }
+
+        private void menuLocacaoDevEditar_Click(object sender, EventArgs e)
+        {
+            botaoClicado = "EDITAR";
+            inativarBotoesCampos();            
         }
     }
 }

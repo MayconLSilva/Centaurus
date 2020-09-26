@@ -19,7 +19,7 @@ namespace Centaurus.DAL
         public string numeroIncluido { get; set; }
 
         //Método inserir locação devolução copiando dados da locação
-        public void inserirDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        public void importarLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
             {
@@ -284,6 +284,75 @@ namespace Centaurus.DAL
             {
                 FecharConexao();
             }
+        }
+
+        //Método listar devolução da locação na pesquisa
+        public DataTable listarDevLocacao(string tipoFiltro, string filtro)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                if (tipoFiltro == "TODOS")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = '' " +
+                    " or TipoLocacao = 'D' order by codigo");
+                }
+                else if (tipoFiltro == "CLIENTE")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '%" + filtro + "%' and TipoLocacao = 'D' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = '' order by codigo");
+                }
+                else if (tipoFiltro == "DATA LANÇAMENTO")
+                {
+                    //Método chama o ultimo registro
+                    var dataConvertida = DateTime.Parse(filtro).ToString("yyyy-MM-dd HH:mm:ss");
+
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '" + dataConvertida + "' and TipoLocacao = 'D' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = '' order by codigo");
+
+                }
+                else if (tipoFiltro == "DATA DEVOLUÇÃO")
+                {
+                    //Método chama o ultimo registro
+                    var dataConvertida = DateTime.Parse(filtro).ToString("yyyy-MM-dd HH:mm:ss");
+
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '" + dataConvertida + "' and TipoLocacao = 'D' " +
+                    " or UsuarioLocacao = '' and TipoLocacao = ''" +
+                    " or TipoLocacao = '' order by codigo");
+                }
+                else if (tipoFiltro == "USUÁRIO")
+                {
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
+                    " where NomeCliente like '' and TipoLocacao = '' " +
+                    " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
+                    " or UsuarioLocacao = '" + filtro + "' and TipoLocacao = 'D'" +
+                    " or TipoLocacao = '' order by codigo");
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao consultar devolução da locação, classe DAO " + erro.Message);
+            }
+            return dt;
         }
 
 

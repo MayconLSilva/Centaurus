@@ -43,6 +43,7 @@
             this.labelQuantidadeDeRegistros = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDataDevolucaoClicadoLocacao = new System.Windows.Forms.TextBox();
+            this.toolStripButtonSelecionarLocacao = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocacao)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,8 @@
             this.toolStripMenusConsultaParticipante.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxFiltroLocacao,
             this.toolStripComboBoxTipoFiltroLocacao,
-            this.toolStripButtonFiltrarLocacao});
+            this.toolStripButtonFiltrarLocacao,
+            this.toolStripButtonSelecionarLocacao});
             this.toolStripMenusConsultaParticipante.Location = new System.Drawing.Point(0, 336);
             this.toolStripMenusConsultaParticipante.Name = "toolStripMenusConsultaParticipante";
             this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(684, 25);
@@ -182,6 +184,18 @@
             this.textBoxDataDevolucaoClicadoLocacao.Size = new System.Drawing.Size(138, 20);
             this.textBoxDataDevolucaoClicadoLocacao.TabIndex = 59;
             // 
+            // toolStripButtonSelecionarLocacao
+            // 
+            this.toolStripButtonSelecionarLocacao.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSelecionarLocacao.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonSelecionarLocacao.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSelecionarLocacao.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarLocacao.Image")));
+            this.toolStripButtonSelecionarLocacao.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSelecionarLocacao.Name = "toolStripButtonSelecionarLocacao";
+            this.toolStripButtonSelecionarLocacao.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSelecionarLocacao.Text = "SELECIONAR";
+            this.toolStripButtonSelecionarLocacao.Click += new System.EventHandler(this.toolStripButtonSelecionarLocacao_Click);
+            // 
             // FrmConsultaLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,5 +242,6 @@
         private System.Windows.Forms.Label labelQuantidadeDeRegistros;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxDataDevolucaoClicadoLocacao;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSelecionarLocacao;
     }
 }

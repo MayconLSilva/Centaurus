@@ -254,7 +254,7 @@ namespace Centaurus.Dao
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = '' " +
-                    " or TipoLocacao = 'L'");
+                    " or TipoLocacao = 'L' order by codigo");
                 }
                 else if(tipoFiltro == "CLIENTE")
                 {
@@ -263,7 +263,7 @@ namespace Centaurus.Dao
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
-                    " or TipoLocacao = ''");
+                    " or TipoLocacao = '' order by codigo");
                 }
                 else if (tipoFiltro == "DATA LANÇAMENTO")
                 {
@@ -275,7 +275,7 @@ namespace Centaurus.Dao
                     " or cast(DataLancamento as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
-                    " or TipoLocacao = ''");
+                    " or TipoLocacao = '' order by codigo");
                     
                 }
                 else if (tipoFiltro == "DATA DEVOLUÇÃO")
@@ -288,7 +288,7 @@ namespace Centaurus.Dao
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
-                    " or TipoLocacao = ''");
+                    " or TipoLocacao = '' order by codigo");
                 }
                 else if (tipoFiltro == "USUÁRIO")
                 {
@@ -297,7 +297,7 @@ namespace Centaurus.Dao
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '" + filtro + "' and TipoLocacao = 'L'" +
-                    " or TipoLocacao = ''");
+                    " or TipoLocacao = '' order by codigo");
                 }
             }
             catch (Exception erro)

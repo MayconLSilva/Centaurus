@@ -111,6 +111,7 @@
             this.menuLocacaoDevEditar.Name = "menuLocacaoDevEditar";
             this.menuLocacaoDevEditar.Size = new System.Drawing.Size(72, 20);
             this.menuLocacaoDevEditar.Text = "EDITAR";
+            this.menuLocacaoDevEditar.Click += new System.EventHandler(this.menuLocacaoDevEditar_Click);
             // 
             // menuLocacaoDevCancelar
             // 

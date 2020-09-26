@@ -18,7 +18,7 @@ namespace Centaurus.BLL
         {
             try
             {
-                daoLocDev.inserirDevLocacao(modLocacaoDev);
+                daoLocDev.importarLocacao(modLocacaoDev);
             }
             catch (Exception erro)
             {
