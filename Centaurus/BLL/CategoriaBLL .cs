@@ -11,14 +11,14 @@ namespace Centaurus.Bll
 {
     public class CategoriaBLL
     {
-        CategoriaDAO categoriasDAO = new CategoriaDAO();
+        CategoriaDAO daoCatSub = new CategoriaDAO();
 
 
         public void salvar(CategoriaModelo categoria) 
         {
             try 
             {
-                categoriasDAO.salvar(categoria);
+                daoCatSub.salvar(categoria);
             }
             catch (Exception erro)
             {
@@ -30,12 +30,24 @@ namespace Centaurus.Bll
         {
             try 
             {
-                categoriasDAO.atualizar(categoria);
+                daoCatSub.atualizar(categoria);
             }
             catch(Exception erro) 
             {
                 throw erro;
             }
         }
+
+        public void buscarCatSubPorCodigo(CategoriaModelo modCatSub)
+        {
+            try
+            {
+                daoCatSub.buscarCatSubCat(modCatSub);
+            }catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar categoria e/ou sub-categoria, classe bll" + erro.Message);
+            }
+        }
+
     }
 }

@@ -119,24 +119,6 @@ namespace Centaurus.Dao
             return dt;
         }
 
-        //Inicio código fonte pesquisa todas categorias
-        public DataTable SelecionarTodasCategoria()
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from categoria where tipo_categoria = 'C' ");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao pesquisar categorias: " + ex.Message);
-            }
-            return dt;
-        }
-
         //Inicio código fonte pesquisa todas sub-categorias e categorias filtrando
         public DataTable SelecionarTodasCategoriaSubCategoriaNome(string filtro)
         {
@@ -155,6 +137,27 @@ namespace Centaurus.Dao
             return dt;
         }
 
+
+
+
+        //Inicio código fonte pesquisa todas categorias
+        public DataTable SelecionarTodasCategoria()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                dt = conexao.RetDataTable("select *from categoria where tipo_categoria = 'C' ");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao pesquisar categorias: " + ex.Message);
+            }
+            return dt;
+        }        
+
         //Inicio código fonte pesquisa todas categorias filtrando
         public DataTable SelecionarTodasCategoriaNome(string filtro)
         {
@@ -172,6 +175,9 @@ namespace Centaurus.Dao
             }
             return dt;
         }
+
+
+
 
         //Inicio código fonte pesquisa todas sub-categorias
         public DataTable SelecionarTodasSubCategoria()
@@ -207,6 +213,36 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao pesquisar categoria: " + ex.Message);
             }
             return dt;
+        }
+
+
+
+
+        //Método pesquisa categoria/sub-categoria pelo código
+        public CategoriaModelo buscarCatSubCat(CategoriaModelo modCatSub)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select descricao_categoria,tipo_categoria,ativo_categoria from categoria where id_categoria = '"+modCatSub.idCategoria+"'",conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string nomeCatSub = Convert.ToString(dr["descricao_categoria"]);
+                    char tipoCatSub = Convert.ToChar(dr["tipo_categoria"]);
+                    bool ativoCatSub = Convert.ToBoolean(dr["ativo_categoria"]);
+
+                    modCatSub.nomeCategoria = nomeCatSub;
+                    modCatSub.tipoCategoria = tipoCatSub;
+                    modCatSub.ativoCategoria = ativoCatSub;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar categoria e/ou sub-categoria, classe DAO!" + erro.Message);
+            }
+            return modCatSub;
         }
 
     }

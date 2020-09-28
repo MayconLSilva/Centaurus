@@ -42,8 +42,8 @@
             this.checkBoxCategoriaAtiva = new System.Windows.Forms.CheckBox();
             this.buttonBuscarCategoria = new System.Windows.Forms.Button();
             this.groupBoxTipo = new System.Windows.Forms.GroupBox();
-            this.radioButtonCategoria = new System.Windows.Forms.RadioButton();
             this.radioButtonSubCategoria = new System.Windows.Forms.RadioButton();
+            this.radioButtonCategoria = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.groupBoxTipo.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,8 @@
             this.textBoxCodigoCategoria.Name = "textBoxCodigoCategoria";
             this.textBoxCodigoCategoria.Size = new System.Drawing.Size(55, 20);
             this.textBoxCodigoCategoria.TabIndex = 1;
+            this.textBoxCodigoCategoria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoCategoria_KeyDown);
+            this.textBoxCodigoCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigoCategoria_KeyPress);
             // 
             // textBoxDescricaoCategoria
             // 
@@ -167,17 +169,6 @@
             this.groupBoxTipo.TabStop = false;
             this.groupBoxTipo.Text = "Selecione o tipo:";
             // 
-            // radioButtonCategoria
-            // 
-            this.radioButtonCategoria.AutoSize = true;
-            this.radioButtonCategoria.Location = new System.Drawing.Point(6, 23);
-            this.radioButtonCategoria.Name = "radioButtonCategoria";
-            this.radioButtonCategoria.Size = new System.Drawing.Size(70, 17);
-            this.radioButtonCategoria.TabIndex = 0;
-            this.radioButtonCategoria.TabStop = true;
-            this.radioButtonCategoria.Text = "Categoria";
-            this.radioButtonCategoria.UseVisualStyleBackColor = true;
-            // 
             // radioButtonSubCategoria
             // 
             this.radioButtonSubCategoria.AutoSize = true;
@@ -188,6 +179,17 @@
             this.radioButtonSubCategoria.TabStop = true;
             this.radioButtonSubCategoria.Text = "Sub-Categoria";
             this.radioButtonSubCategoria.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCategoria
+            // 
+            this.radioButtonCategoria.AutoSize = true;
+            this.radioButtonCategoria.Location = new System.Drawing.Point(6, 23);
+            this.radioButtonCategoria.Name = "radioButtonCategoria";
+            this.radioButtonCategoria.Size = new System.Drawing.Size(70, 17);
+            this.radioButtonCategoria.TabIndex = 0;
+            this.radioButtonCategoria.TabStop = true;
+            this.radioButtonCategoria.Text = "Categoria";
+            this.radioButtonCategoria.UseVisualStyleBackColor = true;
             // 
             // FrmCategoria
             // 

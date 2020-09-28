@@ -16,8 +16,9 @@ namespace Centaurus
 
         public FrmConsultaCategoriaSubCategoria()
         {
-
             InitializeComponent();
+            toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
+            radioButtonTodos.Checked = true;
         }
 
         /* Metodo para receber anteriormente o valor 
@@ -32,14 +33,15 @@ namespace Centaurus
 
         private void CarregarInformacoes()
         {
-            int qtdRegistro;
-            dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoria();
-            qtdRegistro = dataGridViewCategoriaSubCategoria.Rows.Count;
-            labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;            
-            configurarDataGridView();
-
-            //Para remover a linha em branco via propriedades basta marcar AllowUserToAddRows como false
-            // se for via código deverá utilizar this.dataGridViewProduto.AllowUserToAddRows = false;
+            if(toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "TODOS" && radioButtonTodos.Checked)
+            {
+                int qtdRegistro;
+                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoria();
+                qtdRegistro = dataGridViewCategoriaSubCategoria.Rows.Count;
+                labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;
+                configurarDataGridView();
+            }
+            
         }
 
         public void configurarDataGridView()
@@ -69,28 +71,15 @@ namespace Centaurus
             tipoCategoriaClicada = dataGridViewCategoriaSubCategoria.Rows[e.RowIndex].Cells[4].Value.ToString();
 
         }
-
-        private void buttonSelecionar_Click(object sender, EventArgs e)
-        {
-            if (textBoxCategoriaSubCategoriaClicada.Text == string.Empty)
-            {
-                MessageBox.Show("Selecione uma categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                Dispose();
-            }
-
-        }
-
+        
         private void CarregarInformacoesFiltrando()
         {
             int qtdRegistro;
-            if (comboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "CATEGORIA")
+            if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "CATEGORIA")
             {
-                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoriaNome(textBoxFiltrarCategoriaSubCategoria.Text);
+                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoriaNome(toolStripTextBoxFiltroCategoriaSubCategoria.Text);
             }
-            else if (comboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "TODAS")
+            else if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "TODOS")
             {
                 dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoria();
             }
@@ -98,10 +87,15 @@ namespace Centaurus
             labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;
             configurarDataGridView();
         }
-
-        private void buttonFiltrarCidade_Click(object sender, EventArgs e)
+        
+        private void FrmConsultaMarca_Load(object sender, EventArgs e)
         {
-            if (comboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == null)
+            CarregarInformacoes();
+        }
+
+        private void toolStripButtonFiltrarCategoriaSubCategoria_Click(object sender, EventArgs e)
+        {
+            if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == null)
             {
                 MessageBox.Show("Não foi selecionado nenhum filtro", "Atenção");
             }
@@ -111,9 +105,16 @@ namespace Centaurus
             }
         }
 
-        private void FrmConsultaMarca_Load(object sender, EventArgs e)
+        private void toolStripButtonSelecionarCategoriaSubCategoria_Click(object sender, EventArgs e)
         {
-            CarregarInformacoes();
+            if (textBoxCategoriaSubCategoriaClicada.Text == string.Empty)
+            {
+                MessageBox.Show("Selecione uma categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Dispose();
+            }
         }
 
     }

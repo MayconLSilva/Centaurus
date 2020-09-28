@@ -18,8 +18,9 @@ namespace Centaurus
     {
 
         int flag = 0;
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-
+        string botaoClicado;
+        CategoriaDAO daoCatSub = new CategoriaDAO();
+        
         FrmConsultaCategoriaSubCategoria frmConsulta;
 
         public FrmCategoria()
@@ -30,140 +31,154 @@ namespace Centaurus
             this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
-            inativaAtivaInicial();
+            botaoClicado = "INICIAL";
+            inativarAtivarCamposBotoes();
         }
 
-        public void inativaAtivaInicial()
+        //Método inativa e ativa os botões, campos de acordo com o botão clicado
+        public void inativarAtivarCamposBotoes()
         {
-            MenuCategoriaNovo.Enabled = true;
-            MenuCategoriaGravar.Enabled = false;
-            MenuCategoriaEditar.Enabled = false;
-            MenuCategoriaCancelar.Enabled = false;
-            MenuCategoriaExcluir.Enabled = false;
+            switch (botaoClicado)
+            {
+                case "INICIAL":
 
-            textBoxCodigoCategoria.Enabled = true;
-            textBoxDescricaoCategoria.Enabled = false;
-            checkBoxCategoriaAtiva.Enabled = false;
-            radioButtonCategoria.Enabled = false;
-            radioButtonSubCategoria.Enabled = false;
-        }
+                    MenuCategoriaNovo.Enabled = true;
+                    MenuCategoriaGravar.Enabled = false;
+                    MenuCategoriaEditar.Enabled = false;
+                    MenuCategoriaCancelar.Enabled = false;
+                    MenuCategoriaExcluir.Enabled = false;
 
-        public void inativaAtivaBotoesNovo()
-        {
-            MenuCategoriaNovo.Enabled = false;
-            MenuCategoriaGravar.Enabled = true;
-            MenuCategoriaEditar.Enabled = false;
-            MenuCategoriaCancelar.Enabled = true;
-            MenuCategoriaExcluir.Enabled = false;
+                    textBoxCodigoCategoria.Enabled = true;
+                    textBoxDescricaoCategoria.Enabled = false;
+                    checkBoxCategoriaAtiva.Enabled = false;
+                    radioButtonCategoria.Enabled = false;
+                    radioButtonSubCategoria.Enabled = false;
 
-            textBoxCodigoCategoria.Enabled = false;
-            textBoxDescricaoCategoria.Enabled = true;
-            checkBoxCategoriaAtiva.Enabled = true;
+                    break;
 
-            radioButtonCategoria.Enabled = true;
-            radioButtonSubCategoria.Enabled = true;
+                case "NOVO":
 
-            textBoxCodigoCategoria.Text = "";
-            textBoxDescricaoCategoria.Text = "";
-            checkBoxCategoriaAtiva.Checked = false;
-            radioButtonCategoria.Checked = false;
-            radioButtonSubCategoria.Checked = false;
-        }
+                    MenuCategoriaNovo.Enabled = false;
+                    MenuCategoriaGravar.Enabled = true;
+                    MenuCategoriaEditar.Enabled = false;
+                    MenuCategoriaCancelar.Enabled = true;
+                    MenuCategoriaExcluir.Enabled = false;
 
-        public void inativaAtivaBotoesSalvar()
-        {
-            MenuCategoriaNovo.Enabled = true;
-            MenuCategoriaGravar.Enabled = false;
-            MenuCategoriaEditar.Enabled = true;
-            MenuCategoriaCancelar.Enabled = true;
-            MenuCategoriaExcluir.Enabled = true;
+                    textBoxCodigoCategoria.Enabled = false;
+                    textBoxDescricaoCategoria.Enabled = true;
+                    checkBoxCategoriaAtiva.Enabled = true;
 
-            textBoxCodigoCategoria.Enabled = false;
-            textBoxDescricaoCategoria.Enabled = false;
-            checkBoxCategoriaAtiva.Enabled = false;
+                    radioButtonCategoria.Enabled = true;
+                    radioButtonSubCategoria.Enabled = true;
 
-            radioButtonCategoria.Enabled = false;
-            radioButtonSubCategoria.Enabled = false;
+                    textBoxCodigoCategoria.Text = "";
+                    textBoxDescricaoCategoria.Text = "";
+                    checkBoxCategoriaAtiva.Checked = false;
+                    radioButtonCategoria.Checked = false;
+                    radioButtonSubCategoria.Checked = false;
 
-        }
+                    break;
 
-        public void inativaAtivaBotoesEditar()
-        {
-            MenuCategoriaNovo.Enabled = false;
-            MenuCategoriaGravar.Enabled = true;
-            MenuCategoriaEditar.Enabled = false;
-            MenuCategoriaCancelar.Enabled = true;
-            MenuCategoriaExcluir.Enabled = false;
+                case "EDITAR":
 
-            textBoxCodigoCategoria.Enabled = false;
-            textBoxDescricaoCategoria.Enabled = true;
-            checkBoxCategoriaAtiva.Enabled = true;
-            radioButtonCategoria.Enabled = true;
-            radioButtonSubCategoria.Enabled = true;
+                    MenuCategoriaNovo.Enabled = false;
+                    MenuCategoriaGravar.Enabled = true;
+                    MenuCategoriaEditar.Enabled = false;
+                    MenuCategoriaCancelar.Enabled = true;
+                    MenuCategoriaExcluir.Enabled = false;
 
-        }
+                    textBoxCodigoCategoria.Enabled = false;
+                    textBoxDescricaoCategoria.Enabled = true;
+                    checkBoxCategoriaAtiva.Enabled = true;
+                    radioButtonCategoria.Enabled = true;
+                    radioButtonSubCategoria.Enabled = true;
 
-        public void inativaAtivaBotoesExcluir()
-        {
-            MenuCategoriaNovo.Enabled = true;
-            MenuCategoriaGravar.Enabled = false;
-            MenuCategoriaEditar.Enabled = false;
-            MenuCategoriaCancelar.Enabled = false;
-            MenuCategoriaExcluir.Enabled = false;
+                    break;
 
-            textBoxCodigoCategoria.Enabled = true;
-            textBoxDescricaoCategoria.Enabled = false;
-            checkBoxCategoriaAtiva.Enabled = false;
-            radioButtonCategoria.Enabled = false;
-            radioButtonSubCategoria.Enabled = false;
+                case "SALVAR":
 
-            textBoxCodigoCategoria.Text = "";
-            textBoxDescricaoCategoria.Text = "";
-            checkBoxCategoriaAtiva.Checked = false;
-            radioButtonCategoria.Checked = false;
-            radioButtonSubCategoria.Checked = false;
-        }
+                    MenuCategoriaNovo.Enabled = true;
+                    MenuCategoriaGravar.Enabled = false;
+                    MenuCategoriaEditar.Enabled = true;
+                    MenuCategoriaCancelar.Enabled = true;
+                    MenuCategoriaExcluir.Enabled = true;
 
-        public void inativaAtivaBotoesCancelar()
-        {
-            MenuCategoriaNovo.Enabled = true;
-            MenuCategoriaGravar.Enabled = false;
-            MenuCategoriaEditar.Enabled = false;
-            MenuCategoriaCancelar.Enabled = false;
-            MenuCategoriaExcluir.Enabled = false;
+                    textBoxCodigoCategoria.Enabled = false;
+                    textBoxDescricaoCategoria.Enabled = false;
+                    checkBoxCategoriaAtiva.Enabled = false;
 
-            textBoxCodigoCategoria.Enabled = true;
-            textBoxDescricaoCategoria.Enabled = false;
-            checkBoxCategoriaAtiva.Enabled = false;
-            radioButtonCategoria.Enabled = false;
-            radioButtonSubCategoria.Enabled = false;
+                    radioButtonCategoria.Enabled = false;
+                    radioButtonSubCategoria.Enabled = false;
 
-            textBoxCodigoCategoria.Text = "";
-            textBoxDescricaoCategoria.Text = "";
-            checkBoxCategoriaAtiva.Checked = false;
-            radioButtonCategoria.Checked = false;
-            radioButtonSubCategoria.Checked = false;
-        }
+                    break;
 
-        public void inativaAtivaBotoesConsultar()
-        {
-            MenuCategoriaNovo.Enabled = true;
-            MenuCategoriaGravar.Enabled = false;
-            MenuCategoriaEditar.Enabled = true;
-            MenuCategoriaCancelar.Enabled = false;
-            MenuCategoriaExcluir.Enabled = true;
+                case "CANCELAR":
 
-            textBoxCodigoCategoria.Enabled = true;
-            textBoxDescricaoCategoria.Enabled = false;
-            checkBoxCategoriaAtiva.Enabled = false;
-            checkBoxCategoriaAtiva.Checked = false;
-            radioButtonCategoria.Enabled = false;
-            radioButtonSubCategoria.Enabled = false;
-        }
+                    MenuCategoriaNovo.Enabled = true;
+                    MenuCategoriaGravar.Enabled = false;
+                    MenuCategoriaEditar.Enabled = false;
+                    MenuCategoriaCancelar.Enabled = false;
+                    MenuCategoriaExcluir.Enabled = false;
+
+                    textBoxCodigoCategoria.Enabled = true;
+                    textBoxDescricaoCategoria.Enabled = false;
+                    checkBoxCategoriaAtiva.Enabled = false;
+                    radioButtonCategoria.Enabled = false;
+                    radioButtonSubCategoria.Enabled = false;
+
+                    textBoxCodigoCategoria.Text = "";
+                    textBoxDescricaoCategoria.Text = "";
+                    checkBoxCategoriaAtiva.Checked = false;
+                    radioButtonCategoria.Checked = false;
+                    radioButtonSubCategoria.Checked = false;
+
+                    break;
+
+                case "EXCLUIR":
+
+                    MenuCategoriaNovo.Enabled = true;
+                    MenuCategoriaGravar.Enabled = false;
+                    MenuCategoriaEditar.Enabled = false;
+                    MenuCategoriaCancelar.Enabled = false;
+                    MenuCategoriaExcluir.Enabled = false;
+
+                    textBoxCodigoCategoria.Enabled = true;
+                    textBoxDescricaoCategoria.Enabled = false;
+                    checkBoxCategoriaAtiva.Enabled = false;
+                    radioButtonCategoria.Enabled = false;
+                    radioButtonSubCategoria.Enabled = false;
+
+                    textBoxCodigoCategoria.Text = "";
+                    textBoxDescricaoCategoria.Text = "";
+                    checkBoxCategoriaAtiva.Checked = false;
+                    radioButtonCategoria.Checked = false;
+                    radioButtonSubCategoria.Checked = false;
+
+                    break;
+
+                case "PESQUISAR":
+
+                    MenuCategoriaNovo.Enabled = true;
+                    MenuCategoriaGravar.Enabled = false;
+                    MenuCategoriaEditar.Enabled = true;
+                    MenuCategoriaCancelar.Enabled = false;
+                    MenuCategoriaExcluir.Enabled = true;
+
+                    textBoxCodigoCategoria.Enabled = true;
+                    textBoxDescricaoCategoria.Enabled = false;
+                    checkBoxCategoriaAtiva.Enabled = false;
+                    checkBoxCategoriaAtiva.Checked = false;
+                    radioButtonCategoria.Enabled = false;
+                    radioButtonSubCategoria.Enabled = false;
+
+                    break;
+            }
+        }      
 
         private void MenuMarcaNovo_Click(object sender, EventArgs e)
         {
-            inativaAtivaBotoesNovo();
+            botaoClicado = "NOVO";
+            inativarAtivarCamposBotoes();
             flag = 0;
         }
 
@@ -174,6 +189,7 @@ namespace Centaurus
 
         }
 
+        //Método salvar categoria e/ou sub-categoria
         private void salvar(CategoriaModelo categoria) 
         {
             if(flag == 0) 
@@ -204,11 +220,12 @@ namespace Centaurus
                     }
                     categoriaBLL.salvar(categoria);
                     MessageBox.Show("Categoria incluida com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    inativaAtivaBotoesSalvar();
+                    botaoClicado = "SALVAR";
+                    inativarAtivarCamposBotoes();
 
                     //Método chama o ultimo registro
-                    categoriaDAO.UltimoRegistro(textBoxDescricaoCategoria.Text);
-                    string idReturn = categoriaDAO.numeroIncluido;
+                    daoCatSub.UltimoRegistro(textBoxDescricaoCategoria.Text);
+                    string idReturn = daoCatSub.numeroIncluido;
                     textBoxCodigoCategoria.Text = idReturn;
                 }                
             }
@@ -243,14 +260,16 @@ namespace Centaurus
 
                     categoriaBLL.atualizar(categoria);
                     MessageBox.Show("Categoria atualizada com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    inativaAtivaBotoesSalvar();
+                    botaoClicado = "SALVAR";
+                    inativarAtivarCamposBotoes();
                 }                
             }
         }
 
         private void MenuMarcaEditar_Click(object sender, EventArgs e)
         {
-            inativaAtivaBotoesEditar();
+            botaoClicado = "EDITAR";
+            inativarAtivarCamposBotoes();
             flag = 1;
         }
 
@@ -259,44 +278,123 @@ namespace Centaurus
             var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                categoriaDAO.ExcluirCategoria(textBoxCodigoCategoria.Text);
-                inativaAtivaBotoesExcluir();
+                daoCatSub.ExcluirCategoria(textBoxCodigoCategoria.Text);
+                botaoClicado = "EXCLUIR";
+                inativarAtivarCamposBotoes();
             }
         }
 
         private void MenuMarcaCancelar_Click(object sender, EventArgs e)
         {
-            inativaAtivaBotoesCancelar();
+            botaoClicado = "CANCELAR";
+            inativarAtivarCamposBotoes();
         }
 
+        //Método buscar categoria e/ou sub-categoria, chama tela de consulta
         private void buttonBuscarParticipante_Click(object sender, EventArgs e)
+        {            
+                frmConsulta = new FrmConsultaCategoriaSubCategoria();
+                DialogResult dr = frmConsulta.ShowDialog(this);
+
+                string nomeCategoriaReturn = frmConsulta.categoriaSubCategoriaClicada;
+                if (String.IsNullOrEmpty(nomeCategoriaReturn) == true)
+                {
+                    MessageBox.Show("Você não selecionou a categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    textBoxDescricaoCategoria.Text = nomeCategoriaReturn;
+                    string codigoCategoriaReturn = frmConsulta.idClicada;
+                    textBoxCodigoCategoria.Text = codigoCategoriaReturn;
+                    string tipoCategoriaReturn = frmConsulta.tipoCategoriaClicada;
+
+                    if (tipoCategoriaReturn == "C")
+                    {
+                        radioButtonCategoria.Checked = true;
+                    }
+                    else if (tipoCategoriaReturn == "S")
+                    {
+                        radioButtonSubCategoria.Checked = true;
+                    }
+
+                    botaoClicado = "PESQUISAR";
+                    inativarAtivarCamposBotoes();
+                }                       
+        }
+
+        //Método validada o textBoxCodigo para aceitar somente números
+        private void textBoxCodigoCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //string passaTipoConsulta="Todas";
-            //frmConsulta = new FrmConsultaCategoriaSubCategoria(passaTipoConsulta); Método utilizado anteriormente para enviar dados para tela de consulta categoria
-            frmConsulta = new FrmConsultaCategoriaSubCategoria();
-            DialogResult dr = frmConsulta.ShowDialog(this);
-
-            string nomeCategoriaReturn = frmConsulta.categoriaSubCategoriaClicada;
-            if (String.IsNullOrEmpty(nomeCategoriaReturn) == true)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
             {
-                MessageBox.Show("Você não selecionou a categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
             }
-            else
-            {
-                textBoxDescricaoCategoria.Text = nomeCategoriaReturn;
-                string codigoCategoriaReturn = frmConsulta.idClicada;
-                textBoxCodigoCategoria.Text = codigoCategoriaReturn;
-                string tipoCategoriaReturn = frmConsulta.tipoCategoriaClicada;
 
-                if(tipoCategoriaReturn == "C")
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Método buscar a categoria e/ou sub-categoria atráves do código informado no campo
+        public void buscarCatSubPorCodigo()
+        {
+            CategoriaModelo modCatSub = new CategoriaModelo();
+            CategoriaBLL bllCatSub = new CategoriaBLL();
+
+            try
+            {
+                modCatSub.idCategoria = Convert.ToInt32(textBoxCodigoCategoria.Text);
+                bllCatSub.buscarCatSubPorCodigo(modCatSub);
+
+                //Váido caso ñ encontro a categoria e/ou sub-categoria informo o usuário
+                if(modCatSub.nomeCategoria == null)
                 {
-                    radioButtonCategoria.Checked = true;
-                }else if(tipoCategoriaReturn == "S")
-                {
-                    radioButtonSubCategoria.Checked = true;
+                    MessageBox.Show("Categoria e/ou Sub-Categoria ñ encontrada!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    radioButtonCategoria.Checked = false;
+                    radioButtonSubCategoria.Checked = false;
+                    checkBoxCategoriaAtiva.Checked = false;
+                    textBoxCodigoCategoria.Clear();
                 }
 
-                inativaAtivaBotoesConsultar();
+                string nomeCatSub = modCatSub.nomeCategoria;
+                char tipoCatSub = modCatSub.tipoCategoria;
+                bool ativoCatSub = modCatSub.ativoCategoria;
+
+                textBoxDescricaoCategoria.Text = nomeCatSub;
+                if(Convert.ToString(tipoCatSub) == "C")
+                {
+                    radioButtonCategoria.Checked = true;
+                    radioButtonSubCategoria.Checked = false;
+                }
+                else
+                {
+                    radioButtonCategoria.Checked = false;
+                    radioButtonSubCategoria.Checked = true;
+                }
+                if(ativoCatSub == true)
+                {
+                    checkBoxCategoriaAtiva.Checked = true;
+                }
+                else
+                {
+                    checkBoxCategoriaAtiva.Checked = false;
+                }
+
+            }catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar categoria e/ou sub-categoria, frm!" + erro.Message);
+            }
+        }
+
+        //Método click do campo textBoxCodigoCategoria
+        private void textBoxCodigoCategoria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buscarCatSubPorCodigo();
             }
         }
     }    
