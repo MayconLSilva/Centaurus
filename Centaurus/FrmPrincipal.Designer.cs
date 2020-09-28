@@ -41,6 +41,7 @@
             this.painelPrincipal = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelUsuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripPrincipal.SuspendLayout();
             this.painelPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -62,7 +63,8 @@
             // 
             this.MenuPrincipalCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.participantesToolStripMenuItem,
-            this.produtoToolStripMenuItem});
+            this.produtoToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.MenuPrincipalCadastros.Name = "MenuPrincipalCadastros";
             this.MenuPrincipalCadastros.Size = new System.Drawing.Size(85, 20);
             this.MenuPrincipalCadastros.Text = "CADASTROS";
@@ -70,7 +72,7 @@
             // participantesToolStripMenuItem
             // 
             this.participantesToolStripMenuItem.Name = "participantesToolStripMenuItem";
-            this.participantesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.participantesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.participantesToolStripMenuItem.Text = "Participantes";
             this.participantesToolStripMenuItem.Click += new System.EventHandler(this.participantesToolStripMenuItem_Click);
             // 
@@ -81,7 +83,7 @@
             this.marcaToolStripMenuItem,
             this.produtoToolStripMenuItem1});
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             // 
             // categoriaToolStripMenuItem
@@ -153,6 +155,13 @@
             this.labelUsuarioLogado.Size = new System.Drawing.Size(118, 17);
             this.labelUsuarioLogado.Text = "toolStripStatusLabel1";
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuarios";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem locaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devLocaçãoToolStripMenuItem;
         private System.Windows.Forms.Panel painelPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
     }
 }
 

@@ -95,6 +95,14 @@ namespace Centaurus
             painelPrincipal.Controls.Add(janelaDevLocacao);
         }
 
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuario frmUsuario = new FrmUsuario();
+            frmUsuario.TopLevel = false;
+            frmUsuario.Visible = true;
+            painelPrincipal.Controls.Add(frmUsuario);
+        }
+
 
 
 
