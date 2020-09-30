@@ -67,12 +67,6 @@
     <Compile Include="DTO\LocacaoDevolucaoModelo.cs" />
     <Compile Include="DTO\LocacaoModelo.cs" />
     <Compile Include="DTO\LoginModelo.cs" />
-    <Compile Include="FrmConsultaCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConsultaCategoria.Designer.cs">
-      <DependentUpon>FrmConsultaCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmConsultaCategoriaSubCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,12 +108,6 @@
     </Compile>
     <Compile Include="FrmConsultaProdutoDevolucao.Designer.cs">
       <DependentUpon>FrmConsultaProdutoDevolucao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmConsultaSubCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConsultaSubCategoria.Designer.cs">
-      <DependentUpon>FrmConsultaSubCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDialogDesconto_Locacao.cs">
       <SubType>Form</SubType>
@@ -194,9 +182,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmConsultaCategoria.resx">
-      <DependentUpon>FrmConsultaCategoria.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaCategoriaSubCategoria.resx">
       <DependentUpon>FrmConsultaCategoriaSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaProdutoDevolucao.resx">
       <DependentUpon>FrmConsultaProdutoDevolucao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsultaSubCategoria.resx">
-      <DependentUpon>FrmConsultaSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDialogDesconto_Locacao.resx">
       <DependentUpon>FrmDialogDesconto_Locacao.cs</DependentUpon>

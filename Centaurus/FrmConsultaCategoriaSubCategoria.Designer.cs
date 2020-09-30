@@ -33,14 +33,14 @@
             this.textBoxCategoriaSubCategoriaClicada = new System.Windows.Forms.TextBox();
             this.labelQuantidadeDeRegistros = new System.Windows.Forms.Label();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBoxFiltroCategoriaSubCategoria = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripComboBoxTipoFiltroCategoriaSubCategoria = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFiltrarCategoriaSubCategoria = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSelecionarCategoriaSubCategoria = new System.Windows.Forms.ToolStripButton();
             this.groupBoxTipo = new System.Windows.Forms.GroupBox();
             this.radioButtonTodos = new System.Windows.Forms.RadioButton();
             this.radioButtonSubCategoria = new System.Windows.Forms.RadioButton();
             this.radioButtonCategoria = new System.Windows.Forms.RadioButton();
+            this.toolStripTextBoxFiltroCategoriaSubCategoria = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonSelecionarCategoriaSubCategoria = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategoriaSubCategoria)).BeginInit();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBoxTipo.SuspendLayout();
@@ -89,13 +89,6 @@
             this.toolStripMenusConsultaParticipante.TabIndex = 49;
             this.toolStripMenusConsultaParticipante.Text = "Consulta Participante";
             // 
-            // toolStripTextBoxFiltroCategoriaSubCategoria
-            // 
-            this.toolStripTextBoxFiltroCategoriaSubCategoria.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBoxFiltroCategoriaSubCategoria.Name = "toolStripTextBoxFiltroCategoriaSubCategoria";
-            this.toolStripTextBoxFiltroCategoriaSubCategoria.Size = new System.Drawing.Size(160, 25);
-            this.toolStripTextBoxFiltroCategoriaSubCategoria.Text = "Filtro...";
-            // 
             // toolStripComboBoxTipoFiltroCategoriaSubCategoria
             // 
             this.toolStripComboBoxTipoFiltroCategoriaSubCategoria.BackColor = System.Drawing.SystemColors.Control;
@@ -120,18 +113,6 @@
             this.toolStripButtonFiltrarCategoriaSubCategoria.Size = new System.Drawing.Size(71, 22);
             this.toolStripButtonFiltrarCategoriaSubCategoria.Text = "PESQUISAR";
             this.toolStripButtonFiltrarCategoriaSubCategoria.Click += new System.EventHandler(this.toolStripButtonFiltrarCategoriaSubCategoria_Click);
-            // 
-            // toolStripButtonSelecionarCategoriaSubCategoria
-            // 
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonSelecionarCategoriaSubCategoria.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonSelecionarCategoriaSubCategoria.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarCategoriaSubCategoria.Image")));
-            this.toolStripButtonSelecionarCategoriaSubCategoria.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Name = "toolStripButtonSelecionarCategoriaSubCategoria";
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Size = new System.Drawing.Size(79, 22);
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Text = "SELECIONAR";
-            this.toolStripButtonSelecionarCategoriaSubCategoria.Click += new System.EventHandler(this.toolStripButtonSelecionarCategoriaSubCategoria_Click);
             // 
             // groupBoxTipo
             // 
@@ -178,6 +159,25 @@
             this.radioButtonCategoria.Text = "Categoria";
             this.radioButtonCategoria.UseVisualStyleBackColor = true;
             // 
+            // toolStripTextBoxFiltroCategoriaSubCategoria
+            // 
+            this.toolStripTextBoxFiltroCategoriaSubCategoria.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxFiltroCategoriaSubCategoria.Name = "toolStripTextBoxFiltroCategoriaSubCategoria";
+            this.toolStripTextBoxFiltroCategoriaSubCategoria.Size = new System.Drawing.Size(160, 25);
+            this.toolStripTextBoxFiltroCategoriaSubCategoria.Text = "Filtro...";
+            // 
+            // toolStripButtonSelecionarCategoriaSubCategoria
+            // 
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSelecionarCategoriaSubCategoria.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonSelecionarCategoriaSubCategoria.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarCategoriaSubCategoria.Image")));
+            this.toolStripButtonSelecionarCategoriaSubCategoria.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Name = "toolStripButtonSelecionarCategoriaSubCategoria";
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Text = "SELECIONAR";
+            this.toolStripButtonSelecionarCategoriaSubCategoria.Click += new System.EventHandler(this.toolStripButtonSelecionarCategoriaSubCategoria_Click);
+            // 
             // FrmConsultaCategoriaSubCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,13 +210,13 @@
         private System.Windows.Forms.TextBox textBoxCategoriaSubCategoriaClicada;
         private System.Windows.Forms.Label labelQuantidadeDeRegistros;
         private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFiltroCategoriaSubCategoria;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxTipoFiltroCategoriaSubCategoria;
         private System.Windows.Forms.ToolStripButton toolStripButtonFiltrarCategoriaSubCategoria;
         private System.Windows.Forms.GroupBox groupBoxTipo;
         private System.Windows.Forms.RadioButton radioButtonTodos;
         private System.Windows.Forms.RadioButton radioButtonSubCategoria;
         private System.Windows.Forms.RadioButton radioButtonCategoria;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFiltroCategoriaSubCategoria;
         private System.Windows.Forms.ToolStripButton toolStripButtonSelecionarCategoriaSubCategoria;
     }
 }

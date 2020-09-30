@@ -22,10 +22,8 @@ namespace Centaurus
         FrmConsultaMarca frmConsultaMarca;
         string codigoReturMarcaProduto;
 
-        FrmConsultaCategoria frmConsultaCategoria;
+        FrmConsultaCategoriaSubCategoria formCatSub;
         string codigoReturCategoriaProduto;
-
-        FrmConsultaSubCategoria frmConsultaSubCategoria;
         string codigoReturSubCategoriaProduto;
 
         FrmConsultaParticipante frmConsultaParticipante;
@@ -91,34 +89,34 @@ namespace Centaurus
 
         private void buttonBuscarCategoria_Click(object sender, EventArgs e)
         {
-            frmConsultaCategoria = new FrmConsultaCategoria();
-            DialogResult dr = frmConsultaCategoria.ShowDialog(this);
+            formCatSub = new FrmConsultaCategoriaSubCategoria("C");
+            DialogResult dr = formCatSub.ShowDialog(this);
 
-            string nomeCategoriaReturn = frmConsultaCategoria.nomeCategoria;
+            string nomeCategoriaReturn = formCatSub.categoriaSubCategoriaClicada;
             if (String.IsNullOrEmpty(nomeCategoriaReturn) == true)
             {
                 MessageBox.Show("Você não selecionou a categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                codigoReturCategoriaProduto = frmConsultaCategoria.idCategoria;
+                codigoReturCategoriaProduto = formCatSub.idClicada;
                 textBoxCategoria.Text = codigoReturCategoriaProduto + " - " + nomeCategoriaReturn;
             }
         }
 
         private void buttonBuscarSubCategoria_Click(object sender, EventArgs e)
         {
-            frmConsultaSubCategoria = new FrmConsultaSubCategoria();
-            DialogResult dr = frmConsultaSubCategoria.ShowDialog(this);
+            formCatSub = new FrmConsultaCategoriaSubCategoria("S");
+            DialogResult dr = formCatSub.ShowDialog(this);
 
-            string nomeSubCategoriaReturn = frmConsultaSubCategoria.nomeSubCat;
+            string nomeSubCategoriaReturn = formCatSub.categoriaSubCategoriaClicada;
             if (String.IsNullOrEmpty(nomeSubCategoriaReturn) == true)
             {
                 MessageBox.Show("Você não selecionou a categoria!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                codigoReturSubCategoriaProduto = frmConsultaSubCategoria.idSubCat;
+                codigoReturSubCategoriaProduto = formCatSub.idClicada;
                 textBoxSubCategoria.Text = codigoReturSubCategoriaProduto + " - " + nomeSubCategoriaReturn;
             }
         }

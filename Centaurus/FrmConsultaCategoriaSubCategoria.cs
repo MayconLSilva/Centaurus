@@ -11,26 +11,14 @@ namespace Centaurus
         public string idClicada { get; set; }
         public string tipoCategoriaClicada { get; set; }
 
-        //public string returnTipoConsulta;
+        private string valorReturnTipoConsulta;
 
-
-        public FrmConsultaCategoriaSubCategoria()
-        {
+        public FrmConsultaCategoriaSubCategoria(string tipoConsulta)
+        {            
             InitializeComponent();
-            toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
-            radioButtonTodos.Checked = true;
+            valorReturnTipoConsulta = tipoConsulta;
         }
-
-        /* Metodo para receber anteriormente o valor 
-        public FrmConsultaCategoria(string valorReturnCategoria)
-        {
-            InitializeComponent();
-            returnTipoConsulta = valorReturnCategoria;
-            Console.WriteLine("o valor é " + returnTipoConsulta);
-        }
-        */
-
-
+               
         private void CarregarInformacoes()
         {
             string tipoConsulta="T";
@@ -84,9 +72,29 @@ namespace Centaurus
         }
         
         private void FrmConsultaMarca_Load(object sender, EventArgs e)
-        {
-            toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
-            radioButtonTodos.Checked = true;
+        {            
+            if(valorReturnTipoConsulta == "T")
+            {
+                this.Text = "Consulta Categoria e Sub-Categoria";
+                toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
+                radioButtonTodos.Checked = true;
+                
+            }else if(valorReturnTipoConsulta == "C")
+            {
+                this.Text = "Consulta Categoria";
+                toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
+                radioButtonCategoria.Checked = true;
+                radioButtonTodos.Enabled = false;
+                radioButtonSubCategoria.Enabled = false;
+            }
+            else if (valorReturnTipoConsulta == "S")
+            {
+                this.Text = "Consulta Sub-Categoria";
+                toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
+                radioButtonSubCategoria.Checked = true;
+                radioButtonTodos.Enabled = false;
+                radioButtonCategoria.Enabled = false;
+            }
             CarregarInformacoes();
         }
 

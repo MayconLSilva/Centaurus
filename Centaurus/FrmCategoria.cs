@@ -293,7 +293,7 @@ namespace Centaurus
         //Método buscar categoria e/ou sub-categoria, chama tela de consulta
         private void buttonBuscarParticipante_Click(object sender, EventArgs e)
         {            
-                frmConsulta = new FrmConsultaCategoriaSubCategoria();
+                frmConsulta = new FrmConsultaCategoriaSubCategoria("T");
                 DialogResult dr = frmConsulta.ShowDialog(this);
 
                 string nomeCategoriaReturn = frmConsulta.categoriaSubCategoriaClicada;
