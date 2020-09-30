@@ -190,7 +190,7 @@ namespace Centaurus
         }
 
         //Método salvar categoria e/ou sub-categoria
-        private void salvar(CategoriaModelo categoria) 
+        private void salvar(CategoriaModelo modCategoria) 
         {
             if(flag == 0) 
             {
@@ -202,31 +202,31 @@ namespace Centaurus
                 }
                 else 
                 {
-                    categoria.nomeCategoria = textBoxDescricaoCategoria.Text;
+                    modCategoria.nomeCategoria = textBoxDescricaoCategoria.Text;
                     if (checkBoxCategoriaAtiva.Checked)
                     {
-                        categoria.ativoCategoria = true;
+                        modCategoria.ativoCategoria = true;
                     }
                     else
                     {
-                        categoria.ativoCategoria = false;
+                        modCategoria.ativoCategoria = false;
                     }
                     if (radioButtonCategoria.Checked)
                     {
-                        categoria.tipoCategoria = 'C';
+                        modCategoria.tipoCategoria = 'C';
                     }else if (radioButtonSubCategoria.Checked)
                     {
-                        categoria.tipoCategoria = 'S';
+                        modCategoria.tipoCategoria = 'S';
                     }
-                    categoriaBLL.salvar(categoria);
+                    categoriaBLL.salvar(modCategoria);
                     MessageBox.Show("Categoria incluida com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.None);
                     botaoClicado = "SALVAR";
                     inativarAtivarCamposBotoes();
 
                     //Método chama o ultimo registro
-                    daoCatSub.UltimoRegistro(textBoxDescricaoCategoria.Text);
-                    string idReturn = daoCatSub.numeroIncluido;
-                    textBoxCodigoCategoria.Text = idReturn;
+                    categoriaBLL.buscarIDCategoriaSubCategoria(modCategoria);
+                    int idReturn = modCategoria.idCategoria;
+                    textBoxCodigoCategoria.Text = Convert.ToString(idReturn);
                 }                
             }
             else if(flag == 1) 
@@ -239,26 +239,26 @@ namespace Centaurus
                 }
                 else 
                 {
-                    categoria.nomeCategoria = textBoxDescricaoCategoria.Text;
+                    modCategoria.nomeCategoria = textBoxDescricaoCategoria.Text;
                     if (checkBoxCategoriaAtiva.Checked)
                     {
-                        categoria.ativoCategoria = true;
+                        modCategoria.ativoCategoria = true;
                     }
                     else
                     {
-                        categoria.ativoCategoria = false;
+                        modCategoria.ativoCategoria = false;
                     }
                     if (radioButtonCategoria.Checked)
                     {
-                        categoria.tipoCategoria = 'C';
+                        modCategoria.tipoCategoria = 'C';
                     }
                     else if (radioButtonSubCategoria.Checked)
                     {
-                        categoria.tipoCategoria = 'S';
+                        modCategoria.tipoCategoria = 'S';
                     }
-                    categoria.idCategoria = Convert.ToInt32(textBoxCodigoCategoria.Text);
+                    modCategoria.idCategoria = Convert.ToInt32(textBoxCodigoCategoria.Text);
 
-                    categoriaBLL.atualizar(categoria);
+                    categoriaBLL.atualizar(modCategoria);
                     MessageBox.Show("Categoria atualizada com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.None);
                     botaoClicado = "SALVAR";
                     inativarAtivarCamposBotoes();

@@ -23,6 +23,7 @@ namespace Centaurus.Dao
 
         public string numeroIncluido { get; set; }
 
+        //Método salva a categoria
         public void salvar(CategoriaModelo categoria) 
         {
             try 
@@ -45,6 +46,7 @@ namespace Centaurus.Dao
             
         }
 
+        //Método atualizar a categoria
         public void atualizar(CategoriaModelo categoria) 
         {
             try 
@@ -66,26 +68,8 @@ namespace Centaurus.Dao
                 FecharConexao();
             }
         }
-
-        public void UltimoRegistro(string valorReturn) 
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("select max(id_categoria) as numeroPego from categoria where descricao_categoria = '" + valorReturn + "'", conexao);
-                dr = comando.ExecuteReader();
-
-                while (dr.Read()) 
-                {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
-                }
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao pesquisar id da categoria: " + erro.Message);
-            }
-        }
-
+                
+        //Método excluir categoria
         public void ExcluirCategoria(string idCategoria)
         {
             try
@@ -101,7 +85,7 @@ namespace Centaurus.Dao
             }
         }
         
-        //Inicio código fonte pesquisa categorias e/ou sub-categorias
+        //Método lista as categorias e/ou sub-categorias
         public DataTable listarCategoriaSubCategoria(string tipoConsultaCatSub,string filtroUtilizado, string informacao)
         {
             DataTable dt = new DataTable();
@@ -180,6 +164,28 @@ namespace Centaurus.Dao
             catch(Exception erro)
             {
                 throw new Exception("Erro ao pesquisar categoria e/ou sub-categoria, classe DAO!" + erro.Message);
+            }
+            return modCatSub;
+        }
+
+        //Método pesquisa o ultimo registro
+        public CategoriaModelo buscarUltimoRegistro(CategoriaModelo modCatSub)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select max(id_categoria) as numeroPego from categoria where descricao_categoria = '"+modCatSub.nomeCategoria+"'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    int idCategoria = Convert.ToInt32(dr["numeroPego"]);
+                    modCatSub.idCategoria = idCategoria;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar id da categoria e/ou sub-categoria, classe DAO!" + erro.Message);
             }
             return modCatSub;
         }

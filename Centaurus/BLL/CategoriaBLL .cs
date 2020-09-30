@@ -49,5 +49,17 @@ namespace Centaurus.Bll
             }
         }
 
+        public void buscarIDCategoriaSubCategoria(CategoriaModelo modCatSub)
+        {
+            try
+            {
+                daoCatSub.buscarUltimoRegistro(modCatSub);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar a id da categoria e/ou sub-categoria, classe bll! " + erro.Message);
+            }
+        }
+
     }
 }
