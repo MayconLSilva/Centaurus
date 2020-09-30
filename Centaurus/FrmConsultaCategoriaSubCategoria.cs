@@ -33,14 +33,21 @@ namespace Centaurus
 
         private void CarregarInformacoes()
         {
-            if(toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "TODOS" && radioButtonTodos.Checked)
+            string tipoConsulta="T";
+            if (radioButtonTodos.Checked)
             {
-                int qtdRegistro;
-                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoria();
-                qtdRegistro = dataGridViewCategoriaSubCategoria.Rows.Count;
-                labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;
-                configurarDataGridView();
+                tipoConsulta = "T";
+            }else if (radioButtonCategoria.Checked)
+            {
+                tipoConsulta = "C";
+            }else if (radioButtonSubCategoria.Checked)
+            {
+                tipoConsulta = "S";
             }
+
+            dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.listarCategoriaSubCategoria(tipoConsulta, toolStripComboBoxTipoFiltroCategoriaSubCategoria.Text, toolStripTextBoxFiltroCategoriaSubCategoria.Text);
+
+            configurarDataGridView();
             
         }
 
@@ -61,6 +68,10 @@ namespace Centaurus
 
             dataGridViewCategoriaSubCategoria.Columns["ativo_categoria"].Visible = false;
 
+            int qtdRegistro;
+            qtdRegistro = dataGridViewCategoriaSubCategoria.Rows.Count;
+            labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;
+
         }
 
         private void dataGridViewCidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -72,37 +83,16 @@ namespace Centaurus
 
         }
         
-        private void CarregarInformacoesFiltrando()
-        {
-            int qtdRegistro;
-            if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "CATEGORIA")
-            {
-                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoriaNome(toolStripTextBoxFiltroCategoriaSubCategoria.Text);
-            }
-            else if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == "TODOS")
-            {
-                dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.SelecionarTodasCategoriaSubCategoria();
-            }
-            qtdRegistro = dataGridViewCategoriaSubCategoria.Rows.Count;
-            labelQuantidadeDeRegistros.Text = "Qtd. registros " + qtdRegistro;
-            configurarDataGridView();
-        }
-        
         private void FrmConsultaMarca_Load(object sender, EventArgs e)
         {
+            toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedIndex = toolStripComboBoxTipoFiltroCategoriaSubCategoria.FindStringExact("TODOS");
+            radioButtonTodos.Checked = true;
             CarregarInformacoes();
         }
 
         private void toolStripButtonFiltrarCategoriaSubCategoria_Click(object sender, EventArgs e)
         {
-            if (toolStripComboBoxTipoFiltroCategoriaSubCategoria.SelectedItem == null)
-            {
-                MessageBox.Show("Não foi selecionado nenhum filtro", "Atenção");
-            }
-            else
-            {
-                CarregarInformacoesFiltrando();
-            }
+            CarregarInformacoes();
         }
 
         private void toolStripButtonSelecionarCategoriaSubCategoria_Click(object sender, EventArgs e)

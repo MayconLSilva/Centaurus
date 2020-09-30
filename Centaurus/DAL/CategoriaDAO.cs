@@ -100,9 +100,9 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao excluir a categoria: " + ex.Message);
             }
         }
-
-        //Inicio código fonte pesquisa todas sub-categorias e categorias
-        public DataTable SelecionarTodasCategoriaSubCategoria()
+        
+        //Inicio código fonte pesquisa categorias e/ou sub-categorias
+        public DataTable listarCategoriaSubCategoria(string tipoConsultaCatSub,string filtroUtilizado, string informacao)
         {
             DataTable dt = new DataTable();
 
@@ -110,34 +110,52 @@ namespace Centaurus.Dao
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from categoria");
+                //Validando para puxar categoria e sub-categoria
+                if(tipoConsultaCatSub == "T" && filtroUtilizado == "TODOS")
+                {
+                    dt = conexao.RetDataTable("select *from categoria");
+                }
+                else if(tipoConsultaCatSub == "T" && filtroUtilizado == "NOME")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria = '" + informacao + "'");
+                }
+                else if(tipoConsultaCatSub == "T" && filtroUtilizado == "INTELIGENTE")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria like '%" + informacao + "%'");
+                }
+                //Validação para puxar somente por categoria
+                if (tipoConsultaCatSub == "C" && filtroUtilizado == "TODOS")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where tipo_categoria = 'C'");
+                }
+                else if (tipoConsultaCatSub == "C" && filtroUtilizado == "NOME")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria = '" + informacao + "' and tipo_categoria = 'C'");
+                }
+                else if (tipoConsultaCatSub == "C" && filtroUtilizado == "INTELIGENTE")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria like '%" + informacao + "%' and tipo_categoria = 'C'");
+                }
+                //Validando para puxar somente por sub-categoria
+                if (tipoConsultaCatSub == "S" && filtroUtilizado == "TODOS")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where tipo_categoria = 'S'");
+                }
+                else if (tipoConsultaCatSub == "S" && filtroUtilizado == "NOME")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria = '" + informacao + "' and tipo_categoria = 'S'");
+                }
+                else if (tipoConsultaCatSub == "S" && filtroUtilizado == "INTELIGENTE")
+                {
+                    dt = conexao.RetDataTable("select *from categoria where descricao_categoria like '%" + informacao + "%' and tipo_categoria = 'S'");
+                }
             }
-            catch (Exception ex)
+            catch(Exception erro)
             {
-                throw new Exception("Erro ao pesquisar categorias e/ou sub-categorias: " + ex.Message);
+                throw new Exception("Erro ao pesquisar as categorias e/ou sub-categorias!" + erro.Message);
             }
             return dt;
         }
-
-        //Inicio código fonte pesquisa todas sub-categorias e categorias filtrando
-        public DataTable SelecionarTodasCategoriaSubCategoriaNome(string filtro)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from categoria where descricao_categoria = '" + filtro + "'");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao pesquisar categoria: " + ex.Message);
-            }
-            return dt;
-        }
-
-
 
 
         //Inicio código fonte pesquisa todas categorias

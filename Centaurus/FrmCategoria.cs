@@ -397,5 +397,10 @@ namespace Centaurus
                 buscarCatSubPorCodigo();
             }
         }
+        
+        private void textBoxCodigoCategoria_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipPesquisarPorCodigo.SetToolTip(textBoxCodigoCategoria, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
     }    
 }

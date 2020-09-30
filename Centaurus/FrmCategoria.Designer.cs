@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoria));
             this.labelCodigo = new System.Windows.Forms.Label();
             this.textBoxCodigoCategoria = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.groupBoxTipo = new System.Windows.Forms.GroupBox();
             this.radioButtonSubCategoria = new System.Windows.Forms.RadioButton();
             this.radioButtonCategoria = new System.Windows.Forms.RadioButton();
+            this.toolTipPesquisarPorCodigo = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBoxTipo.SuspendLayout();
             this.SuspendLayout();
@@ -59,12 +61,15 @@
             // 
             // textBoxCodigoCategoria
             // 
+            this.textBoxCodigoCategoria.AccessibleDescription = "teste";
+            this.textBoxCodigoCategoria.AccessibleName = "teste1";
             this.textBoxCodigoCategoria.Location = new System.Drawing.Point(12, 80);
             this.textBoxCodigoCategoria.Name = "textBoxCodigoCategoria";
             this.textBoxCodigoCategoria.Size = new System.Drawing.Size(55, 20);
             this.textBoxCodigoCategoria.TabIndex = 1;
             this.textBoxCodigoCategoria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoCategoria_KeyDown);
             this.textBoxCodigoCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigoCategoria_KeyPress);
+            this.textBoxCodigoCategoria.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigoCategoria_MouseMove);
             // 
             // textBoxDescricaoCategoria
             // 
@@ -191,6 +196,12 @@
             this.radioButtonCategoria.Text = "Categoria";
             this.radioButtonCategoria.UseVisualStyleBackColor = true;
             // 
+            // toolTipPesquisarPorCodigo
+            // 
+            this.toolTipPesquisarPorCodigo.IsBalloon = true;
+            this.toolTipPesquisarPorCodigo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipPesquisarPorCodigo.ToolTipTitle = "Pesquisa..";
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +247,6 @@
         private System.Windows.Forms.GroupBox groupBoxTipo;
         private System.Windows.Forms.RadioButton radioButtonSubCategoria;
         private System.Windows.Forms.RadioButton radioButtonCategoria;
+        private System.Windows.Forms.ToolTip toolTipPesquisarPorCodigo;
     }
 }

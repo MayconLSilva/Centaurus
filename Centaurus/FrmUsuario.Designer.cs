@@ -46,7 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.treeViewOpcoesUsuario = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,7 @@
             this.MenuMarcaGravar.Name = "MenuMarcaGravar";
             this.MenuMarcaGravar.Size = new System.Drawing.Size(78, 20);
             this.MenuMarcaGravar.Text = "GRAVAR";
+            this.MenuMarcaGravar.Click += new System.EventHandler(this.MenuMarcaGravar_Click);
             // 
             // MenuMarcaEditar
             // 
@@ -194,23 +195,20 @@
             this.label2.TabIndex = 47;
             this.label2.Text = "Senha";
             // 
-            // checkedListBox1
+            // treeViewOpcoesUsuario
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "PRODUTO",
-            " A"});
-            this.checkedListBox1.Location = new System.Drawing.Point(326, 117);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox1.TabIndex = 50;
+            this.treeViewOpcoesUsuario.CheckBoxes = true;
+            this.treeViewOpcoesUsuario.Location = new System.Drawing.Point(321, 120);
+            this.treeViewOpcoesUsuario.Name = "treeViewOpcoesUsuario";
+            this.treeViewOpcoesUsuario.Size = new System.Drawing.Size(121, 97);
+            this.treeViewOpcoesUsuario.TabIndex = 51;
             // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.treeViewOpcoesUsuario);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -227,6 +225,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmUsuario";
             this.Text = "Cadastro de Usuários";
+            this.Load += new System.EventHandler(this.FrmUsuario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -253,6 +252,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.TreeView treeViewOpcoesUsuario;
     }
 }
