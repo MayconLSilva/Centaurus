@@ -103,7 +103,9 @@ namespace Centaurus.DAL
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from usuario");
+                dt = conexao.RetDataTable("select id_usuario, nome_fantasia_participante, login_usuario,dataCadastro_usuario "+
+                " from usuario "+
+                " inner join participante on participante.id_partipante = usuario.nome_usuario");
             }
             catch(Exception erro)
             {

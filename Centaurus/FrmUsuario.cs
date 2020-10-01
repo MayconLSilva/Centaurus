@@ -26,6 +26,7 @@ namespace Centaurus
         string botaoClicado;
         FrmConsultaParticipante frmConsultaParticipante;
         string codigoReturParticipante;
+        FrmConsultaUsuarios frmUsuario;
         int flag = 0;
 
         public void inativarAtivarBotoesCampos()
@@ -207,9 +208,6 @@ namespace Centaurus
             
         }
 
-       
-
-
         private void textBoxCodigoUsuario_MouseMove(object sender, MouseEventArgs e)
         {
             toolTipPesquisarPorCodigo.SetToolTip(textBoxCodigoUsuario, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
@@ -260,6 +258,21 @@ namespace Centaurus
             Console.WriteLine("salvar " + "part " + btnParticipante + " grupo " + btnGrupoProduto + " produto " + btnProduto + " marca " + btnMarca + " cat " + btnCatSub + " grupo " + btnUsuarios);
         }
 
+        private void buttonBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            frmUsuario = new FrmConsultaUsuarios();
+            DialogResult dr = frmUsuario.ShowDialog(this);
+
+            string idUsuario = frmUsuario.idUsuarioEnvia;
+            if (String.IsNullOrEmpty(idUsuario) == true)
+            {
+                MessageBox.Show("Você não selecionou nenhum usuário!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                textBoxCodigoUsuario.Text = idUsuario;
+            }
+        }
 
     }
 }
