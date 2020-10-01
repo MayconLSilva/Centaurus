@@ -207,8 +207,7 @@ namespace Centaurus
             
         }
 
-        
-
+       
 
 
         private void textBoxCodigoUsuario_MouseMove(object sender, MouseEventArgs e)

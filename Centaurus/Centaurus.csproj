@@ -53,6 +53,7 @@
     <Compile Include="BLL\MarcaBLL.cs" />
     <Compile Include="BLL\ParticipanteBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
+    <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DAL\CidadeDAO.cs" />
     <Compile Include="DAL\ConexaoBanco.cs" />
@@ -64,9 +65,11 @@
     <Compile Include="DAL\MarcaDAO.cs" />
     <Compile Include="DAL\ParticipanteDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
+    <Compile Include="DAL\UsuarioDAO.cs" />
     <Compile Include="DTO\LocacaoDevolucaoModelo.cs" />
     <Compile Include="DTO\LocacaoModelo.cs" />
     <Compile Include="DTO\LoginModelo.cs" />
+    <Compile Include="DTO\UsuarioModelo.cs" />
     <Compile Include="FrmConsultaCategoriaSubCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
