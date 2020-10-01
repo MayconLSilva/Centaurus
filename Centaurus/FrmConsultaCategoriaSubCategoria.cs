@@ -1,12 +1,16 @@
 ﻿using Centaurus.Dao;
 using System;
+using Centaurus.BLL;
+using Centaurus.Bll;
 using System.Windows.Forms;
 
 namespace Centaurus
 {
     public partial class FrmConsultaCategoriaSubCategoria : Form
     {
-        CategoriaDAO categoriaSubCatDAO = new CategoriaDAO();
+                        
+        CategoriaBLL bllCatSubCat = new CategoriaBLL();
+           
         public string categoriaSubCategoriaClicada { get; set; }
         public string idClicada { get; set; }
         public string tipoCategoriaClicada { get; set; }
@@ -33,7 +37,7 @@ namespace Centaurus
                 tipoConsulta = "S";
             }
 
-            dataGridViewCategoriaSubCategoria.DataSource = categoriaSubCatDAO.listarCategoriaSubCategoria(tipoConsulta, toolStripComboBoxTipoFiltroCategoriaSubCategoria.Text, toolStripTextBoxFiltroCategoriaSubCategoria.Text);
+            dataGridViewCategoriaSubCategoria.DataSource = bllCatSubCat.listarCategoriasSubCategorias(tipoConsulta, toolStripComboBoxTipoFiltroCategoriaSubCategoria.Text, toolStripTextBoxFiltroCategoriaSubCategoria.Text);
 
             configurarDataGridView();
             

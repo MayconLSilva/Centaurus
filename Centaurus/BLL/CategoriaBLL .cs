@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Centaurus.Bll
 {
@@ -60,6 +61,21 @@ namespace Centaurus.Bll
                 throw new Exception("Erro ao pesquisar a id da categoria e/ou sub-categoria, classe bll! " + erro.Message);
             }
         }
+
+        public DataTable listarCategoriasSubCategorias(string tipoConsultaCatSub, string filtroUtilizado, string informacao)
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable = daoCatSub.listarCategoriaSubCategoria(tipoConsultaCatSub, filtroUtilizado, informacao);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar categorias e/ou sub-categorias, classe BLL!" + erro.Message);
+            }
+        } 
 
     }
 }
