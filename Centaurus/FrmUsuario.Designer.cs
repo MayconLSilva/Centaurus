@@ -28,105 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.MenuMarcaNovo = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMarcaGravar = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMarcaEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMarcaCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMarcaExcluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonBuscarMarca = new System.Windows.Forms.Button();
-            this.checkBoxMarcaAtiva = new System.Windows.Forms.CheckBox();
-            this.textBoxDescricaoMarca = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("PARTICIPANTE");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Produto");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Marca");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Categoria/Sub-Categoria");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("PRODUTO", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("USUÁRIOS");
+            this.menuStripUsuarios = new System.Windows.Forms.MenuStrip();
+            this.MenuUsuarioNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarioGravar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarioEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarioCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarioExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonBuscarUsuario = new System.Windows.Forms.Button();
+            this.checkBoxUsuarioAtiva = new System.Windows.Forms.CheckBox();
+            this.textBoxNomeUsuario = new System.Windows.Forms.TextBox();
             this.labelDescricao = new System.Windows.Forms.Label();
-            this.textBoxCodigoMarca = new System.Windows.Forms.TextBox();
+            this.textBoxCodigoUsuario = new System.Windows.Forms.TextBox();
             this.labelCodigo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonBuscarNomeUsuario = new System.Windows.Forms.Button();
+            this.textBoxLoginUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxSenhaUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.treeViewOpcoesUsuario = new System.Windows.Forms.TreeView();
-            this.menuStrip1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolTipPesquisarPorCodigo = new System.Windows.Forms.ToolTip(this.components);
+            this.menuStripUsuarios.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripUsuarios
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuMarcaNovo,
-            this.MenuMarcaGravar,
-            this.MenuMarcaEditar,
-            this.MenuMarcaCancelar,
-            this.MenuMarcaExcluir});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(759, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripUsuarios.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStripUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuUsuarioNovo,
+            this.MenuUsuarioGravar,
+            this.MenuUsuarioEditar,
+            this.MenuUsuarioCancelar,
+            this.MenuUsuarioExcluir});
+            this.menuStripUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.menuStripUsuarios.Name = "menuStripUsuarios";
+            this.menuStripUsuarios.Size = new System.Drawing.Size(494, 24);
+            this.menuStripUsuarios.TabIndex = 5;
+            this.menuStripUsuarios.Text = "menuStrip1";
             // 
-            // MenuMarcaNovo
+            // MenuUsuarioNovo
             // 
-            this.MenuMarcaNovo.Image = ((System.Drawing.Image)(resources.GetObject("MenuMarcaNovo.Image")));
-            this.MenuMarcaNovo.Name = "MenuMarcaNovo";
-            this.MenuMarcaNovo.Size = new System.Drawing.Size(69, 20);
-            this.MenuMarcaNovo.Text = "NOVO";
+            this.MenuUsuarioNovo.Image = ((System.Drawing.Image)(resources.GetObject("MenuUsuarioNovo.Image")));
+            this.MenuUsuarioNovo.Name = "MenuUsuarioNovo";
+            this.MenuUsuarioNovo.Size = new System.Drawing.Size(69, 20);
+            this.MenuUsuarioNovo.Text = "NOVO";
+            this.MenuUsuarioNovo.Click += new System.EventHandler(this.MenuUsuarioNovo_Click);
             // 
-            // MenuMarcaGravar
+            // MenuUsuarioGravar
             // 
-            this.MenuMarcaGravar.Image = ((System.Drawing.Image)(resources.GetObject("MenuMarcaGravar.Image")));
-            this.MenuMarcaGravar.Name = "MenuMarcaGravar";
-            this.MenuMarcaGravar.Size = new System.Drawing.Size(78, 20);
-            this.MenuMarcaGravar.Text = "GRAVAR";
-            this.MenuMarcaGravar.Click += new System.EventHandler(this.MenuMarcaGravar_Click);
+            this.MenuUsuarioGravar.Image = ((System.Drawing.Image)(resources.GetObject("MenuUsuarioGravar.Image")));
+            this.MenuUsuarioGravar.Name = "MenuUsuarioGravar";
+            this.MenuUsuarioGravar.Size = new System.Drawing.Size(78, 20);
+            this.MenuUsuarioGravar.Text = "GRAVAR";
+            this.MenuUsuarioGravar.Click += new System.EventHandler(this.MenuMarcaGravar_Click);
             // 
-            // MenuMarcaEditar
+            // MenuUsuarioEditar
             // 
-            this.MenuMarcaEditar.Image = ((System.Drawing.Image)(resources.GetObject("MenuMarcaEditar.Image")));
-            this.MenuMarcaEditar.Name = "MenuMarcaEditar";
-            this.MenuMarcaEditar.Size = new System.Drawing.Size(72, 20);
-            this.MenuMarcaEditar.Text = "EDITAR";
+            this.MenuUsuarioEditar.Image = ((System.Drawing.Image)(resources.GetObject("MenuUsuarioEditar.Image")));
+            this.MenuUsuarioEditar.Name = "MenuUsuarioEditar";
+            this.MenuUsuarioEditar.Size = new System.Drawing.Size(72, 20);
+            this.MenuUsuarioEditar.Text = "EDITAR";
+            this.MenuUsuarioEditar.Click += new System.EventHandler(this.MenuUsuarioEditar_Click);
             // 
-            // MenuMarcaCancelar
+            // MenuUsuarioCancelar
             // 
-            this.MenuMarcaCancelar.Image = ((System.Drawing.Image)(resources.GetObject("MenuMarcaCancelar.Image")));
-            this.MenuMarcaCancelar.Name = "MenuMarcaCancelar";
-            this.MenuMarcaCancelar.Size = new System.Drawing.Size(95, 20);
-            this.MenuMarcaCancelar.Text = "CANCELAR";
+            this.MenuUsuarioCancelar.Image = ((System.Drawing.Image)(resources.GetObject("MenuUsuarioCancelar.Image")));
+            this.MenuUsuarioCancelar.Name = "MenuUsuarioCancelar";
+            this.MenuUsuarioCancelar.Size = new System.Drawing.Size(95, 20);
+            this.MenuUsuarioCancelar.Text = "CANCELAR";
+            this.MenuUsuarioCancelar.Click += new System.EventHandler(this.MenuUsuarioCancelar_Click);
             // 
-            // MenuMarcaExcluir
+            // MenuUsuarioExcluir
             // 
-            this.MenuMarcaExcluir.Image = ((System.Drawing.Image)(resources.GetObject("MenuMarcaExcluir.Image")));
-            this.MenuMarcaExcluir.Name = "MenuMarcaExcluir";
-            this.MenuMarcaExcluir.Size = new System.Drawing.Size(80, 20);
-            this.MenuMarcaExcluir.Text = "EXCLUIR";
+            this.MenuUsuarioExcluir.Image = ((System.Drawing.Image)(resources.GetObject("MenuUsuarioExcluir.Image")));
+            this.MenuUsuarioExcluir.Name = "MenuUsuarioExcluir";
+            this.MenuUsuarioExcluir.Size = new System.Drawing.Size(80, 20);
+            this.MenuUsuarioExcluir.Text = "EXCLUIR";
             // 
-            // buttonBuscarMarca
+            // buttonBuscarUsuario
             // 
-            this.buttonBuscarMarca.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarMarca.Image")));
-            this.buttonBuscarMarca.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarMarca.Location = new System.Drawing.Point(76, 75);
-            this.buttonBuscarMarca.Name = "buttonBuscarMarca";
-            this.buttonBuscarMarca.Size = new System.Drawing.Size(25, 24);
-            this.buttonBuscarMarca.TabIndex = 43;
-            this.buttonBuscarMarca.UseVisualStyleBackColor = true;
+            this.buttonBuscarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarUsuario.Image")));
+            this.buttonBuscarUsuario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarUsuario.Location = new System.Drawing.Point(76, 75);
+            this.buttonBuscarUsuario.Name = "buttonBuscarUsuario";
+            this.buttonBuscarUsuario.Size = new System.Drawing.Size(25, 24);
+            this.buttonBuscarUsuario.TabIndex = 43;
+            this.buttonBuscarUsuario.UseVisualStyleBackColor = true;
             // 
-            // checkBoxMarcaAtiva
+            // checkBoxUsuarioAtiva
             // 
-            this.checkBoxMarcaAtiva.AutoSize = true;
-            this.checkBoxMarcaAtiva.Location = new System.Drawing.Point(15, 34);
-            this.checkBoxMarcaAtiva.Name = "checkBoxMarcaAtiva";
-            this.checkBoxMarcaAtiva.Size = new System.Drawing.Size(50, 17);
-            this.checkBoxMarcaAtiva.TabIndex = 42;
-            this.checkBoxMarcaAtiva.Text = "Ativa";
-            this.checkBoxMarcaAtiva.UseVisualStyleBackColor = true;
+            this.checkBoxUsuarioAtiva.AutoSize = true;
+            this.checkBoxUsuarioAtiva.Location = new System.Drawing.Point(15, 34);
+            this.checkBoxUsuarioAtiva.Name = "checkBoxUsuarioAtiva";
+            this.checkBoxUsuarioAtiva.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxUsuarioAtiva.TabIndex = 42;
+            this.checkBoxUsuarioAtiva.Text = "Ativo";
+            this.checkBoxUsuarioAtiva.UseVisualStyleBackColor = true;
             // 
-            // textBoxDescricaoMarca
+            // textBoxNomeUsuario
             // 
-            this.textBoxDescricaoMarca.Location = new System.Drawing.Point(15, 120);
-            this.textBoxDescricaoMarca.Name = "textBoxDescricaoMarca";
-            this.textBoxDescricaoMarca.Size = new System.Drawing.Size(165, 20);
-            this.textBoxDescricaoMarca.TabIndex = 41;
+            this.textBoxNomeUsuario.Location = new System.Drawing.Point(15, 120);
+            this.textBoxNomeUsuario.Name = "textBoxNomeUsuario";
+            this.textBoxNomeUsuario.Size = new System.Drawing.Size(165, 20);
+            this.textBoxNomeUsuario.TabIndex = 41;
             // 
             // labelDescricao
             // 
@@ -137,12 +153,13 @@
             this.labelDescricao.TabIndex = 40;
             this.labelDescricao.Text = "Nome";
             // 
-            // textBoxCodigoMarca
+            // textBoxCodigoUsuario
             // 
-            this.textBoxCodigoMarca.Location = new System.Drawing.Point(15, 75);
-            this.textBoxCodigoMarca.Name = "textBoxCodigoMarca";
-            this.textBoxCodigoMarca.Size = new System.Drawing.Size(55, 20);
-            this.textBoxCodigoMarca.TabIndex = 39;
+            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(15, 75);
+            this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
+            this.textBoxCodigoUsuario.Size = new System.Drawing.Size(55, 20);
+            this.textBoxCodigoUsuario.TabIndex = 39;
+            this.textBoxCodigoUsuario.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigoUsuario_MouseMove);
             // 
             // labelCodigo
             // 
@@ -153,22 +170,24 @@
             this.labelCodigo.TabIndex = 38;
             this.labelCodigo.Text = "Código";
             // 
-            // button1
+            // buttonBuscarNomeUsuario
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(186, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 24);
-            this.button1.TabIndex = 44;
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonBuscarNomeUsuario.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarNomeUsuario.Image")));
+            this.buttonBuscarNomeUsuario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarNomeUsuario.Location = new System.Drawing.Point(186, 117);
+            this.buttonBuscarNomeUsuario.Name = "buttonBuscarNomeUsuario";
+            this.buttonBuscarNomeUsuario.Size = new System.Drawing.Size(25, 24);
+            this.buttonBuscarNomeUsuario.TabIndex = 44;
+            this.buttonBuscarNomeUsuario.UseVisualStyleBackColor = true;
+            this.buttonBuscarNomeUsuario.Click += new System.EventHandler(this.buttonBuscarNomeUsuario_Click);
             // 
-            // textBox1
+            // textBoxLoginUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 46;
+            this.textBoxLoginUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxLoginUsuario.Location = new System.Drawing.Point(15, 163);
+            this.textBoxLoginUsuario.Name = "textBoxLoginUsuario";
+            this.textBoxLoginUsuario.Size = new System.Drawing.Size(165, 20);
+            this.textBoxLoginUsuario.TabIndex = 46;
             // 
             // label1
             // 
@@ -179,12 +198,13 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Login";
             // 
-            // textBox2
+            // textBoxSenhaUsuario
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 208);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 20);
-            this.textBox2.TabIndex = 48;
+            this.textBoxSenhaUsuario.Location = new System.Drawing.Point(15, 208);
+            this.textBoxSenhaUsuario.Name = "textBoxSenhaUsuario";
+            this.textBoxSenhaUsuario.PasswordChar = '*';
+            this.textBoxSenhaUsuario.Size = new System.Drawing.Size(165, 20);
+            this.textBoxSenhaUsuario.TabIndex = 48;
             // 
             // label2
             // 
@@ -198,36 +218,68 @@
             // treeViewOpcoesUsuario
             // 
             this.treeViewOpcoesUsuario.CheckBoxes = true;
-            this.treeViewOpcoesUsuario.Location = new System.Drawing.Point(321, 120);
+            this.treeViewOpcoesUsuario.Location = new System.Drawing.Point(3, 3);
             this.treeViewOpcoesUsuario.Name = "treeViewOpcoesUsuario";
-            this.treeViewOpcoesUsuario.Size = new System.Drawing.Size(121, 97);
+            treeNode13.Name = "btnParticipante";
+            treeNode13.Text = "PARTICIPANTE";
+            treeNode14.Name = "btnProduto";
+            treeNode14.Text = "Produto";
+            treeNode15.Name = "btnMarca";
+            treeNode15.Text = "Marca";
+            treeNode16.Name = "btnCategoriaSubCategoria";
+            treeNode16.Text = "Categoria/Sub-Categoria";
+            treeNode17.Name = "btnGrupoProduto";
+            treeNode17.Text = "PRODUTO";
+            treeNode18.Name = "btnUsuarios";
+            treeNode18.Text = "USUÁRIOS";
+            this.treeViewOpcoesUsuario.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode17,
+            treeNode18});
+            this.treeViewOpcoesUsuario.Size = new System.Drawing.Size(207, 269);
             this.treeViewOpcoesUsuario.TabIndex = 51;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.treeViewOpcoesUsuario);
+            this.panel1.Location = new System.Drawing.Point(269, 34);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(213, 275);
+            this.panel1.TabIndex = 52;
+            // 
+            // toolTipPesquisarPorCodigo
+            // 
+            this.toolTipPesquisarPorCodigo.IsBalloon = true;
+            this.toolTipPesquisarPorCodigo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipPesquisarPorCodigo.ToolTipTitle = "Pesquisa..";
             // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 481);
-            this.Controls.Add(this.treeViewOpcoesUsuario);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(494, 321);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.textBoxSenhaUsuario);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxLoginUsuario);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonBuscarMarca);
-            this.Controls.Add(this.checkBoxMarcaAtiva);
-            this.Controls.Add(this.textBoxDescricaoMarca);
+            this.Controls.Add(this.buttonBuscarNomeUsuario);
+            this.Controls.Add(this.buttonBuscarUsuario);
+            this.Controls.Add(this.checkBoxUsuarioAtiva);
+            this.Controls.Add(this.textBoxNomeUsuario);
             this.Controls.Add(this.labelDescricao);
-            this.Controls.Add(this.textBoxCodigoMarca);
+            this.Controls.Add(this.textBoxCodigoUsuario);
             this.Controls.Add(this.labelCodigo);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmUsuario";
             this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.FrmUsuario_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripUsuarios.ResumeLayout(false);
+            this.menuStripUsuarios.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,23 +287,25 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem MenuMarcaNovo;
-        private System.Windows.Forms.ToolStripMenuItem MenuMarcaGravar;
-        private System.Windows.Forms.ToolStripMenuItem MenuMarcaEditar;
-        private System.Windows.Forms.ToolStripMenuItem MenuMarcaCancelar;
-        private System.Windows.Forms.ToolStripMenuItem MenuMarcaExcluir;
-        private System.Windows.Forms.Button buttonBuscarMarca;
-        private System.Windows.Forms.CheckBox checkBoxMarcaAtiva;
-        private System.Windows.Forms.TextBox textBoxDescricaoMarca;
+        private System.Windows.Forms.MenuStrip menuStripUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarioNovo;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarioGravar;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarioEditar;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarioCancelar;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarioExcluir;
+        private System.Windows.Forms.Button buttonBuscarUsuario;
+        private System.Windows.Forms.CheckBox checkBoxUsuarioAtiva;
+        private System.Windows.Forms.TextBox textBoxNomeUsuario;
         private System.Windows.Forms.Label labelDescricao;
-        private System.Windows.Forms.TextBox textBoxCodigoMarca;
+        private System.Windows.Forms.TextBox textBoxCodigoUsuario;
         private System.Windows.Forms.Label labelCodigo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonBuscarNomeUsuario;
+        private System.Windows.Forms.TextBox textBoxLoginUsuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxSenhaUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TreeView treeViewOpcoesUsuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip toolTipPesquisarPorCodigo;
     }
 }

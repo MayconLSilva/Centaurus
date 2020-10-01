@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="menuStripUsuarios.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MenuMarcaNovo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuUsuarioNovo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAGXRF
@@ -136,7 +136,7 @@
         GHYq8kZj2KnHG41hpx5vNIaderzRGEEQBMG/1mj8AHJqYHdzc7WXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MenuMarcaGravar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuUsuarioGravar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAURJREFUWEft
         liGOAjEYhUdwBA6wB+AICDwSgeQICAQCwQEQiBV7BAQCgUSs5BBIBAdArFgxfP/0J9lkZmhL/k5W9Eue
@@ -147,7 +147,7 @@
         DAIDtEJyhNYa6zaZjDFF8QAyz4+NRDsM7AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="MenuMarcaEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuUsuarioEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAN1JREFUWEft
         kssNgzAQRF1AjhwogENKyIEDXVBOSkh5KSEFpABnBu1KxMKYgz9E2SeNhPHK84RxhvELeO87ZEYu8qod
@@ -156,7 +156,7 @@
         dWQIilJC9WQIyvaE6soQFMaE6ssQlE4IpcLcZMQwToxzHyp1b+vC602zAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MenuMarcaCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuUsuarioCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAhRJREFUWEft
         ly12QjEQhREIBLJL6AK6gLouAFGBRFayAEQForILqKxEIFgCAlFRiahAICorKyrovcnAAZJJJo8gesp3
@@ -171,7 +171,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="MenuMarcaExcluir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuUsuarioExcluir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAARdJREFUWEft
         1rttw0AQhGEGDFyEQ/eiMlyCAhegAhywEBekMlgCtev7zw8NH7DnBAsGP2ATznK0zNTtdn9hmqY+5iXm
@@ -181,7 +181,7 @@
         2SFmfK/9nXz3ibo2ovAh5jlm9g/8yhxjHqnZ7W6s6y5TAlSGBIDcTwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonBuscarMarca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonBuscarUsuario.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAGXRF
@@ -192,7 +192,7 @@
         ci8JcpS/Oi+L7gVpLQBQ6FaK3WlSegJgqlSSsrmZ+wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonBuscarNomeUsuario.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAGXRF
@@ -203,4 +203,7 @@
         ci8JcpS/Oi+L7gVpLQBQ6FaK3WlSegJgqlSSsrmZ+wAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="toolTipPesquisarPorCodigo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>160, 18</value>
+  </metadata>
 </root>
