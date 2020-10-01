@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.BLL;
+using Centaurus.DTO;
 
 namespace Centaurus
 {
@@ -28,6 +30,7 @@ namespace Centaurus
         string codigoReturParticipante;
         FrmConsultaUsuarios frmUsuario;
         int flag = 0;
+        UsuarioBLL bllUsuario = new UsuarioBLL();
 
         public void inativarAtivarBotoesCampos()
         {
@@ -270,9 +273,67 @@ namespace Centaurus
             }
             else
             {
+                botaoClicado = "PESQUISAR";
+                inativarAtivarBotoesCampos();
+                UsuarioModelo modUsuario = new UsuarioModelo();
                 textBoxCodigoUsuario.Text = idUsuario;
+
+                buscarInforcoes(modUsuario);
+                
             }
         }
 
+        public void buscarInforcoes(UsuarioModelo modUsuario)
+        {
+            modUsuario.idUsuario = Convert.ToInt32(textBoxCodigoUsuario.Text);
+            bllUsuario.buscarInformacoesUsuarioID(modUsuario);
+
+            string idNome = modUsuario.idNomeUsuario;
+            string nomeUsuario = modUsuario.nomeUsuario;
+            string login = modUsuario.loginUsuario;
+            string senha = modUsuario.senhaUsuario;
+            bool ativo = modUsuario.ativoUsuario;
+            textBoxNomeUsuario.Text = idNome + " - " + nomeUsuario;
+            textBoxLoginUsuario.Text = login;
+            textBoxSenhaUsuario.Text = senha;
+            if (ativo = true)
+            {
+                checkBoxUsuarioAtiva.Checked = true;
+            }
+            else
+            {
+                checkBoxUsuarioAtiva.Checked = false;
+            }
+        }
+
+        private void textBoxCodigoUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UsuarioModelo modUsuario = new UsuarioModelo();
+                buscarInforcoes(modUsuario);
+
+                if(textBoxLoginUsuario.Text != null || textBoxLoginUsuario.Text != "")
+                {
+                    botaoClicado = "PESQUISAR";
+                    inativarAtivarBotoesCampos();
+                }
+            }
+        }
+
+        private void textBoxCodigoUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

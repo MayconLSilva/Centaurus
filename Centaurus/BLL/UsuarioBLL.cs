@@ -64,5 +64,30 @@ namespace Centaurus.BLL
             }
         }
 
+        public void buscarUltimoRegistro(UsuarioModelo modUsuario)
+        {
+            try
+            {
+                daoUsuario.buscarUltimoRegistro(modUsuario);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar id do usuário, classe BLL" + erro.Message);
+            }
+            
+        }
+
+        public void buscarInformacoesUsuarioID(UsuarioModelo modUsuario)
+        {
+            try
+            {
+                daoUsuario.buscarInformacoesUsuario(modUsuario);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar informações do usuário, classe BLL" + erro.Message);
+            }
+        }
+
     }
 }

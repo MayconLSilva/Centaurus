@@ -10,6 +10,7 @@ namespace Centaurus.DTO
     {
         public int idUsuario { get; set; }
         public string idNomeUsuario { get; set; }
+        public string nomeUsuario { get; set; }
         public string loginUsuario { get; set; }
         public string senhaUsuario { get; set; }
         public bool ativoUsuario { get; set; }

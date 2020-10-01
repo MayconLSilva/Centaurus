@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("PARTICIPANTE");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Produto");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Marca");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Categoria/Sub-Categoria");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("PRODUTO", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("USUÁRIOS");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("PARTICIPANTE");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Produto");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Marca");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Categoria/Sub-Categoria");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("PRODUTO", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("USUÁRIOS");
             this.menuStripUsuarios = new System.Windows.Forms.MenuStrip();
             this.MenuUsuarioNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuUsuarioGravar = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,6 +160,8 @@
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
             this.textBoxCodigoUsuario.Size = new System.Drawing.Size(55, 20);
             this.textBoxCodigoUsuario.TabIndex = 39;
+            this.textBoxCodigoUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoUsuario_KeyDown);
+            this.textBoxCodigoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigoUsuario_KeyPress);
             this.textBoxCodigoUsuario.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigoUsuario_MouseMove);
             // 
             // labelCodigo
@@ -221,22 +223,22 @@
             this.treeViewOpcoesUsuario.CheckBoxes = true;
             this.treeViewOpcoesUsuario.Location = new System.Drawing.Point(3, 3);
             this.treeViewOpcoesUsuario.Name = "treeViewOpcoesUsuario";
-            treeNode1.Name = "btnParticipante";
-            treeNode1.Text = "PARTICIPANTE";
-            treeNode2.Name = "btnProduto";
-            treeNode2.Text = "Produto";
-            treeNode3.Name = "btnMarca";
-            treeNode3.Text = "Marca";
-            treeNode4.Name = "btnCategoriaSubCategoria";
-            treeNode4.Text = "Categoria/Sub-Categoria";
-            treeNode5.Name = "btnGrupoProduto";
-            treeNode5.Text = "PRODUTO";
-            treeNode6.Name = "btnUsuarios";
-            treeNode6.Text = "USUÁRIOS";
+            treeNode13.Name = "btnParticipante";
+            treeNode13.Text = "PARTICIPANTE";
+            treeNode14.Name = "btnProduto";
+            treeNode14.Text = "Produto";
+            treeNode15.Name = "btnMarca";
+            treeNode15.Text = "Marca";
+            treeNode16.Name = "btnCategoriaSubCategoria";
+            treeNode16.Text = "Categoria/Sub-Categoria";
+            treeNode17.Name = "btnGrupoProduto";
+            treeNode17.Text = "PRODUTO";
+            treeNode18.Name = "btnUsuarios";
+            treeNode18.Text = "USUÁRIOS";
             this.treeViewOpcoesUsuario.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode5,
-            treeNode6});
+            treeNode13,
+            treeNode17,
+            treeNode18});
             this.treeViewOpcoesUsuario.Size = new System.Drawing.Size(207, 269);
             this.treeViewOpcoesUsuario.TabIndex = 51;
             // 
