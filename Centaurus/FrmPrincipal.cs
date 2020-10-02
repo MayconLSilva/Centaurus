@@ -15,7 +15,7 @@ namespace Centaurus
     public partial class FrmPrincipal : Form
     {
         FrmLogin frmConsulta;
-        public string nomeLogado { get; set; }
+        public string loginLogado { get; set; }
 
         UsuarioBLL bllUsuario = new UsuarioBLL();
 
@@ -79,13 +79,13 @@ namespace Centaurus
             this.Height = Screen.PrimaryScreen.Bounds.Height;
             this.Width = Screen.PrimaryScreen.Bounds.Width;
             this.TopMost = true;
-            nomeLogado = valorReturn;
-            labelUsuarioLogado.Text = " Bem vindo: "+ nomeLogado;
+            loginLogado = valorReturn;
+            labelUsuarioLogado.Text = " Bem vindo: "+ loginLogado;
         }
 
         private void locaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLocacao janelaLocacao = new FrmLocacao(nomeLogado);
+            FrmLocacao janelaLocacao = new FrmLocacao(loginLogado);
             janelaLocacao.TopLevel = false;
             janelaLocacao.Visible = true;
             painelPrincipal.Controls.Add(janelaLocacao);
@@ -93,7 +93,7 @@ namespace Centaurus
 
         private void devLocaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLocacaoDevolucao janelaDevLocacao = new FrmLocacaoDevolucao(null, nomeLogado);
+            FrmLocacaoDevolucao janelaDevLocacao = new FrmLocacaoDevolucao(null, loginLogado);
             janelaDevLocacao.TopLevel = false;
             janelaDevLocacao.Visible = true;
             painelPrincipal.Controls.Add(janelaDevLocacao);
@@ -116,7 +116,7 @@ namespace Centaurus
         {
             //Envio o login para carregar as opções do usuário
             UsuarioModelo modUsuario = new UsuarioModelo();
-            modUsuario.loginUsuario = nomeLogado;
+            modUsuario.loginUsuario = loginLogado;
             bllUsuario.buscarInformacoesUsuarioLogin(modUsuario);
 
             bool btnParticipante = modUsuario.botaoParticipanteUsuario;
@@ -127,7 +127,6 @@ namespace Centaurus
             bool btnUsuario = modUsuario.botaoUsuariosUsuario;
             bool btnLocacao = modUsuario.botaoLocacaoUsuario;
             bool btnDevLocacao = modUsuario.botaoDevLocacaoUsuario;
-
             if (btnParticipante == true)
             {
                 participantesToolStripMenuItem.Enabled = true;

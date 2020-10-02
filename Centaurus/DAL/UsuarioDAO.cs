@@ -204,13 +204,11 @@ namespace Centaurus.DAL
         //Busco informações do usuário pelo login
         public UsuarioModelo buscarInformacoesUsuarioLogin(UsuarioModelo modUsuario)
         {
-            Console.WriteLine("logado dao " + modUsuario.loginUsuario);
             try
             {
                 AbrirConexao();
                 comando = new MySqlCommand("select ativo_usuario,nome_usuario,nome_fantasia_participante,login_usuario,senha_usuario,botaoParticipante_usuario,botaoGrupoProduto_usuario,botaoProduto_usuario, botaoMarca_usuario, botaoCategoriaSubCategoria_usuario, botaoUsuarios_usuario,botaoLocacao_usuario,botaoDevLocacao_usuario from usuario inner join participante on participante.id_partipante = usuario.nome_usuario where login_usuario = '" + modUsuario.loginUsuario + "'", conexao);
                 dr = comando.ExecuteReader();
-
                 while (dr.Read())
                 {
                     bool ativoUsuario = Convert.ToBoolean(dr["ativo_usuario"]);

@@ -432,13 +432,13 @@ namespace Centaurus
         {
             modUsuario.idUsuario = Convert.ToInt32(textBoxCodigoUsuario.Text);
             bllUsuario.buscarInformacoesUsuarioID(modUsuario);
-
-            string idNome = modUsuario.idNomeUsuario;
+            
+            codigoReturParticipante = modUsuario.idNomeUsuario;
             string nomeUsuario = modUsuario.nomeUsuario;
             string login = modUsuario.loginUsuario;
             string senha = modUsuario.senhaUsuario;
             bool ativo = modUsuario.ativoUsuario;
-            textBoxNomeUsuario.Text = idNome + " - " + nomeUsuario;
+            textBoxNomeUsuario.Text = codigoReturParticipante + " - " + nomeUsuario;
             textBoxLoginUsuario.Text = login;
             textBoxSenhaUsuario.Text = senha;
             if (ativo = true)
