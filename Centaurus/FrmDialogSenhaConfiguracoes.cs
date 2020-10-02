@@ -26,10 +26,35 @@ namespace Centaurus
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            var formManutencao = new FrmManutencao();
-            this.Hide();
-            formManutencao.Show();
-            
+            validaLoginManutencao();                       
+        }
+
+        public void validaLoginManutencao()
+        {
+            string dataSenha = DateTime.Now.ToString("MM/yyyy");
+            string senha = dataSenha.Substring(0, 2) + dataSenha.Substring(3, 4);
+            if (textBoxUsuario.Text == "GERAL" && textBoxSenha.Text == senha)
+            {
+                var formManutencao = new FrmManutencao();
+                this.Hide();
+                formManutencao.Show();
+            }
+            else if (textBoxUsuario.Text == "" || textBoxSenha.Text == "")
+            {
+                MessageBox.Show("Usuário ou senha não informado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (textBoxUsuario.Text != "GERAL" || textBoxSenha.Text != senha)
+            {
+                MessageBox.Show("Usuário ou senha incorretos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void textBoxSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                validaLoginManutencao();
+            }            
         }
     }
 }

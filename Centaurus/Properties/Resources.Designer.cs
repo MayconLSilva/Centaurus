@@ -63,6 +63,16 @@ namespace Centaurus.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bd {
+            get {
+                object obj = ResourceManager.GetObject("bd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cash_usd {
             get {
                 object obj = ResourceManager.GetObject("cash-usd", resourceCulture);
@@ -116,6 +126,16 @@ namespace Centaurus.Properties {
         internal static System.Drawing.Bitmap produto {
             get {
                 object obj = ResourceManager.GetObject("produto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_grid_icon_icons_com_73384 {
+            get {
+                object obj = ResourceManager.GetObject("table-grid_icon-icons.com_73384", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

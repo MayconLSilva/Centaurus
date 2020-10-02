@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.labelSenha = new System.Windows.Forms.Label();
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto = new System.Windows.Forms.TextBox();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.textBoxDescontoDadoValor_dialogDesconto = new System.Windows.Forms.TextBox();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -44,14 +44,15 @@
             this.labelSenha.TabIndex = 8;
             this.labelSenha.Text = "Senha";
             // 
-            // textBoxDescontoDadoPorcentagem_dialogDesconto
+            // textBoxSenha
             // 
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.Location = new System.Drawing.Point(145, 43);
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.MaxLength = 10;
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.Name = "textBoxDescontoDadoPorcentagem_dialogDesconto";
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.PasswordChar = '*';
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.Size = new System.Drawing.Size(129, 20);
-            this.textBoxDescontoDadoPorcentagem_dialogDesconto.TabIndex = 7;
+            this.textBoxSenha.Location = new System.Drawing.Point(145, 43);
+            this.textBoxSenha.MaxLength = 10;
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.PasswordChar = '*';
+            this.textBoxSenha.Size = new System.Drawing.Size(129, 20);
+            this.textBoxSenha.TabIndex = 7;
+            this.textBoxSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSenha_KeyDown);
             // 
             // labelUsuario
             // 
@@ -62,14 +63,14 @@
             this.labelUsuario.TabIndex = 6;
             this.labelUsuario.Text = "Usuario";
             // 
-            // textBoxDescontoDadoValor_dialogDesconto
+            // textBoxUsuario
             // 
-            this.textBoxDescontoDadoValor_dialogDesconto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxDescontoDadoValor_dialogDesconto.Location = new System.Drawing.Point(145, 12);
-            this.textBoxDescontoDadoValor_dialogDesconto.MaxLength = 10;
-            this.textBoxDescontoDadoValor_dialogDesconto.Name = "textBoxDescontoDadoValor_dialogDesconto";
-            this.textBoxDescontoDadoValor_dialogDesconto.Size = new System.Drawing.Size(129, 20);
-            this.textBoxDescontoDadoValor_dialogDesconto.TabIndex = 5;
+            this.textBoxUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxUsuario.Location = new System.Drawing.Point(145, 12);
+            this.textBoxUsuario.MaxLength = 10;
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(129, 20);
+            this.textBoxUsuario.TabIndex = 5;
             // 
             // buttonOK
             // 
@@ -88,9 +89,9 @@
             this.ClientSize = new System.Drawing.Size(381, 114);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSenha);
-            this.Controls.Add(this.textBoxDescontoDadoPorcentagem_dialogDesconto);
+            this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.labelUsuario);
-            this.Controls.Add(this.textBoxDescontoDadoValor_dialogDesconto);
+            this.Controls.Add(this.textBoxUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -104,9 +105,9 @@
         #endregion
 
         private System.Windows.Forms.Label labelSenha;
-        public System.Windows.Forms.TextBox textBoxDescontoDadoPorcentagem_dialogDesconto;
+        public System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Label labelUsuario;
-        private System.Windows.Forms.TextBox textBoxDescontoDadoValor_dialogDesconto;
+        private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Button buttonOK;
     }
 }

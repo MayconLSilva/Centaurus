@@ -316,5 +316,11 @@
   <ItemGroup>
     <None Include="Resources\configuracoes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-grid_icon-icons.com_73384.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
