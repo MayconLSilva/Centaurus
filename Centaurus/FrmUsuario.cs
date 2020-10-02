@@ -83,6 +83,7 @@ namespace Centaurus
                     textBoxNomeUsuario.Clear();
                     textBoxLoginUsuario.Clear();
                     textBoxSenhaUsuario.Clear();
+                    codigoReturParticipante = null;
 
                     treeViewOpcoesUsuario.Enabled = true;
 
@@ -147,8 +148,8 @@ namespace Centaurus
 
                     textBoxCodigoUsuario.Enabled = true;
                     textBoxNomeUsuario.Enabled = false;
-                    textBoxLoginUsuario.Enabled = true;
-                    textBoxSenhaUsuario.Enabled = true;
+                    textBoxLoginUsuario.Enabled = false;
+                    textBoxSenhaUsuario.Enabled = false;
 
                     //Limpar campos
                     textBoxCodigoUsuario.Clear();
@@ -156,6 +157,7 @@ namespace Centaurus
                     textBoxLoginUsuario.Clear();
                     textBoxSenhaUsuario.Clear();
                     checkBoxUsuarioAtiva.Checked = false;
+                    codigoReturParticipante = null;
 
                     treeViewOpcoesUsuario.Enabled = false;
 
@@ -185,6 +187,7 @@ namespace Centaurus
                     textBoxLoginUsuario.Clear();
                     textBoxSenhaUsuario.Clear();
                     checkBoxUsuarioAtiva.Checked = false;
+                    codigoReturParticipante = null;
 
                     treeViewOpcoesUsuario.Enabled = false;
 
@@ -211,7 +214,14 @@ namespace Centaurus
         
         private void MenuMarcaGravar_Click(object sender, EventArgs e)
         {
-            NodesSelecionados(treeViewOpcoesUsuario.Nodes);
+            if(textBoxNomeUsuario.Text == ""){
+                MessageBox.Show("É necessário vincular o funcionário/nome usuário!", "Atenção", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                NodesSelecionados(treeViewOpcoesUsuario.Nodes);
+            }
+            
         }
 
         public List<string> NodesSelecionados(TreeNodeCollection ColecaoNodes)
@@ -361,6 +371,19 @@ namespace Centaurus
         {
             botaoClicado = "CANCELAR";
             inativarAtivarBotoesCampos();
+        }
+
+        private void MenuUsuarioExcluir_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                UsuarioModelo modUsuario = new UsuarioModelo();
+                modUsuario.idUsuario = Convert.ToInt32(textBoxCodigoUsuario.Text);
+                bllUsuario.excluir(modUsuario);
+                botaoClicado = "EXCLUIR";
+                inativarAtivarBotoesCampos();
+            }
         }
 
         private void MenuUsuarioEditar_Click(object sender, EventArgs e)

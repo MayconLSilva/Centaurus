@@ -82,9 +82,10 @@ namespace Centaurus.DAL
         {
             try
             {
-                comando = new MySqlCommand("delete from usuario where id_usuario = @idusuario", conexao);
-                comando.Parameters.AddWithValue("@idusuario", modUsuario.idUsuario);
-                comando.ExecuteNonQuery();
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                string comando = "delete from usuario where id_usuario = " + Convert.ToInt32(modUsuario.idUsuario);
+                conexao.ExecutarComandoSQL(comando);
             }
             catch (Exception erro)
             {
