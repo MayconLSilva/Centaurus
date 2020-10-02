@@ -129,7 +129,7 @@ namespace Centaurus.DAL
 
                 while (dr.Read())
                 {
-                    int idUsuario = Convert.ToInt32(dr["id_usuario"]);
+                    int idUsuario = Convert.ToInt32(dr["numeroPego"]);
                     modUsuario.idUsuario = idUsuario;
                 }
             }

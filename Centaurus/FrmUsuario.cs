@@ -32,6 +32,9 @@ namespace Centaurus
         int flag = 0;
         UsuarioBLL bllUsuario = new UsuarioBLL();
 
+        int contador = 0;
+        bool btnParticipante=false, btnGrupoProduto = false, btnProduto = false, btnMarca = false, btnCatSub = false, btnUsuario = false;
+
         public void inativarAtivarBotoesCampos()
         {
             switch (botaoClicado)
@@ -208,7 +211,119 @@ namespace Centaurus
         
         private void MenuMarcaGravar_Click(object sender, EventArgs e)
         {
+            NodesSelecionados(treeViewOpcoesUsuario.Nodes);
+        }
+
+        public List<string> NodesSelecionados(TreeNodeCollection ColecaoNodes)
+        {
+            List<String> ListaNodes = new List<String>();
+
+            if (ColecaoNodes != null)
+            {
+                foreach (TreeNode node in ColecaoNodes)
+                {
+                    if (node.Checked)
+                    {
+                        ListaNodes.Add(node.Text);
+                        //listView1.Items.Add(node.Text); //Console.WriteLine("1 chamou " + node.Text);  Console.WriteLine("2 chamou " + node.Name);
+                        if(node.Name == "btnParticipante" && node.Checked == true)
+                        {
+                            btnParticipante = true;
+                        }
+                        if (node.Name == "btnGrupoProduto" && node.Checked == true)
+                        {
+                            btnGrupoProduto = true;
+                        }
+                        if (node.Name == "btnProduto" && node.Checked == true)
+                        {
+                            btnProduto = true;
+                        }
+                        if (node.Name == "btnMarca" && node.Checked == true)
+                        {
+                            btnMarca = true;
+                        }
+                        if (node.Name == "btnCategoriaSubCategoria" && node.Checked == true)
+                        {
+                            btnCatSub = true;
+                        }
+                        if (node.Name == "btnUsuarios" && node.Checked == true)
+                        {
+                            btnUsuario = true;
+                        }
+                    }
+
+                    ListaNodes.AddRange(NodesSelecionados(node.Nodes));
+                }
+                //Aqui eu só vou chamar o método salvar após passar em todos nós, como são 6 opções acrescento mais uma totalizando 7, caso seja igual a 7 chamo o método salvar
+                contador = contador + 1;
+                if(contador == 7)
+                {
+                    salvarAtualizarUsuario();
+                }
+                
+            }            
+            return ListaNodes;
             
+
+        }
+
+        public void salvarAtualizarUsuario()
+        {
+            UsuarioModelo modUsuario = new UsuarioModelo();
+            if(flag == 0)
+            {
+                if(checkBoxUsuarioAtiva.Checked = true)
+                {
+                    modUsuario.ativoUsuario = true;
+                }
+                else if(checkBoxUsuarioAtiva.Checked = false)
+                {
+                    modUsuario.ativoUsuario = false;
+                }
+                modUsuario.idNomeUsuario = codigoReturParticipante;
+                modUsuario.loginUsuario = textBoxLoginUsuario.Text;
+                modUsuario.senhaUsuario = textBoxSenhaUsuario.Text;
+                modUsuario.botaoParticipanteUsuario = btnParticipante;
+                modUsuario.botaoGrupoProdutoUsuario = btnGrupoProduto;
+                modUsuario.botaoProdutoUsuario = btnProduto;
+                modUsuario.botaoMarcaUsuario = btnMarca;
+                modUsuario.botaoCategoriaSubCategoriaUsuario = btnCatSub;
+                modUsuario.botaoUsuariosUsuario = btnUsuario;
+                bllUsuario.salvar(modUsuario);
+                
+                //Método busca o ultimo registro
+                bllUsuario.buscarUltimoRegistro(modUsuario);
+                textBoxCodigoUsuario.Text = Convert.ToString(modUsuario.idUsuario);
+
+                MessageBox.Show("Usuário salvo com sucesso!", "Cadastro de Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                botaoClicado = "GRAVAR";
+                inativarAtivarBotoesCampos();
+            }
+            else if(flag == 1)
+            {
+                if (checkBoxUsuarioAtiva.Checked = true)
+                {
+                    modUsuario.ativoUsuario = true;
+                }
+                else if (checkBoxUsuarioAtiva.Checked = false)
+                {
+                    modUsuario.ativoUsuario = false;
+                }
+                modUsuario.idNomeUsuario = codigoReturParticipante;
+                modUsuario.loginUsuario = textBoxLoginUsuario.Text;
+                modUsuario.senhaUsuario = textBoxSenhaUsuario.Text;
+                modUsuario.botaoParticipanteUsuario = btnParticipante;
+                modUsuario.botaoGrupoProdutoUsuario = btnGrupoProduto;
+                modUsuario.botaoProdutoUsuario = btnProduto;
+                modUsuario.botaoMarcaUsuario = btnMarca;
+                modUsuario.botaoCategoriaSubCategoriaUsuario = btnCatSub;
+                modUsuario.botaoUsuariosUsuario = btnUsuario;
+                modUsuario.idUsuario = Convert.ToInt32(textBoxCodigoUsuario.Text);
+                bllUsuario.atualizar(modUsuario);
+                MessageBox.Show("Usuário atualizado com sucesso!", "Cadastro de Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                botaoClicado = "GRAVAR";
+                inativarAtivarBotoesCampos();
+            }
         }
 
         private void textBoxCodigoUsuario_MouseMove(object sender, MouseEventArgs e)
@@ -255,12 +370,7 @@ namespace Centaurus
             inativarAtivarBotoesCampos();
 
         }
-
-        public void salvarMenus(bool btnParticipante, bool btnGrupoProduto, bool btnProduto, bool btnMarca, bool btnCatSub, bool btnUsuarios)
-        {
-            Console.WriteLine("salvar " + "part " + btnParticipante + " grupo " + btnGrupoProduto + " produto " + btnProduto + " marca " + btnMarca + " cat " + btnCatSub + " grupo " + btnUsuarios);
-        }
-
+        
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
         {
             frmUsuario = new FrmConsultaUsuarios();
