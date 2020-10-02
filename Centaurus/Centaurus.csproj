@@ -124,6 +124,12 @@
     <Compile Include="FrmDialogDesconto_Locacao.Designer.cs">
       <DependentUpon>FrmDialogDesconto_Locacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDialogSenhaConfiguracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogSenhaConfiguracoes.Designer.cs">
+      <DependentUpon>FrmDialogSenhaConfiguracoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLocacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManutencao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManutencao.Designer.cs">
+      <DependentUpon>FrmManutencao.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMarca.cs">
       <SubType>Form</SubType>
@@ -218,6 +230,9 @@
     <EmbeddedResource Include="FrmDialogDesconto_Locacao.resx">
       <DependentUpon>FrmDialogDesconto_Locacao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogSenhaConfiguracoes.resx">
+      <DependentUpon>FrmDialogSenhaConfiguracoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLocacao.resx">
       <DependentUpon>FrmLocacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManutencao.resx">
+      <DependentUpon>FrmManutencao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMarca.resx">
       <DependentUpon>FrmMarca.cs</DependentUpon>
@@ -294,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\devlocacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuracoes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

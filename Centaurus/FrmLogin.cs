@@ -18,6 +18,7 @@ namespace Centaurus
         FrmLogin frmLogin;
         int contador = 0;
 
+        FrmDialogSenhaConfiguracoes frmConfig;
         public string usuarioLogado { get; set; }
 
         public FrmLogin()
@@ -118,5 +119,10 @@ namespace Centaurus
             login();
         }
 
+        private void buttonConfiguracoes_Click(object sender, EventArgs e)
+        {
+            frmConfig = new FrmDialogSenhaConfiguracoes();
+            DialogResult dr = frmConfig.ShowDialog(this);
+        }
     }
 }

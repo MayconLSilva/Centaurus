@@ -34,6 +34,7 @@
             this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonConfiguracoes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelNome
@@ -83,6 +84,16 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // buttonConfiguracoes
+            // 
+            this.buttonConfiguracoes.Image = global::Centaurus.Properties.Resources.configuracoes;
+            this.buttonConfiguracoes.Location = new System.Drawing.Point(383, 166);
+            this.buttonConfiguracoes.Name = "buttonConfiguracoes";
+            this.buttonConfiguracoes.Size = new System.Drawing.Size(30, 30);
+            this.buttonConfiguracoes.TabIndex = 5;
+            this.buttonConfiguracoes.UseVisualStyleBackColor = true;
+            this.buttonConfiguracoes.Click += new System.EventHandler(this.buttonConfiguracoes_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,6 +101,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(417, 199);
+            this.Controls.Add(this.buttonConfiguracoes);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.label2);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button buttonConfiguracoes;
     }
 }

@@ -7,6 +7,8 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Centaurus.DTO;
 using Centaurus.Dao;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Centaurus.DAL
 {
@@ -14,13 +16,14 @@ namespace Centaurus.DAL
     {
         MySqlCommand comando = null;
 
+        
+
         //Metodo criar tabela
         public void teste()
         {
             try
             {
                 AbrirConexao();
-                //comando = new MySqlCommand("CREATE TABLE  tabelaTeste
                 comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS tabelaTeste (Processo varchar(30) NOT NULL, " +
                 " Competencia varchar(7) NOT NULL, " +
                 " Data_Entrada date NOT NULL, " +
@@ -43,5 +46,30 @@ namespace Centaurus.DAL
             }
         }
 
+        public void criarBD()
+        {
+            string nome = "ZEUS";
+            SqlConnection _conexao = new SqlConnection("'"+ nome + "';SERVER= server2012; UID= root; PWD=123456");
+            conexao.Open();
+            using (SqlCommand _cmd = new SqlCommand())
+            {
+                string nomeBanco = "CREATE SCHEMA '"+nome+"'";
+                _cmd.CommandText = nomeBanco;
+
+                try
+                {
+                    _cmd.ExecuteNonQuery();
+                }catch(Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
+                finally
+                {
+                    _conexao.Close();
+                }
+            }
+        }
+
+       
     }
 }

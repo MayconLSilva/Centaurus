@@ -33,7 +33,7 @@ CREATE TABLE `categoria` (
   `ativo_categoria` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `tipo_categoria` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`categoria`
@@ -41,13 +41,15 @@ CREATE TABLE `categoria` (
 
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
 INSERT INTO `categoria` (`id_categoria`,`descricao_categoria`,`dataCadastro_categoria`,`ativo_categoria`,`tipo_categoria`) VALUES 
- (12,'categoria1','2020-08-21 11:34:34',1,NULL),
+ (12,'categoria1','2020-08-21 11:34:34',1,'C'),
  (13,'categoria2','2020-08-21 11:35:08',0,'C'),
  (14,'concategoria','2020-08-21 11:36:38',0,'S'),
  (15,'5555','2020-08-22 14:19:37',1,'S'),
  (17,'789456','2020-08-22 14:23:53',1,'C'),
  (18,'ROUPAS','2020-08-22 14:37:58',1,'C'),
- (19,'sapatatos','2020-08-22 14:38:40',1,'S');
+ (19,'sapatatos','2020-08-22 14:38:40',1,'S'),
+ (20,'teste30/09','2020-09-30 20:44:15',1,'C'),
+ (21,'catmauricio','2020-09-30 20:56:37',1,'C');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 
 
@@ -95,7 +97,7 @@ CREATE TABLE `locacao` (
   PRIMARY KEY (`id_locacao`),
   KEY `FK_locacao_cliente` (`idCliente_locacao`),
   CONSTRAINT `FK_locacao_cliente` FOREIGN KEY (`idCliente_locacao`) REFERENCES `participante` (`id_partipante`)
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`locacao`
@@ -183,9 +185,13 @@ INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntreg
  (116,'2020-09-19 13:25:47',NULL,1,NULL,NULL,NULL,'D',18,NULL,'2020-09-19 13:25:47'),
  (117,'2020-09-19 13:36:24',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
  (118,'2020-09-19 13:38:09',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
- (119,'2020-09-19 13:39:47',NULL,3,NULL,6,630,'D',82,'MARA','2020-09-19 13:39:47'),
  (120,'2020-09-20 10:24:43','2020-09-20 10:24:42',2,0,8,243.75,'L',NULL,'MARA',NULL),
- (121,'2020-09-20 10:26:24',NULL,2,NULL,3,56.25,'D',120,'MARA','2020-09-20 10:26:24');
+ (122,'2020-09-25 19:59:39',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (123,'2020-09-25 20:06:25',NULL,22,NULL,1,21,'D',94,'MARA','2020-09-25 20:06:25');
+INSERT INTO `locacao` (`id_locacao`,`dataLancamento_locacao`,`dataPrevisaoEntrega_locacao`,`idCliente_locacao`,`desconto_locacao`,`qtdItens_locacao`,`total_locacao`,`tipo_locacao`,`numerolocacaodev_locacao`,`usuario_locacao`,`dataDevolucao_locacao`) VALUES 
+ (127,'2020-09-26 10:39:08','2020-09-26 10:39:07',22,0,1,18.75,'L',NULL,'MARA',NULL),
+ (128,'2020-09-26 10:40:32','2020-09-26 10:40:31',22,0.5,1,37,'L',NULL,'MARA',NULL),
+ (129,'2020-09-26 10:42:44',NULL,22,NULL,1,37,'D',128,'MARA','2020-09-26 10:42:44');
 /*!40000 ALTER TABLE `locacao` ENABLE KEYS */;
 
 
@@ -207,7 +213,7 @@ CREATE TABLE `locacaoitens` (
   PRIMARY KEY (`id_locacaoitens`),
   KEY `FK_locacaoitens_idLocacao` (`idLocacao_locacaoitens`),
   CONSTRAINT `FK_locacaoitens_idLocacao` FOREIGN KEY (`idLocacao_locacaoitens`) REFERENCES `locacao` (`id_locacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`locacaoitens`
@@ -314,11 +320,14 @@ INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLoc
  (132,1,450,NULL,NULL,117,1,'D',1),
  (133,15,37.5,NULL,NULL,117,1,'D',0),
  (135,1,18.75,NULL,NULL,118,4,'D',0),
- (136,3,105,NULL,NULL,119,6,'D',3),
  (137,1,18.75,18.75,12.5,120,3,'L',0),
  (138,15,37.5,37.5,25,120,5,'L',0);
 INSERT INTO `locacaoitens` (`id_locacaoitens`,`idProduto_locacaoitens`,`valorLocado_locacaoitens`,`valorOriginal_locacaoitens`,`custoDia_locacaoitens`,`idLocacao_locacaoitens`,`qtdLocada_locacaoitens`,`tipo_locacaoitens`,`idVariacaoProduto_locacaoitens`) VALUES 
- (139,1,18.75,NULL,NULL,121,3,'D',0);
+ (142,3,21,NULL,NULL,122,1,'D',0),
+ (143,3,21,NULL,NULL,123,1,'D',0),
+ (147,1,18.75,18.75,12.5,127,1,'L',0),
+ (148,15,37.5,37.5,25,128,1,'L',0),
+ (149,15,37,NULL,NULL,129,1,'D',0);
 /*!40000 ALTER TABLE `locacaoitens` ENABLE KEYS */;
 
 
@@ -383,7 +392,7 @@ CREATE TABLE `participante` (
   `tipofuncionario_participante` tinyint(1) DEFAULT NULL,
   `ativo_participante` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_partipante`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`participante`
@@ -408,7 +417,8 @@ INSERT INTO `participante` (`id_partipante`,`nome_fantasia_participante`,`apelid
  (21,'Camargo','','444.444.444-44','444','si','44','','','','','','','','03/08/2020',NULL,NULL,NULL,0,1,0,0);
 INSERT INTO `participante` (`id_partipante`,`nome_fantasia_participante`,`apelido_razao_participante`,`cpf_cnpj_participante`,`rg_ie_participante`,`endereco_participante`,`numeroendereco_participante`,`bairro_participante`,`cidade_participante`,`cep_participante`,`telefone_participante`,`celular_participante`,`uf_partipante`,`email_partipante`,`datacadastro_participante`,`dataalteracao_partipante`,`usuariocadastro_partipante`,`usuarioalteracao_partipante`,`tipocliente_participante`,`tipofornecedor_participante`,`tipofuncionario_participante`,`ativo_participante`) VALUES 
  (22,'Maralena','mara','069.900.239-70','isento','rua tangara','101','centro','','86.300-000','(43)3524-2521','(43)9.9101-6440','RR','maralenamara@hotmail.com','03/08/2020',NULL,NULL,NULL,1,0,0,1),
- (23,'Dayanne','','069.900.239-70','10','rua santa','10','centro','Cornélio Procópio','86.300-000','(43)3524-2521','(43)3.3333-3333','PR','','06/08/2020',NULL,NULL,NULL,0,0,1,1);
+ (23,'Dayanne','','069.900.239-70','10','rua santa','10','centro','Cornélio Procópio','86.300-000','(43)3524-2521','(43)3.3333-3333','PR','','06/08/2020',NULL,NULL,NULL,0,0,1,1),
+ (24,'Mara Madalena da Silva','','069.900.239-70','isento','Rua Tangara','101','Jardim Nova Esperança','Cornélio Procópio','86.300-000','(43)3524-2521','(43)9.9920-1211','PR','maralenamara@hotmail.com','02/10/2020',NULL,NULL,NULL,0,0,1,1);
 /*!40000 ALTER TABLE `participante` ENABLE KEYS */;
 
 
@@ -514,20 +524,36 @@ INSERT INTO `produtovariacao` (`id_produtovariacao`,`idproduto_produtovariacao`,
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ativo_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `nome_usuario` int(10) unsigned DEFAULT NULL,
   `login_usuario` varchar(45) DEFAULT NULL,
   `senha_usuario` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dataCadastro_usuario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `botaoParticipante_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoGrupoProduto_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoProduto_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoMarca_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoCategoriaSubCategoria_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoUsuarios_usuario` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `botaoLocacao_usuario` tinyint(3) DEFAULT NULL,
+  `botaoDevLocacao_usuario` tinyint(3) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  KEY `FK_usuario_participante` (`nome_usuario`),
+  CONSTRAINT `FK_usuario_participante` FOREIGN KEY (`nome_usuario`) REFERENCES `participante` (`id_partipante`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `centaurus`.`usuario`
 --
 
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id_usuario`,`login_usuario`,`senha_usuario`) VALUES 
- (1,'MAYCON','123'),
- (2,'MARA','123');
+INSERT INTO `usuario` (`id_usuario`,`ativo_usuario`,`nome_usuario`,`login_usuario`,`senha_usuario`,`dataCadastro_usuario`,`botaoParticipante_usuario`,`botaoGrupoProduto_usuario`,`botaoProduto_usuario`,`botaoMarca_usuario`,`botaoCategoriaSubCategoria_usuario`,`botaoUsuarios_usuario`,`botaoLocacao_usuario`,`botaoDevLocacao_usuario`) VALUES 
+ (16,1,18,'CAROL','123456','2020-10-01 12:10:21',1,0,0,0,0,0,1,1),
+ (17,1,24,'MARA','123','2020-10-02 11:41:51',1,1,1,1,1,1,1,0),
+ (18,1,NULL,'DAYANNE','123456','2020-10-02 11:47:15',1,0,0,0,0,1,1,1),
+ (19,1,NULL,'VICTOR','123456','2020-10-02 11:49:41',0,0,0,0,0,0,0,0),
+ (21,1,18,'MANOEL','123','2020-10-02 12:14:04',0,0,0,0,0,1,1,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 
