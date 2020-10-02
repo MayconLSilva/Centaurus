@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.BLL;
+using Centaurus.DTO;
 
 namespace Centaurus
 {
@@ -14,6 +16,8 @@ namespace Centaurus
     {
         FrmLogin frmConsulta;
         public string nomeLogado { get; set; }
+
+        UsuarioBLL bllUsuario = new UsuarioBLL();
 
         public FrmPrincipal()
         {
@@ -103,6 +107,60 @@ namespace Centaurus
             painelPrincipal.Controls.Add(frmUsuario);
         }
 
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            validaUsuario();
+        }
+
+        public void validaUsuario()
+        {
+            //Envio o login para carregar as opções do usuário
+            UsuarioModelo modUsuario = new UsuarioModelo();
+            modUsuario.loginUsuario = nomeLogado;
+            bllUsuario.buscarInformacoesUsuarioLogin(modUsuario);
+
+            bool btnParticipante = modUsuario.botaoParticipanteUsuario;
+            bool btnGrupoProduto = modUsuario.botaoGrupoProdutoUsuario;
+            bool btnProduto = modUsuario.botaoProdutoUsuario;
+            bool btnMaca = modUsuario.botaoMarcaUsuario;
+            bool btnCatSub = modUsuario.botaoCategoriaSubCategoriaUsuario;
+            bool btnUsuario = modUsuario.botaoUsuariosUsuario;
+            bool btnLocacao = modUsuario.botaoLocacaoUsuario;
+            bool btnDevLocacao = modUsuario.botaoDevLocacaoUsuario;
+
+            if (btnParticipante == true)
+            {
+                participantesToolStripMenuItem.Enabled = true;
+            }
+            if (btnGrupoProduto == true)
+            {
+                produtoToolStripMenuItem.Enabled = true;
+            }
+            if (btnProduto == true)
+            {
+                produtoToolStripMenuItemProduto.Enabled = true;
+            }
+            if (btnMaca == true)
+            {
+                marcaToolStripMenuItemMarca.Enabled = true;
+            }
+            if (btnCatSub == true)
+            {
+                categoriaToolStripMenuItemCategoriaSubCategoria.Enabled = true;
+            }
+            if (btnUsuario == true)
+            {
+                usuarioToolStripMenuItemUsuario.Enabled = true;
+            }
+            if (btnLocacao == true)
+            {
+                locaçãoToolStripMenuItemLocacao.Enabled = true;
+            }
+            if (btnDevLocacao == true)
+            {
+                devLocaçãoToolStripMenuItemDevLocacao.Enabled = true;
+            }
+        }
 
 
 

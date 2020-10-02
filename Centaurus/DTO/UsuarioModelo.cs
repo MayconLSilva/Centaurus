@@ -20,5 +20,7 @@ namespace Centaurus.DTO
         public bool botaoMarcaUsuario { get; set; }
         public bool botaoCategoriaSubCategoriaUsuario { get; set; }
         public bool botaoUsuariosUsuario { get; set; }
+        public bool botaoLocacaoUsuario { get; set; }
+        public bool botaoDevLocacaoUsuario { get; set; }
     }
 }

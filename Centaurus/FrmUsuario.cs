@@ -33,7 +33,7 @@ namespace Centaurus
         UsuarioBLL bllUsuario = new UsuarioBLL();
 
         int contador = 0;
-        bool btnParticipante=false, btnGrupoProduto = false, btnProduto = false, btnMarca = false, btnCatSub = false, btnUsuario = false;
+        bool btnParticipante=false, btnGrupoProduto = false, btnProduto = false, btnMarca = false, btnCatSub = false, btnUsuario = false,btnLocacao=false,btnDevLocacao=false;
 
         public void inativarAtivarBotoesCampos()
         {
@@ -260,6 +260,14 @@ namespace Centaurus
                         {
                             btnUsuario = true;
                         }
+                        if (node.Name == "btnLocacao" && node.Checked == true)
+                        {
+                            btnLocacao = true;
+                        }
+                        if (node.Name == "btnDevLocacao" && node.Checked == true)
+                        {
+                            btnDevLocacao = true;
+                        }
                     }
 
                     ListaNodes.AddRange(NodesSelecionados(node.Nodes));
@@ -299,6 +307,8 @@ namespace Centaurus
                 modUsuario.botaoMarcaUsuario = btnMarca;
                 modUsuario.botaoCategoriaSubCategoriaUsuario = btnCatSub;
                 modUsuario.botaoUsuariosUsuario = btnUsuario;
+                modUsuario.botaoLocacaoUsuario = btnLocacao;
+                modUsuario.botaoDevLocacaoUsuario = btnDevLocacao;
                 bllUsuario.salvar(modUsuario);
                 
                 //Método busca o ultimo registro
@@ -328,6 +338,8 @@ namespace Centaurus
                 modUsuario.botaoMarcaUsuario = btnMarca;
                 modUsuario.botaoCategoriaSubCategoriaUsuario = btnCatSub;
                 modUsuario.botaoUsuariosUsuario = btnUsuario;
+                modUsuario.botaoLocacaoUsuario = btnLocacao;
+                modUsuario.botaoDevLocacaoUsuario = btnDevLocacao;
                 modUsuario.idUsuario = Convert.ToInt32(textBoxCodigoUsuario.Text);
                 bllUsuario.atualizar(modUsuario);
                 MessageBox.Show("Usuário atualizado com sucesso!", "Cadastro de Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);

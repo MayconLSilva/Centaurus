@@ -39,6 +39,8 @@
             treeNode3,
             treeNode4});
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("USUÁRIOS");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Locação");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Dev. Locação");
             this.menuStripUsuarios = new System.Windows.Forms.MenuStrip();
             this.MenuUsuarioNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuUsuarioGravar = new System.Windows.Forms.ToolStripMenuItem();
@@ -236,10 +238,16 @@
             treeNode5.Text = "PRODUTO";
             treeNode6.Name = "btnUsuarios";
             treeNode6.Text = "USUÁRIOS";
+            treeNode7.Name = "btnLocacao";
+            treeNode7.Text = "Locação";
+            treeNode8.Name = "btnDevLocacao";
+            treeNode8.Text = "Dev. Locação";
             this.treeViewOpcoesUsuario.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode5,
-            treeNode6});
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeViewOpcoesUsuario.Size = new System.Drawing.Size(207, 269);
             this.treeViewOpcoesUsuario.TabIndex = 51;
             // 

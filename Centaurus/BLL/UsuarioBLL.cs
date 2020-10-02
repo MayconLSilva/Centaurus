@@ -77,6 +77,7 @@ namespace Centaurus.BLL
             
         }
 
+        //Busco informações usuário pela id
         public void buscarInformacoesUsuarioID(UsuarioModelo modUsuario)
         {
             try
@@ -89,5 +90,17 @@ namespace Centaurus.BLL
             }
         }
 
+        //Busco informações usuário pelo login
+        public void buscarInformacoesUsuarioLogin(UsuarioModelo modUsuario)
+        {
+            try
+            {
+                daoUsuario.buscarInformacoesUsuarioLogin(modUsuario);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao buscar informações do usuário, classe BLL" + erro.Message);
+            }
+        }
     }
 }
