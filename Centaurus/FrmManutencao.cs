@@ -41,19 +41,18 @@ namespace Centaurus
             {
                 // faz a thread dormir por "p" milissegundos a cada passagem do loop
                 Thread.Sleep(p);
-                label2.BeginInvoke(
+                labelInformacoesProgresso.BeginInvoke(
                    new Action(() =>
                    {
-                       label2.Text = "Tarefa: " + i.ToString() + " comcluída";
+                       labelInformacoesProgresso.Text = "Tarefa: " + i.ToString() + " comcluída";
                    }
                 ));
             }
         }
 
-
         private void buttonCriarTabelas_Click(object sender, EventArgs e)
         {
-
+            adapter.criarTables();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -90,7 +89,7 @@ namespace Centaurus
             progressBar1.Value = e.ProgressPercentage;
 
             //informa o percentual na forma de texto.
-            label1.Text = e.ProgressPercentage.ToString() + "%";
+            labelPorcentagemProcesso.Text = e.ProgressPercentage.ToString() + "%";
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -98,22 +97,22 @@ namespace Centaurus
             if (e.Cancelled)
             {
                 //caso a operação seja cancelada, informa ao usuario.
-                label2.Text = "Operação Cancelada pelo Usuário!";
+                labelInformacoesProgresso.Text = "Operação Cancelada pelo Usuário!";
 
                 //habilita o Botao cancelar
                 //btnCancelar.Enabled = true;
                 //limpa a label
-                label1.Text = string.Empty;
+                labelPorcentagemProcesso.Text = string.Empty;
             }
             else if (e.Error != null)
             {
                 //informa ao usuario do acontecimento de algum erro.
-                label2.Text = "Aconteceu um erro durante a execução do processo!";
+                labelInformacoesProgresso.Text = "Aconteceu um erro durante a execução do processo!";
             }
             else
             {
                 //informa que a tarefa foi concluida com sucesso.
-                label2.Text = "Tarefa Concluida com sucesso!";
+                labelInformacoesProgresso.Text = "Tarefa Concluida com sucesso!";
             }
             //habilita os botões.
             buttonCriarBD.Enabled = true;

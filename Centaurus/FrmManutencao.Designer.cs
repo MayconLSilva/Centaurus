@@ -39,9 +39,9 @@
             this.buttonCriarTabelas = new System.Windows.Forms.Button();
             this.labelManutencaoTabelas = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPorcentagemProcesso = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelInformacoesProgresso = new System.Windows.Forms.Label();
             this.backgroundWorkerIndeterminada = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,14 +155,14 @@
             this.progressBar1.Size = new System.Drawing.Size(695, 23);
             this.progressBar1.TabIndex = 2;
             // 
-            // label1
+            // labelPorcentagemProcesso
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(713, 452);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.labelPorcentagemProcesso.AutoSize = true;
+            this.labelPorcentagemProcesso.Location = new System.Drawing.Point(713, 452);
+            this.labelPorcentagemProcesso.Name = "labelPorcentagemProcesso";
+            this.labelPorcentagemProcesso.Size = new System.Drawing.Size(35, 13);
+            this.labelPorcentagemProcesso.TabIndex = 3;
+            this.labelPorcentagemProcesso.Text = "label1";
             // 
             // backgroundWorker1
             // 
@@ -172,22 +172,22 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // label2
+            // labelInformacoesProgresso
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 430);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.labelInformacoesProgresso.AutoSize = true;
+            this.labelInformacoesProgresso.Location = new System.Drawing.Point(9, 430);
+            this.labelInformacoesProgresso.Name = "labelInformacoesProgresso";
+            this.labelInformacoesProgresso.Size = new System.Drawing.Size(35, 13);
+            this.labelInformacoesProgresso.TabIndex = 4;
+            this.labelInformacoesProgresso.Text = "label2";
             // 
             // FrmManutencao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelInformacoesProgresso);
+            this.Controls.Add(this.labelPorcentagemProcesso);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -219,9 +219,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPorcentagemProcesso;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelInformacoesProgresso;
         private System.ComponentModel.BackgroundWorker backgroundWorkerIndeterminada;
     }
 }
