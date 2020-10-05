@@ -29,7 +29,7 @@ namespace Centaurus.DAL
             {
                 AbrirConexao();
                 //comandoCreate = "CREATE DATABASE IF NOT EXISTS `hello2`;";
-                comandoCreate = "CREATE DATABASE IF NOT EXISTS "+nomeBD+";";
+                comandoCreate = "CREATE DATABASE IF NOT EXISTS "+nomeBD+";";               
                 comando = new MySqlCommand(comandoCreate, conexao);
                 comando.ExecuteNonQuery();
             }
