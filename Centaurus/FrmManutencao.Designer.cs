@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonCriarBD = new System.Windows.Forms.Button();
             this.textBoxNomeBD = new System.Windows.Forms.TextBox();
             this.labelNomeBD = new System.Windows.Forms.Label();
             this.labelManutencaoBD = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonCriarTabelas = new System.Windows.Forms.Button();
             this.labelManutencaoTabelas = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,6 +57,15 @@
             this.panel1.Size = new System.Drawing.Size(234, 144);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Centaurus.Properties.Resources.bd;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // buttonCriarBD
             // 
             this.buttonCriarBD.Location = new System.Drawing.Point(6, 99);
@@ -65,6 +74,7 @@
             this.buttonCriarBD.TabIndex = 2;
             this.buttonCriarBD.Text = "OK";
             this.buttonCriarBD.UseVisualStyleBackColor = true;
+            this.buttonCriarBD.Click += new System.EventHandler(this.buttonCriarBD_Click);
             // 
             // textBoxNomeBD
             // 
@@ -104,6 +114,15 @@
             this.panel2.Size = new System.Drawing.Size(234, 138);
             this.panel2.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Centaurus.Properties.Resources.table_grid_icon_icons_com_73384;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
             // buttonCriarTabelas
             // 
             this.buttonCriarTabelas.Location = new System.Drawing.Point(6, 99);
@@ -112,6 +131,7 @@
             this.buttonCriarTabelas.TabIndex = 2;
             this.buttonCriarTabelas.Text = "OK";
             this.buttonCriarTabelas.UseVisualStyleBackColor = true;
+            this.buttonCriarTabelas.Click += new System.EventHandler(this.buttonCriarTabelas_Click);
             // 
             // labelManutencaoTabelas
             // 
@@ -122,24 +142,6 @@
             this.labelManutencaoTabelas.Size = new System.Drawing.Size(133, 13);
             this.labelManutencaoTabelas.TabIndex = 1;
             this.labelManutencaoTabelas.Text = "| Manutenção das Tabelas";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Centaurus.Properties.Resources.table_grid_icon_icons_com_73384;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Centaurus.Properties.Resources.bd;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmManutencao
             // 
@@ -154,10 +156,10 @@
             this.Text = "Manutenção";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

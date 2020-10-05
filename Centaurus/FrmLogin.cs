@@ -78,35 +78,41 @@ namespace Centaurus
             LoginDAO loginDAO = new LoginDAO();
 
             try
-            {
-                //Método envia o nome do textBox para pesquisar usuário no banco de dados
-                loginModelo.usuarioLogin = textBoxNome.Text;
-                loginModelo = loginDAO.login(loginModelo);
-
-                //Método retorna o valor do usuário
-                string senhaUsuario = loginModelo.senhaLogin;
-                                
-                if (String.IsNullOrEmpty(senhaUsuario) == true)
+            {   //Se o usuário tentar utilizar senha e usuário geral não será validado, vai entrar direto no sistema
+                if(textBoxNome.Text == "GERAL" && textBoxSenha.Text == "123456")
                 {
-                    contador = contador + 1;
-                    MessageBox.Show("Usuário incorreto ou não existente no banco de dados", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    if (contador == 3)
-                    {
-                        Application.Exit();
-                    }
+                    chamaTelaPrincipal_logar();
                 }
                 else
                 {
-                    if(textBoxSenha.Text == senhaUsuario)
+                    //Método envia o nome do textBox para pesquisar usuário no banco de dados
+                    loginModelo.usuarioLogin = textBoxNome.Text;
+                    loginModelo = loginDAO.login(loginModelo);
+
+                    //Método retorna o valor do usuário
+                    string senhaUsuario = loginModelo.senhaLogin;
+
+                    if (String.IsNullOrEmpty(senhaUsuario) == true)
                     {
-                        chamaTelaPrincipal_logar();
+                        contador = contador + 1;
+                        MessageBox.Show("Usuário incorreto ou não existente no banco de dados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (contador == 3)
+                        {
+                            Application.Exit();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }                    
+                        if (textBoxSenha.Text == senhaUsuario)
+                        {
+                            chamaTelaPrincipal_logar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Senha incorreta!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
                 }
-                
             }
             catch(Exception erro)
             {

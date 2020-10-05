@@ -114,51 +114,65 @@ namespace Centaurus
 
         public void validaUsuario()
         {
-            //Envio o login para carregar as opções do usuário
-            UsuarioModelo modUsuario = new UsuarioModelo();
-            modUsuario.loginUsuario = loginLogado;
-            bllUsuario.buscarInformacoesUsuarioLogin(modUsuario);
-
-            bool btnParticipante = modUsuario.botaoParticipanteUsuario;
-            bool btnGrupoProduto = modUsuario.botaoGrupoProdutoUsuario;
-            bool btnProduto = modUsuario.botaoProdutoUsuario;
-            bool btnMaca = modUsuario.botaoMarcaUsuario;
-            bool btnCatSub = modUsuario.botaoCategoriaSubCategoriaUsuario;
-            bool btnUsuario = modUsuario.botaoUsuariosUsuario;
-            bool btnLocacao = modUsuario.botaoLocacaoUsuario;
-            bool btnDevLocacao = modUsuario.botaoDevLocacaoUsuario;
-            if (btnParticipante == true)
+            if(loginLogado == "GERAL")
             {
                 participantesToolStripMenuItem.Enabled = true;
-            }
-            if (btnGrupoProduto == true)
-            {
                 produtoToolStripMenuItem.Enabled = true;
-            }
-            if (btnProduto == true)
-            {
                 produtoToolStripMenuItemProduto.Enabled = true;
-            }
-            if (btnMaca == true)
-            {
                 marcaToolStripMenuItemMarca.Enabled = true;
-            }
-            if (btnCatSub == true)
-            {
                 categoriaToolStripMenuItemCategoriaSubCategoria.Enabled = true;
-            }
-            if (btnUsuario == true)
-            {
                 usuarioToolStripMenuItemUsuario.Enabled = true;
-            }
-            if (btnLocacao == true)
-            {
                 locaçãoToolStripMenuItemLocacao.Enabled = true;
-            }
-            if (btnDevLocacao == true)
-            {
                 devLocaçãoToolStripMenuItemDevLocacao.Enabled = true;
             }
+            else
+            {
+                //Envio o login para carregar as opções do usuário
+                UsuarioModelo modUsuario = new UsuarioModelo();
+                modUsuario.loginUsuario = loginLogado;
+                bllUsuario.buscarInformacoesUsuarioLogin(modUsuario);
+
+                bool btnParticipante = modUsuario.botaoParticipanteUsuario;
+                bool btnGrupoProduto = modUsuario.botaoGrupoProdutoUsuario;
+                bool btnProduto = modUsuario.botaoProdutoUsuario;
+                bool btnMaca = modUsuario.botaoMarcaUsuario;
+                bool btnCatSub = modUsuario.botaoCategoriaSubCategoriaUsuario;
+                bool btnUsuario = modUsuario.botaoUsuariosUsuario;
+                bool btnLocacao = modUsuario.botaoLocacaoUsuario;
+                bool btnDevLocacao = modUsuario.botaoDevLocacaoUsuario;
+                if (btnParticipante == true)
+                {
+                    participantesToolStripMenuItem.Enabled = true;
+                }
+                if (btnGrupoProduto == true)
+                {
+                    produtoToolStripMenuItem.Enabled = true;
+                }
+                if (btnProduto == true)
+                {
+                    produtoToolStripMenuItemProduto.Enabled = true;
+                }
+                if (btnMaca == true)
+                {
+                    marcaToolStripMenuItemMarca.Enabled = true;
+                }
+                if (btnCatSub == true)
+                {
+                    categoriaToolStripMenuItemCategoriaSubCategoria.Enabled = true;
+                }
+                if (btnUsuario == true)
+                {
+                    usuarioToolStripMenuItemUsuario.Enabled = true;
+                }
+                if (btnLocacao == true)
+                {
+                    locaçãoToolStripMenuItemLocacao.Enabled = true;
+                }
+                if (btnDevLocacao == true)
+                {
+                    devLocaçãoToolStripMenuItemDevLocacao.Enabled = true;
+                }
+            }            
         }
 
 
