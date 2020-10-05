@@ -32,7 +32,8 @@ namespace Centaurus
 
             //executa o processo de forma assincrona.
             backgroundWorker1.RunWorkerAsync();
-            //adapter.criarBD(textBoxNomeBD.Text);			
+            //Chama o método criar BD
+            adapter.criarBD(textBoxNomeBD.Text);			
         }
 
         private void TarefaLonga(int p)
@@ -52,7 +53,7 @@ namespace Centaurus
 
         private void buttonCriarTabelas_Click(object sender, EventArgs e)
         {
-            adapter.criarTables();
+            adapter.criarTables(textBoxNomeBD.Text);
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
