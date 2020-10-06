@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonCriarBD = new System.Windows.Forms.Button();
             this.textBoxNomeBD = new System.Windows.Forms.TextBox();
             this.labelNomeBD = new System.Windows.Forms.Label();
             this.labelManutencaoBD = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonCriarTabelas = new System.Windows.Forms.Button();
             this.labelManutencaoTabelas = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -43,10 +41,18 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.labelInformacoesProgresso = new System.Windows.Forms.Label();
             this.backgroundWorkerIndeterminada = new System.ComponentModel.BackgroundWorker();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonPopularCidadeUf = new System.Windows.Forms.Button();
+            this.labelPopularCidade = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,15 +67,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 144);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Centaurus.Properties.Resources.bd;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // buttonCriarBD
             // 
@@ -118,15 +115,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(234, 138);
             this.panel2.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Centaurus.Properties.Resources.table_grid_icon_icons_com_73384;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
             // 
             // buttonCriarTabelas
             // 
@@ -181,11 +169,70 @@
             this.labelInformacoesProgresso.TabIndex = 4;
             this.labelInformacoesProgresso.Text = "label2";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.buttonPopularCidadeUf);
+            this.panel3.Controls.Add(this.labelPopularCidade);
+            this.panel3.Location = new System.Drawing.Point(514, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(234, 144);
+            this.panel3.TabIndex = 5;
+            // 
+            // buttonPopularCidadeUf
+            // 
+            this.buttonPopularCidadeUf.Location = new System.Drawing.Point(6, 99);
+            this.buttonPopularCidadeUf.Name = "buttonPopularCidadeUf";
+            this.buttonPopularCidadeUf.Size = new System.Drawing.Size(214, 23);
+            this.buttonPopularCidadeUf.TabIndex = 2;
+            this.buttonPopularCidadeUf.Text = "OK";
+            this.buttonPopularCidadeUf.UseVisualStyleBackColor = true;
+            this.buttonPopularCidadeUf.Click += new System.EventHandler(this.buttonPopularCidadeUf_Click);
+            // 
+            // labelPopularCidade
+            // 
+            this.labelPopularCidade.AutoSize = true;
+            this.labelPopularCidade.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.labelPopularCidade.Location = new System.Drawing.Point(47, 15);
+            this.labelPopularCidade.Name = "labelPopularCidade";
+            this.labelPopularCidade.Size = new System.Drawing.Size(100, 13);
+            this.labelPopularCidade.TabIndex = 1;
+            this.labelPopularCidade.Text = "| Script Cidade x UF";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Centaurus.Properties.Resources.city_variant_outline;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Centaurus.Properties.Resources.table_grid_icon_icons_com_73384;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Centaurus.Properties.Resources.bd;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmManutencao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 481);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.labelInformacoesProgresso);
             this.Controls.Add(this.labelPorcentagemProcesso);
             this.Controls.Add(this.progressBar1);
@@ -197,10 +244,13 @@
             this.Text = "Manutenção";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +273,9 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label labelInformacoesProgresso;
         private System.ComponentModel.BackgroundWorker backgroundWorkerIndeterminada;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button buttonPopularCidadeUf;
+        private System.Windows.Forms.Label labelPopularCidade;
     }
 }

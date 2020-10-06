@@ -119,5 +119,10 @@ namespace Centaurus
             buttonCriarBD.Enabled = true;
             buttonCriarTabelas.Enabled = true;
         }
+
+        private void buttonPopularCidadeUf_Click(object sender, EventArgs e)
+        {
+            adapter.popularCidade();
+        }
     }
 }
