@@ -175,6 +175,12 @@ namespace Centaurus
             }            
         }
 
+        private void participantesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Reports.FrmRelParticipante relParticipante = new Reports.FrmRelParticipante();
+            relParticipante.Show();
+        }
+
 
 
 
