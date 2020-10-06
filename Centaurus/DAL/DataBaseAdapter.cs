@@ -276,7 +276,12 @@ namespace Centaurus.DAL
                 " DROP TABLE IF EXISTS " + nomeBD + ".`viewlocacaoitens`; " +
                 " USE " + nomeBD + "; " +
                 " CREATE OR REPLACE ALGORITHM = UNDEFINED DEFINER =`sistema`@`%` SQL SECURITY DEFINER VIEW " + nomeBD + ".`viewlocacaoitens` AS select " + nomeBD + ".`locacaoitens`.`idProduto_locacaoitens` AS `Codigo`," + nomeBD + ".`locacaoitens`.`idVariacaoProduto_locacaoitens` AS `CodigoProdutoVariacao`," + nomeBD + ".`produto`.`descricao_produto` AS `Descricao`,if ((" + nomeBD + ".`locacaoitens`.`idVariacaoProduto_locacaoitens` = 0)," + nomeBD + ".`produto`.`unidade_produto`," + nomeBD + ".`produtovariacao`.`unidade_produtovariacao`) AS `UN`," + nomeBD + ".`locacaoitens`.`qtdLocada_locacaoitens` AS `QtdLocada`," + nomeBD + ".`locacaoitens`.`valorLocado_locacaoitens` AS `ValorLocado`,(" + nomeBD + ".`locacaoitens`.`valorLocado_locacaoitens` *" + nomeBD + ".`locacaoitens`.`qtdLocada_locacaoitens`) AS `ValorTotal`," + nomeBD + ".`marca`.`descricao_marca` AS `Marca`,`cat`.`descricao_categoria` AS `Categoria`,`subcat`.`descricao_categoria` AS `SubCategoria`," + nomeBD + ".`participante`.`nome_fantasia_participante` AS `Fornecedor`," + nomeBD + ".`locacaoitens`.`idLocacao_locacaoitens` AS `idLocacao_locacaoitens`," + nomeBD + ".`locacaoitens`.`id_locacaoitens` AS `idlocacaoitens` from((((((" + nomeBD + ".`locacaoitens` left join " + nomeBD + ".`produtovariacao` on((" + nomeBD + ".`produtovariacao`.`id_produtovariacao` = " + nomeBD + ".`locacaoitens`.`idProduto_locacaoitens`))) join " + nomeBD + ".`produto` on((" + nomeBD + ".`produto`.`id_produto` = " + nomeBD + ".`locacaoitens`.`idProduto_locacaoitens`))) left join " + nomeBD + ".`marca` on((" + nomeBD + ".`marca`.`id_marca` = " + nomeBD + ".`produto`.`marca_produto`))) left join " + nomeBD + ".`categoria` `cat` on((`cat`.`id_categoria` = " + nomeBD + ".`produto`.`categoria_produto`))) left join " + nomeBD + ".`categoria` `subcat` on((`subcat`.`id_categoria` = " + nomeBD + ".`produto`.`subcategoria_produto`))) left join " + nomeBD + ".`participante` on((" + nomeBD + ".`participante`.`id_partipante` = " + nomeBD + ".`produto`.`fornecedor_produto`)));" +
-                " USE " + nomeBD + "; ", conexao);
+                " USE " + nomeBD + "; "+
+                /* CREATE TRIGGER DELETE LOCAÇÃO*/
+                " CREATE DEFINER = CURRENT_USER TRIGGER " + nomeBD + ".`locacao_BEFORE_DELETE` BEFORE DELETE ON `locacao` FOR EACH ROW " +
+                " BEGIN " +
+                " delete from locacaoitens where idLocacao_locacaoitens = OLD.id_locacao; " +
+                "                END", conexao);
 
 
 
