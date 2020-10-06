@@ -393,7 +393,7 @@ namespace Centaurus.DAL
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Jaru', 'RO', 1100114);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Ji-Paraná', 'RO', 1100122);" +
                 //"INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Machadinho D\'Oeste', 'RO', 1100130);" +
-                "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Nova Brasilândia D\'Oeste', 'RO', 1100148);" +
+                //"INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Nova Brasilândia D\'Oeste', 'RO', 1100148);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Ouro Preto do Oeste', 'RO', 1100155);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Pimenta Bueno', 'RO', 1100189);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES('Porto Velho', 'RO', 1100205);" +
@@ -1380,13 +1380,12 @@ namespace Centaurus.DAL
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES ('Martinópole','CE',2307908);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES ('Massapê','CE',2308005);" +
                 "INSERT INTO `cidade` (`nome_cidade`,`uf_cidade`,`codigo_cidade`) VALUES ('Mauriti','CE',2308104);", conexao);
-
                 comando.ExecuteNonQuery();
-
             }
             catch (Exception erro)
             {
-                throw new Exception("Erro ao popular cidades!" + erro);
+                //throw new Exception("Erro ao popular cidades!" + erro);
+                return;
             }
             finally
             {
