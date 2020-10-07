@@ -15,11 +15,11 @@ namespace Centaurus.Bll
         ParticipanteDAO participanteDAO = new ParticipanteDAO();
 
 
-        public void salvar (ParticipanteModelo participante) 
+        public void salvar (ParticipanteModelo modParticipante) 
         {
             try 
             {
-                participanteDAO.salvar(participante);   
+                participanteDAO.salvar(modParticipante);   
             }
             catch (Exception erro) 
             {
@@ -27,15 +27,27 @@ namespace Centaurus.Bll
             }
         }
 
-        public void alterar(ParticipanteModelo participante)
+        public void alterar(ParticipanteModelo modParticipante)
         {
             try
             {
-                participanteDAO.atualizar(participante);
+                participanteDAO.atualizar(modParticipante);
             }
             catch (Exception erro)
             {
                 throw erro;
+            }
+        }
+
+        public void excluir(ParticipanteModelo modParticipante)
+        {
+            try
+            {
+                participanteDAO.excluirParticipante(modParticipante);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao exluir participante, classe BLL! " + erro);
             }
         }
 

@@ -683,7 +683,11 @@ namespace Centaurus
             var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Participante", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                participanteDAO.ExcluirParticipante(textBoxCodigo.Text);
+                ParticipanteModelo modParticipante = new ParticipanteModelo();
+                ParticipanteBLL bllParticipante = new ParticipanteBLL();
+
+                modParticipante.idParticipante = Convert.ToInt32(textBoxCodigo.Text);
+                bllParticipante.excluir(modParticipante);
                 limparCamposCancelar();
             }
         }

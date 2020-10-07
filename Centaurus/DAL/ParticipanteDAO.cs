@@ -24,31 +24,31 @@ namespace Centaurus.Dao
 
         public string numeroIncluido { get; set; }
 
-        public void salvar(ParticipanteModelo participante)
+        public void salvar(ParticipanteModelo modParticipante)
         {
             try
             {
                 AbrirConexao();
                 //comando = new MySqlCommand("insert into participante (nomeParticpante, cpfcnpjParticipante) values (@nome, @cpfcnpj)",conexao);
                 comando = new MySqlCommand("insert into participante (nome_fantasia_participante,apelido_razao_participante,cpf_cnpj_participante,rg_ie_participante,endereco_participante,numeroendereco_participante,bairro_participante,cidade_participante, cep_participante, telefone_participante, celular_participante, uf_partipante, email_partipante,tipocliente_participante,tipofornecedor_participante,tipofuncionario_participante,ativo_participante,datacadastro_participante) values (@nome,@razao,@cpfcnpj,@rgie,@endereco,@numero,@bairro,@cidade,@cep,@telefone,@celular,@uf,@email,@tipocli,@tipofor,@tipofunc,@ativo,@datacadastro)", conexao);
-                comando.Parameters.AddWithValue("@nome", participante.nomeParticipante);
-                comando.Parameters.AddWithValue("@razao",participante.razaosocialapelidoParticipante);
-                comando.Parameters.AddWithValue("@cpfcnpj", participante.cpfcnpjParticipante);
-                comando.Parameters.AddWithValue("@rgie", participante.rgieParticipante);
-                comando.Parameters.AddWithValue("@endereco", participante.enderecoParticipante);
-                comando.Parameters.AddWithValue("@numero", participante.numeroEnderecoParticipante);
-                comando.Parameters.AddWithValue("@bairro", participante.bairoParticipante);
-                comando.Parameters.AddWithValue("@cidade", participante.cidadeParticipante);
-                comando.Parameters.AddWithValue("@cep", participante.cepParticipante);
-                comando.Parameters.AddWithValue("@telefone", participante.telefoneParticipante);
-                comando.Parameters.AddWithValue("@celular", participante.celularParticipante);
-                comando.Parameters.AddWithValue("@uf", participante.ufParticipante);
-                comando.Parameters.AddWithValue("@email", participante.emailParticipante);
-                comando.Parameters.AddWithValue("@tipocli", participante.tipoclienteParticipante);
-                comando.Parameters.AddWithValue("@tipofor", participante.tipofornecedorParticipante);
-                comando.Parameters.AddWithValue("@tipofunc", participante.tipofuncionarioParticipante);
-                comando.Parameters.AddWithValue("@ativo", participante.ativoParticipante);
-                comando.Parameters.AddWithValue("@datacadastro", participante.dataCadastroParticipante);
+                comando.Parameters.AddWithValue("@nome", modParticipante.nomeParticipante);
+                comando.Parameters.AddWithValue("@razao",modParticipante.razaosocialapelidoParticipante);
+                comando.Parameters.AddWithValue("@cpfcnpj", modParticipante.cpfcnpjParticipante);
+                comando.Parameters.AddWithValue("@rgie", modParticipante.rgieParticipante);
+                comando.Parameters.AddWithValue("@endereco", modParticipante.enderecoParticipante);
+                comando.Parameters.AddWithValue("@numero", modParticipante.numeroEnderecoParticipante);
+                comando.Parameters.AddWithValue("@bairro", modParticipante.bairoParticipante);
+                comando.Parameters.AddWithValue("@cidade", modParticipante.cidadeParticipante);
+                comando.Parameters.AddWithValue("@cep", modParticipante.cepParticipante);
+                comando.Parameters.AddWithValue("@telefone", modParticipante.telefoneParticipante);
+                comando.Parameters.AddWithValue("@celular", modParticipante.celularParticipante);
+                comando.Parameters.AddWithValue("@uf", modParticipante.ufParticipante);
+                comando.Parameters.AddWithValue("@email", modParticipante.emailParticipante);
+                comando.Parameters.AddWithValue("@tipocli", modParticipante.tipoclienteParticipante);
+                comando.Parameters.AddWithValue("@tipofor", modParticipante.tipofornecedorParticipante);
+                comando.Parameters.AddWithValue("@tipofunc", modParticipante.tipofuncionarioParticipante);
+                comando.Parameters.AddWithValue("@ativo", modParticipante.ativoParticipante);
+                comando.Parameters.AddWithValue("@datacadastro", modParticipante.dataCadastroParticipante);
                 comando.ExecuteNonQuery();
 
                 //UltimoRegistro();
@@ -65,31 +65,31 @@ namespace Centaurus.Dao
         }
 
         //Inicio do código fonte alterar participante
-        public void atualizar(ParticipanteModelo participante)
+        public void atualizar(ParticipanteModelo modParticipante)
         {
             try
             {
                 AbrirConexao();
                 comando = new MySqlCommand("update participante set nome_fantasia_participante=@nome,apelido_razao_participante = @nome,cpf_cnpj_participante = @cpfcnpj,rg_ie_participante = @rgie,endereco_participante = @endereco,numeroendereco_participante = @numero,bairro_participante = @bairro,cidade_participante = @cidade,cep_participante = @cep,telefone_participante = @telefone,celular_participante = @celular,uf_partipante = @uf,email_partipante = @email,tipocliente_participante = @tipocli,tipofornecedor_participante = @tipofor,tipofuncionario_participante = @tipofunc,ativo_participante = @ativo,dataalteracao_partipante = @dataalteracao where id_partipante= @idParticipante", conexao);
-                comando.Parameters.AddWithValue("@nome", participante.nomeParticipante);
-                comando.Parameters.AddWithValue("@razao", participante.razaosocialapelidoParticipante);
-                comando.Parameters.AddWithValue("@cpfcnpj", participante.cpfcnpjParticipante);
-                comando.Parameters.AddWithValue("@rgie", participante.rgieParticipante);
-                comando.Parameters.AddWithValue("@endereco", participante.enderecoParticipante);
-                comando.Parameters.AddWithValue("@numero", participante.numeroEnderecoParticipante);
-                comando.Parameters.AddWithValue("@bairro", participante.bairoParticipante);
-                comando.Parameters.AddWithValue("@cidade", participante.cidadeParticipante);
-                comando.Parameters.AddWithValue("@cep", participante.cepParticipante);
-                comando.Parameters.AddWithValue("@telefone", participante.telefoneParticipante);
-                comando.Parameters.AddWithValue("@celular", participante.celularParticipante);
-                comando.Parameters.AddWithValue("@uf", participante.ufParticipante);
-                comando.Parameters.AddWithValue("@email", participante.emailParticipante);
-                comando.Parameters.AddWithValue("@tipocli", participante.tipoclienteParticipante);
-                comando.Parameters.AddWithValue("@tipofor", participante.tipofornecedorParticipante);
-                comando.Parameters.AddWithValue("@tipofunc", participante.tipofuncionarioParticipante);
-                comando.Parameters.AddWithValue("@ativo", participante.ativoParticipante);
-                comando.Parameters.AddWithValue("@dataalteracao", participante.dataAlteracaoParticipante);
-                comando.Parameters.AddWithValue("@idParticipante", participante.idParticipante);
+                comando.Parameters.AddWithValue("@nome", modParticipante.nomeParticipante);
+                comando.Parameters.AddWithValue("@razao", modParticipante.razaosocialapelidoParticipante);
+                comando.Parameters.AddWithValue("@cpfcnpj", modParticipante.cpfcnpjParticipante);
+                comando.Parameters.AddWithValue("@rgie", modParticipante.rgieParticipante);
+                comando.Parameters.AddWithValue("@endereco", modParticipante.enderecoParticipante);
+                comando.Parameters.AddWithValue("@numero", modParticipante.numeroEnderecoParticipante);
+                comando.Parameters.AddWithValue("@bairro", modParticipante.bairoParticipante);
+                comando.Parameters.AddWithValue("@cidade", modParticipante.cidadeParticipante);
+                comando.Parameters.AddWithValue("@cep", modParticipante.cepParticipante);
+                comando.Parameters.AddWithValue("@telefone", modParticipante.telefoneParticipante);
+                comando.Parameters.AddWithValue("@celular", modParticipante.celularParticipante);
+                comando.Parameters.AddWithValue("@uf", modParticipante.ufParticipante);
+                comando.Parameters.AddWithValue("@email", modParticipante.emailParticipante);
+                comando.Parameters.AddWithValue("@tipocli", modParticipante.tipoclienteParticipante);
+                comando.Parameters.AddWithValue("@tipofor", modParticipante.tipofornecedorParticipante);
+                comando.Parameters.AddWithValue("@tipofunc", modParticipante.tipofuncionarioParticipante);
+                comando.Parameters.AddWithValue("@ativo", modParticipante.ativoParticipante);
+                comando.Parameters.AddWithValue("@dataalteracao", modParticipante.dataAlteracaoParticipante);
+                comando.Parameters.AddWithValue("@idParticipante", modParticipante.idParticipante);
                 comando.ExecuteNonQuery();
 
             }
@@ -104,14 +104,14 @@ namespace Centaurus.Dao
         }
               
         //Inicio do código fonte excluir participante
-        public void ExcluirParticipante(string idParticipante) 
+        public void excluirParticipante(ParticipanteModelo modParticipante) 
         {
             try 
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 //conexao.FecharConexao();
                 conexao.AbrirConexao();
-                string comando = "delete from participante where id_partipante =" + idParticipante;
+                string comando = "delete from participante where id_partipante =" + modParticipante.idParticipante;
                 conexao.ExecutarComandoSQL(comando);
             }
             catch(Exception ex) 
