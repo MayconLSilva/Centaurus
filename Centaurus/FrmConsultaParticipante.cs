@@ -189,5 +189,9 @@ namespace Centaurus
             configurarDataGridView();
         }
 
+        private void toolStripButtonSelecionarParticipante_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

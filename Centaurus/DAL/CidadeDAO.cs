@@ -13,25 +13,7 @@ namespace Centaurus.Dao
     {
         MySqlCommand comando = null;
 
-
-        public DataTable SelecionarTodasCidades() 
-        {
-            DataTable dt = new DataTable();
-
-            try 
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from cidade");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao pesquisar cidade: " + ex.Message);
-            }
-            return dt;
-        }
-
-        public DataTable SelecionarTodasCidadesFiltrandoNome(string filtro)
+        public DataTable listarCidades(string tipoFiltro, string filtro)
         {
             DataTable dt = new DataTable();
 
@@ -39,30 +21,29 @@ namespace Centaurus.Dao
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from cidade where nome_cidade like '%" + filtro+"'");
+                if(tipoFiltro == "TODAS")
+                {
+                    dt = conexao.RetDataTable("select *from cidade");
+                }
+                else if(tipoFiltro == "CIDADE")
+                {
+                    dt = conexao.RetDataTable("select *from cidade where nome_cidade like '%" + filtro + "'");
+                }
+                else if (tipoFiltro == "UF")
+                {
+                    dt = conexao.RetDataTable("select *from cidade where uf_cidade = '" + filtro + "'");
+                }
             }
-            catch (Exception ex)
+            catch(Exception erro)
             {
-                throw new Exception("Erro ao pesquisar cidade: " + ex.Message);
+                throw new Exception("Erro ao listar cidades, classe DAO " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
             }
             return dt;
         }
-
-        public DataTable SelecionarTodasCidadesFiltrandoUF(string filtro)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from cidade where uf_cidade = '"+filtro+"'");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao pesquisar cidade: " + ex.Message);
-            }
-            return dt;
-        }
+        
     }
 }

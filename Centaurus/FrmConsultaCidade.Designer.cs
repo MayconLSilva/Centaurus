@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaCidade));
             this.dataGridViewCidade = new System.Windows.Forms.DataGridView();
             this.textBoxCidadeClicada = new System.Windows.Forms.TextBox();
-            this.buttonSelecionar = new System.Windows.Forms.Button();
-            this.buttonFiltrarCidade = new System.Windows.Forms.Button();
-            this.comboBoxTipoFiltroCidade = new System.Windows.Forms.ComboBox();
-            this.textBoxFiltrarCidade = new System.Windows.Forms.TextBox();
+            this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBoxFiltroCidade = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripComboBoxTipoFiltroCidade = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonFiltrarCidade = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSelecionarCidade = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCidade)).BeginInit();
+            this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewCidade
@@ -43,9 +46,9 @@
             this.dataGridViewCidade.Location = new System.Drawing.Point(12, 38);
             this.dataGridViewCidade.Name = "dataGridViewCidade";
             this.dataGridViewCidade.ReadOnly = true;
-            this.dataGridViewCidade.Size = new System.Drawing.Size(660, 285);
+            this.dataGridViewCidade.Size = new System.Drawing.Size(660, 282);
             this.dataGridViewCidade.TabIndex = 0;
-            this.dataGridViewCidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCidade_CellContentClick);
+            this.dataGridViewCidade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCidade_CellClick);
             // 
             // textBoxCidadeClicada
             // 
@@ -55,55 +58,70 @@
             this.textBoxCidadeClicada.Size = new System.Drawing.Size(250, 20);
             this.textBoxCidadeClicada.TabIndex = 1;
             // 
-            // buttonSelecionar
+            // toolStripMenusConsultaParticipante
             // 
-            this.buttonSelecionar.Location = new System.Drawing.Point(553, 9);
-            this.buttonSelecionar.Name = "buttonSelecionar";
-            this.buttonSelecionar.Size = new System.Drawing.Size(119, 23);
-            this.buttonSelecionar.TabIndex = 2;
-            this.buttonSelecionar.Text = "SELECIONAR";
-            this.buttonSelecionar.UseVisualStyleBackColor = true;
-            this.buttonSelecionar.Click += new System.EventHandler(this.buttonSelecionar_Click);
+            this.toolStripMenusConsultaParticipante.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripMenusConsultaParticipante.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStripMenusConsultaParticipante.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxFiltroCidade,
+            this.toolStripComboBoxTipoFiltroCidade,
+            this.toolStripButtonFiltrarCidade,
+            this.toolStripButtonSelecionarCidade});
+            this.toolStripMenusConsultaParticipante.Location = new System.Drawing.Point(0, 336);
+            this.toolStripMenusConsultaParticipante.Name = "toolStripMenusConsultaParticipante";
+            this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(684, 25);
+            this.toolStripMenusConsultaParticipante.TabIndex = 50;
+            this.toolStripMenusConsultaParticipante.Text = "Consulta Participante";
             // 
-            // buttonFiltrarCidade
+            // toolStripTextBoxFiltroCidade
             // 
-            this.buttonFiltrarCidade.Location = new System.Drawing.Point(343, 329);
-            this.buttonFiltrarCidade.Name = "buttonFiltrarCidade";
-            this.buttonFiltrarCidade.Size = new System.Drawing.Size(75, 23);
-            this.buttonFiltrarCidade.TabIndex = 16;
-            this.buttonFiltrarCidade.Text = "PESQUISAR";
-            this.buttonFiltrarCidade.UseVisualStyleBackColor = true;
-            this.buttonFiltrarCidade.Click += new System.EventHandler(this.buttonFiltrarCidade_Click);
+            this.toolStripTextBoxFiltroCidade.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxFiltroCidade.Name = "toolStripTextBoxFiltroCidade";
+            this.toolStripTextBoxFiltroCidade.Size = new System.Drawing.Size(160, 25);
+            this.toolStripTextBoxFiltroCidade.Text = "Filtro...";
             // 
-            // comboBoxTipoFiltroCidade
+            // toolStripComboBoxTipoFiltroCidade
             // 
-            this.comboBoxTipoFiltroCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTipoFiltroCidade.FormattingEnabled = true;
-            this.comboBoxTipoFiltroCidade.Items.AddRange(new object[] {
+            this.toolStripComboBoxTipoFiltroCidade.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripComboBoxTipoFiltroCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxTipoFiltroCidade.Items.AddRange(new object[] {
             "CIDADE",
             "UF",
             "TODAS"});
-            this.comboBoxTipoFiltroCidade.Location = new System.Drawing.Point(216, 329);
-            this.comboBoxTipoFiltroCidade.Name = "comboBoxTipoFiltroCidade";
-            this.comboBoxTipoFiltroCidade.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTipoFiltroCidade.TabIndex = 15;
+            this.toolStripComboBoxTipoFiltroCidade.Margin = new System.Windows.Forms.Padding(3, 0, 1, 0);
+            this.toolStripComboBoxTipoFiltroCidade.Name = "toolStripComboBoxTipoFiltroCidade";
+            this.toolStripComboBoxTipoFiltroCidade.Size = new System.Drawing.Size(121, 25);
             // 
-            // textBoxFiltrarCidade
+            // toolStripButtonFiltrarCidade
             // 
-            this.textBoxFiltrarCidade.Location = new System.Drawing.Point(12, 329);
-            this.textBoxFiltrarCidade.Name = "textBoxFiltrarCidade";
-            this.textBoxFiltrarCidade.Size = new System.Drawing.Size(198, 20);
-            this.textBoxFiltrarCidade.TabIndex = 14;
+            this.toolStripButtonFiltrarCidade.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonFiltrarCidade.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonFiltrarCidade.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFiltrarCidade.Image")));
+            this.toolStripButtonFiltrarCidade.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFiltrarCidade.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.toolStripButtonFiltrarCidade.Name = "toolStripButtonFiltrarCidade";
+            this.toolStripButtonFiltrarCidade.Size = new System.Drawing.Size(71, 22);
+            this.toolStripButtonFiltrarCidade.Text = "PESQUISAR";
+            this.toolStripButtonFiltrarCidade.Click += new System.EventHandler(this.toolStripButtonFiltrarCidade_Click);
+            // 
+            // toolStripButtonSelecionarCidade
+            // 
+            this.toolStripButtonSelecionarCidade.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSelecionarCidade.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonSelecionarCidade.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSelecionarCidade.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarCidade.Image")));
+            this.toolStripButtonSelecionarCidade.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSelecionarCidade.Name = "toolStripButtonSelecionarCidade";
+            this.toolStripButtonSelecionarCidade.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSelecionarCidade.Text = "SELECIONAR";
+            this.toolStripButtonSelecionarCidade.Click += new System.EventHandler(this.toolStripButtonSelecionarCidade_Click);
             // 
             // FrmConsultaCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
-            this.Controls.Add(this.buttonFiltrarCidade);
-            this.Controls.Add(this.comboBoxTipoFiltroCidade);
-            this.Controls.Add(this.textBoxFiltrarCidade);
-            this.Controls.Add(this.buttonSelecionar);
+            this.Controls.Add(this.toolStripMenusConsultaParticipante);
             this.Controls.Add(this.textBoxCidadeClicada);
             this.Controls.Add(this.dataGridViewCidade);
             this.MaximizeBox = false;
@@ -112,6 +130,8 @@
             this.Text = "Consulta Cidade";
             this.Load += new System.EventHandler(this.FrmConsultaCidade_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCidade)).EndInit();
+            this.toolStripMenusConsultaParticipante.ResumeLayout(false);
+            this.toolStripMenusConsultaParticipante.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,9 +141,10 @@
 
         private System.Windows.Forms.DataGridView dataGridViewCidade;
         private System.Windows.Forms.TextBox textBoxCidadeClicada;
-        private System.Windows.Forms.Button buttonSelecionar;
-        private System.Windows.Forms.Button buttonFiltrarCidade;
-        private System.Windows.Forms.ComboBox comboBoxTipoFiltroCidade;
-        private System.Windows.Forms.TextBox textBoxFiltrarCidade;
+        private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFiltroCidade;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxTipoFiltroCidade;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFiltrarCidade;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSelecionarCidade;
     }
 }

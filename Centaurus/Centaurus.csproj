@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CategoriaBLL .cs" />
+    <Compile Include="BLL\CidadeBLL.cs" />
     <Compile Include="BLL\LocacaoBLL.cs" />
     <Compile Include="BLL\LocacaoDevolucaoBLL.cs" />
     <Compile Include="BLL\MarcaBLL.cs" />

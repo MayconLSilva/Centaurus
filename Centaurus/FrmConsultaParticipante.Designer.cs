@@ -50,6 +50,7 @@
             this.toolStripTextBoxFiltroParticipante = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripComboBoxTipoFiltroParticipante = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFiltrarParticipante = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSelecionarParticipante = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipantes)).BeginInit();
             this.groupBoxTipo.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
@@ -224,7 +225,8 @@
             this.toolStripMenusConsultaParticipante.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxFiltroParticipante,
             this.toolStripComboBoxTipoFiltroParticipante,
-            this.toolStripButtonFiltrarParticipante});
+            this.toolStripButtonFiltrarParticipante,
+            this.toolStripButtonSelecionarParticipante});
             this.toolStripMenusConsultaParticipante.Location = new System.Drawing.Point(0, 336);
             this.toolStripMenusConsultaParticipante.Name = "toolStripMenusConsultaParticipante";
             this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(684, 25);
@@ -263,6 +265,18 @@
             this.toolStripButtonFiltrarParticipante.Size = new System.Drawing.Size(71, 22);
             this.toolStripButtonFiltrarParticipante.Text = "PESQUISAR";
             this.toolStripButtonFiltrarParticipante.Click += new System.EventHandler(this.toolStripButtonFiltrarParticipante_Click);
+            // 
+            // toolStripButtonSelecionarParticipante
+            // 
+            this.toolStripButtonSelecionarParticipante.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSelecionarParticipante.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonSelecionarParticipante.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSelecionarParticipante.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarParticipante.Image")));
+            this.toolStripButtonSelecionarParticipante.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSelecionarParticipante.Name = "toolStripButtonSelecionarParticipante";
+            this.toolStripButtonSelecionarParticipante.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSelecionarParticipante.Text = "SELECIONAR";
+            this.toolStripButtonSelecionarParticipante.Click += new System.EventHandler(this.toolStripButtonSelecionarParticipante_Click);
             // 
             // FrmConsultaParticipante
             // 
@@ -322,5 +336,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFiltroParticipante;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxTipoFiltroParticipante;
         private System.Windows.Forms.ToolStripButton toolStripButtonFiltrarParticipante;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSelecionarParticipante;
     }
 }
