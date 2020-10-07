@@ -20,8 +20,7 @@ namespace Centaurus
         int flag = 0;
         FrmConsultaParticipante frm2;
         FrmConsultaCidade frm3;
-
-        ParticipanteDAO participanteDAO = new ParticipanteDAO();
+        string botaoClicado = "INICIAL";
 
         public FrmParticipante()
         {
@@ -32,8 +31,286 @@ namespace Centaurus
             this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
-            inativaBotaoIniciar();
+            inativaAtivaCamposBotoes();
 
+        }
+
+        public void inativaAtivaCamposBotoes()
+        {
+            switch (botaoClicado)
+            {
+                case "INICIAL":
+
+                    textBoxCodigo.Enabled = true;
+                    textBoxNome.Enabled = false;
+                    textBoxCpfCnpj.Enabled = false;
+                    textBoxRgIe.Enabled = false;
+                    textBoxEndereco.Enabled = false;
+                    textBoxNumero.Enabled = false;
+                    textBoxBairro.Enabled = false;
+                    textBoxCidade.Enabled = false;
+                    comboBoxUF.Enabled = false;
+                    textBoxCep.Enabled = false;
+                    textBoxTelefone.Enabled = false;
+                    textBoxCelular.Enabled = false;
+                    textBoxEmail.Enabled = false;
+                    textBoxRazaoSocialApelido.Enabled = false;
+
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+
+                    menuClienteNovo.Enabled = true;
+                    menuClienteGravar.Enabled = false;
+                    menuClienteEditar.Enabled = false;
+                    menuClienteCancelar.Enabled = false;
+                    menuClienteExcluir.Enabled = false;
+                    buttonBuscarParticipante.Enabled = true;
+                    buttonBuscarCidade.Enabled = false;
+
+                    checkBoxAtivo.Enabled = false;
+                    checkBoxCliente.Enabled = false;
+                    checkBoxFornecedor.Enabled = false;
+                    checkBoxFuncionario.Enabled = false;
+
+                    break;
+
+                case "NOVO":
+
+                    textBoxCodigo.Enabled = false;
+                    textBoxNome.Enabled = true;
+                    textBoxCpfCnpj.Enabled = true;
+                    textBoxRgIe.Enabled = true;
+                    textBoxEndereco.Enabled = true;
+                    textBoxNumero.Enabled = true;
+                    textBoxBairro.Enabled = true;
+                    textBoxCidade.Enabled = true;
+                    comboBoxUF.Enabled = true;
+                    textBoxCep.Enabled = true;
+                    textBoxTelefone.Enabled = true;
+                    textBoxCelular.Enabled = true;
+                    textBoxEmail.Enabled = true;
+                    textBoxRazaoSocialApelido.Enabled = true;
+
+                    menuClienteNovo.Enabled = false;
+                    menuClienteGravar.Enabled = true;
+                    menuClienteEditar.Enabled = false;
+                    menuClienteCancelar.Enabled = true;
+                    menuClienteExcluir.Enabled = false;
+                    buttonBuscarParticipante.Enabled = false;
+                    buttonBuscarCidade.Enabled = true;
+
+                    checkBoxAtivo.Enabled = true;
+                    checkBoxCliente.Enabled = true;
+                    checkBoxFornecedor.Enabled = true;
+                    checkBoxFuncionario.Enabled = true;
+
+                    //Limpa campos
+                    textBoxCodigo.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxCpfCnpj.Text = "";
+                    textBoxRgIe.Text = "";
+                    textBoxEndereco.Text = "";
+                    textBoxNumero.Text = "";
+                    textBoxBairro.Text = "";
+                    textBoxCidade.Text = "";
+                    comboBoxUF.Text = "";
+                    textBoxCep.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxCelular.Text = "";
+                    textBoxEmail.Text = "";
+                    textBoxRazaoSocialApelido.Text = "";
+                    textBoxUsuarioCadastro.Text = "";
+                    textBoxUsuarioAlteracao.Text = "";
+                    textBoxDataCadastro.Text = "";
+                    textBoxDataAlteracao.Text = "";
+
+                    checkBoxAtivo.Checked = false;
+                    checkBoxCliente.Checked = false;
+                    checkBoxFornecedor.Checked = false;
+                    checkBoxFuncionario.Checked = false;
+
+                    break;
+
+                case "SALVAR":
+
+                    textBoxCodigo.Enabled = false;
+                    textBoxNome.Enabled = false;
+                    textBoxCpfCnpj.Enabled = false;
+                    textBoxRgIe.Enabled = false;
+                    textBoxEndereco.Enabled = false;
+                    textBoxNumero.Enabled = false;
+                    textBoxBairro.Enabled = false;
+                    textBoxCidade.Enabled = false;
+                    comboBoxUF.Enabled = false;
+                    textBoxCep.Enabled = false;
+                    textBoxTelefone.Enabled = false;
+                    textBoxCelular.Enabled = false;
+                    textBoxEmail.Enabled = false;
+                    textBoxRazaoSocialApelido.Enabled = false;
+
+                    menuClienteNovo.Enabled = true;
+                    menuClienteGravar.Enabled = false;
+                    menuClienteEditar.Enabled = true;
+                    menuClienteCancelar.Enabled = false;
+                    menuClienteExcluir.Enabled = true;
+                    buttonBuscarParticipante.Enabled = true;
+                    buttonBuscarCidade.Enabled = false;
+
+                    checkBoxAtivo.Enabled = false;
+                    checkBoxCliente.Enabled = false;
+                    checkBoxFornecedor.Enabled = false;
+                    checkBoxFuncionario.Enabled = false;
+
+                    break;
+
+                case "EDITAR":
+
+                    textBoxCodigo.Enabled = false;
+                    textBoxNome.Enabled = true;
+                    textBoxCpfCnpj.Enabled = true;
+                    textBoxRgIe.Enabled = true;
+                    textBoxEndereco.Enabled = true;
+                    textBoxNumero.Enabled = true;
+                    textBoxBairro.Enabled = true;
+                    textBoxCidade.Enabled = true;
+                    comboBoxUF.Enabled = true;
+                    textBoxCep.Enabled = true;
+                    textBoxTelefone.Enabled = true;
+                    textBoxCelular.Enabled = true;
+                    textBoxEmail.Enabled = true;
+                    textBoxRazaoSocialApelido.Enabled = true;
+
+                    menuClienteNovo.Enabled = false;
+                    menuClienteGravar.Enabled = true;
+                    menuClienteEditar.Enabled = false;
+                    menuClienteCancelar.Enabled = true;
+                    menuClienteExcluir.Enabled = false;
+                    buttonBuscarParticipante.Enabled = false;
+                    buttonBuscarCidade.Enabled = true;
+
+                    checkBoxAtivo.Enabled = true;
+                    checkBoxCliente.Enabled = true;
+                    checkBoxFornecedor.Enabled = true;
+                    checkBoxFuncionario.Enabled = true;
+
+                    break;
+
+                case "CANCELAR":
+
+                    textBoxCodigo.Enabled = true;
+                    textBoxNome.Enabled = false;
+                    textBoxCpfCnpj.Enabled = false;
+                    textBoxRgIe.Enabled = false;
+                    textBoxEndereco.Enabled = false;
+                    textBoxNumero.Enabled = false;
+                    textBoxBairro.Enabled = false;
+                    textBoxCidade.Enabled = false;
+                    comboBoxUF.Enabled = false;
+                    textBoxCep.Enabled = false;
+                    textBoxTelefone.Enabled = false;
+                    textBoxCelular.Enabled = false;
+                    textBoxEmail.Enabled = false;
+                    textBoxRazaoSocialApelido.Enabled = false;
+
+                    //Limpa campos
+                    textBoxCodigo.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxCpfCnpj.Text = "";
+                    textBoxRgIe.Text = "";
+                    textBoxEndereco.Text = "";
+                    textBoxNumero.Text = "";
+                    textBoxBairro.Text = "";
+                    textBoxCidade.Text = "";
+                    comboBoxUF.Text = "";
+                    textBoxCep.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxCelular.Text = "";
+                    textBoxEmail.Text = "";
+                    textBoxRazaoSocialApelido.Text = "";
+                    textBoxUsuarioCadastro.Text = "";
+                    textBoxUsuarioAlteracao.Text = "";
+                    textBoxDataCadastro.Text = "";
+                    textBoxDataAlteracao.Text = "";
+
+                    //Desmarca as checkbox
+                    checkBoxAtivo.Checked = false;
+                    checkBoxCliente.Checked = false;
+                    checkBoxFornecedor.Checked = false;
+                    checkBoxFuncionario.Checked = false;
+
+                    menuClienteNovo.Enabled = true;
+                    menuClienteGravar.Enabled = false;
+                    menuClienteEditar.Enabled = false;
+                    menuClienteCancelar.Enabled = false;
+                    menuClienteExcluir.Enabled = false;
+                    buttonBuscarParticipante.Enabled = true;
+                    buttonBuscarCidade.Enabled = false;
+
+                    checkBoxAtivo.Enabled = false;
+                    checkBoxCliente.Enabled = false;
+                    checkBoxFornecedor.Enabled = false;
+                    checkBoxFuncionario.Enabled = false;
+
+                    break;
+
+                case "PESQUISAR":
+
+                    textBoxCodigo.Enabled = true;
+                    textBoxNome.Enabled = false;
+                    textBoxCpfCnpj.Enabled = false;
+                    textBoxRgIe.Enabled = false;
+                    textBoxEndereco.Enabled = false;
+                    textBoxNumero.Enabled = false;
+                    textBoxBairro.Enabled = false;
+                    textBoxCidade.Enabled = false;
+                    comboBoxUF.Enabled = false;
+                    textBoxCep.Enabled = false;
+                    textBoxTelefone.Enabled = false;
+                    textBoxCelular.Enabled = false;
+                    textBoxEmail.Enabled = false;
+                    textBoxRazaoSocialApelido.Enabled = false;
+
+                    //Limpa campos
+                    textBoxCodigo.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxCpfCnpj.Text = "";
+                    textBoxRgIe.Text = "";
+                    textBoxEndereco.Text = "";
+                    textBoxNumero.Text = "";
+                    textBoxBairro.Text = "";
+                    textBoxCidade.Text = "";
+                    comboBoxUF.Text = "";
+                    textBoxCep.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxCelular.Text = "";
+                    textBoxEmail.Text = "";
+                    textBoxRazaoSocialApelido.Text = "";
+                    textBoxUsuarioCadastro.Text = "";
+                    textBoxUsuarioAlteracao.Text = "";
+                    textBoxDataCadastro.Text = "";
+                    textBoxDataAlteracao.Text = "";
+
+                    //Desmarca as checkbox
+                    checkBoxAtivo.Checked = false;
+                    checkBoxCliente.Checked = false;
+                    checkBoxFornecedor.Checked = false;
+                    checkBoxFuncionario.Checked = false;
+
+                    menuClienteNovo.Enabled = true;
+                    menuClienteGravar.Enabled = false;
+                    menuClienteEditar.Enabled = true;
+                    menuClienteCancelar.Enabled = false;
+                    menuClienteExcluir.Enabled = true;
+                    buttonBuscarParticipante.Enabled = true;
+                    buttonBuscarCidade.Enabled = false;
+
+                    checkBoxAtivo.Enabled = false;
+                    checkBoxCliente.Enabled = false;
+                    checkBoxFornecedor.Enabled = false;
+                    checkBoxFuncionario.Enabled = false;
+
+                    break;
+            }
         }
 
         private void salvar(ParticipanteModelo modParticipante)
@@ -94,7 +371,8 @@ namespace Centaurus
 
                 participanteBLL.salvar(modParticipante);
                 MessageBox.Show("Participante incluido com sucesso!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                desativaBotaoSalvar();
+                botaoClicado = "SALVAR";
+                inativaAtivaCamposBotoes();
 
                 //Método chama o ultimo registro
                 participanteBLL.buscarUltimoRegistro(modParticipante);
@@ -161,13 +439,15 @@ namespace Centaurus
                 participanteBLL.alterar(modParticipante);
 
                 MessageBox.Show("Participante alterado com sucesso!!!", "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                desativaBotaoSalvar();
+                botaoClicado = "SALVAR";
+                inativaAtivaCamposBotoes();
             }
         }
 
         private void menuClienteNovo_Click(object sender, EventArgs e)
         {
-            ativaBotaoNovo();
+            botaoClicado = "NOVO";
+            inativaAtivaCamposBotoes();
 
             //Inicio código fonte seto a data no campo de cadastro
             DateTime thisDay = DateTime.Today;
@@ -184,159 +464,7 @@ namespace Centaurus
             ParticipanteModelo participanteModelo = new ParticipanteModelo();
             salvar(participanteModelo);
         }
-
-        private void desativaBotaoSalvar()
-        {
-            textBoxCodigo.Enabled = false;
-            textBoxNome.Enabled = false;
-            textBoxCpfCnpj.Enabled = false;
-            textBoxRgIe.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNumero.Enabled = false;
-            textBoxBairro.Enabled = false;
-            textBoxCidade.Enabled = false;
-            comboBoxUF.Enabled = false;
-            textBoxCep.Enabled = false;
-            textBoxTelefone.Enabled = false;
-            textBoxCelular.Enabled = false;
-            textBoxEmail.Enabled = false;
-            textBoxRazaoSocialApelido.Enabled = false;
-
-            menuClienteNovo.Enabled = true;
-            menuClienteGravar.Enabled = false;
-            menuClienteEditar.Enabled = true;
-            menuClienteCancelar.Enabled = false;
-            menuClienteExcluir.Enabled = true;
-            buttonBuscarParticipante.Enabled = true;
-            buttonBuscarCidade.Enabled = false;
-
-            checkBoxAtivo.Enabled = false;
-            checkBoxCliente.Enabled = false;
-            checkBoxFornecedor.Enabled = false;
-            checkBoxFuncionario.Enabled = false;
-        }
-
-        private void ativaBotaoNovo()
-        {
-            textBoxCodigo.Enabled = false;
-            textBoxNome.Enabled = true;
-            textBoxCpfCnpj.Enabled = true;
-            textBoxRgIe.Enabled = true;
-            textBoxEndereco.Enabled = true;
-            textBoxNumero.Enabled = true;
-            textBoxBairro.Enabled = true;
-            textBoxCidade.Enabled = true;
-            comboBoxUF.Enabled = true;
-            textBoxCep.Enabled = true;
-            textBoxTelefone.Enabled = true;
-            textBoxCelular.Enabled = true;
-            textBoxEmail.Enabled = true;
-            textBoxRazaoSocialApelido.Enabled = true;
-
-            menuClienteNovo.Enabled = false;
-            menuClienteGravar.Enabled = true;
-            menuClienteEditar.Enabled = false;
-            menuClienteCancelar.Enabled = true;
-            menuClienteExcluir.Enabled = false;
-            buttonBuscarParticipante.Enabled = false;
-            buttonBuscarCidade.Enabled = true;
-
-            checkBoxAtivo.Enabled = true;
-            checkBoxCliente.Enabled = true;
-            checkBoxFornecedor.Enabled = true;
-            checkBoxFuncionario.Enabled = true;
-
-            //Limpa campos
-            textBoxCodigo.Text = "";
-            textBoxNome.Text = "";
-            textBoxCpfCnpj.Text = "";
-            textBoxRgIe.Text = "";
-            textBoxEndereco.Text = "";
-            textBoxNumero.Text = "";
-            textBoxBairro.Text = "";
-            textBoxCidade.Text = "";
-            comboBoxUF.Text = "";
-            textBoxCep.Text = "";
-            textBoxTelefone.Text = "";
-            textBoxCelular.Text = "";
-            textBoxEmail.Text = "";
-            textBoxRazaoSocialApelido.Text = "";
-            textBoxUsuarioCadastro.Text = "";
-            textBoxUsuarioAlteracao.Text = "";
-            textBoxDataCadastro.Text = "";
-            textBoxDataAlteracao.Text = "";
-
-            checkBoxAtivo.Checked = false;
-            checkBoxCliente.Checked = false;
-            checkBoxFornecedor.Checked = false;
-            checkBoxFuncionario.Checked = false;
-        }
-
-        private void ativaDesativaBotaoEditar()
-        {
-            textBoxCodigo.Enabled = false;
-            textBoxNome.Enabled = true;
-            textBoxCpfCnpj.Enabled = true;
-            textBoxRgIe.Enabled = true;
-            textBoxEndereco.Enabled = true;
-            textBoxNumero.Enabled = true;
-            textBoxBairro.Enabled = true;
-            textBoxCidade.Enabled = true;
-            comboBoxUF.Enabled = true;
-            textBoxCep.Enabled = true;
-            textBoxTelefone.Enabled = true;
-            textBoxCelular.Enabled = true;
-            textBoxEmail.Enabled = true;
-            textBoxRazaoSocialApelido.Enabled = true;
-
-            menuClienteNovo.Enabled = false;
-            menuClienteGravar.Enabled = true;
-            menuClienteEditar.Enabled = false;
-            menuClienteCancelar.Enabled = true;
-            menuClienteExcluir.Enabled = false;
-            buttonBuscarParticipante.Enabled = false;
-            buttonBuscarCidade.Enabled = true;
-
-            checkBoxAtivo.Enabled = true;
-            checkBoxCliente.Enabled = true;
-            checkBoxFornecedor.Enabled = true;
-            checkBoxFuncionario.Enabled = true;            
-        }
-
-        private void inativaBotaoIniciar()
-        {
-            textBoxCodigo.Enabled = true;
-            textBoxNome.Enabled = false;
-            textBoxCpfCnpj.Enabled = false;
-            textBoxRgIe.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNumero.Enabled = false;
-            textBoxBairro.Enabled = false;
-            textBoxCidade.Enabled = false;
-            comboBoxUF.Enabled = false;
-            textBoxCep.Enabled = false;
-            textBoxTelefone.Enabled = false;
-            textBoxCelular.Enabled = false;
-            textBoxEmail.Enabled = false;
-            textBoxRazaoSocialApelido.Enabled = false;
-
-            textBoxDataCadastro.Enabled = false;
-            textBoxDataAlteracao.Enabled = false;
-
-            menuClienteNovo.Enabled = true;
-            menuClienteGravar.Enabled = false;
-            menuClienteEditar.Enabled = false;
-            menuClienteCancelar.Enabled = false;
-            menuClienteExcluir.Enabled = false;
-            buttonBuscarParticipante.Enabled = true;
-            buttonBuscarCidade.Enabled = false;
-
-            checkBoxAtivo.Enabled = false;
-            checkBoxCliente.Enabled = false;
-            checkBoxFornecedor.Enabled = false;
-            checkBoxFuncionario.Enabled = false;
-        }
-
+                
         //Inicio código fonte máscara CPF/CNPJ
         public static string MascaraCnpjCpf(string pCnpjCpf)
         {
@@ -355,76 +483,19 @@ namespace Centaurus
             }
             return result;
         }
-
+                
         private void textBoxCpfCnpj_Validated(object sender, EventArgs e)
         {
             textBoxCpfCnpj.Text = MascaraCnpjCpf(textBoxCpfCnpj.Text);
 
         }
-        //Fim código fonte máscara CPF/CNPJ
-
+        
         private void menuClienteCancelar_Click(object sender, EventArgs e)
         {
-            limparCamposCancelar();
+            botaoClicado = "CANCELAR";
+            inativaAtivaCamposBotoes();
         }
-
-        private void limparCamposCancelar()
-        {
-            textBoxCodigo.Enabled = true;
-            textBoxNome.Enabled = false;
-            textBoxCpfCnpj.Enabled = false;
-            textBoxRgIe.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNumero.Enabled = false;
-            textBoxBairro.Enabled = false;
-            textBoxCidade.Enabled = false;
-            comboBoxUF.Enabled = false;
-            textBoxCep.Enabled = false;
-            textBoxTelefone.Enabled = false;
-            textBoxCelular.Enabled = false;
-            textBoxEmail.Enabled = false;
-            textBoxRazaoSocialApelido.Enabled = false;
-
-            //Limpa campos
-            textBoxCodigo.Text = "";
-            textBoxNome.Text = "";
-            textBoxCpfCnpj.Text = "";
-            textBoxRgIe.Text = "";
-            textBoxEndereco.Text = "";
-            textBoxNumero.Text = "";
-            textBoxBairro.Text = "";
-            textBoxCidade.Text = "";
-            comboBoxUF.Text = "";
-            textBoxCep.Text = "";
-            textBoxTelefone.Text = "";
-            textBoxCelular.Text = "";
-            textBoxEmail.Text = "";
-            textBoxRazaoSocialApelido.Text = "";
-            textBoxUsuarioCadastro.Text = "";
-            textBoxUsuarioAlteracao.Text = "";
-            textBoxDataCadastro.Text = "";
-            textBoxDataAlteracao.Text = "";
-
-            //Desmarca as checkbox
-            checkBoxAtivo.Checked = false;
-            checkBoxCliente.Checked = false;
-            checkBoxFornecedor.Checked = false;
-            checkBoxFuncionario.Checked = false;
-
-            menuClienteNovo.Enabled = true;
-            menuClienteGravar.Enabled = false;
-            menuClienteEditar.Enabled = false;
-            menuClienteCancelar.Enabled = false;
-            menuClienteExcluir.Enabled = false;
-            buttonBuscarParticipante.Enabled = true;
-            buttonBuscarCidade.Enabled = false;
-
-            checkBoxAtivo.Enabled = false;
-            checkBoxCliente.Enabled = false;
-            checkBoxFornecedor.Enabled = false;
-            checkBoxFuncionario.Enabled = false;
-        }
-
+               
         //Inicio código fonte incluir máscara no campo telefone
         private void textBoxTelefone_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -447,8 +518,7 @@ namespace Centaurus
                 }
             }
         }
-        //Fim código fonte incluir másca no campo telefone
-
+        
         //Inicio código fonte incluir máscara no campo CEP
         private void textBoxCep_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -472,8 +542,7 @@ namespace Centaurus
             }
 
         }
-        //Fim código fonte incluir máscara no campo CEP
-
+        
         //Inicio código fonte máscara celular
         private void textBoxCelular_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -501,12 +570,12 @@ namespace Centaurus
                 }
             }
         }
-        //Fim código fonte máscara celular
-
+        
         private void menuClienteEditar_Click(object sender, EventArgs e)
         {
             flag = 1;
-            ativaDesativaBotaoEditar();
+            botaoClicado = "EDITAR";
+            inativaAtivaCamposBotoes();
 
             //Inicio código fonte seto a data no campo de cadastro
             DateTime thisDay = DateTime.Today;
@@ -525,7 +594,8 @@ namespace Centaurus
             frm2 = new FrmConsultaParticipante(passaTipoConsulta);
             DialogResult dr = frm2.ShowDialog(this);
 
-            camposPesquisaParticipante();
+            botaoClicado = "PESQUISAR";
+            inativaAtivaCamposBotoes();
 
 
             string idReturn = frm2.idClicada;
@@ -589,9 +659,6 @@ namespace Centaurus
                 checkBoxFuncionario.Checked = true;
             }
 
-
-
-
             //Utilizando MDiParent
             //var frmPartipante = new FrmConsultaParticipante();
             //frmPartipante.MdiParent = this;
@@ -617,66 +684,7 @@ namespace Centaurus
             }
 
         }
-        //Fim código fonte buscar cidade
-
-        //Inicio código fonte habilita e desabilita campos e menus após pesquisar participante
-        private void camposPesquisaParticipante()
-        {
-            textBoxCodigo.Enabled = true;
-            textBoxNome.Enabled = false;
-            textBoxCpfCnpj.Enabled = false;
-            textBoxRgIe.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNumero.Enabled = false;
-            textBoxBairro.Enabled = false;
-            textBoxCidade.Enabled = false;
-            comboBoxUF.Enabled = false;
-            textBoxCep.Enabled = false;
-            textBoxTelefone.Enabled = false;
-            textBoxCelular.Enabled = false;
-            textBoxEmail.Enabled = false;
-            textBoxRazaoSocialApelido.Enabled = false;
-
-            //Limpa campos
-            textBoxCodigo.Text = "";
-            textBoxNome.Text = "";
-            textBoxCpfCnpj.Text = "";
-            textBoxRgIe.Text = "";
-            textBoxEndereco.Text = "";
-            textBoxNumero.Text = "";
-            textBoxBairro.Text = "";
-            textBoxCidade.Text = "";
-            comboBoxUF.Text = "";
-            textBoxCep.Text = "";
-            textBoxTelefone.Text = "";
-            textBoxCelular.Text = "";
-            textBoxEmail.Text = "";
-            textBoxRazaoSocialApelido.Text = "";
-            textBoxUsuarioCadastro.Text = "";
-            textBoxUsuarioAlteracao.Text = "";
-            textBoxDataCadastro.Text = "";
-            textBoxDataAlteracao.Text = "";
-
-            //Desmarca as checkbox
-            checkBoxAtivo.Checked = false;
-            checkBoxCliente.Checked = false;
-            checkBoxFornecedor.Checked = false;
-            checkBoxFuncionario.Checked = false;
-
-            menuClienteNovo.Enabled = true;
-            menuClienteGravar.Enabled = false;
-            menuClienteEditar.Enabled = true;
-            menuClienteCancelar.Enabled = false;
-            menuClienteExcluir.Enabled = true;
-            buttonBuscarParticipante.Enabled = true;
-            buttonBuscarCidade.Enabled = false;
-
-            checkBoxAtivo.Enabled = false;
-            checkBoxCliente.Enabled = false;
-            checkBoxFornecedor.Enabled = false;
-            checkBoxFuncionario.Enabled = false;
-        }
-
+                        
         //Inicio do código fonte excluir participante
         private void menuClienteExcluir_Click(object sender, EventArgs e)
         {
@@ -688,10 +696,11 @@ namespace Centaurus
 
                 modParticipante.idParticipante = Convert.ToInt32(textBoxCodigo.Text);
                 bllParticipante.excluir(modParticipante);
-                limparCamposCancelar();
+                botaoClicado = "EXCLUIR";
+                inativaAtivaCamposBotoes();
             }
         }
-        //Fim do código fonte excluir participante
+        
 
         
     }
