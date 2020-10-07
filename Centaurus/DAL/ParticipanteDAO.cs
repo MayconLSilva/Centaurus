@@ -149,7 +149,7 @@ namespace Centaurus.Dao
         }
 
         //Método lista todos participantes e caso informe irá filtrar
-        public DataTable pesquisarParticipantes(string tipoConsulta, string tipoFiltro,string filtroConsulta)
+        public DataTable listarParticipantes(string tipoConsulta, string tipoFiltro,string filtroConsulta)
         {
             DataTable dt = new DataTable();
 

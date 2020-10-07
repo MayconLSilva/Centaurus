@@ -74,6 +74,21 @@ namespace Centaurus.Bll
             }
         }
 
+        public DataTable listarParticipantes(string tipoConsulta, string tipoFiltro, string filtroConsulta)
+        {            
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable = participanteDAO.listarParticipantes(tipoConsulta, tipoFiltro, filtroConsulta);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar participantes, classe BLL! " + erro.Message);
+            }
+        }
+
 
     }
 }

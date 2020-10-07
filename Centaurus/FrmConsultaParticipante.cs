@@ -15,7 +15,7 @@ namespace Centaurus
     public partial class FrmConsultaParticipante : Form
     {
         ParticipanteDAO participanteDAO = new ParticipanteDAO();
-
+        ParticipanteBLL bllParticipante = new ParticipanteBLL();
 
         public string idClicada { get; set; }
         public string nomeClienteClicado { get; set; }
@@ -185,7 +185,7 @@ namespace Centaurus
 
         public void carregarInformacoes()
         {
-            dataGridViewParticipantes.DataSource = participanteDAO.pesquisarParticipantes(returnTipoParticipanteConsulta, toolStripComboBoxTipoFiltroParticipante.Text, toolStripTextBoxFiltroParticipante.Text);
+            dataGridViewParticipantes.DataSource = bllParticipante.listarParticipantes(returnTipoParticipanteConsulta, toolStripComboBoxTipoFiltroParticipante.Text, toolStripTextBoxFiltroParticipante.Text);
             configurarDataGridView();
         }
 
