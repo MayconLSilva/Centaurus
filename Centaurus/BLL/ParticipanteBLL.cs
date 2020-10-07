@@ -51,6 +51,17 @@ namespace Centaurus.Bll
             }
         }
 
+        public void buscarUltimoRegistro(ParticipanteModelo modParticipante)
+        {
+            try
+            {
+                participanteDAO.buscarUltimoRegistro(modParticipante);
+            }catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o ultimo registro, classe BLL! " + erro.Message);
+            }
+        }
+
 
     }
 }

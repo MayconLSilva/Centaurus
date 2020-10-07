@@ -22,8 +22,7 @@ namespace Centaurus.Dao
         MySqlCommand comando = null;
         MySqlDataReader dr;
 
-        public string numeroIncluido { get; set; }
-
+        
         public void salvar(ParticipanteModelo modParticipante)
         {
             try
@@ -120,30 +119,31 @@ namespace Centaurus.Dao
             }
         }
 
-        //Inicio do código fonte pesquisar ultimo registro
-        public void UltimoRegistro(string valorReturn)
-        {            
+        //Método busca o ultimo registro
+        public ParticipanteModelo buscarUltimoRegistro(ParticipanteModelo modParticipante)
+        {
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("select max(id_partipante) as numeroPego from participante where nome_fantasia_participante = '"+ valorReturn + "'" , conexao);
+                comando = new MySqlCommand("select max(id_partipante) as numeroPego from participante where nome_fantasia_participante = '" + modParticipante.nomeParticipante + "'", conexao);
                 dr = comando.ExecuteReader();
 
-                while (dr.Read()) 
-                {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
-                    //Console.WriteLine("o valor foi "+ numeroIncluido);
+                while (dr.Read())
+                {                    
+                    int numeroIncluido = Convert.ToInt32(dr["numeroPego"]);
+                    modParticipante.idParticipante = numeroIncluido;
                 }
+
             }
-            catch (Exception ex)
+            catch(Exception erro)
             {
-                throw new Exception("Erro ao pesquisar id do participante: " + ex.Message);
+                throw new Exception("Erro ao buscar ultimo registro, classe DAO! " + erro.Message);
             }
-
-
-
-
-
+            finally
+            {
+                FecharConexao();
+            }
+            return modParticipante;
         }
 
         public DataTable pesquisarParticipantes(string tipoConsulta, string tipoFiltro,string filtroConsulta)

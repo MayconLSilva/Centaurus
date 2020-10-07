@@ -36,131 +36,131 @@ namespace Centaurus
 
         }
 
-        private void salvar(ParticipanteModelo participante)
+        private void salvar(ParticipanteModelo modParticipante)
         {
             if (flag == 0)
             {
                 ParticipanteBLL participanteBLL = new ParticipanteBLL();
 
-                participante.nomeParticipante = textBoxNome.Text;
-                participante.cpfcnpjParticipante = textBoxCpfCnpj.Text;
-                participante.rgieParticipante = textBoxRgIe.Text;
-                participante.enderecoParticipante = textBoxEndereco.Text;
-                participante.numeroEnderecoParticipante = textBoxNumero.Text;
-                participante.bairoParticipante = textBoxBairro.Text;
-                participante.cidadeParticipante = textBoxCidade.Text;
-                participante.ufParticipante = comboBoxUF.Text;//validar
-                participante.cepParticipante = textBoxCep.Text;
-                participante.telefoneParticipante = textBoxTelefone.Text;
-                participante.celularParticipante = textBoxCelular.Text;
-                participante.emailParticipante = textBoxEmail.Text;
-                participante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
-                participante.dataCadastroParticipante = textBoxDataCadastro.Text;
+                modParticipante.nomeParticipante = textBoxNome.Text;
+                modParticipante.cpfcnpjParticipante = textBoxCpfCnpj.Text;
+                modParticipante.rgieParticipante = textBoxRgIe.Text;
+                modParticipante.enderecoParticipante = textBoxEndereco.Text;
+                modParticipante.numeroEnderecoParticipante = textBoxNumero.Text;
+                modParticipante.bairoParticipante = textBoxBairro.Text;
+                modParticipante.cidadeParticipante = textBoxCidade.Text;
+                modParticipante.ufParticipante = comboBoxUF.Text;//validar
+                modParticipante.cepParticipante = textBoxCep.Text;
+                modParticipante.telefoneParticipante = textBoxTelefone.Text;
+                modParticipante.celularParticipante = textBoxCelular.Text;
+                modParticipante.emailParticipante = textBoxEmail.Text;
+                modParticipante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
+                modParticipante.dataCadastroParticipante = textBoxDataCadastro.Text;
                 if (checkBoxCliente.Checked)
                 {
-                    participante.tipoclienteParticipante = true;
+                    modParticipante.tipoclienteParticipante = true;
                 }
                 else
                 {
-                    participante.tipoclienteParticipante = false;
+                    modParticipante.tipoclienteParticipante = false;
                 }
 
                 if (checkBoxFornecedor.Checked)
                 {
-                    participante.tipofornecedorParticipante = true;
+                    modParticipante.tipofornecedorParticipante = true;
                 }
                 else
                 {
-                    participante.tipofornecedorParticipante = false;
+                    modParticipante.tipofornecedorParticipante = false;
                 }
 
                 if (checkBoxFuncionario.Checked)
                 {
-                    participante.tipofuncionarioParticipante = true;
+                    modParticipante.tipofuncionarioParticipante = true;
                 }
                 else
                 {
-                    participante.tipofuncionarioParticipante = false;
+                    modParticipante.tipofuncionarioParticipante = false;
                 }
 
                 if (checkBoxAtivo.Checked)
                 {
-                    participante.ativoParticipante = true;
+                    modParticipante.ativoParticipante = true;
                 }
                 else
                 {
-                    participante.ativoParticipante = false;
+                    modParticipante.ativoParticipante = false;
                 }
 
-                participanteBLL.salvar(participante);
-                MessageBox.Show("Participante incluido com sucesso!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.None);
+                participanteBLL.salvar(modParticipante);
+                MessageBox.Show("Participante incluido com sucesso!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 desativaBotaoSalvar();
 
                 //Método chama o ultimo registro
-                participanteDAO.UltimoRegistro(textBoxNome.Text);
-                string idReturn = participanteDAO.numeroIncluido;
-                textBoxCodigo.Text = idReturn;
+                participanteBLL.buscarUltimoRegistro(modParticipante);
+                int idReturn = modParticipante.idParticipante;
+                textBoxCodigo.Text = Convert.ToString(idReturn);
 
             }
             else if (flag == 1)
             {
                 ParticipanteBLL participanteBLL = new ParticipanteBLL();
-                participante.nomeParticipante = textBoxNome.Text;
-                participante.cpfcnpjParticipante = textBoxCpfCnpj.Text;
-                participante.rgieParticipante = textBoxRgIe.Text;
-                participante.enderecoParticipante = textBoxEndereco.Text;
-                participante.numeroEnderecoParticipante = textBoxNumero.Text;
-                participante.bairoParticipante = textBoxBairro.Text;
-                participante.cidadeParticipante = textBoxCidade.Text;
-                participante.ufParticipante = comboBoxUF.Text;//validar
-                participante.cepParticipante = textBoxCep.Text;
-                participante.telefoneParticipante = textBoxTelefone.Text;
-                participante.celularParticipante = textBoxCelular.Text;
-                participante.emailParticipante = textBoxEmail.Text;
-                participante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
-                participante.dataAlteracaoParticipante = textBoxDataAlteracao.Text;
+                modParticipante.nomeParticipante = textBoxNome.Text;
+                modParticipante.cpfcnpjParticipante = textBoxCpfCnpj.Text;
+                modParticipante.rgieParticipante = textBoxRgIe.Text;
+                modParticipante.enderecoParticipante = textBoxEndereco.Text;
+                modParticipante.numeroEnderecoParticipante = textBoxNumero.Text;
+                modParticipante.bairoParticipante = textBoxBairro.Text;
+                modParticipante.cidadeParticipante = textBoxCidade.Text;
+                modParticipante.ufParticipante = comboBoxUF.Text;//validar
+                modParticipante.cepParticipante = textBoxCep.Text;
+                modParticipante.telefoneParticipante = textBoxTelefone.Text;
+                modParticipante.celularParticipante = textBoxCelular.Text;
+                modParticipante.emailParticipante = textBoxEmail.Text;
+                modParticipante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
+                modParticipante.dataAlteracaoParticipante = textBoxDataAlteracao.Text;
 
                 int id = Convert.ToInt32(textBoxCodigo.Text);
-                participante.idParticipante = id;
+                modParticipante.idParticipante = id;
                 if (checkBoxCliente.Checked)
                 {
-                    participante.tipoclienteParticipante = true;
+                    modParticipante.tipoclienteParticipante = true;
                 }
                 else
                 {
-                    participante.tipoclienteParticipante = false;
+                    modParticipante.tipoclienteParticipante = false;
                 }
 
                 if (checkBoxFornecedor.Checked)
                 {
-                    participante.tipofornecedorParticipante = true;
+                    modParticipante.tipofornecedorParticipante = true;
                 }
                 else
                 {
-                    participante.tipofornecedorParticipante = false;
+                    modParticipante.tipofornecedorParticipante = false;
                 }
 
                 if (checkBoxFuncionario.Checked)
                 {
-                    participante.tipofuncionarioParticipante = true;
+                    modParticipante.tipofuncionarioParticipante = true;
                 }
                 else
                 {
-                    participante.tipofuncionarioParticipante = false;
+                    modParticipante.tipofuncionarioParticipante = false;
                 }
 
                 if (checkBoxAtivo.Checked)
                 {
-                    participante.ativoParticipante = true;
+                    modParticipante.ativoParticipante = true;
                 }
                 else
                 {
-                    participante.ativoParticipante = false;
+                    modParticipante.ativoParticipante = false;
                 }
 
-                participanteBLL.alterar(participante);
+                participanteBLL.alterar(modParticipante);
 
-                MessageBox.Show("Participante alterado com sucesso!!!", "Alteração", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Participante alterado com sucesso!!!", "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 desativaBotaoSalvar();
             }
         }
