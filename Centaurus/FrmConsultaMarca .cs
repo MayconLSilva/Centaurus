@@ -1,4 +1,5 @@
-﻿using Centaurus.Dao;
+﻿using Centaurus.Bll;
+using Centaurus.Dao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Centaurus
     public partial class FrmConsultaMarca : Form        
     {
         MarcaDAO marcaDAO = new MarcaDAO();
+        MarcaBLL bllMarca = new MarcaBLL();
         public string marcaClicada { get; set; }
         public string idClicada { get; set; }
                 
@@ -25,7 +27,7 @@ namespace Centaurus
         
         private void CarregarInformacoes() 
         {
-            dataGridViewMarca.DataSource = marcaDAO.SelecionarTodasMarcas();
+            dataGridViewMarca.DataSource = bllMarca.listarMarcas(toolStripComboBoxTipoFiltroMarca.Text, toolStripTextBoxFiltroMarca.Text);
             configurarDataGridView();
         }
         
@@ -58,49 +60,28 @@ namespace Centaurus
 
             idClicada = dataGridViewMarca.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
-
-        private void buttonSelecionar_Click(object sender, EventArgs e)
-        {
-            if(textBoxMarcaClicada.Text == string.Empty) 
-            {
-                MessageBox.Show("Selecione uma marca!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else 
-            {
-                Dispose();
-            }
-            
-        }
-                
-        private void CarregarInformacoesFiltrando()
-        {
-            if(comboBoxTipoFiltroMarca.SelectedItem == "MARCA") 
-            {
-                dataGridViewMarca.DataSource = marcaDAO.SelecionarTodasMarcasNome(textBoxFiltrarMarca.Text);
-            }else if(comboBoxTipoFiltroMarca.SelectedItem == "TODAS") 
-            {
-                dataGridViewMarca.DataSource = marcaDAO.SelecionarTodasMarcas();
-
-            }
-            
-            configurarDataGridView();
-        }
-       
-        private void buttonFiltrarCidade_Click(object sender, EventArgs e)
-        {
-            if(comboBoxTipoFiltroMarca.SelectedItem == null) 
-            {
-                MessageBox.Show("Não foi selecionado nenhum filtro", "Atenção");
-            }else  
-            {
-                CarregarInformacoesFiltrando();
-            }
-        }
-
+        
         private void FrmConsultaMarca_Load(object sender, EventArgs e)
+        {
+            toolStripComboBoxTipoFiltroMarca.SelectedIndex = toolStripComboBoxTipoFiltroMarca.FindStringExact("TODAS");
+            CarregarInformacoes();
+        }
+
+        private void toolStripButtonFiltrarCategoriaSubCategoria_Click(object sender, EventArgs e)
         {
             CarregarInformacoes();
         }
 
+        private void toolStripButtonSelecionarCategoriaSubCategoria_Click(object sender, EventArgs e)
+        {
+            if (textBoxMarcaClicada.Text == string.Empty)
+            {
+                MessageBox.Show("Selecione uma marca!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Dispose();
+            }
+        }
     }
 }

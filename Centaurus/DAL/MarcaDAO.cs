@@ -18,10 +18,7 @@ namespace Centaurus.Dao
     public class MarcaDAO: ConexaoBanco
     {
         MySqlCommand comando = null;
-        MySqlDataReader dr;
-
-
-        public string numeroIncluido { get; set; }
+        MySqlDataReader dr;        
 
         public void salvar(MarcaModelo marca) 
         {
@@ -65,32 +62,13 @@ namespace Centaurus.Dao
             }
         }
 
-        public void UltimoRegistro(string valorReturn) 
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("select max(id_marca) as numeroPego from marca where descricao_marca = '" + valorReturn + "'", conexao);
-                dr = comando.ExecuteReader();
-
-                while (dr.Read()) 
-                {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
-                }
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao pesquisar id da marca: " + erro.Message);
-            }
-        }
-
-        public void ExcluirMarca(string idMarca)
+        public void excluirMarca(MarcaModelo modMarca)
         {
             try
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                string comando = "delete from marca where id_marca =" + idMarca;
+                string comando = "delete from marca where id_marca =" + modMarca.idMarca;
                 conexao.ExecutarComandoSQL(comando);
             }
             catch (Exception ex)
@@ -99,39 +77,61 @@ namespace Centaurus.Dao
             }
         }
 
-        public DataTable SelecionarTodasMarcas()
+        public DataTable listarMarcas(string tipoFiltro, string filtro)
         {
             DataTable dt = new DataTable();
 
             try
             {
+                AbrirConexao();
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from marca");
+                if(tipoFiltro == "TODAS")
+                {
+                    dt = conexao.RetDataTable("select *from marca");
+                }
+                else if(tipoFiltro == "MARCA")
+                {
+                    dt = conexao.RetDataTable("select *from marca where descricao_marca = '" + filtro + "'");
+                }
             }
-            catch (Exception ex)
+            catch(Exception erro)
             {
-                throw new Exception("Erro ao pesquisar marcas: " + ex.Message);
+                throw new Exception("Erro ao listar marcar, classe DAO " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
             }
             return dt;
         }
 
-        public DataTable SelecionarTodasMarcasNome(string filtro)
+        public MarcaModelo buscarUltimoRegistro(MarcaModelo modMarca)
         {
-            DataTable dt = new DataTable();
-
             try
             {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from marca where descricao_marca = '" + filtro + "'");
+                AbrirConexao();
+                comando = new MySqlCommand("select max(id_marca) as numeroPego from marca where descricao_marca = '" + modMarca.nomeMarca + "'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    int idMarca = Convert.ToInt32(dr["numeroPego"]);
+                    modMarca.idMarca = idMarca;
+                }
             }
-            catch (Exception ex)
+            catch(Exception erro)
             {
-                throw new Exception("Erro ao pesquisar marcas: " + ex.Message);
+                throw new Exception("Erro ao pesquisa a id da marca, classe DAO! " + erro.Message);
             }
-            return dt;
+            finally
+            {
+                FecharConexao();
+            }
+            return modMarca;
         }
+
+        
 
     }
 }
