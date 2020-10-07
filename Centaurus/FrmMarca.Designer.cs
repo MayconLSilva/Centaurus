@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMarca));
             this.labelCodigo = new System.Windows.Forms.Label();
             this.textBoxCodigoMarca = new System.Windows.Forms.TextBox();
             this.textBoxDescricaoMarca = new System.Windows.Forms.TextBox();
             this.labelDescricao = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMarca = new System.Windows.Forms.MenuStrip();
             this.MenuMarcaNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMarcaGravar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMarcaEditar = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,8 @@
             this.MenuMarcaExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBoxMarcaAtiva = new System.Windows.Forms.CheckBox();
             this.buttonBuscarMarca = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.toolTipMarca = new System.Windows.Forms.ToolTip(this.components);
+            this.menuStripMarca.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelCodigo
@@ -59,6 +61,9 @@
             this.textBoxCodigoMarca.Name = "textBoxCodigoMarca";
             this.textBoxCodigoMarca.Size = new System.Drawing.Size(55, 20);
             this.textBoxCodigoMarca.TabIndex = 1;
+            this.textBoxCodigoMarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoMarca_KeyDown);
+            this.textBoxCodigoMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigoMarca_KeyPress);
+            this.textBoxCodigoMarca.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigoMarca_MouseMove);
             // 
             // textBoxDescricaoMarca
             // 
@@ -76,20 +81,20 @@
             this.labelDescricao.TabIndex = 2;
             this.labelDescricao.Text = "Descrição";
             // 
-            // menuStrip1
+            // menuStripMarca
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMarca.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStripMarca.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuMarcaNovo,
             this.MenuMarcaGravar,
             this.MenuMarcaEditar,
             this.MenuMarcaCancelar,
             this.MenuMarcaExcluir});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(534, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMarca.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMarca.Name = "menuStripMarca";
+            this.menuStripMarca.Size = new System.Drawing.Size(534, 24);
+            this.menuStripMarca.TabIndex = 4;
+            this.menuStripMarca.Text = "menuStrip1";
             // 
             // MenuMarcaNovo
             // 
@@ -152,6 +157,12 @@
             this.buttonBuscarMarca.UseVisualStyleBackColor = true;
             this.buttonBuscarMarca.Click += new System.EventHandler(this.buttonBuscarParticipante_Click);
             // 
+            // toolTipMarca
+            // 
+            this.toolTipMarca.IsBalloon = true;
+            this.toolTipMarca.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipMarca.ToolTipTitle = "Atenção...";
+            // 
             // FrmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,15 +174,15 @@
             this.Controls.Add(this.labelDescricao);
             this.Controls.Add(this.textBoxCodigoMarca);
             this.Controls.Add(this.labelCodigo);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMarca);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStripMarca;
             this.MaximizeBox = false;
             this.Name = "FrmMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Marca";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMarca.ResumeLayout(false);
+            this.menuStripMarca.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,7 +194,7 @@
         private System.Windows.Forms.TextBox textBoxCodigoMarca;
         private System.Windows.Forms.TextBox textBoxDescricaoMarca;
         private System.Windows.Forms.Label labelDescricao;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMarca;
         private System.Windows.Forms.ToolStripMenuItem MenuMarcaNovo;
         private System.Windows.Forms.ToolStripMenuItem MenuMarcaGravar;
         private System.Windows.Forms.ToolStripMenuItem MenuMarcaEditar;
@@ -191,5 +202,6 @@
         private System.Windows.Forms.ToolStripMenuItem MenuMarcaExcluir;
         private System.Windows.Forms.CheckBox checkBoxMarcaAtiva;
         private System.Windows.Forms.Button buttonBuscarMarca;
+        private System.Windows.Forms.ToolTip toolTipMarca;
     }
 }

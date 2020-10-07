@@ -131,6 +131,34 @@ namespace Centaurus.Dao
             return modMarca;
         }
 
+        public MarcaModelo buscarMarcaPorCodigo(MarcaModelo modMarca)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select *from marca where id_marca = '" + modMarca.idMarca + "'",conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string nomeMarca = Convert.ToString(dr["descricao_marca"]);
+                    bool ativoMarca = Convert.ToBoolean(dr["ativo_marca"]);
+
+                    modMarca.nomeMarca = nomeMarca;
+                    modMarca.ativoMarca = ativoMarca;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar a marca pelo código, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modMarca;
+        }
+
         
 
     }

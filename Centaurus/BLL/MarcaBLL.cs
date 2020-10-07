@@ -65,6 +65,18 @@ namespace Centaurus.Bll
             }
         }
 
+        public void buscarMarcaPorID(MarcaModelo modMarca)
+        {
+            try
+            {
+                marcaDAO.buscarMarcaPorCodigo(modMarca);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar marca pelo código, classe BLL! " + erro.Message);
+            }
+        }
+
         public void excluirMarca(MarcaModelo modMarca)
         {
             try

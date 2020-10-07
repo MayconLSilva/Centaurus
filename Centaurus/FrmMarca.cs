@@ -257,5 +257,69 @@ namespace Centaurus
                 inativaAtivaBotoesCampos();
             }
         }
+
+        public void buscarMarcaPorCodigo(MarcaModelo modMarca)
+        {
+            MarcaBLL bLLMarca = new MarcaBLL();
+
+            try
+            {
+                modMarca.idMarca = Convert.ToInt32(textBoxCodigoMarca.Text);
+                bLLMarca.buscarMarcaPorID(modMarca);
+
+                if(modMarca.nomeMarca == null)
+                {
+                    MessageBox.Show("Marca ñ encontrada!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    textBoxCodigoMarca.Clear();
+                    textBoxDescricaoMarca.Clear();
+                    checkBoxMarcaAtiva.Checked = false;
+                }
+                string nomeMarca = modMarca.nomeMarca;
+                textBoxDescricaoMarca.Text = nomeMarca;
+                bool ativoMarca = modMarca.ativoMarca;
+                if (ativoMarca == true)
+                {
+                    checkBoxMarcaAtiva.Checked = true;
+                }
+                else
+                {
+                    checkBoxMarcaAtiva.Checked = false;
+                }
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar marca pelo código, form marca! " + erro.Message);
+            }
+        }
+
+        private void textBoxCodigoMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+            MarcaModelo modelo = new MarcaModelo();
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarMarcaPorCodigo(modelo);
+            }
+        }
+
+        private void textBoxCodigoMarca_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipMarca.SetToolTip(textBoxCodigoMarca, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
+
+        private void textBoxCodigoMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+           (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }    
 }
