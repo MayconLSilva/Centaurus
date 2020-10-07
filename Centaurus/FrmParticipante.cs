@@ -21,16 +21,18 @@ namespace Centaurus
         FrmConsultaParticipante frm2;
         FrmConsultaCidade frm3;
         string botaoClicado = "INICIAL";
+        string usuarioLogado;
 
-        public FrmParticipante()
+        public FrmParticipante(string valorReturnUsuario)
         {
             InitializeComponent();
-            //this.StartPosition = FormStartPosition.CenterParent;
-
-            this.StartPosition = FormStartPosition.Manual;
+            
+            this.StartPosition = FormStartPosition.CenterParent;
+            //this.StartPosition = FormStartPosition.Manual;
             this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
+            usuarioLogado = valorReturnUsuario;
             inativaAtivaCamposBotoes();
 
         }
@@ -58,6 +60,8 @@ namespace Centaurus
 
                     textBoxDataCadastro.Enabled = false;
                     textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
 
                     menuClienteNovo.Enabled = true;
                     menuClienteGravar.Enabled = false;
@@ -90,6 +94,11 @@ namespace Centaurus
                     textBoxCelular.Enabled = true;
                     textBoxEmail.Enabled = true;
                     textBoxRazaoSocialApelido.Enabled = true;
+
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
 
                     menuClienteNovo.Enabled = false;
                     menuClienteGravar.Enabled = true;
@@ -148,6 +157,11 @@ namespace Centaurus
                     textBoxEmail.Enabled = false;
                     textBoxRazaoSocialApelido.Enabled = false;
 
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
+
                     menuClienteNovo.Enabled = true;
                     menuClienteGravar.Enabled = false;
                     menuClienteEditar.Enabled = true;
@@ -180,6 +194,11 @@ namespace Centaurus
                     textBoxEmail.Enabled = true;
                     textBoxRazaoSocialApelido.Enabled = true;
 
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
+
                     menuClienteNovo.Enabled = false;
                     menuClienteGravar.Enabled = true;
                     menuClienteEditar.Enabled = false;
@@ -211,6 +230,11 @@ namespace Centaurus
                     textBoxCelular.Enabled = false;
                     textBoxEmail.Enabled = false;
                     textBoxRazaoSocialApelido.Enabled = false;
+
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
 
                     //Limpa campos
                     textBoxCodigo.Text = "";
@@ -269,6 +293,11 @@ namespace Centaurus
                     textBoxCelular.Enabled = false;
                     textBoxEmail.Enabled = false;
                     textBoxRazaoSocialApelido.Enabled = false;
+
+                    textBoxDataCadastro.Enabled = false;
+                    textBoxDataAlteracao.Enabled = false;
+                    textBoxUsuarioCadastro.Enabled = false;
+                    textBoxUsuarioAlteracao.Enabled = false;
 
                     //Limpa campos
                     textBoxCodigo.Text = "";
@@ -333,6 +362,7 @@ namespace Centaurus
                 modParticipante.emailParticipante = textBoxEmail.Text;
                 modParticipante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
                 modParticipante.dataCadastroParticipante = textBoxDataCadastro.Text;
+                modParticipante.usuarioCadastroParticipante = textBoxUsuarioCadastro.Text;
                 if (checkBoxCliente.Checked)
                 {
                     modParticipante.tipoclienteParticipante = true;
@@ -397,6 +427,7 @@ namespace Centaurus
                 modParticipante.emailParticipante = textBoxEmail.Text;
                 modParticipante.razaosocialapelidoParticipante = textBoxRazaoSocialApelido.Text;
                 modParticipante.dataAlteracaoParticipante = textBoxDataAlteracao.Text;
+                modParticipante.usuarioAlteracaoParticipante = textBoxUsuarioAlteracao.Text;
 
                 int id = Convert.ToInt32(textBoxCodigo.Text);
                 modParticipante.idParticipante = id;
@@ -453,9 +484,9 @@ namespace Centaurus
             DateTime thisDay = DateTime.Today;
             textBoxDataCadastro.Text = thisDay.ToString("d");
 
+            textBoxUsuarioCadastro.Text = usuarioLogado;
+
             flag = 0;
-
-
 
         }
 
@@ -580,6 +611,8 @@ namespace Centaurus
             //Inicio código fonte seto a data no campo de cadastro
             DateTime thisDay = DateTime.Today;
             textBoxDataAlteracao.Text = thisDay.ToString("d");
+
+            textBoxUsuarioAlteracao.Text = usuarioLogado;
         }
 
         private void buttonBuscarParticipante_Click(object sender, EventArgs e)

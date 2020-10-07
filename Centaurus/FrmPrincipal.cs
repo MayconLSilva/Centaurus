@@ -31,7 +31,7 @@ namespace Centaurus
 
         private void participantesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmParticipante janelaCliente = new FrmParticipante();
+            FrmParticipante janelaCliente = new FrmParticipante(loginLogado);
             janelaCliente.TopLevel = false;
             janelaCliente.Visible = true;
             painelPrincipal.Controls.Add(janelaCliente);
