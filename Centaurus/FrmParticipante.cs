@@ -700,8 +700,132 @@ namespace Centaurus
                 inativaAtivaCamposBotoes();
             }
         }
-        
 
-        
+        //Método valida somente caractér numerico
+        private void textBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarParticipantePorCodigo();
+            }
+        }
+
+        private void textBoxCodigo_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipParticipante.SetToolTip(textBoxCodigo, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
+
+        public void buscarParticipantePorCodigo()
+        {
+            ParticipanteModelo modParticipante = new ParticipanteModelo();
+            ParticipanteBLL bllParticipante = new ParticipanteBLL();
+
+            try
+            {
+                modParticipante.idParticipante = Convert.ToInt32(textBoxCodigo.Text);
+                bllParticipante.buscarParticipantePorID(modParticipante);
+
+                if(modParticipante.nomeParticipante == null)
+                {
+                    MessageBox.Show("Participante não encontrado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    botaoClicado = "CANCELAR";
+                    inativaAtivaCamposBotoes();
+                }
+
+                string nomeFantasia = modParticipante.nomeParticipante;
+                string cpfCnpj = modParticipante.cpfcnpjParticipante;
+                string rg = modParticipante.rgieParticipante;
+                string endereco = modParticipante.enderecoParticipante;
+                string numero = modParticipante.numeroEnderecoParticipante;
+                string bairro = modParticipante.bairoParticipante;
+                string cidade = modParticipante.cidadeParticipante;
+                string uf = modParticipante.ufParticipante;
+                string cep = modParticipante.cepParticipante;
+                string telefone = modParticipante.telefoneParticipante;
+                string celular = modParticipante.celularParticipante;
+                string email = modParticipante.emailParticipante;
+                string razaoapelido = modParticipante.razaosocialapelidoParticipante;
+                string datacad = modParticipante.dataCadastroParticipante;
+                string dataalt = modParticipante.dataAlteracaoParticipante;
+                string usuariocad = modParticipante.usuarioCadastroParticipante;
+                string usuarioalt = modParticipante.usuarioAlteracaoParticipante;
+                bool ativo = modParticipante.ativoParticipante;
+                bool cli = modParticipante.tipoclienteParticipante;
+                bool forne = modParticipante.tipofornecedorParticipante;
+                bool funci = modParticipante.tipofuncionarioParticipante;
+
+                textBoxNome.Text = nomeFantasia;
+                textBoxCpfCnpj.Text = cpfCnpj;
+                textBoxRgIe.Text = rg;
+                textBoxEndereco.Text = endereco;
+                textBoxNumero.Text = numero;
+                textBoxBairro.Text = bairro;
+                textBoxCidade.Text = cidade;
+                comboBoxUF.SelectedIndex = comboBoxUF.FindStringExact(uf);
+                textBoxCep.Text = cep;
+                textBoxTelefone.Text = telefone;
+                textBoxCelular.Text = celular;
+                textBoxEmail.Text = email;
+                textBoxRazaoSocialApelido.Text = razaoapelido;
+                textBoxDataCadastro.Text = datacad;
+                textBoxDataAlteracao.Text = dataalt;
+                textBoxUsuarioCadastro.Text = usuariocad;
+                textBoxUsuarioAlteracao.Text = usuarioalt;
+                if(ativo == true)
+                {
+                    checkBoxAtivo.Checked = true;
+                }
+                else
+                {
+                    checkBoxAtivo.Checked = false;
+                }
+                if(cli == true)
+                {
+                    checkBoxCliente.Checked = true;
+                }
+                else
+                {
+                    checkBoxCliente.Checked = false;
+                }
+                if (forne == true)
+                {
+                    checkBoxFornecedor.Checked = true;
+                }
+                else
+                {
+                    checkBoxFornecedor.Checked = false;
+                }
+                if (funci == true)
+                {
+                    checkBoxFuncionario.Checked = true;
+                }
+                else
+                {
+                    checkBoxFuncionario.Checked = false;
+                }
+
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o participante pelo código, form participante! " + erro.Message);
+            }
+        }
+
     }
 }

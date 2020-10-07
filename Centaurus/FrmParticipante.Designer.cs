@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParticipante));
             this.menuStripParticipante = new System.Windows.Forms.MenuStrip();
             this.menuClienteNovo = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,7 @@
             this.textBoxRazaoSocialApelido = new System.Windows.Forms.TextBox();
             this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.textBoxCep = new System.Windows.Forms.TextBox();
+            this.toolTipParticipante = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripParticipante.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -254,6 +256,9 @@
             // 
             resources.ApplyResources(this.textBoxCodigo, "textBoxCodigo");
             this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigo_KeyDown);
+            this.textBoxCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigo_KeyPress);
+            this.textBoxCodigo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigo_MouseMove);
             // 
             // buttonBuscarParticipante
             // 
@@ -403,6 +408,12 @@
             this.textBoxCep.Name = "textBoxCep";
             this.textBoxCep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCep_KeyPress);
             // 
+            // toolTipParticipante
+            // 
+            this.toolTipParticipante.IsBalloon = true;
+            this.toolTipParticipante.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipParticipante.ToolTipTitle = "Atenção...";
+            // 
             // FrmParticipante
             // 
             resources.ApplyResources(this, "$this");
@@ -507,5 +518,6 @@
         private System.Windows.Forms.ComboBox comboBoxUF;
         private System.Windows.Forms.TextBox textBoxTelefone;
         private System.Windows.Forms.TextBox textBoxCep;
+        private System.Windows.Forms.ToolTip toolTipParticipante;
     }
 }

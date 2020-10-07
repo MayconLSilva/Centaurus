@@ -146,6 +146,7 @@ namespace Centaurus.Dao
             return modParticipante;
         }
 
+        //Método lista todos participantes e caso informe irá filtrar
         public DataTable pesquisarParticipantes(string tipoConsulta, string tipoFiltro,string filtroConsulta)
         {
             DataTable dt = new DataTable();
@@ -375,6 +376,73 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao pesquisar os participante: " + ex.Message);
             }
             return dt;
+        }
+
+        //Método busca o participante por código
+        public ParticipanteModelo buscarParticipantePorCodigo(ParticipanteModelo modParticipante)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select *from participante where id_partipante = '"+modParticipante.idParticipante+"'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string nomeFantasia = Convert.ToString(dr["nome_fantasia_participante"]);
+                    string apelidoRazao = Convert.ToString(dr["apelido_razao_participante"]);
+                    string cpfCnpj = Convert.ToString(dr["cpf_cnpj_participante"]);
+                    string rgIe = Convert.ToString(dr["rg_ie_participante"]);
+                    string endereco = Convert.ToString(dr["endereco_participante"]);
+                    string numeroEndereco = Convert.ToString(dr["numeroendereco_participante"]);
+                    string bairro = Convert.ToString(dr["bairro_participante"]);
+                    string cidade = Convert.ToString(dr["cidade_participante"]);
+                    string cep = Convert.ToString(dr["cep_participante"]);
+                    string telefone = Convert.ToString(dr["telefone_participante"]);
+                    string celular = Convert.ToString(dr["celular_participante"]);
+                    string uf = Convert.ToString(dr["uf_partipante"]);
+                    string email = Convert.ToString(dr["email_partipante"]);
+                    string dataCadastro = Convert.ToString(dr["datacadastro_participante"]);
+                    string dataAlteracao = Convert.ToString(dr["dataalteracao_partipante"]);
+                    string usuarioCadastro = Convert.ToString(dr["usuariocadastro_partipante"]);
+                    string usuarioAlteracao = Convert.ToString(dr["usuarioalteracao_partipante"]);
+                    bool tipoCliente = Convert.ToBoolean(dr["tipocliente_participante"]);
+                    bool tipoFornecedor = Convert.ToBoolean(dr["tipofornecedor_participante"]);
+                    bool tipoFuncionario = Convert.ToBoolean(dr["tipofuncionario_participante"]);
+                    bool ativo = Convert.ToBoolean(dr["ativo_participante"]);
+
+                    modParticipante.nomeParticipante = nomeFantasia;
+                    modParticipante.razaosocialapelidoParticipante = apelidoRazao;
+                    modParticipante.cpfcnpjParticipante = cpfCnpj;
+                    modParticipante.rgieParticipante = rgIe;
+                    modParticipante.enderecoParticipante = endereco;
+                    modParticipante.numeroEnderecoParticipante = numeroEndereco;
+                    modParticipante.bairoParticipante = bairro;
+                    modParticipante.cidadeParticipante = cidade;
+                    modParticipante.cepParticipante = cep;
+                    modParticipante.telefoneParticipante = telefone;
+                    modParticipante.celularParticipante = celular;
+                    modParticipante.ufParticipante = uf;
+                    modParticipante.emailParticipante = email;
+                    modParticipante.dataCadastroParticipante = dataCadastro;
+                    modParticipante.dataAlteracaoParticipante = dataAlteracao;
+                    modParticipante.usuarioCadastroParticipante = usuarioCadastro;
+                    modParticipante.usuarioAlteracaoParticipante = usuarioAlteracao;
+                    modParticipante.tipoclienteParticipante = tipoCliente;
+                    modParticipante.tipofornecedorParticipante = tipoFornecedor;
+                    modParticipante.tipofuncionarioParticipante = tipoFuncionario;
+                    modParticipante.ativoParticipante = ativo;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o participante pelo código, classe DAO! " + erro.Message); 
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modParticipante;
         }
 
     }

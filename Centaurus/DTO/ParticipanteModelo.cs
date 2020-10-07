@@ -36,15 +36,13 @@ namespace Centaurus.Model
         public string celularParticipante { get; set; }
 
         public string emailParticipante { get; set; }
-
         public bool tipoclienteParticipante { get; set; }
-
         public bool tipofornecedorParticipante { get; set; }
-
         public bool tipofuncionarioParticipante { get; set; }
-
         public bool ativoParticipante { get; set; }
         public string dataCadastroParticipante { get; set; }
         public string dataAlteracaoParticipante { get; set; }
+        public string usuarioCadastroParticipante { get; set; }
+        public string usuarioAlteracaoParticipante { get; set; }
     }
 }

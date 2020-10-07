@@ -62,6 +62,18 @@ namespace Centaurus.Bll
             }
         }
 
+        public void buscarParticipantePorID(ParticipanteModelo modParticipante)
+        {
+            try
+            {
+                participanteDAO.buscarParticipantePorCodigo(modParticipante);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o participante pela id, classe BLL! " + erro.Message);
+            }
+        }
+
 
     }
 }
