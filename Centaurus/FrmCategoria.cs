@@ -259,7 +259,7 @@ namespace Centaurus
                     modCategoria.idCategoria = Convert.ToInt32(textBoxCodigoCategoria.Text);
 
                     categoriaBLL.atualizar(modCategoria);
-                    MessageBox.Show("Categoria atualizada com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show("Categoria atualizada com sucesso!!!", "Cadastro Categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     botaoClicado = "SALVAR";
                     inativarAtivarCamposBotoes();
                 }                
@@ -278,7 +278,10 @@ namespace Centaurus
             var result = MessageBox.Show("Deseja realmente excluir o registro? ", "Excluir Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                daoCatSub.ExcluirCategoria(textBoxCodigoCategoria.Text);
+                CategoriaBLL bllCategoria = new CategoriaBLL();
+                CategoriaModelo modCategoria = new CategoriaModelo();
+                modCategoria.idCategoria = Convert.ToInt32(textBoxCodigoCategoria.Text);
+                bllCategoria.excluir(modCategoria);
                 botaoClicado = "EXCLUIR";
                 inativarAtivarCamposBotoes();
             }

@@ -68,13 +68,13 @@ namespace Centaurus.Dao
         }
                 
         //Método excluir categoria
-        public void ExcluirCategoria(string idCategoria)
+        public void ExcluirCategoria(CategoriaModelo modCategoria)
         {
             try
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                string comando = "delete from categoria where id_categoria =" + idCategoria;
+                string comando = "delete from categoria where id_categoria =" + modCategoria.idCategoria;
                 conexao.ExecutarComandoSQL(comando);
             }
             catch (Exception ex)

@@ -39,6 +39,18 @@ namespace Centaurus.Bll
             }
         }
 
+        public void excluir(CategoriaModelo modCategoria)
+        {
+            try
+            {
+                daoCatSub.ExcluirCategoria(modCategoria);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao excluir categoria, classe BLL! " + erro.Message);
+            }
+        }
+
         public void buscarCatSubPorCodigo(CategoriaModelo modCatSub)
         {
             try
