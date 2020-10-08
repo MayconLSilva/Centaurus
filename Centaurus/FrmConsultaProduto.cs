@@ -34,31 +34,19 @@ namespace Centaurus
             if (tipoConsultaReturn == "PS")
             {
                 radioButtonTodos.Checked = true;
-                comboBoxTipoFiltroProduto.SelectedIndex = comboBoxTipoFiltroProduto.FindStringExact("TODOS");
+                toolStripComboBoxTipoFiltroProduto.SelectedIndex = toolStripComboBoxTipoFiltroProduto.FindStringExact("TODOS");
             }
             else if (tipoConsultaReturn == "PV")
             {
                 radioButtonProduto.Checked = true;
                 radioButtonServico.Enabled = false;
                 radioButtonTodos.Enabled = false;
-                comboBoxTipoFiltroProduto.SelectedIndex = comboBoxTipoFiltroProduto.FindStringExact("TODOS");
+                toolStripComboBoxTipoFiltroProduto.SelectedIndex = toolStripComboBoxTipoFiltroProduto.FindStringExact("TODOS");
             }           
             
             CarregarInformacoes();            
         }
-
-        private void buttonSelecionar_Click(object sender, EventArgs e)
-        {
-            if (textBoxProdutoClicado.Text == string.Empty)
-            {
-                MessageBox.Show("Selecione um produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                Dispose();
-            }
-        }
-
+                
         private void CarregarInformacoes()
         {
             //Verifico o tipo se é serviço, produto ou ambos
@@ -79,12 +67,12 @@ namespace Centaurus
             //Consulta vinda da tela de cadastro do produto
             if(tipoConsultaReturn == "PS")
             {
-                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosFiltrando(comboBoxTipoFiltroProduto.SelectedItem.ToString(), textBoxFiltrarProduto.Text, tipoProduto, tipoServico);
+                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosFiltrando(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
                 configurarDataGridView2();
             }
             else if(tipoConsultaReturn == "PV")
             {
-                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosVariacaoFiltrando(comboBoxTipoFiltroProduto.SelectedItem.ToString(), textBoxFiltrarProduto.Text, tipoProduto, tipoServico);
+                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosVariacaoFiltrando(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
                 configurarDataGridView();
             }            
         }
@@ -229,10 +217,22 @@ namespace Centaurus
             }            
         }
 
-        private void buttonFiltrarProduto_Click(object sender, EventArgs e)
+        private void toolStripButtonSelecionarProduto_Click(object sender, EventArgs e)
+        {
+            if (textBoxProdutoClicado.Text == string.Empty)
+            {
+                MessageBox.Show("Selecione um produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Dispose();
+            }
+        }
+
+        private void toolStripButtonFiltrarProduto_Click(object sender, EventArgs e)
         {
             CarregarInformacoes();
         }
-
+   
     }
 }

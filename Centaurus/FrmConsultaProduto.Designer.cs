@@ -28,69 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonFiltrarProduto = new System.Windows.Forms.Button();
-            this.comboBoxTipoFiltroProduto = new System.Windows.Forms.ComboBox();
-            this.textBoxFiltrarProduto = new System.Windows.Forms.TextBox();
-            this.buttonSelecionar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaProduto));
             this.textBoxProdutoClicado = new System.Windows.Forms.TextBox();
             this.dataGridViewProduto = new System.Windows.Forms.DataGridView();
             this.groupBoxTipo = new System.Windows.Forms.GroupBox();
             this.radioButtonTodos = new System.Windows.Forms.RadioButton();
             this.radioButtonServico = new System.Windows.Forms.RadioButton();
             this.radioButtonProduto = new System.Windows.Forms.RadioButton();
-            this.labelFiltro = new System.Windows.Forms.Label();
-            this.labelTipoPesquisa = new System.Windows.Forms.Label();
             this.labelQuantidadeDeRegistros = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBoxFiltroProduto = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripComboBoxTipoFiltroProduto = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonFiltrarProduto = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSelecionarProduto = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduto)).BeginInit();
             this.groupBoxTipo.SuspendLayout();
+            this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonFiltrarProduto
-            // 
-            this.buttonFiltrarProduto.Location = new System.Drawing.Point(343, 329);
-            this.buttonFiltrarProduto.Name = "buttonFiltrarProduto";
-            this.buttonFiltrarProduto.Size = new System.Drawing.Size(75, 23);
-            this.buttonFiltrarProduto.TabIndex = 28;
-            this.buttonFiltrarProduto.Text = "PESQUISAR";
-            this.buttonFiltrarProduto.UseVisualStyleBackColor = true;
-            this.buttonFiltrarProduto.Click += new System.EventHandler(this.buttonFiltrarProduto_Click);
-            // 
-            // comboBoxTipoFiltroProduto
-            // 
-            this.comboBoxTipoFiltroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTipoFiltroProduto.FormattingEnabled = true;
-            this.comboBoxTipoFiltroProduto.Items.AddRange(new object[] {
-            "TODOS",
-            "CÓDIGO",
-            "NOME",
-            "CATEGORIA",
-            "SUB-CATEGORIA",
-            "MARCA",
-            "FORNECEDOR",
-            "TIPO",
-            "INTELIGENTE"});
-            this.comboBoxTipoFiltroProduto.Location = new System.Drawing.Point(216, 329);
-            this.comboBoxTipoFiltroProduto.Name = "comboBoxTipoFiltroProduto";
-            this.comboBoxTipoFiltroProduto.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTipoFiltroProduto.TabIndex = 27;
-            // 
-            // textBoxFiltrarProduto
-            // 
-            this.textBoxFiltrarProduto.Location = new System.Drawing.Point(12, 329);
-            this.textBoxFiltrarProduto.Name = "textBoxFiltrarProduto";
-            this.textBoxFiltrarProduto.Size = new System.Drawing.Size(198, 20);
-            this.textBoxFiltrarProduto.TabIndex = 26;
-            // 
-            // buttonSelecionar
-            // 
-            this.buttonSelecionar.Location = new System.Drawing.Point(553, 326);
-            this.buttonSelecionar.Name = "buttonSelecionar";
-            this.buttonSelecionar.Size = new System.Drawing.Size(119, 23);
-            this.buttonSelecionar.TabIndex = 25;
-            this.buttonSelecionar.Text = "SELECIONAR";
-            this.buttonSelecionar.UseVisualStyleBackColor = true;
-            this.buttonSelecionar.Click += new System.EventHandler(this.buttonSelecionar_Click);
             // 
             // textBoxProdutoClicado
             // 
@@ -106,7 +61,7 @@
             this.dataGridViewProduto.Location = new System.Drawing.Point(12, 69);
             this.dataGridViewProduto.Name = "dataGridViewProduto";
             this.dataGridViewProduto.ReadOnly = true;
-            this.dataGridViewProduto.Size = new System.Drawing.Size(660, 219);
+            this.dataGridViewProduto.Size = new System.Drawing.Size(660, 241);
             this.dataGridViewProduto.TabIndex = 23;
             this.dataGridViewProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduto_CellClick);
             // 
@@ -155,28 +110,10 @@
             this.radioButtonProduto.Text = "Produto";
             this.radioButtonProduto.UseVisualStyleBackColor = true;
             // 
-            // labelFiltro
-            // 
-            this.labelFiltro.AutoSize = true;
-            this.labelFiltro.Location = new System.Drawing.Point(12, 313);
-            this.labelFiltro.Name = "labelFiltro";
-            this.labelFiltro.Size = new System.Drawing.Size(29, 13);
-            this.labelFiltro.TabIndex = 40;
-            this.labelFiltro.Text = "Filtro";
-            // 
-            // labelTipoPesquisa
-            // 
-            this.labelTipoPesquisa.AutoSize = true;
-            this.labelTipoPesquisa.Location = new System.Drawing.Point(213, 313);
-            this.labelTipoPesquisa.Name = "labelTipoPesquisa";
-            this.labelTipoPesquisa.Size = new System.Drawing.Size(73, 13);
-            this.labelTipoPesquisa.TabIndex = 41;
-            this.labelTipoPesquisa.Text = "Tipo pesquisa";
-            // 
             // labelQuantidadeDeRegistros
             // 
             this.labelQuantidadeDeRegistros.AutoSize = true;
-            this.labelQuantidadeDeRegistros.Location = new System.Drawing.Point(12, 291);
+            this.labelQuantidadeDeRegistros.Location = new System.Drawing.Point(9, 313);
             this.labelQuantidadeDeRegistros.Name = "labelQuantidadeDeRegistros";
             this.labelQuantidadeDeRegistros.Size = new System.Drawing.Size(35, 13);
             this.labelQuantidadeDeRegistros.TabIndex = 45;
@@ -185,26 +122,85 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(491, 304);
+            this.label1.Location = new System.Drawing.Point(637, 313);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 46;
             this.label1.Text = "label1";
+            // 
+            // toolStripMenusConsultaParticipante
+            // 
+            this.toolStripMenusConsultaParticipante.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripMenusConsultaParticipante.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStripMenusConsultaParticipante.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxFiltroProduto,
+            this.toolStripComboBoxTipoFiltroProduto,
+            this.toolStripButtonFiltrarProduto,
+            this.toolStripButtonSelecionarProduto});
+            this.toolStripMenusConsultaParticipante.Location = new System.Drawing.Point(0, 336);
+            this.toolStripMenusConsultaParticipante.Name = "toolStripMenusConsultaParticipante";
+            this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(684, 25);
+            this.toolStripMenusConsultaParticipante.TabIndex = 51;
+            this.toolStripMenusConsultaParticipante.Text = "Consulta Participante";
+            // 
+            // toolStripTextBoxFiltroProduto
+            // 
+            this.toolStripTextBoxFiltroProduto.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxFiltroProduto.Name = "toolStripTextBoxFiltroProduto";
+            this.toolStripTextBoxFiltroProduto.Size = new System.Drawing.Size(160, 25);
+            this.toolStripTextBoxFiltroProduto.Text = "Filtro...";
+            // 
+            // toolStripComboBoxTipoFiltroProduto
+            // 
+            this.toolStripComboBoxTipoFiltroProduto.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripComboBoxTipoFiltroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxTipoFiltroProduto.Items.AddRange(new object[] {
+            "TODOS",
+            "CÓDIGO",
+            "NOME",
+            "CATEGORIA",
+            "SUB-CATEGORIA",
+            "MARCA",
+            "FORNECEDOR",
+            "TIPO",
+            "INTELIGENTE"});
+            this.toolStripComboBoxTipoFiltroProduto.Margin = new System.Windows.Forms.Padding(3, 0, 1, 0);
+            this.toolStripComboBoxTipoFiltroProduto.Name = "toolStripComboBoxTipoFiltroProduto";
+            this.toolStripComboBoxTipoFiltroProduto.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripButtonFiltrarProduto
+            // 
+            this.toolStripButtonFiltrarProduto.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonFiltrarProduto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonFiltrarProduto.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFiltrarProduto.Image")));
+            this.toolStripButtonFiltrarProduto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFiltrarProduto.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.toolStripButtonFiltrarProduto.Name = "toolStripButtonFiltrarProduto";
+            this.toolStripButtonFiltrarProduto.Size = new System.Drawing.Size(71, 22);
+            this.toolStripButtonFiltrarProduto.Text = "PESQUISAR";
+            this.toolStripButtonFiltrarProduto.Click += new System.EventHandler(this.toolStripButtonFiltrarProduto_Click);
+            // 
+            // toolStripButtonSelecionarProduto
+            // 
+            this.toolStripButtonSelecionarProduto.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSelecionarProduto.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonSelecionarProduto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSelecionarProduto.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSelecionarProduto.Image")));
+            this.toolStripButtonSelecionarProduto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSelecionarProduto.Name = "toolStripButtonSelecionarProduto";
+            this.toolStripButtonSelecionarProduto.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSelecionarProduto.Text = "SELECIONAR";
+            this.toolStripButtonSelecionarProduto.Click += new System.EventHandler(this.toolStripButtonSelecionarProduto_Click);
             // 
             // FrmConsultaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
+            this.Controls.Add(this.toolStripMenusConsultaParticipante);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelQuantidadeDeRegistros);
-            this.Controls.Add(this.labelTipoPesquisa);
-            this.Controls.Add(this.labelFiltro);
             this.Controls.Add(this.groupBoxTipo);
-            this.Controls.Add(this.buttonFiltrarProduto);
-            this.Controls.Add(this.comboBoxTipoFiltroProduto);
-            this.Controls.Add(this.textBoxFiltrarProduto);
-            this.Controls.Add(this.buttonSelecionar);
             this.Controls.Add(this.textBoxProdutoClicado);
             this.Controls.Add(this.dataGridViewProduto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -216,26 +212,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduto)).EndInit();
             this.groupBoxTipo.ResumeLayout(false);
             this.groupBoxTipo.PerformLayout();
+            this.toolStripMenusConsultaParticipante.ResumeLayout(false);
+            this.toolStripMenusConsultaParticipante.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonFiltrarProduto;
-        private System.Windows.Forms.ComboBox comboBoxTipoFiltroProduto;
-        private System.Windows.Forms.TextBox textBoxFiltrarProduto;
-        private System.Windows.Forms.Button buttonSelecionar;
         private System.Windows.Forms.TextBox textBoxProdutoClicado;
         private System.Windows.Forms.DataGridView dataGridViewProduto;
         private System.Windows.Forms.GroupBox groupBoxTipo;
         private System.Windows.Forms.RadioButton radioButtonTodos;
         private System.Windows.Forms.RadioButton radioButtonServico;
         private System.Windows.Forms.RadioButton radioButtonProduto;
-        private System.Windows.Forms.Label labelFiltro;
-        private System.Windows.Forms.Label labelTipoPesquisa;
         private System.Windows.Forms.Label labelQuantidadeDeRegistros;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFiltroProduto;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxTipoFiltroProduto;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFiltrarProduto;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSelecionarProduto;
     }
 }
