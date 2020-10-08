@@ -14,61 +14,7 @@ namespace Centaurus.Dao
     {
         MySqlCommand comando = null;
         MySqlDataReader dr;
-        public string numeroIncluido{ get; set; }
-
-        //Método utilizado para salvar a locação sem itens, quando usuário só preencheu as informações e salvou para prosseguir mais tarde
-        public void salvarLocacao(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao,dataPrevisaoEntrega_locacao,idCliente_locacao,desconto_locacao,qtdItens_locacao,total_locacao,tipo_locacao,usuario_locacao) values (@dataLan,@dataEnt,@idCli,@dec,@qtdItem,@valorTo,@tipo,@usuario)", conexao);
-                comando.Parameters.AddWithValue("@dataLan", locacaoModelo.dataLancamentoLocao);
-                comando.Parameters.AddWithValue("@dataEnt", locacaoModelo.dataPrevisaoEntregaLocao);
-                comando.Parameters.AddWithValue("@idCli", locacaoModelo.idClienteLocao);
-                comando.Parameters.AddWithValue("@dec", locacaoModelo.descontoLocao);
-                comando.Parameters.AddWithValue("@qtdItem", locacaoModelo.qtdItensLocao);
-                comando.Parameters.AddWithValue("@valorTo", locacaoModelo.totalLocao);
-                comando.Parameters.AddWithValue("@tipo", "L");
-                comando.Parameters.AddWithValue("@usuario", locacaoModelo.usuarioLocacao);
-                comando.ExecuteNonQuery();
-            }catch(Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
-
-        //Método utilizado para salvar a locação quando o usuário informou todos itens na mesma
-        public void finalizarLocacao(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("update locacao set dataPrevisaoEntrega_locacao = @dataEnt, idCliente_locacao = @idCli,desconto_locacao = @dec,qtdItens_locacao=@qtdItem,total_locacao=@valorTo,tipo_locacao=@tipo,usuario_locacao=@usuario where id_locacao = @idLocacao", conexao);
-                comando.Parameters.AddWithValue("@dataEnt", locacaoModelo.dataPrevisaoEntregaLocao);
-                comando.Parameters.AddWithValue("@idCli", locacaoModelo.idClienteLocao);
-                comando.Parameters.AddWithValue("@dec", locacaoModelo.descontoLocao);
-                comando.Parameters.AddWithValue("@qtdItem", locacaoModelo.qtdItensLocao);
-                comando.Parameters.AddWithValue("@valorTo", locacaoModelo.totalLocao);
-                comando.Parameters.AddWithValue("@tipo", "L");
-                comando.Parameters.AddWithValue("@usuario", locacaoModelo.usuarioLocacao);
-                comando.Parameters.AddWithValue("@idLocacao", locacaoModelo.idLocacao);
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
-
+               
         //Método utilizado para atualizar a locação quando pesquisado a mesma
         public void atualizarLocacao(LocacaoModelo locacaoModelo)
         {
@@ -93,29 +39,9 @@ namespace Centaurus.Dao
                 FecharConexao();
             }
         }
-
-        //Método utilizado para pegar o ultimo registro incluido quando salvado uma locação
-        public void UltimoRegistro(string valorReturn)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where idCliente_locacao = '" + valorReturn + "'", conexao);
-                dr = comando.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
-                }
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao pesquisar id da locação: " + erro.Message);
-            }
-        }
-
+        
         //Método utilizado para salvar os itens na locação
-        public void salvarItensLocacao(LocacaoModelo locacaoModelo)
+        public void inserirItensLocacao(LocacaoModelo locacaoModelo)
         {
             try
             {
@@ -140,45 +66,35 @@ namespace Centaurus.Dao
                 FecharConexao();
             }
         }
-
-        //Método utilizado para gerar a id "salvar a locação" quando clicado no botão para inserir um item
-        public void gerarIdLocacao(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
-                comando.Parameters.AddWithValue("@dataLan", locacaoModelo.dataLancamentoLocao);
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
-
+                
         //Método utizado para pegar a id da ultima locação quando inserido um item e não preenchido as informações, é filtrado pela data de lançamento
-        public void pegarIdGerada(string valorReturn)
+        public LocacaoModelo buscarUltimoRegistro(LocacaoModelo modLoc)
         {
+            //Método converte a data do padrão brasileiro para o americano
+            string dataReturn = Convert.ToString( modLoc.dataLancamentoLocao);
+            var dataConvertida = DateTime.Parse(dataReturn).ToString("yyyy-MM-dd HH:mm:ss");
+            
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where dataLancamento_locacao = '" + valorReturn + "'", conexao);
+                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where dataLancamento_locacao = '" + dataConvertida + "'", conexao);
                 dr = comando.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
+                    int numeroIncluido = Convert.ToInt32(dr["numeroPego"]);
+                    modLoc.idLocacao = numeroIncluido;
                 }
             }
             catch (Exception erro)
             {
                 throw new Exception("Erro ao pesquisar id da locação: " + erro.Message);
             }
+            finally
+            {
+                FecharConexao();
+            }
+            return modLoc;
         }
 
         //Método utilizado para excluir locação, irá exclui
@@ -305,6 +221,54 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao consultar locação, classe DAO " + erro.Message);
             }
             return dt;
+        }
+
+        //Método salva locação, finalização e gera a id da locação
+        public void salvar(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                AbrirConexao();
+                if(locacaoModelo.idLocacao == 0 && locacaoModelo.idClienteLocao == "")
+                {
+                    comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
+                    comando.Parameters.AddWithValue("@dataLan", locacaoModelo.dataLancamentoLocao);
+                    comando.ExecuteNonQuery();
+                }
+                else if(locacaoModelo.idLocacao == 0 && locacaoModelo.idClienteLocao != "")
+                {
+                    comando = new MySqlCommand("insert into locacao (dataLancamento_locacao,dataPrevisaoEntrega_locacao,idCliente_locacao,desconto_locacao,qtdItens_locacao,total_locacao,tipo_locacao,usuario_locacao) values (@dataLan,@dataEnt,@idCli,@dec,@qtdItem,@valorTo,@tipo,@usuario)", conexao);
+                    comando.Parameters.AddWithValue("@dataLan", locacaoModelo.dataLancamentoLocao);
+                    comando.Parameters.AddWithValue("@dataEnt", locacaoModelo.dataPrevisaoEntregaLocao);
+                    comando.Parameters.AddWithValue("@idCli", locacaoModelo.idClienteLocao);
+                    comando.Parameters.AddWithValue("@dec", locacaoModelo.descontoLocao);
+                    comando.Parameters.AddWithValue("@qtdItem", locacaoModelo.qtdItensLocao);
+                    comando.Parameters.AddWithValue("@valorTo", locacaoModelo.totalLocao);
+                    comando.Parameters.AddWithValue("@tipo", "L");
+                    comando.Parameters.AddWithValue("@usuario", locacaoModelo.usuarioLocacao);
+                    comando.ExecuteNonQuery();
+                }else if(locacaoModelo.idLocacao != 0 && locacaoModelo.idClienteLocao != "")
+                {
+                    comando = new MySqlCommand("update locacao set dataPrevisaoEntrega_locacao = @dataEnt, idCliente_locacao = @idCli,desconto_locacao = @dec,qtdItens_locacao=@qtdItem,total_locacao=@valorTo,tipo_locacao=@tipo,usuario_locacao=@usuario where id_locacao = @idLocacao", conexao);
+                    comando.Parameters.AddWithValue("@dataEnt", locacaoModelo.dataPrevisaoEntregaLocao);
+                    comando.Parameters.AddWithValue("@idCli", locacaoModelo.idClienteLocao);
+                    comando.Parameters.AddWithValue("@dec", locacaoModelo.descontoLocao);
+                    comando.Parameters.AddWithValue("@qtdItem", locacaoModelo.qtdItensLocao);
+                    comando.Parameters.AddWithValue("@valorTo", locacaoModelo.totalLocao);
+                    comando.Parameters.AddWithValue("@tipo", "L");
+                    comando.Parameters.AddWithValue("@usuario", locacaoModelo.usuarioLocacao);
+                    comando.Parameters.AddWithValue("@idLocacao", locacaoModelo.idLocacao);
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao salvar e/ou gerar id da locação, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
         }
                 
     }

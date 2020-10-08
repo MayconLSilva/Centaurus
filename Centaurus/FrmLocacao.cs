@@ -470,15 +470,13 @@ namespace Centaurus
                 if (textBoxCodigo.Text == "0" && botaoInserir == "CLICADO")
                 {
                     locacaoModelo.dataLancamentoLocao = Convert.ToDateTime(textBoxDataLancamento.Text);
-                    locacaoBLL.gerarIdLocacao(locacaoModelo);
+                    locacaoModelo.idClienteLocao = "";                    
+                    locacaoBLL.salvarLocacao(locacaoModelo);
 
                     //Método chama o ultimo registro
-                    string data = textBoxDataLancamento.Text;                    
-                    var dataConvertida = DateTime.Parse(data).ToString("yyyy-MM-dd HH:mm:ss");
-
-                    locacaoDAO.pegarIdGerada(dataConvertida);
-                    string idReturn = locacaoDAO.numeroIncluido;
-                    textBoxCodigo.Text = idReturn;
+                    locacaoModelo.dataLancamentoLocao = Convert.ToDateTime(textBoxDataLancamento.Text);
+                    locacaoBLL.buscarUltimoRegistro(locacaoModelo);
+                    textBoxCodigo.Text = Convert.ToString(locacaoModelo.idLocacao);
 
                     botaoInserir = "NAOCLICADO";                    
                 }
@@ -499,15 +497,15 @@ namespace Centaurus
                     }
                     else
                     {
-                        locacaoBLL.salvarLoca(locacaoModelo);
+                        locacaoBLL.salvarLocacao(locacaoModelo);
                         MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         botaoClicado = "GRAVAR";
                         inativaAtivaCampos();
 
                         //Método chama o ultimo registro
-                        locacaoDAO.UltimoRegistro(idClienteReturn);
-                        string idReturn = locacaoDAO.numeroIncluido;
-                        textBoxCodigo.Text = idReturn;
+                        locacaoModelo.dataLancamentoLocao = Convert.ToDateTime(textBoxDataLancamento.Text);
+                        locacaoBLL.buscarUltimoRegistro(locacaoModelo);
+                        textBoxCodigo.Text = Convert.ToString(locacaoModelo.idLocacao);
                     }
                     
                 }
@@ -528,7 +526,7 @@ namespace Centaurus
                     }
                     else
                     {
-                        locacaoBLL.finalizarLoca(locacaoModelo);
+                        locacaoBLL.salvarLocacao(locacaoModelo);
                         MessageBox.Show("Locação incluida com sucesso!!!", "Cadastro Locação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         botaoClicado = "GRAVAR";
                         inativaAtivaCampos();

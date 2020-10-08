@@ -14,28 +14,15 @@ namespace Centaurus.BLL
     {
         LocacaoDAO locacaoDao = new LocacaoDAO();
 
-
-        public void salvarLoca(LocacaoModelo locacaoModelo)
+        public void atualizarLoca(LocacaoModelo locacaoModelo)
         {
             try
             {
-                locacaoDao.salvarLocacao(locacaoModelo);
+                locacaoDao.atualizarLocacao(locacaoModelo);
             }
             catch (Exception erro)
             {
-                throw new Exception("Erro ao inserir a locação: " + erro.Message);
-            }
-        }
-
-        public void finalizarLoca(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                locacaoDao.finalizarLocacao(locacaoModelo);
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao finalizar a locação: " + erro.Message);
+                throw new Exception("Erro ao atualizar a locação " + erro.Message);
             }
         }
 
@@ -43,38 +30,14 @@ namespace Centaurus.BLL
         {
             try
             {
-                locacaoDao.salvarItensLocacao(locacaoModelo);
+                locacaoDao.inserirItensLocacao(locacaoModelo);
             }
             catch(Exception erro)
             {
                 throw new Exception("Erro ao inserir itens da locação: " + erro.Message);
             }
         }
-
-        public void atualizarLoca(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                locacaoDao.atualizarLocacao(locacaoModelo);
-            }
-            catch(Exception erro)
-            {
-                throw new Exception("Erro ao atualizar a locação " + erro.Message);
-            }
-        }
-
-        public void gerarIdLocacao(LocacaoModelo locacaoModelo)
-        {
-            try
-            {
-                locacaoDao.gerarIdLocacao(locacaoModelo);
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao gerar id da locação: " + erro.Message);
-            }
-        }
-
+                 
         public void excluirLocacao(LocacaoModelo locacaoModelo)
         {
             try
@@ -128,6 +91,30 @@ namespace Centaurus.BLL
                 throw new Exception("Erro ao listar locação, classe BLL! " + erro.Message);
             }
         }
-               
+        
+        public void buscarUltimoRegistro(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                locacaoDao.buscarUltimoRegistro(locacaoModelo);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o ultimo registro da locação, classe BLL! " + erro.Message);
+            }
+        }
+
+        public void salvarLocacao(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                locacaoDao.salvar(locacaoModelo);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao salvar locação e/ou gerar id, classe BLL! " + erro.Message);
+            }
+        }
+
     }
 }
