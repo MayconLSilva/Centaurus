@@ -112,7 +112,7 @@ namespace Centaurus.Dao
         */
 
         //Método de lista de produtos e seus respectivos filtros
-        public DataTable SelecionarTodosProdutosFiltrando(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
+        public DataTable listarProdutosServicos(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
         {
             DataTable dt = new DataTable();
 
@@ -165,7 +165,7 @@ namespace Centaurus.Dao
         }
 
         //Metodo de lista de produtos com variações e seus respectivos filtros
-        public DataTable SelecionarTodosProdutosVariacaoFiltrando(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
+        public DataTable listarProdutosVariacoes(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
         {
             DataTable dt = new DataTable();
 
@@ -375,7 +375,8 @@ namespace Centaurus.Dao
             }
         }
 
-        public DataTable listarVariacao(string filtro)
+        //Método lista os produtos variações do produto informado pelo código
+        public DataTable listarVariacaoProduto(string filtro)
         {
             DataTable dt = new DataTable();
 

@@ -534,7 +534,7 @@ namespace Centaurus
         {
             ProdutoBLL produtoBLL = new ProdutoBLL();
             //dataGridViewVariacoes.DataSource = produtoDAO.listarVariacao(textBoxCodigo.Text);
-            dataGridViewVariacoes.DataSource = produtoBLL.listarProdutoVariacoes(textBoxCodigo.Text);
+            dataGridViewVariacoes.DataSource = produtoBLL.listarVariacoesDoProduto(textBoxCodigo.Text);
             configurarGridViewVariacao();
         }
 

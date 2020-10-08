@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.BLL;
+using Centaurus.Bll;
 
 namespace Centaurus
 {
@@ -21,6 +23,8 @@ namespace Centaurus
         public string custoProdutoClicado { get; set; }
 
         public string tipoConsultaReturn;
+
+        ProdutoBLL produtoBll = new ProdutoBLL();
 
         public FrmConsultaProduto(string filtro)
         {
@@ -48,7 +52,7 @@ namespace Centaurus
         }
                 
         private void CarregarInformacoes()
-        {
+        {            
             //Verifico o tipo se é serviço, produto ou ambos
             string tipoProduto = "P", tipoServico = "S";
             if (radioButtonTodos.Checked)
@@ -64,15 +68,16 @@ namespace Centaurus
                 tipoProduto = ""; tipoServico = "S";
             }
 
-            //Consulta vinda da tela de cadastro do produto
+            //Consulta vinda da tela de cadastro do produto - PS busca produtos e serviços
             if(tipoConsultaReturn == "PS")
             {
-                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosFiltrando(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
+                dataGridViewProduto.DataSource = produtoBll.listarProdutosServicos(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
                 configurarDataGridView2();
             }
+            //Consulta vinda da tela locação - PV busca produtos com variação
             else if(tipoConsultaReturn == "PV")
             {
-                dataGridViewProduto.DataSource = produtoDAO.SelecionarTodosProdutosVariacaoFiltrando(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
+                dataGridViewProduto.DataSource = produtoBll.listarProdutoVariacoes(toolStripComboBoxTipoFiltroProduto.SelectedItem.ToString(), toolStripTextBoxFiltroProduto.Text, tipoProduto, tipoServico);
                 configurarDataGridView();
             }            
         }

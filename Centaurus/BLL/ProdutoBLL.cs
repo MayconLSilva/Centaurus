@@ -99,19 +99,50 @@ namespace Centaurus.Bll
             }
         }
 
-        public DataTable listarProdutoVariacoes(string filtro)
+        public DataTable listarVariacoesDoProduto(string filtro)
         {
             DataTable dataTable = new DataTable();
 
             try
             {
-                dataTable = produtoDAO.listarVariacao(filtro);
+                dataTable = produtoDAO.listarVariacaoProduto(filtro);
 
                 return dataTable;
             }
             catch(Exception erro)
             {
                 throw new Exception("Erro ao listar produto variação, classe BLL! " + erro.Message);
+            }
+        }
+
+        public DataTable listarProdutosServicos(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                dataTable = produtoDAO.listarProdutosServicos(tipoPesquisa, filtro1, tipoProdutoDAO, tipoServicoDAO);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar os produtos, classe BLL " + erro.Message);
+            }
+        }
+
+        public DataTable listarProdutoVariacoes(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = produtoDAO.listarProdutosVariacoes(tipoPesquisa, filtro1, tipoProdutoDAO, tipoServicoDAO);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar os produtos e suas variações, classe BLL! " + erro.Message);
             }
         }
 
