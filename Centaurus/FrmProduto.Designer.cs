@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProduto));
             this.menuStripParticipante = new System.Windows.Forms.MenuStrip();
             this.menuProdutoNovo = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,6 +110,7 @@
             this.comboBoxFatorVariacao = new System.Windows.Forms.ComboBox();
             this.textBoxQtdVariacao = new System.Windows.Forms.TextBox();
             this.labelFatorVariacao = new System.Windows.Forms.Label();
+            this.toolTipProduto = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripParticipante.SuspendLayout();
             this.tabControlProduto.SuspendLayout();
             this.tabPagePrincipal.SuspendLayout();
@@ -630,6 +632,9 @@
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.Size = new System.Drawing.Size(50, 20);
             this.textBoxCodigo.TabIndex = 43;
+            this.textBoxCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigo_KeyDown);
+            this.textBoxCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigo_KeyPress);
+            this.textBoxCodigo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigo_MouseMove);
             // 
             // labelCodigo
             // 
@@ -944,6 +949,12 @@
             this.labelFatorVariacao.TabIndex = 53;
             this.labelFatorVariacao.Text = "Fator";
             // 
+            // toolTipProduto
+            // 
+            this.toolTipProduto.IsBalloon = true;
+            this.toolTipProduto.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipProduto.ToolTipTitle = "Atenção...";
+            // 
             // FrmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1059,5 +1070,6 @@
         private System.Windows.Forms.Button buttonLimparCategoria;
         private System.Windows.Forms.Label labelCodBarrasVariacao;
         private System.Windows.Forms.TextBox textBoxCodBarrasVariacao;
+        private System.Windows.Forms.ToolTip toolTipProduto;
     }
 }

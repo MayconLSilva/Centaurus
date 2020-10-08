@@ -44,15 +44,12 @@ namespace Centaurus
             this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
-            inativarAtivarCampos();
-            //inativarAtivarBotoesIniciar();           
+            inativarAtivarCampos();    
 
         }
-
-        
+                
         private void menuProdutoNovo_Click(object sender, EventArgs e)
         {
-            //inativarAtivarBotoesNovo();
             botaoClicado = "NOVO";
             inativarAtivarCampos();
 
@@ -67,7 +64,6 @@ namespace Centaurus
         {
             botaoClicado = "CANCELAR";
             inativarAtivarCampos();
-            //inativarAtivarBotoesCancelar();
         }
 
         private void buttonBuscarMarca_Click(object sender, EventArgs e)
@@ -184,14 +180,12 @@ namespace Centaurus
                     //Tipo de item
                     if (comboBoxTipoItem.SelectedItem == "PRODUTO")
                     {
-                        //Console.WriteLine("chamou aqui");
                         produto.tipoProduto = Convert.ToChar('P');
                         
                     }
                     else if (comboBoxTipoItem.SelectedItem == "SERVIÇO")
                     {
-                        produto.tipoProduto = Convert.ToChar('S');
-                        //Console.WriteLine("chamou aqui 2");                        
+                        produto.tipoProduto = Convert.ToChar('S');                  
                     }
 
                     produto.descricaoProduto = textBoxDescricao.Text;
@@ -232,7 +226,6 @@ namespace Centaurus
                     }
                     produtoBLL.salvar(produto);
                     MessageBox.Show("Produto incluido com sucesso!!!", "Cadastro Produto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //inativarAtivarBotoesSalvar();
                     inativarAtivarCampos();
 
                     //Método chama o ultimo registro
@@ -277,14 +270,12 @@ namespace Centaurus
                     //Tipo de item
                     if (comboBoxTipoItem.SelectedItem == "PRODUTO")
                     {
-                        //Console.WriteLine("chamou aqui");
                         produto.tipoProduto = Convert.ToChar('P');
 
                     }
                     else if (comboBoxTipoItem.SelectedItem == "SERVIÇO")
                     {
                         produto.tipoProduto = Convert.ToChar('S');
-                        //Console.WriteLine("chamou aqui 2");
                     }
 
                     produto.descricaoProduto = textBoxDescricao.Text;
@@ -326,7 +317,6 @@ namespace Centaurus
                     produto.idProduto = Convert.ToInt32(textBoxCodigo.Text);
                     produtoBLL.atualizar(produto);
                     MessageBox.Show("Produto atualizado com sucesso!!!", "Cadastro Produto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //inativarAtivarBotoesSalvar();
                     inativarAtivarCampos();
                 }
             }
@@ -408,7 +398,6 @@ namespace Centaurus
             flag = 1;
             botaoClicado = "EDITAR";
             inativarAtivarCampos();
-            //inativarAtivarBotoesEditar();
         }
 
         private void buttonBuscarProduto_Click(object sender, EventArgs e)
@@ -426,20 +415,22 @@ namespace Centaurus
             {
                 botaoClicado = "PESQUISAR";
                 textBoxCodigo.Text = codigoReturnProduto;
-                buscarInformacoesProduto();
+                buscarProdutoPorCodigo();
                 inativarAtivarCampos();
-                //inativarAtivarBotoesPesquisarProduto();
             }
         }
 
-        public void buscarInformacoesProduto()
+        public void buscarProdutoPorCodigo()
         {
-           ProdutoModelo modeloProduto = new ProdutoModelo();
+            ProdutoModelo modeloProduto = new ProdutoModelo();
+            ProdutoBLL bllProduto = new ProdutoBLL();
+
             try
             {
                 //Método enviar a id do produto para pesquisar as informações
                 modeloProduto.idProduto = Convert.ToInt32(textBoxCodigo.Text);
-                modeloProduto = produtoDAO.buscarDados(modeloProduto);
+                bllProduto.buscarProdutoPorCodigo(modeloProduto);
+                //modeloProduto = produtoDAO.buscarInformacoesProdutoPorCodigo(modeloProduto);
 
                 //Método retornar com informações e seta nos respectivos campos
                 if(modeloProduto.ativoProduto == true)
@@ -522,7 +513,6 @@ namespace Centaurus
                 produtoModelo.idProduto = Convert.ToInt32(textBoxCodigo.Text);
                 produtoBLL.excluir(produtoModelo);
                 inativarAtivarCampos();
-                //inativarAtivarBotoesExcluir();
             }
         }
 
@@ -602,6 +592,34 @@ namespace Centaurus
                     MessageBox.Show("Variação excluida com sucesso! ", "Excluir Variação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }            
+        }
+
+        private void textBoxCodigo_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipProduto.SetToolTip(textBoxCodigo, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
+
+        private void textBoxCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarProdutoPorCodigo();
+            }
+        }
+
+        private void textBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void dataGridViewVariacoes_CellClick(object sender, DataGridViewCellEventArgs e)

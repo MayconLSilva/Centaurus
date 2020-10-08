@@ -216,7 +216,7 @@ namespace Centaurus.Dao
         }
 
         //Método pesquisa todos dados do produto por id para setar nos seus respectivos campos
-        public ProdutoModelo buscarDados(ProdutoModelo modelo)
+        public ProdutoModelo buscarInformacoesProdutoPorCodigo(ProdutoModelo modelo)
         {
             try
             {

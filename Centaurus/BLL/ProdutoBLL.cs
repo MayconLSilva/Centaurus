@@ -13,11 +13,11 @@ namespace Centaurus.Bll
         ProdutoDAO produtoDAO = new ProdutoDAO();
 
 
-        public void salvar(ProdutoModelo produto)
+        public void salvar(ProdutoModelo modProduto)
         {
             try
             {
-                produtoDAO.salvar(produto);
+                produtoDAO.salvar(modProduto);
             }
             catch(Exception erro)
             {
@@ -25,11 +25,11 @@ namespace Centaurus.Bll
             }
         }
 
-        public void salvarVariacao(ProdutoModelo produto)
+        public void salvarVariacao(ProdutoModelo modProduto)
         {
             try
             {
-                produtoDAO.salvarVariacao(produto);
+                produtoDAO.salvarVariacao(modProduto);
 
             }catch(Exception ex)
             {
@@ -37,11 +37,11 @@ namespace Centaurus.Bll
             }
         }
 
-        public void atualizar(ProdutoModelo produto)
+        public void atualizar(ProdutoModelo modProduto)
         {
             try
             {
-                produtoDAO.atualizar(produto);
+                produtoDAO.atualizar(modProduto);
             }
             catch (Exception erro)
             {
@@ -49,28 +49,40 @@ namespace Centaurus.Bll
             }
         }
 
-        public void excluir(ProdutoModelo produto)
+        public void excluir(ProdutoModelo modProduto)
         {
             try
             {
                 produtoDAO = new ProdutoDAO();
-                produtoDAO.ExcluirProduto(produto);
+                produtoDAO.ExcluirProduto(modProduto);
             }catch(Exception erro)
             {
                 throw erro;
             }
         }
 
-        public void excluirVariacao(ProdutoModelo produto)
+        public void excluirVariacao(ProdutoModelo modProduto)
         {
             try
             {
                 produtoDAO = new ProdutoDAO();
-                produtoDAO.excluirVariacao(produto);
+                produtoDAO.excluirVariacao(modProduto);
             }
             catch (Exception erro)
             {
                 throw erro;
+            }
+        }
+
+        public void buscarProdutoPorCodigo(ProdutoModelo modProduto)
+        {
+            try
+            {
+                produtoDAO.buscarInformacoesProdutoPorCodigo(modProduto);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar informações do produto, classe BLL! " + erro.Message);
             }
         }
 
