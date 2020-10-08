@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Centaurus.Dao;
 using Centaurus.Model;
 using Centaurus.DTO;
+using System.Data;
 
 namespace Centaurus.BLL
 {
@@ -94,6 +95,22 @@ namespace Centaurus.BLL
             }catch(Exception erro)
             {
                 throw new Exception("Erro ao excluir item, classe BLL" + erro.Message);
+            }
+        }
+
+        public DataTable listarItensLocacao(string filtro)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = locacaoDao.listarItensLocacao(filtro);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar os itens da locação, classe BLL!");
             }
         }
                

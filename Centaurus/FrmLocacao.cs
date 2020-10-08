@@ -812,12 +812,14 @@ namespace Centaurus
             
         }
 
+        //Método lista os itens da locação na tabela
         private void carregarItens()
         {
-            dataGridViewLocao.DataSource = locacaoDAO.listarItens(textBoxCodigo.Text);
+            dataGridViewLocao.DataSource = locacaoBLL.listarItensLocacao(textBoxCodigo.Text);
             configurarDataGridView();
         }
 
+        //Método configura as colunas e header da tabela de itens
         public void configurarDataGridView()
         {
             float somadoGrid,valorDesconto;

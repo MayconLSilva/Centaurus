@@ -181,23 +181,6 @@ namespace Centaurus.Dao
             }
         }
 
-        //Método listar itens locação na tabela
-        public DataTable listarItens(string filtro)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from viewlocacaoitens where idLocacao_locacaoitens = '" + filtro + "'"); 
-            }catch(Exception erro)
-            {
-                throw new Exception("Erro ao consultar itens " + erro.Message);
-            }
-            return dt;
-        }
-
         //Método utilizado para excluir locação, irá exclui
         public void excluirLocacao(LocacaoModelo locacaoModelo)
         {
@@ -208,7 +191,7 @@ namespace Centaurus.Dao
                 string comando = "delete from locacao where id_locacao=" + locacaoModelo.idLocacao;
                 conexao.ExecutarComandoSQL(comando);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 throw new Exception("Erro ao excluir locação, classe DAO: " + erro.Message);
             }
@@ -238,8 +221,8 @@ namespace Centaurus.Dao
             }
         }
 
-        //Método listar locação na pesquisa
-        public DataTable listarLocacao(string tipoFiltro,string filtro)
+        //Método listar itens locação na tabela
+        public DataTable listarItensLocacao(string filtro)
         {
             DataTable dt = new DataTable();
 
@@ -247,19 +230,36 @@ namespace Centaurus.Dao
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                if(tipoFiltro == "TODOS")
+                dt = conexao.RetDataTable("select *from viewlocacaoitens where idLocacao_locacaoitens = '" + filtro + "'"); 
+            }catch(Exception erro)
+            {
+                throw new Exception("Erro ao consultar itens " + erro.Message);
+            }
+            return dt;
+        }
+
+        //Método listar locação na pesquisa
+        public DataTable listarLocacao(string tipoFiltro, string filtro)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                if (tipoFiltro == "TODOS")
                 {
-                    dt = conexao.RetDataTable("select *from viewlocacao "+
+                    dt = conexao.RetDataTable("select *from viewlocacao " +
                     " where NomeCliente like '' and TipoLocacao = '' " +
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = '' " +
                     " or TipoLocacao = 'L' order by codigo");
                 }
-                else if(tipoFiltro == "CLIENTE")
+                else if (tipoFiltro == "CLIENTE")
                 {
                     dt = conexao.RetDataTable("select *from viewlocacao " +
-                    " where NomeCliente like '%"+filtro+"%' and TipoLocacao = 'L' " +
+                    " where NomeCliente like '%" + filtro + "%' and TipoLocacao = 'L' " +
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
@@ -269,14 +269,14 @@ namespace Centaurus.Dao
                 {
                     //Método chama o ultimo registro
                     var dataConvertida = DateTime.Parse(filtro).ToString("yyyy-MM-dd HH:mm:ss");
-                                        
+
                     dt = conexao.RetDataTable("select *from viewlocacao " +
                     " where NomeCliente like '' and TipoLocacao = '' " +
-                    " or cast(DataLancamento as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
+                    " or cast(DataLancamento as DATE) = '" + dataConvertida + "' and TipoLocacao = 'L' " +
                     " or cast(DataPrevisaoEntrega as DATE) = '' and TipoLocacao = '' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
                     " or TipoLocacao = '' order by codigo");
-                    
+
                 }
                 else if (tipoFiltro == "DATA DEVOLUÇÃO")
                 {
@@ -286,7 +286,7 @@ namespace Centaurus.Dao
                     dt = conexao.RetDataTable("select *from viewlocacao " +
                     " where NomeCliente like '' and TipoLocacao = '' " +
                     " or cast(DataLancamento as DATE) = '' and TipoLocacao = '' " +
-                    " or cast(DataPrevisaoEntrega as DATE) = '"+ dataConvertida + "' and TipoLocacao = 'L' " +
+                    " or cast(DataPrevisaoEntrega as DATE) = '" + dataConvertida + "' and TipoLocacao = 'L' " +
                     " or UsuarioLocacao = '' and TipoLocacao = ''" +
                     " or TipoLocacao = '' order by codigo");
                 }
@@ -306,7 +306,6 @@ namespace Centaurus.Dao
             }
             return dt;
         }
-
-        
+                
     }
 }
