@@ -90,6 +90,7 @@ namespace Centaurus.Dao
             }
         }
 
+        /*
         public void UltimoRegistro(string valorReturn)
         {
             try
@@ -108,6 +109,7 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao pesquisar id do produto: " + erro.Message);
             }
         }
+        */
 
         //Método de lista de produtos e seus respectivos filtros
         public DataTable SelecionarTodosProdutosFiltrando(string tipoPesquisa, string filtro1, string tipoProdutoDAO, string tipoServicoDAO)
@@ -373,7 +375,7 @@ namespace Centaurus.Dao
             }
         }
 
-        public DataTable buscarVariacao(string filtro)
+        public DataTable listarVariacao(string filtro)
         {
             DataTable dt = new DataTable();
 
@@ -388,6 +390,31 @@ namespace Centaurus.Dao
                 throw new Exception("Erro ao pesquisar variacoes do produto: " + ex.Message);
             }
             return dt;
+        }
+
+        public ProdutoModelo buscarUltimoRegistro(ProdutoModelo modProduto)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select max(id_produto) as numeroPego from produto where descricao_produto = '" + modProduto.descricaoProduto + "'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    int numeroReturn = Convert.ToInt32(dr["numeroPego"]);
+                    modProduto.idProduto = numeroReturn;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar id do produto: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modProduto;
         }
 
     }

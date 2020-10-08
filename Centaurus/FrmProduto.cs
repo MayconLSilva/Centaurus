@@ -229,9 +229,11 @@ namespace Centaurus
                     inativarAtivarCampos();
 
                     //Método chama o ultimo registro
-                    produtoDAO.UltimoRegistro(textBoxDescricao.Text);
-                    string idReturn = produtoDAO.numeroIncluido;
-                    textBoxCodigo.Text = idReturn;
+                    //produtoDAO.UltimoRegistro(textBoxDescricao.Text);
+                    //string idReturn = produtoDAO.numeroIncluido;
+                    produtoBLL.buscarUltimoRegistro(produto);
+                    int idRetun = produto.idProduto;
+                    textBoxCodigo.Text = Convert.ToString(idRetun);
                 }
             }
             else
@@ -518,7 +520,7 @@ namespace Centaurus
 
         private void carregarVariacoes()
         {
-            dataGridViewVariacoes.DataSource = produtoDAO.buscarVariacao(textBoxCodigo.Text);
+            dataGridViewVariacoes.DataSource = produtoDAO.listarVariacao(textBoxCodigo.Text);
             configurarGridViewVariacao();
         }
 
