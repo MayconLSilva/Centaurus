@@ -395,7 +395,7 @@ namespace Centaurus
                         produtoModelo.unProdVariacao = comboBoxUnidadeVariacao.Text;
                         produtoBLL.salvarVariacao(produtoModelo);
                         MessageBox.Show("Variação incluida com sucesso", "Cadastro de Variação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        carregarVariacoes();
+                        listarVariacoes();
                     }
                 }
             }
@@ -505,7 +505,7 @@ namespace Centaurus
                 textBoxCustoAnterior.Text = Convert.ToString(modeloProduto.custoAnteriorProduto);
                 textBoxCustoFinal.Text = Convert.ToString(modeloProduto.custoFinalProduto);
 
-                carregarVariacoes();
+                listarVariacoes();
             }
             catch(Exception ex)
             {
@@ -530,9 +530,11 @@ namespace Centaurus
             }
         }
 
-        private void carregarVariacoes()
+        private void listarVariacoes()
         {
-            dataGridViewVariacoes.DataSource = produtoDAO.listarVariacao(textBoxCodigo.Text);
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+            //dataGridViewVariacoes.DataSource = produtoDAO.listarVariacao(textBoxCodigo.Text);
+            dataGridViewVariacoes.DataSource = produtoBLL.listarProdutoVariacoes(textBoxCodigo.Text);
             configurarGridViewVariacao();
         }
 
@@ -602,7 +604,7 @@ namespace Centaurus
 
                     produtoModelo.idProdVariacao = Convert.ToInt32(idProdutoVariacao);
                     produtoBLL.excluirVariacao(produtoModelo);
-                    carregarVariacoes();
+                    listarVariacoes();
                     MessageBox.Show("Variação excluida com sucesso! ", "Excluir Variação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }            

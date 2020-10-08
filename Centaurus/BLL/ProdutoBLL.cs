@@ -2,6 +2,7 @@
 using Centaurus.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,22 @@ namespace Centaurus.Bll
             catch(Exception erro)
             {
                 throw new Exception("Erro ao buscar ultimo registro, classe BLL! " + erro.Message);
+            }
+        }
+
+        public DataTable listarProdutoVariacoes(string filtro)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = produtoDAO.listarVariacao(filtro);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar produto variação, classe BLL! " + erro.Message);
             }
         }
 
