@@ -35,14 +35,18 @@ namespace Centaurus
 
         string codigoReturnProduto;
         string idProdutoVariacao="0",unidadeVariacao,multiploVariacao;
+
+        string usuarioLogado;
         
-        public FrmProduto()
+        public FrmProduto(string returnUsuario)
         {
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.Manual;
             this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
             this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
+
+            usuarioLogado = returnUsuario;
 
             inativarAtivarCampos();    
 
@@ -56,6 +60,8 @@ namespace Centaurus
             //Inicio código fonte seto a data no campo de cadastro
             DateTime thisDay = DateTime.Today;
             textBoxDataCadastro.Text = thisDay.ToString("d");
+
+            textBoxUsuarioCadastro.Text = usuarioLogado;
 
             flag = 0;
         }
@@ -400,6 +406,12 @@ namespace Centaurus
             flag = 1;
             botaoClicado = "EDITAR";
             inativarAtivarCampos();
+
+            //Inicio código fonte seto a data no campo de cadastro
+            DateTime thisDay = DateTime.Today;
+            textBoxDataAlteracao.Text = thisDay.ToString("d");
+
+            textBoxUsuarioAlteracao.Text = usuarioLogado;
         }
 
         private void buttonBuscarProduto_Click(object sender, EventArgs e)

@@ -61,7 +61,7 @@ namespace Centaurus
 
         private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmProduto janelaProduto = new FrmProduto();
+            FrmProduto janelaProduto = new FrmProduto(loginLogado);
             janelaProduto.TopLevel = false;
             janelaProduto.Visible = true;
             painelPrincipal.Controls.Add(janelaProduto);
