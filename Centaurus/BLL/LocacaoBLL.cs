@@ -113,6 +113,21 @@ namespace Centaurus.BLL
                 throw new Exception("Erro ao listar os itens da locação, classe BLL!");
             }
         }
+
+        public DataTable listarLocacao(string tipoFiltro, string filtro)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                dataTable = locacaoDao.listarLocacao(tipoFiltro, filtro);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar locação, classe BLL! " + erro.Message);
+            }
+        }
                
     }
 }

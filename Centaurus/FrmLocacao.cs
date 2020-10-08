@@ -750,7 +750,7 @@ namespace Centaurus
             }
         }
 
-        public void salvarItens(LocacaoModelo locacaoModelo)
+        public void adicionarItemLocacao(LocacaoModelo locacaoModelo)
         {
             //Valida se o campo id ñ tiver informado ele entra nesta condição para gerar
             if (textBoxCodigo.Text == "0")
@@ -807,7 +807,7 @@ namespace Centaurus
             else
             {
                 LocacaoModelo locacaoModelo = new LocacaoModelo();
-                salvarItens(locacaoModelo);
+                adicionarItemLocacao(locacaoModelo);
             }
             
         }

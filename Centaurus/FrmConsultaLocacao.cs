@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Centaurus.BLL;
 using Centaurus.Dao;
 
 namespace Centaurus
@@ -14,6 +15,7 @@ namespace Centaurus
     public partial class FrmConsultaLocacao : Form
     {
         LocacaoDAO locacaoDAO = new LocacaoDAO();
+        LocacaoBLL locacaoBLL = new LocacaoBLL();
 
         public string idClienteEnvia { get; set; }
         public string NomeClienteEnvia { get; set; }
@@ -32,7 +34,7 @@ namespace Centaurus
 
         private void carregarLocacoes()
         {
-            dataGridViewLocacao.DataSource = locacaoDAO.listarLocacao(toolStripComboBoxTipoFiltroLocacao.Text, toolStripTextBoxFiltroLocacao.Text);
+            dataGridViewLocacao.DataSource = locacaoBLL.listarLocacao(toolStripComboBoxTipoFiltroLocacao.Text, toolStripTextBoxFiltroLocacao.Text);
             configurarDataGridView();
         }
 
