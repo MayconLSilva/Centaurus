@@ -42,7 +42,6 @@ namespace Centaurus
         float descontoReturn,totalRetun;
 
         LocacaoBLL locacaoBLL = new LocacaoBLL();
-        LocacaoDAO locacaoDAO = new LocacaoDAO();
 
         public FrmLocacao()
         {
@@ -666,6 +665,34 @@ namespace Centaurus
             buttonExcluirItem.Enabled = true;
         }
 
+        private void textBoxCodigo_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipLocacao.SetToolTip(textBoxCodigo, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
+
+        private void textBoxCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarLocacaoPorCodigo();
+            }
+        }
+
+        private void textBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void buttonBuscarLocacoes_Click(object sender, EventArgs e)
         {
             frmConsultaLocacao = new FrmConsultaLocacao();
@@ -881,7 +908,32 @@ namespace Centaurus
 
         }
 
+        //Método buscar locação pelo código
+        public void buscarLocacaoPorCodigo()
+        {
+            LocacaoModelo modLoc = new LocacaoModelo();
+            modLoc.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
+            locacaoBLL.buscarLocacaoPorCodigo(modLoc);
 
+            idClienteReturn = modLoc.idClienteLocao;
+            string nomeCliente = modLoc.nomeCliente;
+            textBoxCliente.Text = idClienteReturn + " - " + nomeCliente;
+
+            textBoxDataLancamento.Text = Convert.ToString(modLoc.dataLancamentoLocao);
+            textBoxUsuarioLocacao.Text = modLoc.usuarioLocacao;
+
+            DateTime dataPrevEntrega = modLoc.dataPrevisaoEntregaLocao;
+            dateTimePickerDataEntrega.Value = dataPrevEntrega;
+
+            float valorRetunDesconto = Convert.ToSingle(modLoc.descontoLocao);
+            decimal resultadoDesconto;
+            resultadoDesconto = Convert.ToDecimal(valorRetunDesconto.ToString("N2"));
+            textBoxDesconto.Text = Convert.ToString(resultadoDesconto);
+
+            carregarItens();
+            botaoClicado = "PESQUISAR";
+            inativaAtivaCampos();
+        }
 
         
 

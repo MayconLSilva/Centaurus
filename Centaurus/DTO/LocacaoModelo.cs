@@ -16,6 +16,7 @@ namespace Centaurus.DTO
         public float totalLocao { get; set; }
         public double qtdItensLocao { get; set; }
         public string usuarioLocacao { get; set; }
+        public string nomeCliente { get; set; }
 
         //VARIÁVEIS REF. LOCAÇÃO ITENS
         public int idProdutoLocacaoItens { get; set; }

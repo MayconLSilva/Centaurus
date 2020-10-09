@@ -271,5 +271,43 @@ namespace Centaurus.Dao
             }
         }
                 
+        //Método buscar informações da locação pelo código da mesma
+        public LocacaoModelo buscarLocacaoCodigo(LocacaoModelo modLoc)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select idCliente_locacao, nome_fantasia_participante, usuario_locacao, dataPrevisaoEntrega_locacao,dataLancamento_locacao,desconto_locacao " +
+                " from locacao loc inner join participante cli on cli.id_partipante = loc.idCliente_locacao where id_locacao = '"+modLoc.idLocacao+"'",conexao);
+                dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    string idCliente = Convert.ToString(dr["idCliente_locacao"]);
+                    string nomeCliente = Convert.ToString(dr["nome_fantasia_participante"]);
+                    string nomeUsuario = Convert.ToString(dr["usuario_locacao"]);
+                    DateTime previsaoEntrega = Convert.ToDateTime(dr["dataPrevisaoEntrega_locacao"]);
+                    DateTime dataLancamento = Convert.ToDateTime(dr["dataLancamento_locacao"]);
+                    float desconto = Convert.ToSingle(dr["desconto_locacao"]);
+
+                    modLoc.idClienteLocao = idCliente;
+                    modLoc.nomeCliente = nomeCliente;
+                    modLoc.usuarioLocacao = nomeUsuario;
+                    modLoc.dataPrevisaoEntregaLocao = previsaoEntrega;
+                    modLoc.dataLancamentoLocao = dataLancamento;
+                    modLoc.descontoLocao = desconto;
+                }
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar a locação pelo código, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modLoc;
+        }
+
     }
 }

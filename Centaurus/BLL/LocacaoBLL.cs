@@ -104,6 +104,18 @@ namespace Centaurus.BLL
             }
         }
 
+        public void buscarLocacaoPorCodigo(LocacaoModelo locacaoModelo)
+        {
+            try
+            {
+                locacaoDao.buscarLocacaoCodigo(locacaoModelo);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar locação pelo código, classe BLL! " + erro.Message);
+            }
+        }
+
         public void salvarLocacao(LocacaoModelo locacaoModelo)
         {
             try

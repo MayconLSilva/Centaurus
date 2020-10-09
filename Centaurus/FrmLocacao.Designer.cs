@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocacao));
             this.menuStripLocacao = new System.Windows.Forms.MenuStrip();
             this.menuLocacaoNovo = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +75,7 @@
             this.buttonBuscarLocacoes = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTotalItens = new System.Windows.Forms.TextBox();
+            this.toolTipLocacao = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripLocacao.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocao)).BeginInit();
@@ -141,6 +143,9 @@
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.Size = new System.Drawing.Size(50, 20);
             this.textBoxCodigo.TabIndex = 46;
+            this.textBoxCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigo_KeyDown);
+            this.textBoxCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigo_KeyPress);
+            this.textBoxCodigo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigo_MouseMove);
             // 
             // labelCodigo
             // 
@@ -410,7 +415,7 @@
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
             this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
@@ -506,6 +511,12 @@
             this.textBoxTotalItens.Name = "textBoxTotalItens";
             this.textBoxTotalItens.Size = new System.Drawing.Size(90, 20);
             this.textBoxTotalItens.TabIndex = 109;
+            // 
+            // toolTipLocacao
+            // 
+            this.toolTipLocacao.IsBalloon = true;
+            this.toolTipLocacao.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipLocacao.ToolTipTitle = "Atenção...";
             // 
             // FrmLocacao
             // 
@@ -604,5 +615,6 @@
         private System.Windows.Forms.Button buttonCalcularDesconto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxTotalItens;
+        private System.Windows.Forms.ToolTip toolTipLocacao;
     }
 }
