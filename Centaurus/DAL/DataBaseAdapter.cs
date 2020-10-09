@@ -66,6 +66,7 @@ namespace Centaurus.DAL
                 " `id_cidade` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '', " +
                 " `nome_cidade` VARCHAR(45) NULL DEFAULT NULL COMMENT '', " +
                 " `uf_cidade` VARCHAR(45) NULL DEFAULT NULL COMMENT '', " +
+                " `codigo_cidade` int(11) DEFAULT NULL," +
                 " PRIMARY KEY(`id_cidade`)  COMMENT '') " +
                 " ENGINE = InnoDB " +
                 " AUTO_INCREMENT = 4 " +
