@@ -418,5 +418,40 @@ namespace Centaurus.Dao
             return modProduto;
         }
 
+        public ProdutoModelo buscarProdutoCodigos(ProdutoModelo modProduto)
+        {
+            int contador = 0;
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select *from viewlistarprodutocomvariacao where id_produto = '"+modProduto.idProduto+"'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    //int idProduto = Convert.ToInt32(dr["id_produto"]);
+                    float custoProduto = Convert.ToSingle(dr["custo"]);
+                    float valorReal = Convert.ToSingle(dr["venda_produto"]);
+                    contador = contador + 1;
+                    
+                    Console.WriteLine("classe dao count " + contador);
+
+                    modProduto.idProduto = contador;
+                    modProduto.custoFinalProduto = custoProduto;
+                    modProduto.vendaProduto = valorReal;
+                }
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o produto pelo código informado, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modProduto;
+        }
+
     }
 }

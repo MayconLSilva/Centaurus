@@ -12,6 +12,8 @@ using Centaurus.BLL;
 using Centaurus.Dao;
 using System.Globalization;
 using Microsoft.VisualBasic;
+using Centaurus.Model;
+using Centaurus.Bll;
 
 namespace Centaurus
 {
@@ -693,6 +695,33 @@ namespace Centaurus
             }
         }
 
+        private void textBoxCodigoItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if(comboBoxFiltro.SelectedItem == "Cód. Barras")
+                {
+                    MessageBox.Show("chamou codigo barras");
+                    
+
+                }
+                else
+                {
+                    ProdutoModelo produtoModelo = new ProdutoModelo();
+                    ProdutoBLL produtoBLL = new ProdutoBLL();
+
+                    produtoModelo.idProduto = Convert.ToInt32(textBoxCodigoItem.Text);
+                    produtoBLL.buscarProdutoCodigos(produtoModelo);
+
+                    if(produtoModelo.idProduto > 1)
+                    {
+                        MessageBox.Show("abrir dialog para escolher as variações");
+                    }
+                    
+                }
+            }
+        }
+
         private void buttonBuscarLocacoes_Click(object sender, EventArgs e)
         {
             frmConsultaLocacao = new FrmConsultaLocacao();
@@ -935,6 +964,7 @@ namespace Centaurus
             inativaAtivaCampos();
         }
 
+        
         
 
     }

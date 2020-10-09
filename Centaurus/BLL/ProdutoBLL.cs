@@ -99,6 +99,18 @@ namespace Centaurus.Bll
             }
         }
 
+        public void buscarProdutoCodigos(ProdutoModelo modProduto)
+        {
+            try
+            {
+                produtoDAO.buscarProdutoCodigos(modProduto);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro " + erro);
+            }
+        }
+
         public DataTable listarVariacoesDoProduto(string filtro)
         {
             DataTable dataTable = new DataTable();
