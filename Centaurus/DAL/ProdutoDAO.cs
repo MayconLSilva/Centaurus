@@ -420,11 +420,14 @@ namespace Centaurus.Dao
 
         public ProdutoModelo buscarProdutoClick(ProdutoModelo modProduto)
         {
+            Console.WriteLine("cod barras " + modProduto.codBarrasProduto);
+            Console.WriteLine("cod interno " + modProduto.idProduto);
             int contador = 0;
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("select *from viewlistarprodutocomvariacao where id_produto = '"+modProduto.idProduto+"'", conexao);
+                comando = new MySqlCommand("select *from viewlistarprodutocomvariacao where id_produto = '"+modProduto.idProduto+ "' or codbarras_produto = '"+modProduto.codBarrasProduto+"'", conexao);
+                
                 dr = comando.ExecuteReader();
 
                 while (dr.Read())
@@ -432,12 +435,14 @@ namespace Centaurus.Dao
                     string nomeProduto = Convert.ToString(dr["descricao_produto"]);
                     float custoProduto = Convert.ToSingle(dr["custo"]);
                     float valorReal = Convert.ToSingle(dr["venda_produto"]);
+                    int variacaoProduto = Convert.ToInt32(dr["variacaoproduto"]);
                     contador = contador + 1;
-
+                    
                     modProduto.descricaoProduto = nomeProduto;
                     modProduto.idProduto = contador;
                     modProduto.custoFinalProduto = custoProduto;
                     modProduto.vendaProduto = valorReal;
+                    modProduto.idProdVariacao = variacaoProduto;
                 }
 
             }

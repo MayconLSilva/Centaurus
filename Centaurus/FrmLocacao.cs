@@ -697,21 +697,35 @@ namespace Centaurus
 
         private void textBoxCodigoItem_KeyDown(object sender, KeyEventArgs e)
         {
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+
             //Válido se foi digitado o código e clicado enter
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 //Caso seja digiado o código com o filtro cód. barras já puxa o item direto, não entra nas outras condições
                 if(comboBoxFiltro.SelectedItem == "Cód. Barras")
                 {
-                    MessageBox.Show("chamou codigo barras");
-                    
+                    produtoModelo.idProduto = 0;
+                    produtoModelo.codBarrasProduto = textBoxCodigoItem.Text;
+                    produtoBLL.buscarProdutoClick(produtoModelo);
 
+                    nomeProdutoReturn = produtoModelo.descricaoProduto;
+                    labelNomeProduto.Text = nomeProdutoReturn;
+
+                    valorProdutoReturn = Convert.ToString(produtoModelo.vendaProduto);
+                    textBoxValor.Text = valorProdutoReturn;
+
+                    custoProdutoReturn = Convert.ToString(produtoModelo.custoFinalProduto);
+
+                    valorOriginalProdutoReturn = valorProdutoReturn;
+
+                    idVariacaoProdutoReturn = Convert.ToString(produtoModelo.idProdVariacao);
+
+                    textBoxQuantidadeItem.Text = "1";
                 }
                 else
                 {
-                    ProdutoModelo produtoModelo = new ProdutoModelo();
-                    ProdutoBLL produtoBLL = new ProdutoBLL();
-
                     produtoModelo.idProduto = Convert.ToInt32(textBoxCodigoItem.Text);
                     produtoBLL.buscarProdutoClick(produtoModelo);
                     
