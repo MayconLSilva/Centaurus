@@ -99,6 +99,7 @@ namespace Centaurus.Bll
             }
         }
 
+        //Utilizado na tela locação, para pesquisar o item pelo click do código
         public void buscarProdutoClick(ProdutoModelo modProduto)
         {
             try
