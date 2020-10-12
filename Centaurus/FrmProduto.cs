@@ -417,7 +417,8 @@ namespace Centaurus
         private void buttonBuscarProduto_Click(object sender, EventArgs e)
         {
             string tipoConsulta = "PS";
-            frmConsultaProduto = new FrmConsultaProduto(tipoConsulta);
+            string filtro = null;//utilizado somente na tela locação, onde já envia o código do produto
+            frmConsultaProduto = new FrmConsultaProduto(tipoConsulta, filtro);
             DialogResult dr = frmConsultaProduto.ShowDialog(this);
 
             codigoReturnProduto = frmConsultaProduto.idProdutoClicado;

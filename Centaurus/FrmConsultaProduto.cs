@@ -22,14 +22,15 @@ namespace Centaurus
         public string valorProdutoClicado { get; set; }
         public string custoProdutoClicado { get; set; }
 
-        public string tipoConsultaReturn;
+        public string tipoConsultaReturn,informacaoFiltro;
 
         ProdutoBLL produtoBll = new ProdutoBLL();
 
-        public FrmConsultaProduto(string filtro)
+        public FrmConsultaProduto(string filtroTipoConsulta,string filtroInformacao)
         {
             InitializeComponent();
-            tipoConsultaReturn = filtro;
+            tipoConsultaReturn = filtroTipoConsulta;
+            informacaoFiltro = filtroInformacao;
         }
 
         private void FrmConsultaProduto_Load(object sender, EventArgs e)
@@ -42,10 +43,20 @@ namespace Centaurus
             }
             else if (tipoConsultaReturn == "PV")
             {
+                //Caso o "informaçãoFiltro" já venha com alguma informação ele vai setar o tipo de pesquisa para código
+                if (String.IsNullOrEmpty(informacaoFiltro) != true)
+                {
+                    toolStripTextBoxFiltroProduto.Text = informacaoFiltro;
+                    toolStripComboBoxTipoFiltroProduto.SelectedIndex = toolStripComboBoxTipoFiltroProduto.FindStringExact("CÓDIGO");
+                }
+                //Caso o "informaçãoFiltro" venha nulo ele setar o tipo de pesquisa todos
+                else
+                {
+                    toolStripComboBoxTipoFiltroProduto.SelectedIndex = toolStripComboBoxTipoFiltroProduto.FindStringExact("TODOS");
+                }
                 radioButtonProduto.Checked = true;
                 radioButtonServico.Enabled = false;
-                radioButtonTodos.Enabled = false;
-                toolStripComboBoxTipoFiltroProduto.SelectedIndex = toolStripComboBoxTipoFiltroProduto.FindStringExact("TODOS");
+                radioButtonTodos.Enabled = false;                
             }           
             
             CarregarInformacoes();            

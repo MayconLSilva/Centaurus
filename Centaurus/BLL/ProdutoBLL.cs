@@ -99,11 +99,11 @@ namespace Centaurus.Bll
             }
         }
 
-        public void buscarProdutoCodigos(ProdutoModelo modProduto)
+        public void buscarProdutoClick(ProdutoModelo modProduto)
         {
             try
             {
-                produtoDAO.buscarProdutoCodigos(modProduto);
+                produtoDAO.buscarProdutoClick(modProduto);
             }
             catch(Exception erro)
             {

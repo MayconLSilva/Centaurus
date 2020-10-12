@@ -418,7 +418,7 @@ namespace Centaurus.Dao
             return modProduto;
         }
 
-        public ProdutoModelo buscarProdutoCodigos(ProdutoModelo modProduto)
+        public ProdutoModelo buscarProdutoClick(ProdutoModelo modProduto)
         {
             int contador = 0;
             try
@@ -429,13 +429,12 @@ namespace Centaurus.Dao
 
                 while (dr.Read())
                 {
-                    //int idProduto = Convert.ToInt32(dr["id_produto"]);
+                    string nomeProduto = Convert.ToString(dr["descricao_produto"]);
                     float custoProduto = Convert.ToSingle(dr["custo"]);
                     float valorReal = Convert.ToSingle(dr["venda_produto"]);
                     contador = contador + 1;
-                    
-                    Console.WriteLine("classe dao count " + contador);
 
+                    modProduto.descricaoProduto = nomeProduto;
                     modProduto.idProduto = contador;
                     modProduto.custoFinalProduto = custoProduto;
                     modProduto.vendaProduto = valorReal;

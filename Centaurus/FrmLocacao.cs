@@ -697,8 +697,10 @@ namespace Centaurus
 
         private void textBoxCodigoItem_KeyDown(object sender, KeyEventArgs e)
         {
+            //Válido se foi digitado o código e clicado enter
             if(e.KeyCode == Keys.Enter)
             {
+                //Caso seja digiado o código com o filtro cód. barras já puxa o item direto, não entra nas outras condições
                 if(comboBoxFiltro.SelectedItem == "Cód. Barras")
                 {
                     MessageBox.Show("chamou codigo barras");
@@ -711,11 +713,56 @@ namespace Centaurus
                     ProdutoBLL produtoBLL = new ProdutoBLL();
 
                     produtoModelo.idProduto = Convert.ToInt32(textBoxCodigoItem.Text);
-                    produtoBLL.buscarProdutoCodigos(produtoModelo);
-
+                    produtoBLL.buscarProdutoClick(produtoModelo);
+                    
+                    //Pesquiso o item pelo código de item, se a o return for maior que um quer dizer que existe variação deste produto e irei abrir o dialog para escolher
                     if(produtoModelo.idProduto > 1)
                     {
-                        MessageBox.Show("abrir dialog para escolher as variações");
+                        string tipoConsulta = "PV";
+                        string filtro = textBoxCodigoItem.Text;
+                        frmConsultaProduto = new FrmConsultaProduto(tipoConsulta, filtro);
+                        DialogResult dr = frmConsultaProduto.ShowDialog(this);
+
+                        idProdutoReturn = frmConsultaProduto.idProdutoClicado;
+                        if (String.IsNullOrEmpty(idProdutoReturn) == true)
+                        {
+                            MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            nomeProdutoReturn = frmConsultaProduto.nomeProdutoClicado;
+                            labelNomeProduto.Text = nomeProdutoReturn;
+
+                            valorProdutoReturn = frmConsultaProduto.valorProdutoClicado;
+                            textBoxValor.Text = valorProdutoReturn;
+
+                            custoProdutoReturn = frmConsultaProduto.custoProdutoClicado;
+
+                            valorOriginalProdutoReturn = frmConsultaProduto.valorProdutoClicado;
+
+                            idVariacaoProdutoReturn = frmConsultaProduto.idProdutoVariacaoClicado;
+
+                            textBoxQuantidadeItem.Text = "1";
+                        }
+                    }
+                    //Neste caso o produto ñ tem variação, já puxo direto seu nome, custo, e valor
+                    else
+                    {
+                        nomeProdutoReturn = produtoModelo.descricaoProduto;
+                        labelNomeProduto.Text = nomeProdutoReturn;
+
+                        valorProdutoReturn = Convert.ToString(produtoModelo.vendaProduto);
+                        textBoxValor.Text = valorProdutoReturn;
+
+                        custoProdutoReturn = Convert.ToString(produtoModelo.custoFinalProduto);
+
+                        valorOriginalProdutoReturn = valorProdutoReturn;
+
+                        idVariacaoProdutoReturn = "0";
+
+                        textBoxQuantidadeItem.Text = "1";
+
+
                     }
                     
                 }
@@ -758,7 +805,8 @@ namespace Centaurus
         private void buttonBuscarItem_Click(object sender, EventArgs e)
         {
             string tipoConsulta = "PV";
-            frmConsultaProduto = new FrmConsultaProduto(tipoConsulta);
+            string filtro = null;
+            frmConsultaProduto = new FrmConsultaProduto(tipoConsulta, filtro);
             DialogResult dr = frmConsultaProduto.ShowDialog(this);
 
             idProdutoReturn = frmConsultaProduto.idProdutoClicado;
