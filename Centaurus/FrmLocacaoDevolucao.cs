@@ -640,6 +640,8 @@ namespace Centaurus
 
             //Método gera a id da locação devolução
             modLocDev.dataLancamentoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
+            modLocDev.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+
             bllLocDev.gerarIDLocacaoDev(modLocDev);
 
 

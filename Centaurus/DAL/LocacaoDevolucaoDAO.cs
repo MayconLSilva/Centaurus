@@ -167,8 +167,10 @@ namespace Centaurus.DAL
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
+                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao,tipo_locacao,numerolocacaodev_locacao) values (@dataLan,@tipo,@numeroloc)", conexao);
                 comando.Parameters.AddWithValue("@dataLan", modLocacaoDev.dataLancamentoLocacaoDev);
+                comando.Parameters.AddWithValue("@tipo", "D");
+                comando.Parameters.AddWithValue("@numeroloc", modLocacaoDev.idLocacao);
                 comando.ExecuteNonQuery();
             }
             catch (Exception erro)
