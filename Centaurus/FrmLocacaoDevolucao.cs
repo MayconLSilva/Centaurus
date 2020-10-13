@@ -654,13 +654,14 @@ namespace Centaurus
 
         private void buttonBuscarItemDev_Click(object sender, EventArgs e)
         {
+            string codigoItem = null; //Envio o código do item como nulo para pesquisar todos itens e ñ um especifico
             if(String.IsNullOrEmpty(textBoxNumeroLocacaoDev.Text) == true)
             {
                 MessageBox.Show("Você não selecionou nenhuma locação!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                frmConsultaProdDev = new FrmConsultaProdutoDevolucao(textBoxNumeroLocacaoDev.Text);
+                frmConsultaProdDev = new FrmConsultaProdutoDevolucao(textBoxNumeroLocacaoDev.Text, codigoItem);
                 DialogResult dr = frmConsultaProdDev.ShowDialog(this);
                 
                 string idProduto = frmConsultaProdDev.idProdutoEnvia;
@@ -826,7 +827,7 @@ namespace Centaurus
             if (e.KeyCode == Keys.Enter)
             {
                 if (comboBoxFiltroDev.SelectedItem == "Cód. Barras")
-                { 
+                {
 
                 }
                 else
@@ -836,10 +837,31 @@ namespace Centaurus
                     produtoBLL.buscarProdutoClickDev(produtoModelo);
 
                     //Verifico  se o retorno do código do produto é maior que um, caso seja abro a tela para selecionar o produto variação
-                    if(produtoModelo.idProduto > 1)
+                    if (produtoModelo.idProduto > 1)
                     {
+                        frmConsultaProdDev = new FrmConsultaProdutoDevolucao(textBoxNumeroLocacaoDev.Text,textBoxCodigoItemDev.Text);
+                        DialogResult dr = frmConsultaProdDev.ShowDialog(this);
 
-                    }
+                        string idProduto = frmConsultaProdDev.idProdutoEnvia;
+                        if (String.IsNullOrEmpty(idProduto) == true)
+                        {
+                            MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            idProdutovariacaoReturn = frmConsultaProdDev.idVariacaoProdutoEnvia;
+                            string valorProdutoLocado = frmConsultaProdDev.valorLocadoProdutoEnvia;
+                            float valorProdutoConvertido = Convert.ToSingle(valorProdutoLocado);
+
+                            decimal valorProdutoFormatado;
+                            valorProdutoFormatado = Convert.ToDecimal(valorProdutoConvertido.ToString("N2"));
+                            textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
+                            textBoxQuantidadeItemDev.Text = "1";
+
+                            qtdRestanteProdutoReturn = frmConsultaProdDev.qtdRestanteProdutoEnvia;
+
+                        }
+                    } 
                     else
                     //Aqui já puxo o item pelo código informado
                     {
@@ -847,16 +869,18 @@ namespace Centaurus
                         labelNomeProduto.Text = nomeProduto;
 
                         float valorProduto = produtoModelo.vendaProduto;
-                        textBoxValorDev.Text = Convert.ToString(valorProduto);
+                        decimal valorProdutoFormatado;
+                        valorProdutoFormatado = Convert.ToDecimal(valorProduto.ToString("N2"));
+                        textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
 
                         idProdutovariacaoReturn = Convert.ToString(produtoModelo.idProdVariacao);
 
                         qtdRestanteProdutoReturn = Convert.ToString(produtoModelo.qtdRestanteProdutoDev);
                         //Verifico se ainda existe itens restante a ser devolvido deste código
-                        if(Convert.ToInt32(qtdRestanteProdutoReturn) <= 0)
+                        if (Convert.ToInt32(qtdRestanteProdutoReturn) <= 0)
                         {
                             textBoxQuantidadeItemDev.Text = "0";
-                            MessageBox.Show("Não existe mais itens deste produto a ser devolvido! ", "Atenção!",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não existe mais itens deste produto a ser devolvido! ", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {

@@ -23,10 +23,15 @@ namespace Centaurus
         public string valorLocadoProdutoEnvia { get; set; }
         public string qtdRestanteProdutoEnvia { get; set; }
 
+        string numeroItem;
 
-        public FrmConsultaProdutoDevolucao(string numLocacao)
+        public FrmConsultaProdutoDevolucao(string numLocacao,string numItem)
         {
             returnNumeroLocacao = numLocacao;
+            if(String.IsNullOrEmpty(numItem) == true)
+            {
+                numeroItem = null;
+            }
             InitializeComponent();
 
             carregarInformacoes();
@@ -39,7 +44,7 @@ namespace Centaurus
 
         private void carregarInformacoes()
         {
-            dataGridViewProdutosDevLocacao.DataSource = daoLocaDev.listarItensParaDevolucao(returnNumeroLocacao);
+            dataGridViewProdutosDevLocacao.DataSource = daoLocaDev.listarItensParaDevolucao(returnNumeroLocacao, numeroItem);
             configurarDataGridView();
         }
 

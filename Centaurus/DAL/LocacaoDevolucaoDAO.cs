@@ -222,7 +222,7 @@ namespace Centaurus.DAL
         }
 
         //Inicio código fonte pesquisa os itens para devolução da locação informada
-        public DataTable listarItensParaDevolucao(string filtro)
+        public DataTable listarItensParaDevolucao(string filtroNumLocacao,string filtroIDItem)
         {
             DataTable dt = new DataTable();
 
@@ -230,7 +230,14 @@ namespace Centaurus.DAL
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '"+filtro+"' order by IDLocacao");
+                if(String.IsNullOrEmpty(filtroIDItem) == true)
+                {
+                    dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '" + filtroNumLocacao + "' order by IDLocacao");
+                }
+                else
+                {
+                    dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '" + filtroNumLocacao + "' and IDProduto = '"+filtroIDItem+"'");
+                }               
             }
             catch (Exception ex)
             {
