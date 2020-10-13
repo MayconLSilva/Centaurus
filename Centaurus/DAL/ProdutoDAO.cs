@@ -471,13 +471,15 @@ namespace Centaurus.Dao
                     float valorReal = Convert.ToSingle(dr["ValorLocado"]);
                     int variacaoProduto = Convert.ToInt32(dr["IDProdutoVariacao"]);
                     int qtdRestanteProduto = Convert.ToInt32(dr["Restante"]);
+                    int idProduto = Convert.ToInt32(dr["IDProduto"]);
                     contador = contador + 1;
 
                     modProduto.descricaoProduto = nomeProduto;
-                    modProduto.idProduto = contador;
-                    modProduto.vendaProduto = valorReal;
+                    modProduto.idProduto = idProduto;
                     modProduto.idProdVariacao = variacaoProduto;
-                    modProduto.qtdRestanteProdutoDev = qtdRestanteProduto;
+                    modProduto.vendaProduto = valorReal;                    
+                    modProduto.qtdRestanteProdutoDev = qtdRestanteProduto;//Restante de itens a ser devolvido
+                    modProduto.qtdProdVariacao = contador;
                 }
 
             }

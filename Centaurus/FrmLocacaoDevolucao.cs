@@ -846,6 +846,7 @@ namespace Centaurus
                     valorProdutoFormatado = Convert.ToDecimal(valorProduto.ToString("N2"));
                     textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
 
+                    textBoxCodigoItemDev.Text = Convert.ToString(produtoModelo.idProduto);
                     idProdutovariacaoReturn = Convert.ToString(produtoModelo.idProdVariacao);
 
                     qtdRestanteProdutoReturn = Convert.ToString(produtoModelo.qtdRestanteProdutoDev);
@@ -868,7 +869,7 @@ namespace Centaurus
                     produtoBLL.buscarProdutoClickDev(produtoModelo);
 
                     //Verifico  se o retorno do código do produto é maior que um, caso seja abro a tela para selecionar o produto variação
-                    if (produtoModelo.idProduto > 1)
+                    if (produtoModelo.qtdProdVariacao > 1)
                     {
                         frmConsultaProdDev = new FrmConsultaProdutoDevolucao(textBoxNumeroLocacaoDev.Text,textBoxCodigoItemDev.Text);
                         DialogResult dr = frmConsultaProdDev.ShowDialog(this);
@@ -921,5 +922,6 @@ namespace Centaurus
                 }
             }
         }
+
     }
 }
