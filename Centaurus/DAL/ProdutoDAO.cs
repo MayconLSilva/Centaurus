@@ -456,14 +456,12 @@ namespace Centaurus.Dao
         }
 
         public ProdutoModelo buscarProdutoClickDev(ProdutoModelo modProduto)
-        {
-            Console.WriteLine("id produto " + modProduto.idProduto);
-            Console.WriteLine("id loca " + modProduto.idLocacao);
+        {            
             int contador = 0;
             try
             {
                 AbrirConexao();
-                comando = new MySqlCommand("select *from viewlistarlocacaoitensdev where IDProduto = '" + modProduto.idProduto + "' and IDLocacao = '" + modProduto.idLocacao + "'", conexao);
+                comando = new MySqlCommand("select *from viewlistarlocacaoitensdev where IDProduto = '" + modProduto.idProduto + "' and IDLocacao = '" + modProduto.idLocacao + "' or idLocacao = '" + modProduto.idLocacao + "' and CodBarras= '"+modProduto.codBarrasProduto+"'", conexao);
 
                 dr = comando.ExecuteReader();
 

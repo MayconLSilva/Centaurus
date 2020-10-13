@@ -238,7 +238,7 @@ namespace Centaurus.DAL
                 }
                 else
                 {
-                    dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '" + filtroNumLocacao + "' and IDProduto = '"+filtroIDItem+"'");
+                    dt = conexao.RetDataTable("select *from viewlistarlocacaoitensdev where idlocacao = '" + filtroNumLocacao + "' and IDProduto = '"+filtroIDItem+ "'");
                 }               
             }
             catch (Exception ex)

@@ -835,6 +835,7 @@ namespace Centaurus
                 if (comboBoxFiltroDev.SelectedItem == "Cód. Barras")
                 {
                     produtoModelo.idProduto = 0;
+                    produtoModelo.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
                     produtoModelo.codBarrasProduto = textBoxCodigoItemDev.Text;
                     produtoBLL.buscarProdutoClickDev(produtoModelo);
 
