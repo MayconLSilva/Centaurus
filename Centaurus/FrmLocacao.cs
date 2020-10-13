@@ -720,6 +720,7 @@ namespace Centaurus
 
                     valorOriginalProdutoReturn = valorProdutoReturn;
 
+                    textBoxCodigoItem.Text = Convert.ToString(produtoModelo.idProduto);
                     idVariacaoProdutoReturn = Convert.ToString(produtoModelo.idProdVariacao);
 
                     textBoxQuantidadeItem.Text = "1";
@@ -730,7 +731,7 @@ namespace Centaurus
                     produtoBLL.buscarProdutoClick(produtoModelo);
                     
                     //Pesquiso o item pelo código de item, se a o return for maior que um quer dizer que existe variação deste produto e irei abrir o dialog para escolher
-                    if(produtoModelo.idProduto > 1)
+                    if(produtoModelo.qtdProdVariacao > 1)
                     {
                         string tipoConsulta = "PV";
                         string filtro = textBoxCodigoItem.Text;

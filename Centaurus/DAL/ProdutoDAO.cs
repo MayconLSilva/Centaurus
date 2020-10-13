@@ -433,14 +433,16 @@ namespace Centaurus.Dao
                     string nomeProduto = Convert.ToString(dr["descricao_produto"]);
                     float custoProduto = Convert.ToSingle(dr["custo"]);
                     float valorReal = Convert.ToSingle(dr["venda_produto"]);
+                    int idProduto = Convert.ToInt32(dr["id_produto"]);
                     int variacaoProduto = Convert.ToInt32(dr["variacaoproduto"]);
                     contador = contador + 1;
                     
                     modProduto.descricaoProduto = nomeProduto;
-                    modProduto.idProduto = contador;
                     modProduto.custoFinalProduto = custoProduto;
                     modProduto.vendaProduto = valorReal;
+                    modProduto.idProduto = idProduto;
                     modProduto.idProdVariacao = variacaoProduto;
+                    modProduto.qtdProdVariacao = contador;
                 }
 
             }
