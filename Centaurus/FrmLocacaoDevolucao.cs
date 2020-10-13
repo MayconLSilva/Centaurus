@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Centaurus.DTO;
 using Centaurus.DAL;
 using Centaurus.BLL;
+using Centaurus.Model;
+using Centaurus.Bll;
 
 namespace Centaurus
 {
@@ -814,6 +816,55 @@ namespace Centaurus
         {
             botaoClicado = "EDITAR";
             inativarBotoesCampos();            
+        }
+
+        private void textBoxCodigoItemDev_KeyDown(object sender, KeyEventArgs e)
+        {
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (comboBoxFiltroDev.SelectedItem == "Cód. Barras")
+                { 
+
+                }
+                else
+                {
+                    produtoModelo.idProduto = Convert.ToInt32(textBoxCodigoItemDev.Text);
+                    produtoModelo.idLocacao = Convert.ToInt32(textBoxNumeroLocacaoDev.Text);
+                    produtoBLL.buscarProdutoClickDev(produtoModelo);
+
+                    //Verifico  se o retorno do código do produto é maior que um, caso seja abro a tela para selecionar o produto variação
+                    if(produtoModelo.idProduto > 1)
+                    {
+
+                    }
+                    else
+                    //Aqui já puxo o item pelo código informado
+                    {
+                        string nomeProduto = produtoModelo.descricaoProduto;
+                        labelNomeProduto.Text = nomeProduto;
+
+                        float valorProduto = produtoModelo.vendaProduto;
+                        textBoxValorDev.Text = Convert.ToString(valorProduto);
+
+                        idProdutovariacaoReturn = Convert.ToString(produtoModelo.idProdVariacao);
+
+                        qtdRestanteProdutoReturn = Convert.ToString(produtoModelo.qtdRestanteProdutoDev);
+                        //Verifico se ainda existe itens restante a ser devolvido deste código
+                        if(Convert.ToInt32(qtdRestanteProdutoReturn) <= 0)
+                        {
+                            textBoxQuantidadeItemDev.Text = "0";
+                            MessageBox.Show("Não existe mais itens deste produto a ser devolvido! ", "Atenção!",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            textBoxQuantidadeItemDev.Text = "1";
+                        }
+                    }
+                }
+            }
         }
     }
 }

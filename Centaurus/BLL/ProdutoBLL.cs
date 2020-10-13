@@ -112,6 +112,19 @@ namespace Centaurus.Bll
             }
         }
 
+        //Utilizado na tela locação devolução, para pesquisar o item a ser devolvido pelo click do código
+        public void buscarProdutoClickDev(ProdutoModelo modProduto)
+        {
+            try
+            {
+                produtoDAO.buscarProdutoClickDev(modProduto);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar o item a ser devolvido, classe BLL! " + erro.Message);
+            }
+        }
+
         public DataTable listarVariacoesDoProduto(string filtro)
         {
             DataTable dataTable = new DataTable();

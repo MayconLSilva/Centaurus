@@ -300,6 +300,7 @@
             this.textBoxCodigoItemDev.Name = "textBoxCodigoItemDev";
             this.textBoxCodigoItemDev.Size = new System.Drawing.Size(54, 20);
             this.textBoxCodigoItemDev.TabIndex = 102;
+            this.textBoxCodigoItemDev.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoItemDev_KeyDown);
             // 
             // dataGridViewLocaoDev
             // 

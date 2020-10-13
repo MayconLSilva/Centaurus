@@ -44,5 +44,9 @@ namespace Centaurus.Model
         public char fatorProdVariacao { get; set; }
         public double qtdProdVariacao { get; set; }
         public string codBarrasVariacao { get; set; }
+
+        //Váriavel utilizada para tela locação
+        public int idLocacao { get; set; }
+        public int qtdRestanteProdutoDev { get; set; }
     }
 }

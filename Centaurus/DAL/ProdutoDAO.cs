@@ -420,8 +420,6 @@ namespace Centaurus.Dao
 
         public ProdutoModelo buscarProdutoClick(ProdutoModelo modProduto)
         {
-            Console.WriteLine("cod barras " + modProduto.codBarrasProduto);
-            Console.WriteLine("cod interno " + modProduto.idProduto);
             int contador = 0;
             try
             {
@@ -447,6 +445,45 @@ namespace Centaurus.Dao
 
             }
             catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o produto pelo código informado, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modProduto;
+        }
+
+        public ProdutoModelo buscarProdutoClickDev(ProdutoModelo modProduto)
+        {
+            Console.WriteLine("id produto " + modProduto.idProduto);
+            Console.WriteLine("id loca " + modProduto.idLocacao);
+            int contador = 0;
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select *from viewlistarlocacaoitensdev where IDProduto = '" + modProduto.idProduto + "' and IDLocacao = '" + modProduto.idLocacao + "'", conexao);
+
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string nomeProduto = Convert.ToString(dr["Descricao"]);
+                    float valorReal = Convert.ToSingle(dr["ValorLocado"]);
+                    int variacaoProduto = Convert.ToInt32(dr["IDProdutoVariacao"]);
+                    int qtdRestanteProduto = Convert.ToInt32(dr["Restante"]);
+                    contador = contador + 1;
+
+                    modProduto.descricaoProduto = nomeProduto;
+                    modProduto.idProduto = contador;
+                    modProduto.vendaProduto = valorReal;
+                    modProduto.idProdVariacao = variacaoProduto;
+                    modProduto.qtdRestanteProdutoDev = qtdRestanteProduto;
+                }
+
+            }
+            catch (Exception erro)
             {
                 throw new Exception("Erro ao buscar o produto pelo código informado, classe DAO! " + erro.Message);
             }
