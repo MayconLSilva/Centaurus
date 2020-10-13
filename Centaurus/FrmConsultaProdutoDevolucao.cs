@@ -22,6 +22,7 @@ namespace Centaurus
         public string idVariacaoProdutoEnvia { get; set; }
         public string valorLocadoProdutoEnvia { get; set; }
         public string qtdRestanteProdutoEnvia { get; set; }
+        public string nomeProdutoEnvia { get; set; }
 
         string numeroItem;
 
@@ -107,8 +108,8 @@ namespace Centaurus
 
         private void dataGridViewProdutosDevLocacao_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string nomeProduto = dataGridViewProdutosDevLocacao.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBoxProdutoClicado.Text = nomeProduto;
+            nomeProdutoEnvia = dataGridViewProdutosDevLocacao.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBoxProdutoClicado.Text = nomeProdutoEnvia;
 
             idProdutoEnvia = dataGridViewProdutosDevLocacao.Rows[e.RowIndex].Cells[0].Value.ToString();
             idVariacaoProdutoEnvia = dataGridViewProdutosDevLocacao.Rows[e.RowIndex].Cells[1].Value.ToString();

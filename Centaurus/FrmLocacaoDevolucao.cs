@@ -670,15 +670,17 @@ namespace Centaurus
                     MessageBox.Show("Você não selecionou nenhum produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                {
+                {                    
                     textBoxCodigoItemDev.Text = idProduto;
+                    labelNomeProduto.Text = frmConsultaProdDev.nomeProdutoEnvia;
                     idProdutovariacaoReturn = frmConsultaProdDev.idVariacaoProdutoEnvia;
+                    
                     string valorProdutoLocado = frmConsultaProdDev.valorLocadoProdutoEnvia;
                     float valorProdutoConvertido = Convert.ToSingle(valorProdutoLocado);
-
                     decimal valorProdutoFormatado;
                     valorProdutoFormatado = Convert.ToDecimal(valorProdutoConvertido.ToString("N2"));
                     textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
+                    
                     textBoxQuantidadeItemDev.Text = "1";
 
                     qtdRestanteProdutoReturn = frmConsultaProdDev.qtdRestanteProdutoEnvia;
@@ -824,12 +826,38 @@ namespace Centaurus
             ProdutoModelo produtoModelo = new ProdutoModelo();
             ProdutoBLL produtoBLL = new ProdutoBLL();
 
+            //Caso tenha informado código e click enter
             if (e.KeyCode == Keys.Enter)
             {
+                //Se o tipo de pesquisa for cód. barras
                 if (comboBoxFiltroDev.SelectedItem == "Cód. Barras")
                 {
+                    produtoModelo.idProduto = 0;
+                    produtoModelo.codBarrasProduto = textBoxCodigoItemDev.Text;
+                    produtoBLL.buscarProdutoClickDev(produtoModelo);
 
+                    labelNomeProduto.Text = produtoModelo.descricaoProduto;
+
+                    float valorProduto = produtoModelo.vendaProduto;
+                    decimal valorProdutoFormatado;
+                    valorProdutoFormatado = Convert.ToDecimal(valorProduto.ToString("N2"));
+                    textBoxValorDev.Text = Convert.ToString(valorProdutoFormatado);
+
+                    idProdutovariacaoReturn = Convert.ToString(produtoModelo.idProdVariacao);
+
+                    qtdRestanteProdutoReturn = Convert.ToString(produtoModelo.qtdRestanteProdutoDev);
+                    //Verifico se ainda existe itens restante a ser devolvido deste código
+                    if (Convert.ToInt32(qtdRestanteProdutoReturn) <= 0)
+                    {
+                        textBoxQuantidadeItemDev.Text = "0";
+                        MessageBox.Show("Não existe mais itens deste produto a ser devolvido! ", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        textBoxQuantidadeItemDev.Text = "1";
+                    }
                 }
+                //Se o tipo de pesquisa for diferente de código de barras
                 else
                 {
                     produtoModelo.idProduto = Convert.ToInt32(textBoxCodigoItemDev.Text);

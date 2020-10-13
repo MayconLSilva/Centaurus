@@ -450,13 +450,13 @@ namespace Centaurus
         private void textBoxValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-            (e.KeyChar != '.'))
+            (e.KeyChar != ','))
             {
                 e.Handled = true;
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -783,6 +783,21 @@ namespace Centaurus
             }
         }
 
+        private void textBoxCodigoItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void buttonBuscarLocacoes_Click(object sender, EventArgs e)
         {
             frmConsultaLocacao = new FrmConsultaLocacao();
@@ -835,10 +850,14 @@ namespace Centaurus
                 nomeProdutoReturn = frmConsultaProduto.nomeProdutoClicado;
                 labelNomeProduto.Text = nomeProdutoReturn;
 
-                valorProdutoReturn = frmConsultaProduto.valorProdutoClicado;
-                textBoxValor.Text = valorProdutoReturn;
-
                 custoProdutoReturn = frmConsultaProduto.custoProdutoClicado;
+
+                string valorProdutoRetornado = frmConsultaProduto.valorProdutoClicado;
+                float valorConvertido = Convert.ToSingle(valorProdutoRetornado);
+                decimal valorProdutoFormatado;
+                valorProdutoFormatado = Convert.ToDecimal(valorConvertido.ToString("N2"));                
+                //valorProdutoReturn = frmConsultaProduto.valorProdutoClicado;
+                textBoxValor.Text = Convert.ToString(valorProdutoFormatado);
 
                 valorOriginalProdutoReturn = frmConsultaProduto.valorProdutoClicado;
 
