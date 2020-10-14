@@ -31,6 +31,7 @@ namespace Centaurus
         FrmConsultaDevolucaoLocacao frmConsultaDevLoc;
 
         LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
+        LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
 
         public FrmLocacaoDevolucao(string idLocacaoRetornada,string usuarioLogado)
         {
@@ -457,7 +458,7 @@ namespace Centaurus
 
         private void carregarItens()
         {
-            dataGridViewLocaoDev.DataSource = locacaoDevDAO.listarItens(textBoxCodigoDev.Text);
+            dataGridViewLocaoDev.DataSource = locacaoDevBLL.listarItensDaLocacaoDevolucao(textBoxCodigoDev.Text);
             configurarDataGridView();
         }
 

@@ -7,6 +7,7 @@ using Centaurus.Dao;
 using Centaurus.Model;
 using Centaurus.DTO;
 using Centaurus.DAL;
+using System.Data;
 
 namespace Centaurus.BLL
 {
@@ -14,7 +15,7 @@ namespace Centaurus.BLL
     {
         LocacaoDevolucaoDAO daoLocDev = new LocacaoDevolucaoDAO();
 
-        public void devolucaoLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        public void importarLocacao(LocacaoDevolucaoModelo modLocacaoDev)
         {
             try
             {
@@ -97,6 +98,53 @@ namespace Centaurus.BLL
             }
         }
 
+        public DataTable listarItensDaLocacaoDevolucao(string filtro)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+               dataTable = daoLocDev.listarItensDaLocacaoDevolucao(filtro);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar os itens da locação devolução, classe BLL! " + erro.Message);
+            }
+        }
+
+        public DataTable listarItensParaDevolucao(string filtroNumLocacao, string filtroIDItem)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = daoLocDev.listarItensParaDevolucao(filtroNumLocacao, filtroIDItem);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar os itens para devolução, classe BLL! " + erro.Message);
+            }
+        }
+
+        public DataTable listarLocacaoDevolucao(string tipoFiltro, string filtro)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = daoLocDev.listarLocacaoDevolucao(tipoFiltro, filtro);
+
+                return dataTable;
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao listar as devoluções da locação, classe BLL! " + erro.Message);
+            }
+        }
 
     }
 }

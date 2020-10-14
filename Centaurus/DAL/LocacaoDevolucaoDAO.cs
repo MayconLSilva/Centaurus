@@ -18,56 +18,9 @@ namespace Centaurus.DAL
 
         public string numeroIncluido { get; set; }
 
-        //Método inserir locação devolução copiando dados da locação
-        public void importarLocacao(LocacaoDevolucaoModelo modLocacaoDev)
-        {
-            try
-            {
-                AbrirConexao();
-                //comando = new MySqlCommand("insert into locacao (dataLancamento_locacao) values (@dataLan)", conexao);
-                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao, " +
-                   " idCliente_locacao, " +
-                   " tipo_locacao, " +
-                   " numerolocacaodev_locacao, " +
-                   " dataDevolucao_locacao) " +
-                   " select current_timestamp(),idCliente_locacao,'D',id_locacao,current_timestamp() " +
-                   " from locacao where id_locacao = @idLocacao", conexao);
-                comando.Parameters.AddWithValue("@idLocacao", modLocacaoDev.idLocacao);
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
+        
 
-        //Método inserir itens locação devolução copiando dados da locação
-        public void importarItemLocacao(LocacaoDevolucaoModelo modLocacaoDev)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, "+
-                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) "+
-                " select idProduto_locacaoitens, valorLocado_locacaoitens,@idLocacaoDev, " +
-                " qtdLocada_locacaoitens,'D',idVariacaoProduto_locacaoitens from locacaoitens where idLocacao_locacaoitens = @idLocacaoOld", conexao);
-                comando.Parameters.AddWithValue("@idLocacaoDev", modLocacaoDev.idLocacaoDev);
-                comando.Parameters.AddWithValue("@idLocacaoOld", modLocacaoDev.idLocacao);
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
+       
 
         //Método busca informações da locação devolução para setar nos seus respectivos campos
         public LocacaoDevolucaoModelo buscarLocacaoDev(LocacaoDevolucaoModelo locacaoDev)
@@ -102,22 +55,7 @@ namespace Centaurus.DAL
             return locacaoDev;
         }
 
-        //Método listar itens locação na tabela
-        public DataTable listarItens(string filtro)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                dt = conexao.RetDataTable("select *from viewlocacaoitens where idLocacao_locacaoitens = '" + filtro + "'");
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao consultar itens " + erro.Message);
-            }
-            return dt;
-        }
+        
 
         //Método salvar locação devolução, será finalizado com update
         public void SalvarDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
@@ -203,24 +141,24 @@ namespace Centaurus.DAL
             }
         }
 
-        //Método utilizado para excluir o item da devolução da locação
-        public void excluirItemLocacaoDevolucao(LocacaoDevolucaoModelo modLocacaoDev)
+
+
+
+        //Método listar itens locação na tabela
+        public DataTable listarItensDaLocacaoDevolucao(string filtro)
         {
+            DataTable dt = new DataTable();
             try
             {
                 ConexaoBanco conexao = new ConexaoBanco();
                 conexao.AbrirConexao();
-                string comando = "delete from locacaoitens where id_locacaoitens=" + modLocacaoDev.codigoItem;
-                conexao.ExecutarComandoSQL(comando);
+                dt = conexao.RetDataTable("select *from viewlocacaoitens where idLocacao_locacaoitens = '" + filtro + "'");
             }
             catch (Exception erro)
             {
-                throw new Exception("Erro ao excluir o item da devolução, classe DAO: " + erro.Message);
+                throw new Exception("Erro ao consultar itens " + erro.Message);
             }
-            finally
-            {
-                FecharConexao();
-            }
+            return dt;
         }
 
         //Inicio código fonte pesquisa os itens para devolução da locação informada
@@ -247,56 +185,9 @@ namespace Centaurus.DAL
             }
             return dt;
         }
-
-        //Método inserir item manualmente na devolução da locação
-        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, "+
-                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) values(@idProd, @valor, @idLoca, @qtd, @tipo, @idvariacao)",conexao);
-                comando.Parameters.AddWithValue("@idProd", modLocacaoDev.idProdutoDevLocacao);
-                comando.Parameters.AddWithValue("@valor", modLocacaoDev.valorProdutoDevLocacao);
-                comando.Parameters.AddWithValue("@idLoca", modLocacaoDev.idLocacaoDev);
-                comando.Parameters.AddWithValue("@qtd", modLocacaoDev.qtdProdutoDevLocacao);
-                comando.Parameters.AddWithValue("@tipo", "D");
-                comando.Parameters.AddWithValue("@idvariacao", modLocacaoDev.idProdutoVariacaoDevLocacao);
-                comando.ExecuteNonQuery();
-
-            }
-            catch(Exception erro)
-            {
-                throw new Exception("Erro ao inserir item, classe DAO " + erro.Message);
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
-
-        //Método excluir devolução da locação
-        public void excluirDevolucaoLocacao(LocacaoDevolucaoModelo modLocacaoDev)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("delete from locacao where id_locacao = @idLoc", conexao);
-                comando.Parameters.AddWithValue("@idLoc", modLocacaoDev.idLocacaoDev);
-                comando.ExecuteNonQuery();
-            }
-            catch(Exception erro)
-            {
-                throw new Exception("Erro ao excluir locação, classe DAO" + erro.Message);
-            }
-            finally
-            {
-                FecharConexao();
-            }
-        }
-
+        
         //Método listar devolução da locação na pesquisa
-        public DataTable listarDevLocacao(string tipoFiltro, string filtro)
+        public DataTable listarLocacaoDevolucao(string tipoFiltro, string filtro)
         {
             DataTable dt = new DataTable();
 
@@ -364,7 +255,122 @@ namespace Centaurus.DAL
             return dt;
         }
 
+        //Método inserir item manualmente na devolução da locação
+        public void inserirItemDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, " +
+                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) values(@idProd, @valor, @idLoca, @qtd, @tipo, @idvariacao)", conexao);
+                comando.Parameters.AddWithValue("@idProd", modLocacaoDev.idProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@valor", modLocacaoDev.valorProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@idLoca", modLocacaoDev.idLocacaoDev);
+                comando.Parameters.AddWithValue("@qtd", modLocacaoDev.qtdProdutoDevLocacao);
+                comando.Parameters.AddWithValue("@tipo", "D");
+                comando.Parameters.AddWithValue("@idvariacao", modLocacaoDev.idProdutoVariacaoDevLocacao);
+                comando.ExecuteNonQuery();
 
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao inserir item, classe DAO " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método excluir devolução da locação
+        public void excluirDevolucaoLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("delete from locacao where id_locacao = @idLoc", conexao);
+                comando.Parameters.AddWithValue("@idLoc", modLocacaoDev.idLocacaoDev);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao excluir locação, classe DAO" + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método utilizado para excluir o item da devolução da locação
+        public void excluirItemLocacaoDevolucao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                ConexaoBanco conexao = new ConexaoBanco();
+                conexao.AbrirConexao();
+                string comando = "delete from locacaoitens where id_locacaoitens=" + modLocacaoDev.codigoItem;
+                conexao.ExecutarComandoSQL(comando);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao excluir o item da devolução, classe DAO: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método inserir itens locação devolução copiando dados da locação
+        public void importarItemLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacaoitens (idProduto_locacaoitens,valorLocado_locacaoitens,idLocacao_locacaoitens, " +
+                " qtdLocada_locacaoitens, tipo_locacaoitens, idVariacaoProduto_locacaoitens) " +
+                " select idProduto_locacaoitens, valorLocado_locacaoitens,@idLocacaoDev, " +
+                " qtdLocada_locacaoitens,'D',idVariacaoProduto_locacaoitens from locacaoitens where idLocacao_locacaoitens = @idLocacaoOld", conexao);
+                comando.Parameters.AddWithValue("@idLocacaoDev", modLocacaoDev.idLocacaoDev);
+                comando.Parameters.AddWithValue("@idLocacaoOld", modLocacaoDev.idLocacao);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Método inserir locação devolução copiando dados da locação
+        public void importarLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("insert into locacao (dataLancamento_locacao, " +
+                   " idCliente_locacao, " +
+                   " tipo_locacao, " +
+                   " numerolocacaodev_locacao, " +
+                   " dataDevolucao_locacao) " +
+                   " select current_timestamp(),idCliente_locacao,'D',id_locacao,current_timestamp() " +
+                   " from locacao where id_locacao = @idLocacao", conexao);
+                comando.Parameters.AddWithValue("@idLocacao", modLocacaoDev.idLocacao);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
 
     }
 }

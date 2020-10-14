@@ -646,7 +646,7 @@ namespace Centaurus
                 LocacaoDevolucaoModelo modLocacaoDev = new LocacaoDevolucaoModelo();
 
                 modLocacaoDev.idLocacao = Convert.ToInt32(textBoxCodigo.Text);
-                locacaoDevBLL.devolucaoLocacao(modLocacaoDev);
+                locacaoDevBLL.importarLocacao(modLocacaoDev);
 
                 //Abrir tela devolução
                 var FrmPrincipal = this.ParentForm;
