@@ -29,8 +29,7 @@ namespace Centaurus
         FrmConsultaLocacao frmConsultaLocacao;
         FrmConsultaProdutoDevolucao frmConsultaProdDev;
         FrmConsultaDevolucaoLocacao frmConsultaDevLoc;
-
-        LocacaoDevolucaoDAO locacaoDevDAO = new LocacaoDevolucaoDAO();
+                
         LocacaoDevolucaoBLL locacaoDevBLL = new LocacaoDevolucaoBLL();
 
         public FrmLocacaoDevolucao(string idLocacaoRetornada,string usuarioLogado)
@@ -433,13 +432,13 @@ namespace Centaurus
         public void buscarInformacoesLocacao()
         { 
             LocacaoDevolucaoModelo modlocacaoDev = new LocacaoDevolucaoModelo();
-            LocacaoDevolucaoDAO locacaoDevDao = new LocacaoDevolucaoDAO();            
-
+            
             try
             {
                 //Método enviar a id da locacao para pesquisar a devolução da locação
                 modlocacaoDev.idLocacao = Convert.ToInt32(idLocacaoReturn);
-                modlocacaoDev = locacaoDevDao.buscarLocacaoDev(modlocacaoDev);
+                //modlocacaoDev = locacaoDevDao.buscarInformacoesLocacao(modlocacaoDev);
+                locacaoDevBLL.buscarInformacoesLocacao(modlocacaoDev);
 
                 string nomeCliente = modlocacaoDev.nomeClienteLocacaoDev;
                 int idCliente = modlocacaoDev.idClienteLocacaoDev;
@@ -647,11 +646,8 @@ namespace Centaurus
 
 
             //Método chama o ultimo registro
-            string data = textBoxDataLancamentoDev.Text;
-            var dataConvertida = DateTime.Parse(data).ToString("yyyy-MM-dd HH:mm:ss");
-            daoLocDev.pegarIdGerada(dataConvertida);
-            string idReturn = daoLocDev.numeroIncluido;
-            textBoxCodigoDev.Text = idReturn;
+            bllLocDev.buscarUltimoRegistro(modLocDev);            
+            textBoxCodigoDev.Text = Convert.ToString(modLocDev.idLocacaoDev);
 
         }
 

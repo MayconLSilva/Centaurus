@@ -15,47 +15,7 @@ namespace Centaurus.DAL
     {
         MySqlCommand comando = null;
         MySqlDataReader dr;
-
-        public string numeroIncluido { get; set; }
-
-        
-
-       
-
-        //Método busca informações da locação devolução para setar nos seus respectivos campos
-        public LocacaoDevolucaoModelo buscarLocacaoDev(LocacaoDevolucaoModelo locacaoDev)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("select id_locacao, dataLancamento_locacao,idCliente_locacao,dataDevolucao_locacao,nome_fantasia_participante from locacao as loc " +
-                    " inner join participante as parti on parti.id_partipante = loc.idCliente_locacao where numerolocacaodev_locacao = '" + locacaoDev.idLocacao + "'", conexao);
-                dr = comando.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    int idLocacaoDev = Convert.ToInt32(dr["id_locacao"]);
-                    int idCliente = Convert.ToInt32(dr["idCliente_locacao"]);
-                    DateTime dataLancamento = Convert.ToDateTime(dr["dataLancamento_locacao"]);
-                    DateTime dataDevolucao = Convert.ToDateTime(dr["dataDevolucao_locacao"]);
-                    string nomeCliente = Convert.ToString(dr["nome_fantasia_participante"]);
-
-
-                    locacaoDev.idLocacaoDev = idLocacaoDev;
-                    locacaoDev.idClienteLocacaoDev = idCliente;
-                    locacaoDev.dataLancamentoLocacaoDev = dataLancamento;
-                    locacaoDev.dataDevolucaoLocacaoDev = dataDevolucao;
-                    locacaoDev.nomeClienteLocacaoDev = nomeCliente;
-                }
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao pesquisar locação devolução " + erro.Message);
-            }
-            return locacaoDev;
-        }
-
-        
+                                       
 
         //Método salvar locação devolução, será finalizado com update
         public void SalvarDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
@@ -121,27 +81,7 @@ namespace Centaurus.DAL
             }
         }
 
-        //Método utizado para pegar a id da ultima locação quando inserido um item e não preenchido as informações, é filtrado pela data de lançamento
-        public void pegarIdGerada(string valorReturn)
-        {
-            try
-            {
-                AbrirConexao();
-                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where dataLancamento_locacao = '" + valorReturn + "'", conexao);
-                dr = comando.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    numeroIncluido = Convert.ToString(dr["numeroPego"]);
-                }
-            }
-            catch (Exception erro)
-            {
-                throw new Exception("Erro ao pesquisar id da locação: " + erro.Message);
-            }
-        }
-
-
+        
 
 
         //Método listar itens locação na tabela
@@ -371,6 +311,71 @@ namespace Centaurus.DAL
                 FecharConexao();
             }
         }
+
+        //Método busca informações da locação devolução para setar nos seus respectivos campos
+        public LocacaoDevolucaoModelo buscarInformacoesLocacao(LocacaoDevolucaoModelo locacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select id_locacao, dataLancamento_locacao,idCliente_locacao,dataDevolucao_locacao,nome_fantasia_participante from locacao as loc " +
+                    " inner join participante as parti on parti.id_partipante = loc.idCliente_locacao where numerolocacaodev_locacao = '" + locacaoDev.idLocacao + "'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    int idLocacaoDev = Convert.ToInt32(dr["id_locacao"]);
+                    int idCliente = Convert.ToInt32(dr["idCliente_locacao"]);
+                    DateTime dataLancamento = Convert.ToDateTime(dr["dataLancamento_locacao"]);
+                    DateTime dataDevolucao = Convert.ToDateTime(dr["dataDevolucao_locacao"]);
+                    string nomeCliente = Convert.ToString(dr["nome_fantasia_participante"]);
+
+
+                    locacaoDev.idLocacaoDev = idLocacaoDev;
+                    locacaoDev.idClienteLocacaoDev = idCliente;
+                    locacaoDev.dataLancamentoLocacaoDev = dataLancamento;
+                    locacaoDev.dataDevolucaoLocacaoDev = dataDevolucao;
+                    locacaoDev.nomeClienteLocacaoDev = nomeCliente;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar locação devolução " + erro.Message);
+            }
+            return locacaoDev;
+        }
+
+        //Método utizado para pegar a id da ultima locação quando inserido um item e não preenchido as informações, é filtrado pela data de lançamento
+        public LocacaoDevolucaoModelo buscarUltimoRegistro(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            string dataReturn = Convert.ToString(modLocacaoDev.dataLancamentoLocacaoDev);
+            var dataConvertida = DateTime.Parse(dataReturn).ToString("yyyy-MM-dd HH:mm:ss");
+
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select max(id_locacao) as numeroPego from locacao where dataLancamento_locacao = '" + dataConvertida + "'", conexao);
+                dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    int numeroIncluido = Convert.ToInt32(dr["numeroPego"]);
+                    modLocacaoDev.idLocacaoDev = numeroIncluido;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar id da locação: " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+            return modLocacaoDev;
+        }
+
+
+
 
     }
 }

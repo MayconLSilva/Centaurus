@@ -146,5 +146,29 @@ namespace Centaurus.BLL
             }
         }
 
+        public void buscarInformacoesLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.buscarInformacoesLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar informações da locação devolução, classe BLL! " + erro.Message);
+            }
+        }
+
+        public void buscarUltimoRegistro(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.buscarUltimoRegistro(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar o ultimo registro da devolução, classe BLL! " + erro.Message);
+            }
+        }
+
     }
 }
