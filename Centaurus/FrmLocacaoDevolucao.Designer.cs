@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocacaoDevolucao));
             this.menuStripLocacao = new System.Windows.Forms.MenuStrip();
             this.menuLocacaoDevNovo = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,7 @@
             this.textBoxNumeroLocacaoDev = new System.Windows.Forms.TextBox();
             this.buttonBuscarLocacao = new System.Windows.Forms.Button();
             this.labelInformativoGravar = new System.Windows.Forms.Label();
+            this.toolTipDevLocacao = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripLocacao.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBoxItens.SuspendLayout();
@@ -397,6 +399,9 @@
             this.textBoxCodigoDev.Name = "textBoxCodigoDev";
             this.textBoxCodigoDev.Size = new System.Drawing.Size(50, 20);
             this.textBoxCodigoDev.TabIndex = 108;
+            this.textBoxCodigoDev.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoDev_KeyDown);
+            this.textBoxCodigoDev.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodigoDev_KeyPress);
+            this.textBoxCodigoDev.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxCodigoDev_MouseMove);
             // 
             // labelCodigo
             // 
@@ -445,6 +450,12 @@
             this.labelInformativoGravar.Size = new System.Drawing.Size(291, 13);
             this.labelInformativoGravar.TabIndex = 129;
             this.labelInformativoGravar.Text = "Não esqueça de clicar em gravar para finalizar a devolução!";
+            // 
+            // toolTipDevLocacao
+            // 
+            this.toolTipDevLocacao.IsBalloon = true;
+            this.toolTipDevLocacao.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipDevLocacao.ToolTipTitle = "Atenção...";
             // 
             // FrmLocacaoDevolucao
             // 
@@ -530,5 +541,6 @@
         private System.Windows.Forms.TextBox textBoxNumeroLocacaoDev;
         private System.Windows.Forms.Button buttonBuscarLocacao;
         private System.Windows.Forms.Label labelInformativoGravar;
+        private System.Windows.Forms.ToolTip toolTipDevLocacao;
     }
 }

@@ -170,5 +170,17 @@ namespace Centaurus.BLL
             }
         }
 
+        public void buscarInformacoesDevLocacao(LocacaoDevolucaoModelo modLocacaoDev)
+        {
+            try
+            {
+                daoLocDev.buscarInformacoesDevLocacao(modLocacaoDev);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar locacão devolução, classe BLL! " + erro.Message);
+            }
+        }
+
     }
 }

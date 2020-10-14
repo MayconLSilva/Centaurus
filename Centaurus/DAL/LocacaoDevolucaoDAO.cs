@@ -374,7 +374,40 @@ namespace Centaurus.DAL
             return modLocacaoDev;
         }
 
+        //Método buscar locação devolução, utilizado para buscar a dev pelo código informado no campo por click
+        public LocacaoDevolucaoModelo buscarInformacoesDevLocacao(LocacaoDevolucaoModelo locacaoDev)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select numerolocacaodev_locacao, dataLancamento_locacao,idCliente_locacao,dataDevolucao_locacao,nome_fantasia_participante,usuario_locacao from locacao as loc " +
+                    " inner join participante as parti on parti.id_partipante = loc.idCliente_locacao where id_locacao = '" + locacaoDev.idLocacaoDev + "'", conexao);
+                dr = comando.ExecuteReader();
 
+                while (dr.Read())
+                {
+                    int numLocacao = Convert.ToInt32(dr["numerolocacaodev_locacao"]);
+                    int idCliente = Convert.ToInt32(dr["idCliente_locacao"]);
+                    DateTime dataLancamento = Convert.ToDateTime(dr["dataLancamento_locacao"]);
+                    DateTime dataDevolucao = Convert.ToDateTime(dr["dataDevolucao_locacao"]);
+                    string nomeCliente = Convert.ToString(dr["nome_fantasia_participante"]);
+                    string usuario = Convert.ToString(dr["usuario_locacao"]);
+
+
+                    locacaoDev.idLocacao = numLocacao;
+                    locacaoDev.idClienteLocacaoDev = idCliente;
+                    locacaoDev.dataLancamentoLocacaoDev = dataLancamento;
+                    locacaoDev.dataDevolucaoLocacaoDev = dataDevolucao;
+                    locacaoDev.nomeClienteLocacaoDev = nomeCliente;
+                    locacaoDev.usuarioLocacaoDev = usuario;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Erro ao pesquisar locação devolução " + erro.Message);
+            }
+            return locacaoDev;
+        }
 
 
     }

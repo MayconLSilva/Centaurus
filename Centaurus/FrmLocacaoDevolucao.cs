@@ -455,6 +455,40 @@ namespace Centaurus
             }
         }
 
+        public void buscarInformacoesDevLocacao()
+        {
+            LocacaoDevolucaoModelo modlocacaoDev = new LocacaoDevolucaoModelo();
+
+            try
+            {
+                //Método enviar a id da locacao para pesquisar a devolução da locação
+                modlocacaoDev.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
+                locacaoDevBLL.buscarInformacoesDevLocacao(modlocacaoDev);
+
+                string nomeCliente = modlocacaoDev.nomeClienteLocacaoDev;
+                int idCliente = modlocacaoDev.idClienteLocacaoDev;
+                textBoxClienteDev.Text = idCliente + " - " + nomeCliente;
+
+                int numLocacao = modlocacaoDev.idLocacao;
+                textBoxNumeroLocacaoDev.Text = Convert.ToString(numLocacao);
+
+                DateTime dataLanc = modlocacaoDev.dataLancamentoLocacaoDev;
+                textBoxDataLancamentoDev.Text = Convert.ToString(dataLanc);
+
+                string usuario = modlocacaoDev.usuarioLocacaoDev;
+                textBoxUsuarioLocacaoDev.Text = usuario;
+
+                botaoClicado = "PESQUISAR";
+                carregarItens();
+                inativarBotoesCampos();
+
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         private void carregarItens()
         {
             dataGridViewLocaoDev.DataSource = locacaoDevBLL.listarItensDaLocacaoDevolucao(textBoxCodigoDev.Text);
@@ -526,17 +560,17 @@ namespace Centaurus
         {
             LocacaoDevolucaoBLL devolucaoBLL = new LocacaoDevolucaoBLL();
 
-            if (String.IsNullOrEmpty(idClienteReturn) == true)
+            if (String.IsNullOrEmpty(idClienteReturn) == true && textBoxCodigoDev.Text != "")
             {   //Clausula utilizada para salvar a locação quando a mesma for gerada pela tela de locação
                 modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
                 modLocacao.totalLocacaoDev = Convert.ToSingle(textBoxTotalDev.Text);
                 modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
                 modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
                 modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
-
+                Console.WriteLine("chamou aqui 1");
                 devolucaoBLL.salvarLocacao(modLocacao);
             }
-            else
+            else if (String.IsNullOrEmpty(idClienteReturn) != true && textBoxCodigoDev.Text != "")
             {   //Clausula utilizada para salvar a locação quando a mesma for gerda manualmente pela tela de devolução da locação
                 modLocacao.idClienteLocacaoDev = Convert.ToInt32(idClienteReturn);
                 modLocacao.qtdItensLocacaoDev = Convert.ToSingle(textBoxQtdItemDev.Text);
@@ -545,7 +579,7 @@ namespace Centaurus
                 modLocacao.usuarioLocacaoDev = textBoxUsuarioLocacaoDev.Text;
                 modLocacao.dataDevolucaoLocacaoDev = Convert.ToDateTime(textBoxDataLancamentoDev.Text);
                 modLocacao.idLocacaoDev = Convert.ToInt32(textBoxCodigoDev.Text);
-
+                Console.WriteLine("chamou aqui 2");
                 devolucaoBLL.salvarLocacao(modLocacao);
             }
             
@@ -920,5 +954,32 @@ namespace Centaurus
             }
         }
 
+        private void textBoxCodigoDev_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+           (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCodigoDev_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTipDevLocacao.SetToolTip(textBoxCodigoDev, "Você pode informar um código e clicar em enter, ou clicar na lupa de consulta!");
+        }
+
+        private void textBoxCodigoDev_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarInformacoesDevLocacao();
+            }
+        }
     }
 }
