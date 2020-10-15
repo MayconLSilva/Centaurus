@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="BLL\CategoriaBLL .cs" />
     <Compile Include="BLL\CidadeBLL.cs" />
+    <Compile Include="BLL\EmpresaBLL.cs" />
     <Compile Include="BLL\LocacaoBLL.cs" />
     <Compile Include="BLL\LocacaoDevolucaoBLL.cs" />
     <Compile Include="BLL\MarcaBLL.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="DAL\ConexaoBanco.cs" />
     <Compile Include="DAL\CategoriaDAO.cs" />
     <Compile Include="DAL\DataBaseAdapter.cs" />
+    <Compile Include="DAL\EmpresaDAO.cs" />
     <Compile Include="DAL\LocacaoDAO.cs" />
     <Compile Include="DAL\LocacaoDevolucaoDAO.cs" />
     <Compile Include="DAL\LoginDAO.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="DAL\ParticipanteDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
     <Compile Include="DAL\UsuarioDAO.cs" />
+    <Compile Include="DTO\EmpresaModelo.cs" />
     <Compile Include="DTO\LocacaoDevolucaoModelo.cs" />
     <Compile Include="DTO\LocacaoModelo.cs" />
     <Compile Include="DTO\LoginModelo.cs" />

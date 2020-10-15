@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmpresa));
             this.menuStripLocacao = new System.Windows.Forms.MenuStrip();
+            this.menuEmpresaGravar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEmpresaEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEmpresaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.labelNomeFantasia = new System.Windows.Forms.Label();
             this.textBoxNomeFantasia = new System.Windows.Forms.TextBox();
             this.textBoxRazaoSocial = new System.Windows.Forms.TextBox();
@@ -60,9 +63,6 @@
             this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
             this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonBuscarCidade = new System.Windows.Forms.Button();
-            this.menuEmpresaGravar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEmpresaEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEmpresaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripLocacao.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,32 @@
             this.menuStripLocacao.Name = "menuStripLocacao";
             this.menuStripLocacao.Size = new System.Drawing.Size(759, 24);
             this.menuStripLocacao.TabIndex = 3;
+            // 
+            // menuEmpresaGravar
+            // 
+            this.menuEmpresaGravar.Enabled = false;
+            this.menuEmpresaGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaGravar.Image")));
+            this.menuEmpresaGravar.Name = "menuEmpresaGravar";
+            this.menuEmpresaGravar.Size = new System.Drawing.Size(78, 20);
+            this.menuEmpresaGravar.Text = "GRAVAR";
+            this.menuEmpresaGravar.Click += new System.EventHandler(this.menuEmpresaGravar_Click);
+            // 
+            // menuEmpresaEditar
+            // 
+            this.menuEmpresaEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaEditar.Image")));
+            this.menuEmpresaEditar.Name = "menuEmpresaEditar";
+            this.menuEmpresaEditar.Size = new System.Drawing.Size(72, 20);
+            this.menuEmpresaEditar.Text = "EDITAR";
+            this.menuEmpresaEditar.Click += new System.EventHandler(this.menuEmpresaEditar_Click);
+            // 
+            // menuEmpresaCancelar
+            // 
+            this.menuEmpresaCancelar.Enabled = false;
+            this.menuEmpresaCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaCancelar.Image")));
+            this.menuEmpresaCancelar.Name = "menuEmpresaCancelar";
+            this.menuEmpresaCancelar.Size = new System.Drawing.Size(95, 20);
+            this.menuEmpresaCancelar.Text = "CANCELAR";
+            this.menuEmpresaCancelar.Click += new System.EventHandler(this.menuEmpresaCancelar_Click);
             // 
             // labelNomeFantasia
             // 
@@ -373,32 +399,6 @@
             this.buttonBuscarCidade.TabIndex = 40;
             this.buttonBuscarCidade.UseVisualStyleBackColor = true;
             // 
-            // menuEmpresaGravar
-            // 
-            this.menuEmpresaGravar.Enabled = false;
-            this.menuEmpresaGravar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaGravar.Image")));
-            this.menuEmpresaGravar.Name = "menuEmpresaGravar";
-            this.menuEmpresaGravar.Size = new System.Drawing.Size(78, 20);
-            this.menuEmpresaGravar.Text = "GRAVAR";
-            this.menuEmpresaGravar.Click += new System.EventHandler(this.menuEmpresaGravar_Click);
-            // 
-            // menuEmpresaEditar
-            // 
-            this.menuEmpresaEditar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaEditar.Image")));
-            this.menuEmpresaEditar.Name = "menuEmpresaEditar";
-            this.menuEmpresaEditar.Size = new System.Drawing.Size(72, 20);
-            this.menuEmpresaEditar.Text = "EDITAR";
-            this.menuEmpresaEditar.Click += new System.EventHandler(this.menuEmpresaEditar_Click);
-            // 
-            // menuEmpresaCancelar
-            // 
-            this.menuEmpresaCancelar.Enabled = false;
-            this.menuEmpresaCancelar.Image = ((System.Drawing.Image)(resources.GetObject("menuEmpresaCancelar.Image")));
-            this.menuEmpresaCancelar.Name = "menuEmpresaCancelar";
-            this.menuEmpresaCancelar.Size = new System.Drawing.Size(95, 20);
-            this.menuEmpresaCancelar.Text = "CANCELAR";
-            this.menuEmpresaCancelar.Click += new System.EventHandler(this.menuEmpresaCancelar_Click);
-            // 
             // FrmEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +436,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmEmpresa";
             this.Text = "Empresa";
+            this.Load += new System.EventHandler(this.FrmEmpresa_Load);
             this.menuStripLocacao.ResumeLayout(false);
             this.menuStripLocacao.PerformLayout();
             this.toolStripMenusConsultaParticipante.ResumeLayout(false);

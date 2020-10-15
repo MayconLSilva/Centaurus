@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Centaurus.BLL;
+using Centaurus.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,9 @@ namespace Centaurus
 {
     public partial class FrmEmpresa : Form
     {
+        EmpresaBLL empresaBLL = new EmpresaBLL();
+        EmpresaModelo modEmpresa = new EmpresaModelo();
+
         public FrmEmpresa()
         {
             InitializeComponent();
@@ -113,5 +118,38 @@ namespace Centaurus
             botaoClicado = "CANCELAR";
             inativarAtivarCamposBotoes();
         }
+
+        public void buscarInformacoesEmpresa()
+        {
+            try
+            {
+                empresaBLL.buscarInformacoesEmpresa(modEmpresa);
+
+                textBoxNomeFantasia.Text = modEmpresa.nomeFantasiaEmpresa;
+                textBoxCPFCNPJ.Text = modEmpresa.cpfCnpjEmpresa;
+                textBoxRGIE.Text = modEmpresa.rgIeEmpresa;
+                textBoxRazaoSocial.Text = modEmpresa.razaoSocialEmpresa;
+                textBoxTelefone.Text = modEmpresa.telefoneEmpresa;
+                textBoxCelular.Text = modEmpresa.celularEmpresa;
+                textBoxEndereco.Text = modEmpresa.enderecoEmpresa;
+                textBoxNumeroEndereco.Text = modEmpresa.numeroEnderecoEmpresa;
+                textBoxBairro.Text = modEmpresa.bairroEmpresa;
+                textBoxCidade.Text = modEmpresa.cidadeEmpresa;
+                comboBoxUF.SelectedIndex = comboBoxUF.FindStringExact(modEmpresa.ufEmpresa);
+                textBoxCEP.Text = modEmpresa.cepEmpresa;
+                textBoxEmail.Text = modEmpresa.emailEmpresa;
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar inforações da empresa, view empresa! " + erro.Message);
+            }
+        }
+
+        private void FrmEmpresa_Load(object sender, EventArgs e)
+        {
+            buscarInformacoesEmpresa();
+        }
+
     }
 }
