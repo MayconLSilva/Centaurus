@@ -139,7 +139,7 @@
             this.locaçãoToolStripMenuItemLocacao.Enabled = false;
             this.locaçãoToolStripMenuItemLocacao.Image = global::Centaurus.Properties.Resources.locacao;
             this.locaçãoToolStripMenuItemLocacao.Name = "locaçãoToolStripMenuItemLocacao";
-            this.locaçãoToolStripMenuItemLocacao.Size = new System.Drawing.Size(144, 22);
+            this.locaçãoToolStripMenuItemLocacao.Size = new System.Drawing.Size(180, 22);
             this.locaçãoToolStripMenuItemLocacao.Text = "Locação";
             this.locaçãoToolStripMenuItemLocacao.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
@@ -148,7 +148,7 @@
             this.devLocaçãoToolStripMenuItemDevLocacao.Enabled = false;
             this.devLocaçãoToolStripMenuItemDevLocacao.Image = global::Centaurus.Properties.Resources.devlocacao;
             this.devLocaçãoToolStripMenuItemDevLocacao.Name = "devLocaçãoToolStripMenuItemDevLocacao";
-            this.devLocaçãoToolStripMenuItemDevLocacao.Size = new System.Drawing.Size(144, 22);
+            this.devLocaçãoToolStripMenuItemDevLocacao.Size = new System.Drawing.Size(180, 22);
             this.devLocaçãoToolStripMenuItemDevLocacao.Text = "Dev. Locação";
             this.devLocaçãoToolStripMenuItemDevLocacao.Click += new System.EventHandler(this.devLocaçãoToolStripMenuItem_Click);
             // 
@@ -162,8 +162,9 @@
             // 
             // participantesToolStripMenuItem1
             // 
+            this.participantesToolStripMenuItem1.Image = global::Centaurus.Properties.Resources.file_chart;
             this.participantesToolStripMenuItem1.Name = "participantesToolStripMenuItem1";
-            this.participantesToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.participantesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.participantesToolStripMenuItem1.Text = "Participantes";
             this.participantesToolStripMenuItem1.Click += new System.EventHandler(this.participantesToolStripMenuItem1_Click);
             // 

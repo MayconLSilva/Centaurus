@@ -113,6 +113,16 @@ namespace Centaurus.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_chart {
+            get {
+                object obj = ResourceManager.GetObject("file-chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap locacao {
             get {
                 object obj = ResourceManager.GetObject("locacao", resourceCulture);

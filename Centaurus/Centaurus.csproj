@@ -371,6 +371,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\city-variant-outline.png" />
+    <None Include="Resources\file-chart.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

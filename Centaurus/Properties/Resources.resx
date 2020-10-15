@@ -124,6 +124,9 @@
   <data name="configuracoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\configuracoes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="city-variant-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\city-variant-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cash-usd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cash-usd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,7 +148,7 @@
   <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="city-variant-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\city-variant-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="file-chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file-chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
