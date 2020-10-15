@@ -22,5 +22,15 @@ namespace Centaurus.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=server2012;user id=sistema;password=M12345;database=centaurus")]
+        public string centaurusConnectionString {
+            get {
+                return ((string)(this["centaurusConnectionString"]));
+            }
+        }
     }
 }

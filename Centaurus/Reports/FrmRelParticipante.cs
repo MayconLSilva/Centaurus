@@ -20,6 +20,8 @@ namespace Centaurus.Reports
 
         private void FrmRelParticipante_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'centaurusDataSet.participante'. Você pode movê-la ou removê-la conforme necessário.
+            this.participanteTableAdapter.Fill(this.centaurusDataSet.participante);
 
             this.reportViewer1.RefreshReport();
         }

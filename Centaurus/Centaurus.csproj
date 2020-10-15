@@ -73,6 +73,11 @@
     <Compile Include="BLL\ParticipanteBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="centaurusDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>centaurusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DAL\CidadeDAO.cs" />
     <Compile Include="DAL\ConexaoBanco.cs" />
@@ -304,6 +309,17 @@
       <DependentUpon>FrmRelParticipante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RelParticipante.rdlc" />
+    <None Include="centaurusDataSet.xsc">
+      <DependentUpon>centaurusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="centaurusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>centaurusDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="centaurusDataSet.xss">
+      <DependentUpon>centaurusDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
