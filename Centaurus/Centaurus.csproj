@@ -154,6 +154,12 @@
     <Compile Include="FrmDialogSenhaConfiguracoes.Designer.cs">
       <DependentUpon>FrmDialogSenhaConfiguracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpresa.Designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLocacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     <EmbeddedResource Include="FrmDialogSenhaConfiguracoes.resx">
       <DependentUpon>FrmDialogSenhaConfiguracoes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpresa.resx">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLocacao.resx">
       <DependentUpon>FrmLocacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +381,7 @@
   <ItemGroup>
     <None Include="Resources\city-variant-outline.png" />
     <None Include="Resources\file-chart.png" />
+    <None Include="Resources\factory.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

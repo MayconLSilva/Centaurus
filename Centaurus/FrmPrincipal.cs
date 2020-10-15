@@ -181,6 +181,14 @@ namespace Centaurus
             relParticipante.Show();
         }
 
+        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEmpresa frmEmpresa = new FrmEmpresa();
+            frmEmpresa.TopLevel = false;
+            frmEmpresa.Visible = true;
+            painelPrincipal.Controls.Add(frmEmpresa);
+        }
+
 
 
 
