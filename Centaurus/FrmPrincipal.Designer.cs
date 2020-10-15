@@ -39,13 +39,12 @@
             this.MenuPrincipalMovimentos = new System.Windows.Forms.ToolStripMenuItem();
             this.locaçãoToolStripMenuItemLocacao = new System.Windows.Forms.ToolStripMenuItem();
             this.devLocaçãoToolStripMenuItemDevLocacao = new System.Windows.Forms.ToolStripMenuItem();
+            this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.participantesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.painelPrincipal = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelUsuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.participantesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripPrincipal.SuspendLayout();
-            this.painelPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,31 +152,6 @@
             this.devLocaçãoToolStripMenuItemDevLocacao.Text = "Dev. Locação";
             this.devLocaçãoToolStripMenuItemDevLocacao.Click += new System.EventHandler(this.devLocaçãoToolStripMenuItem_Click);
             // 
-            // painelPrincipal
-            // 
-            this.painelPrincipal.Controls.Add(this.statusStrip1);
-            this.painelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.painelPrincipal.Location = new System.Drawing.Point(0, 24);
-            this.painelPrincipal.Name = "painelPrincipal";
-            this.painelPrincipal.Size = new System.Drawing.Size(759, 444);
-            this.painelPrincipal.TabIndex = 1;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelUsuarioLogado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 422);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(759, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // labelUsuarioLogado
-            // 
-            this.labelUsuarioLogado.Name = "labelUsuarioLogado";
-            this.labelUsuarioLogado.Size = new System.Drawing.Size(118, 17);
-            this.labelUsuarioLogado.Text = "toolStripStatusLabel1";
-            // 
             // rELATÓRIOSToolStripMenuItem
             // 
             this.rELATÓRIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -189,15 +163,40 @@
             // participantesToolStripMenuItem1
             // 
             this.participantesToolStripMenuItem1.Name = "participantesToolStripMenuItem1";
-            this.participantesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.participantesToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.participantesToolStripMenuItem1.Text = "Participantes";
             this.participantesToolStripMenuItem1.Click += new System.EventHandler(this.participantesToolStripMenuItem1_Click);
+            // 
+            // painelPrincipal
+            // 
+            this.painelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.painelPrincipal.Location = new System.Drawing.Point(0, 24);
+            this.painelPrincipal.Name = "painelPrincipal";
+            this.painelPrincipal.Size = new System.Drawing.Size(759, 444);
+            this.painelPrincipal.TabIndex = 1;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelUsuarioLogado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 446);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(759, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // labelUsuarioLogado
+            // 
+            this.labelUsuarioLogado.Name = "labelUsuarioLogado";
+            this.labelUsuarioLogado.Size = new System.Drawing.Size(118, 17);
+            this.labelUsuarioLogado.Text = "toolStripStatusLabel1";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 468);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.painelPrincipal);
             this.Controls.Add(this.menuStripPrincipal);
             this.MainMenuStrip = this.menuStripPrincipal;
@@ -207,8 +206,6 @@
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStripPrincipal.ResumeLayout(false);
             this.menuStripPrincipal.PerformLayout();
-            this.painelPrincipal.ResumeLayout(false);
-            this.painelPrincipal.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -226,14 +223,14 @@
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItemMarca;
         private System.Windows.Forms.ToolStripMenuItem produtoToolStripMenuItemProduto;
         private System.Windows.Forms.ToolStripMenuItem MenuPrincipalMovimentos;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel labelUsuarioLogado;
         private System.Windows.Forms.ToolStripMenuItem locaçãoToolStripMenuItemLocacao;
         private System.Windows.Forms.ToolStripMenuItem devLocaçãoToolStripMenuItemDevLocacao;
         private System.Windows.Forms.Panel painelPrincipal;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItemUsuario;
         private System.Windows.Forms.ToolStripMenuItem rELATÓRIOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem participantesToolStripMenuItem1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel labelUsuarioLogado;
     }
 }
 
