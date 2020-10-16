@@ -23,5 +23,17 @@ namespace Centaurus.BLL
                 throw new Exception("Erro ao buscar informações da empresa, classe BLL! " + erro.Message);
             }
         }
+
+        public void atualizarSalvar(EmpresaModelo modEmpresa)
+        {
+            try
+            {
+                daoEmpresa.atualizarSalvar(modEmpresa);
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao atualizar as informações da empresa, classe BLL! " + erro.Message);
+            }
+        }
     }
 }

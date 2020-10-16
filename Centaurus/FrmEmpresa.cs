@@ -111,6 +111,8 @@ namespace Centaurus
         {
             botaoClicado = "GRAVAR";
             inativarAtivarCamposBotoes();
+
+            salvarAtualizarEmpresa(modEmpresa);
         }
 
         private void menuEmpresaCancelar_Click(object sender, EventArgs e)
@@ -149,6 +151,27 @@ namespace Centaurus
         private void FrmEmpresa_Load(object sender, EventArgs e)
         {
             buscarInformacoesEmpresa();
+        }
+
+        public void salvarAtualizarEmpresa(EmpresaModelo modEmpresa)
+        {
+            modEmpresa.nomeFantasiaEmpresa = textBoxNomeFantasia.Text;
+            modEmpresa.rgIeEmpresa = textBoxRGIE.Text;
+            modEmpresa.razaoSocialEmpresa = textBoxRazaoSocial.Text;
+            modEmpresa.telefoneEmpresa = textBoxTelefone.Text;
+            modEmpresa.celularEmpresa = textBoxCelular.Text;
+            modEmpresa.enderecoEmpresa = textBoxEndereco.Text;
+            modEmpresa.numeroEnderecoEmpresa = textBoxNumeroEndereco.Text;
+            modEmpresa.bairroEmpresa = textBoxBairro.Text;
+            modEmpresa.cidadeEmpresa = textBoxCidade.Text;
+            modEmpresa.ufEmpresa = comboBoxUF.Text;
+            modEmpresa.cepEmpresa = textBoxCEP.Text;
+            modEmpresa.emailEmpresa = textBoxEmail.Text;
+
+            empresaBLL.atualizarSalvar(modEmpresa);
+
+            MessageBox.Show("Informações atualizadas com sucesso!", "Empresa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
     }

@@ -62,5 +62,37 @@ namespace Centaurus.DAL
             }
             return modEmpresa;
         }
+
+        public void atualizarSalvar(EmpresaModelo modEmpresa)
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("update empresa set fantasia_empresa = @fantasia,razaosocial_empresa = @razao,telefone_empresa = @telefone,celular_empresa = @celular,endereco_empresa = @endereco," +
+                    " numero_empresa = @numero, bairro_empresa = @bairro,cidade_empresa = @cidade,cep_empresa = @cep,email_empresa = @email,rgIe_empresa = @rg,uf_empresa = @uf where id_empresa = @idempresa", conexao);
+                comando.Parameters.AddWithValue("@fantasia", modEmpresa.nomeFantasiaEmpresa);
+                comando.Parameters.AddWithValue("@razao", modEmpresa.razaoSocialEmpresa);
+                comando.Parameters.AddWithValue("@telefone", modEmpresa.telefoneEmpresa);
+                comando.Parameters.AddWithValue("@celular", modEmpresa.celularEmpresa);
+                comando.Parameters.AddWithValue("@endereco", modEmpresa.enderecoEmpresa);
+                comando.Parameters.AddWithValue("@numero", modEmpresa.numeroEnderecoEmpresa);
+                comando.Parameters.AddWithValue("@bairro", modEmpresa.bairroEmpresa);
+                comando.Parameters.AddWithValue("@cidade", modEmpresa.cidadeEmpresa);
+                comando.Parameters.AddWithValue("@cep", modEmpresa.cepEmpresa);
+                comando.Parameters.AddWithValue("@email", modEmpresa.emailEmpresa); 
+                comando.Parameters.AddWithValue("@rg", modEmpresa.rgIeEmpresa);
+                comando.Parameters.AddWithValue("@uf", modEmpresa.ufEmpresa);
+                comando.Parameters.AddWithValue("@idempresa", 1);//A principio o id da empresa sempre será um, não terá outras empresas cadastradas no sistema.
+                comando.ExecuteNonQuery();
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao salvar alterações da empresa, classe DAO! " + erro.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
     }
 }

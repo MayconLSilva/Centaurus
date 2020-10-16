@@ -61,7 +61,6 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButtonFuncoes = new System.Windows.Forms.ToolStripDropDownButton();
-            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonBuscarCidade = new System.Windows.Forms.Button();
             this.menuStripLocacao.SuspendLayout();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
@@ -374,19 +373,11 @@
             // toolStripDropDownButtonFuncoes
             // 
             this.toolStripDropDownButtonFuncoes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButtonFuncoes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.devoluçãoToolStripMenuItem});
             this.toolStripDropDownButtonFuncoes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonFuncoes.Image")));
             this.toolStripDropDownButtonFuncoes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonFuncoes.Name = "toolStripDropDownButtonFuncoes";
             this.toolStripDropDownButtonFuncoes.Size = new System.Drawing.Size(72, 22);
             this.toolStripDropDownButtonFuncoes.Text = "FUNÇÕES";
-            // 
-            // devoluçãoToolStripMenuItem
-            // 
-            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // buttonBuscarCidade
             // 
@@ -481,6 +472,5 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.ToolStrip toolStripMenusConsultaParticipante;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonFuncoes;
-        private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
     }
 }
