@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Centaurus.Reports;
 
 namespace Centaurus.Reports
 {
@@ -18,10 +17,10 @@ namespace Centaurus.Reports
             InitializeComponent();
         }
 
-        private void FrmRelParticipante_Load(object sender, EventArgs e)
+        private void FrmTestecs_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'centaurusDataSet.participante'. Você pode movê-la ou removê-la conforme necessário.
-            this.participanteTableAdapter.Fill(this.centaurusDataSet.participante);
+            // TODO: esta linha de código carrega dados na tabela 'centaurusDataSet.listarParticipanteEmpresa'. Você pode movê-la ou removê-la conforme necessário.
+            this.listarParticipanteEmpresaTableAdapter.Fill(this.centaurusDataSet.listarParticipanteEmpresa);
 
             this.reportViewer1.RefreshReport();
         }

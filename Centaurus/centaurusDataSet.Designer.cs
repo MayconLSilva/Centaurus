@@ -56,6 +56,8 @@ namespace Centaurus {
         
         private viewlocacaoitensDataTable tableviewlocacaoitens;
         
+        private listarParticipanteEmpresaDataTable tablelistarParticipanteEmpresa;
+        
         private global::System.Data.DataRelation relationFK_locacao_cliente;
         
         private global::System.Data.DataRelation relationFK_locacaoitens_idLocacao;
@@ -147,6 +149,9 @@ namespace Centaurus {
                 }
                 if ((ds.Tables["viewlocacaoitens"] != null)) {
                     base.Tables.Add(new viewlocacaoitensDataTable(ds.Tables["viewlocacaoitens"]));
+                }
+                if ((ds.Tables["listarParticipanteEmpresa"] != null)) {
+                    base.Tables.Add(new listarParticipanteEmpresaDataTable(ds.Tables["listarParticipanteEmpresa"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -328,6 +333,16 @@ namespace Centaurus {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public listarParticipanteEmpresaDataTable listarParticipanteEmpresa {
+            get {
+                return this.tablelistarParticipanteEmpresa;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -440,6 +455,9 @@ namespace Centaurus {
                 }
                 if ((ds.Tables["viewlocacaoitens"] != null)) {
                     base.Tables.Add(new viewlocacaoitensDataTable(ds.Tables["viewlocacaoitens"]));
+                }
+                if ((ds.Tables["listarParticipanteEmpresa"] != null)) {
+                    base.Tables.Add(new listarParticipanteEmpresaDataTable(ds.Tables["listarParticipanteEmpresa"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -570,6 +588,12 @@ namespace Centaurus {
                     this.tableviewlocacaoitens.InitVars();
                 }
             }
+            this.tablelistarParticipanteEmpresa = ((listarParticipanteEmpresaDataTable)(base.Tables["listarParticipanteEmpresa"]));
+            if ((initTable == true)) {
+                if ((this.tablelistarParticipanteEmpresa != null)) {
+                    this.tablelistarParticipanteEmpresa.InitVars();
+                }
+            }
             this.relationFK_locacao_cliente = this.Relations["FK_locacao_cliente"];
             this.relationFK_locacaoitens_idLocacao = this.Relations["FK_locacaoitens_idLocacao"];
             this.relationFK_produto_categoria = this.Relations["FK_produto_categoria"];
@@ -620,6 +644,8 @@ namespace Centaurus {
             base.Tables.Add(this.tableviewlocacao);
             this.tableviewlocacaoitens = new viewlocacaoitensDataTable();
             base.Tables.Add(this.tableviewlocacaoitens);
+            this.tablelistarParticipanteEmpresa = new listarParticipanteEmpresaDataTable();
+            base.Tables.Add(this.tablelistarParticipanteEmpresa);
             this.relationFK_locacao_cliente = new global::System.Data.DataRelation("FK_locacao_cliente", new global::System.Data.DataColumn[] {
                         this.tableparticipante.id_partipanteColumn}, new global::System.Data.DataColumn[] {
                         this.tablelocacao.idCliente_locacaoColumn}, false);
@@ -752,6 +778,12 @@ namespace Centaurus {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializelistarParticipanteEmpresa() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -852,6 +884,9 @@ namespace Centaurus {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void viewlocacaoitensRowChangeEventHandler(object sender, viewlocacaoitensRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void listarParticipanteEmpresaRowChangeEventHandler(object sender, listarParticipanteEmpresaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -7816,6 +7851,805 @@ namespace Centaurus {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class listarParticipanteEmpresaDataTable : global::System.Data.TypedTableBase<listarParticipanteEmpresaRow> {
+            
+            private global::System.Data.DataColumn columnid_partipante;
+            
+            private global::System.Data.DataColumn columnnome_fantasia_participante;
+            
+            private global::System.Data.DataColumn columnapelido_razao_participante;
+            
+            private global::System.Data.DataColumn columncpf_cnpj_participante;
+            
+            private global::System.Data.DataColumn columnrg_ie_participante;
+            
+            private global::System.Data.DataColumn columnendereco_participante;
+            
+            private global::System.Data.DataColumn columnnumeroendereco_participante;
+            
+            private global::System.Data.DataColumn columnbairro_participante;
+            
+            private global::System.Data.DataColumn columncidade_participante;
+            
+            private global::System.Data.DataColumn columncep_participante;
+            
+            private global::System.Data.DataColumn columntelefone_participante;
+            
+            private global::System.Data.DataColumn columncelular_participante;
+            
+            private global::System.Data.DataColumn columnuf_partipante;
+            
+            private global::System.Data.DataColumn columnemail_partipante;
+            
+            private global::System.Data.DataColumn columndatacadastro_participante;
+            
+            private global::System.Data.DataColumn columndataalteracao_partipante;
+            
+            private global::System.Data.DataColumn columnusuariocadastro_partipante;
+            
+            private global::System.Data.DataColumn columnusuarioalteracao_partipante;
+            
+            private global::System.Data.DataColumn columntipocliente_participante;
+            
+            private global::System.Data.DataColumn columntipofornecedor_participante;
+            
+            private global::System.Data.DataColumn columntipofuncionario_participante;
+            
+            private global::System.Data.DataColumn columnativo_participante;
+            
+            private global::System.Data.DataColumn columnfantasia_empresa;
+            
+            private global::System.Data.DataColumn columnrazaosocial_empresa;
+            
+            private global::System.Data.DataColumn columntelefone_empresa;
+            
+            private global::System.Data.DataColumn columncelular_empresa;
+            
+            private global::System.Data.DataColumn columnendereco_empresa;
+            
+            private global::System.Data.DataColumn columnnumero_empresa;
+            
+            private global::System.Data.DataColumn columnbairro_empresa;
+            
+            private global::System.Data.DataColumn columncidade_empresa;
+            
+            private global::System.Data.DataColumn columncep_empresa;
+            
+            private global::System.Data.DataColumn columncpfcnpj_empresa;
+            
+            private global::System.Data.DataColumn columnrgIe_empresa;
+            
+            private global::System.Data.DataColumn columnuf_empresa;
+            
+            private global::System.Data.DataColumn columnemail_empresa;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaDataTable() {
+                this.TableName = "listarParticipanteEmpresa";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal listarParticipanteEmpresaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected listarParticipanteEmpresaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_partipanteColumn {
+                get {
+                    return this.columnid_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nome_fantasia_participanteColumn {
+                get {
+                    return this.columnnome_fantasia_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn apelido_razao_participanteColumn {
+                get {
+                    return this.columnapelido_razao_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cpf_cnpj_participanteColumn {
+                get {
+                    return this.columncpf_cnpj_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn rg_ie_participanteColumn {
+                get {
+                    return this.columnrg_ie_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn endereco_participanteColumn {
+                get {
+                    return this.columnendereco_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn numeroendereco_participanteColumn {
+                get {
+                    return this.columnnumeroendereco_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bairro_participanteColumn {
+                get {
+                    return this.columnbairro_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cidade_participanteColumn {
+                get {
+                    return this.columncidade_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cep_participanteColumn {
+                get {
+                    return this.columncep_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn telefone_participanteColumn {
+                get {
+                    return this.columntelefone_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn celular_participanteColumn {
+                get {
+                    return this.columncelular_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn uf_partipanteColumn {
+                get {
+                    return this.columnuf_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn email_partipanteColumn {
+                get {
+                    return this.columnemail_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn datacadastro_participanteColumn {
+                get {
+                    return this.columndatacadastro_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dataalteracao_partipanteColumn {
+                get {
+                    return this.columndataalteracao_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn usuariocadastro_partipanteColumn {
+                get {
+                    return this.columnusuariocadastro_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn usuarioalteracao_partipanteColumn {
+                get {
+                    return this.columnusuarioalteracao_partipante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tipocliente_participanteColumn {
+                get {
+                    return this.columntipocliente_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tipofornecedor_participanteColumn {
+                get {
+                    return this.columntipofornecedor_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tipofuncionario_participanteColumn {
+                get {
+                    return this.columntipofuncionario_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ativo_participanteColumn {
+                get {
+                    return this.columnativo_participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fantasia_empresaColumn {
+                get {
+                    return this.columnfantasia_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn razaosocial_empresaColumn {
+                get {
+                    return this.columnrazaosocial_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn telefone_empresaColumn {
+                get {
+                    return this.columntelefone_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn celular_empresaColumn {
+                get {
+                    return this.columncelular_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn endereco_empresaColumn {
+                get {
+                    return this.columnendereco_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn numero_empresaColumn {
+                get {
+                    return this.columnnumero_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bairro_empresaColumn {
+                get {
+                    return this.columnbairro_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cidade_empresaColumn {
+                get {
+                    return this.columncidade_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cep_empresaColumn {
+                get {
+                    return this.columncep_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cpfcnpj_empresaColumn {
+                get {
+                    return this.columncpfcnpj_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn rgIe_empresaColumn {
+                get {
+                    return this.columnrgIe_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn uf_empresaColumn {
+                get {
+                    return this.columnuf_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn email_empresaColumn {
+                get {
+                    return this.columnemail_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRow this[int index] {
+                get {
+                    return ((listarParticipanteEmpresaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event listarParticipanteEmpresaRowChangeEventHandler listarParticipanteEmpresaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event listarParticipanteEmpresaRowChangeEventHandler listarParticipanteEmpresaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event listarParticipanteEmpresaRowChangeEventHandler listarParticipanteEmpresaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event listarParticipanteEmpresaRowChangeEventHandler listarParticipanteEmpresaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddlistarParticipanteEmpresaRow(listarParticipanteEmpresaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRow AddlistarParticipanteEmpresaRow(
+                        uint id_partipante, 
+                        string nome_fantasia_participante, 
+                        string apelido_razao_participante, 
+                        string cpf_cnpj_participante, 
+                        string rg_ie_participante, 
+                        string endereco_participante, 
+                        string numeroendereco_participante, 
+                        string bairro_participante, 
+                        string cidade_participante, 
+                        string cep_participante, 
+                        string telefone_participante, 
+                        string celular_participante, 
+                        string uf_partipante, 
+                        string email_partipante, 
+                        string datacadastro_participante, 
+                        string dataalteracao_partipante, 
+                        string usuariocadastro_partipante, 
+                        string usuarioalteracao_partipante, 
+                        bool tipocliente_participante, 
+                        bool tipofornecedor_participante, 
+                        bool tipofuncionario_participante, 
+                        bool ativo_participante, 
+                        string fantasia_empresa, 
+                        string razaosocial_empresa, 
+                        string telefone_empresa, 
+                        string celular_empresa, 
+                        string endereco_empresa, 
+                        string numero_empresa, 
+                        string bairro_empresa, 
+                        string cidade_empresa, 
+                        string cep_empresa, 
+                        string cpfcnpj_empresa, 
+                        string rgIe_empresa, 
+                        string uf_empresa, 
+                        string email_empresa) {
+                listarParticipanteEmpresaRow rowlistarParticipanteEmpresaRow = ((listarParticipanteEmpresaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_partipante,
+                        nome_fantasia_participante,
+                        apelido_razao_participante,
+                        cpf_cnpj_participante,
+                        rg_ie_participante,
+                        endereco_participante,
+                        numeroendereco_participante,
+                        bairro_participante,
+                        cidade_participante,
+                        cep_participante,
+                        telefone_participante,
+                        celular_participante,
+                        uf_partipante,
+                        email_partipante,
+                        datacadastro_participante,
+                        dataalteracao_partipante,
+                        usuariocadastro_partipante,
+                        usuarioalteracao_partipante,
+                        tipocliente_participante,
+                        tipofornecedor_participante,
+                        tipofuncionario_participante,
+                        ativo_participante,
+                        fantasia_empresa,
+                        razaosocial_empresa,
+                        telefone_empresa,
+                        celular_empresa,
+                        endereco_empresa,
+                        numero_empresa,
+                        bairro_empresa,
+                        cidade_empresa,
+                        cep_empresa,
+                        cpfcnpj_empresa,
+                        rgIe_empresa,
+                        uf_empresa,
+                        email_empresa};
+                rowlistarParticipanteEmpresaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowlistarParticipanteEmpresaRow);
+                return rowlistarParticipanteEmpresaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRow FindByid_partipante(uint id_partipante) {
+                return ((listarParticipanteEmpresaRow)(this.Rows.Find(new object[] {
+                            id_partipante})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                listarParticipanteEmpresaDataTable cln = ((listarParticipanteEmpresaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new listarParticipanteEmpresaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnid_partipante = base.Columns["id_partipante"];
+                this.columnnome_fantasia_participante = base.Columns["nome_fantasia_participante"];
+                this.columnapelido_razao_participante = base.Columns["apelido_razao_participante"];
+                this.columncpf_cnpj_participante = base.Columns["cpf_cnpj_participante"];
+                this.columnrg_ie_participante = base.Columns["rg_ie_participante"];
+                this.columnendereco_participante = base.Columns["endereco_participante"];
+                this.columnnumeroendereco_participante = base.Columns["numeroendereco_participante"];
+                this.columnbairro_participante = base.Columns["bairro_participante"];
+                this.columncidade_participante = base.Columns["cidade_participante"];
+                this.columncep_participante = base.Columns["cep_participante"];
+                this.columntelefone_participante = base.Columns["telefone_participante"];
+                this.columncelular_participante = base.Columns["celular_participante"];
+                this.columnuf_partipante = base.Columns["uf_partipante"];
+                this.columnemail_partipante = base.Columns["email_partipante"];
+                this.columndatacadastro_participante = base.Columns["datacadastro_participante"];
+                this.columndataalteracao_partipante = base.Columns["dataalteracao_partipante"];
+                this.columnusuariocadastro_partipante = base.Columns["usuariocadastro_partipante"];
+                this.columnusuarioalteracao_partipante = base.Columns["usuarioalteracao_partipante"];
+                this.columntipocliente_participante = base.Columns["tipocliente_participante"];
+                this.columntipofornecedor_participante = base.Columns["tipofornecedor_participante"];
+                this.columntipofuncionario_participante = base.Columns["tipofuncionario_participante"];
+                this.columnativo_participante = base.Columns["ativo_participante"];
+                this.columnfantasia_empresa = base.Columns["fantasia_empresa"];
+                this.columnrazaosocial_empresa = base.Columns["razaosocial_empresa"];
+                this.columntelefone_empresa = base.Columns["telefone_empresa"];
+                this.columncelular_empresa = base.Columns["celular_empresa"];
+                this.columnendereco_empresa = base.Columns["endereco_empresa"];
+                this.columnnumero_empresa = base.Columns["numero_empresa"];
+                this.columnbairro_empresa = base.Columns["bairro_empresa"];
+                this.columncidade_empresa = base.Columns["cidade_empresa"];
+                this.columncep_empresa = base.Columns["cep_empresa"];
+                this.columncpfcnpj_empresa = base.Columns["cpfcnpj_empresa"];
+                this.columnrgIe_empresa = base.Columns["rgIe_empresa"];
+                this.columnuf_empresa = base.Columns["uf_empresa"];
+                this.columnemail_empresa = base.Columns["email_empresa"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnid_partipante = new global::System.Data.DataColumn("id_partipante", typeof(uint), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_partipante);
+                this.columnnome_fantasia_participante = new global::System.Data.DataColumn("nome_fantasia_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnome_fantasia_participante);
+                this.columnapelido_razao_participante = new global::System.Data.DataColumn("apelido_razao_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnapelido_razao_participante);
+                this.columncpf_cnpj_participante = new global::System.Data.DataColumn("cpf_cnpj_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncpf_cnpj_participante);
+                this.columnrg_ie_participante = new global::System.Data.DataColumn("rg_ie_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrg_ie_participante);
+                this.columnendereco_participante = new global::System.Data.DataColumn("endereco_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnendereco_participante);
+                this.columnnumeroendereco_participante = new global::System.Data.DataColumn("numeroendereco_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumeroendereco_participante);
+                this.columnbairro_participante = new global::System.Data.DataColumn("bairro_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbairro_participante);
+                this.columncidade_participante = new global::System.Data.DataColumn("cidade_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncidade_participante);
+                this.columncep_participante = new global::System.Data.DataColumn("cep_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncep_participante);
+                this.columntelefone_participante = new global::System.Data.DataColumn("telefone_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelefone_participante);
+                this.columncelular_participante = new global::System.Data.DataColumn("celular_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncelular_participante);
+                this.columnuf_partipante = new global::System.Data.DataColumn("uf_partipante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuf_partipante);
+                this.columnemail_partipante = new global::System.Data.DataColumn("email_partipante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail_partipante);
+                this.columndatacadastro_participante = new global::System.Data.DataColumn("datacadastro_participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndatacadastro_participante);
+                this.columndataalteracao_partipante = new global::System.Data.DataColumn("dataalteracao_partipante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndataalteracao_partipante);
+                this.columnusuariocadastro_partipante = new global::System.Data.DataColumn("usuariocadastro_partipante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuariocadastro_partipante);
+                this.columnusuarioalteracao_partipante = new global::System.Data.DataColumn("usuarioalteracao_partipante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioalteracao_partipante);
+                this.columntipocliente_participante = new global::System.Data.DataColumn("tipocliente_participante", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipocliente_participante);
+                this.columntipofornecedor_participante = new global::System.Data.DataColumn("tipofornecedor_participante", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipofornecedor_participante);
+                this.columntipofuncionario_participante = new global::System.Data.DataColumn("tipofuncionario_participante", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipofuncionario_participante);
+                this.columnativo_participante = new global::System.Data.DataColumn("ativo_participante", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnativo_participante);
+                this.columnfantasia_empresa = new global::System.Data.DataColumn("fantasia_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfantasia_empresa);
+                this.columnrazaosocial_empresa = new global::System.Data.DataColumn("razaosocial_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrazaosocial_empresa);
+                this.columntelefone_empresa = new global::System.Data.DataColumn("telefone_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelefone_empresa);
+                this.columncelular_empresa = new global::System.Data.DataColumn("celular_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncelular_empresa);
+                this.columnendereco_empresa = new global::System.Data.DataColumn("endereco_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnendereco_empresa);
+                this.columnnumero_empresa = new global::System.Data.DataColumn("numero_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumero_empresa);
+                this.columnbairro_empresa = new global::System.Data.DataColumn("bairro_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbairro_empresa);
+                this.columncidade_empresa = new global::System.Data.DataColumn("cidade_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncidade_empresa);
+                this.columncep_empresa = new global::System.Data.DataColumn("cep_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncep_empresa);
+                this.columncpfcnpj_empresa = new global::System.Data.DataColumn("cpfcnpj_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncpfcnpj_empresa);
+                this.columnrgIe_empresa = new global::System.Data.DataColumn("rgIe_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrgIe_empresa);
+                this.columnuf_empresa = new global::System.Data.DataColumn("uf_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuf_empresa);
+                this.columnemail_empresa = new global::System.Data.DataColumn("email_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail_empresa);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_partipante}, true));
+                this.columnid_partipante.AllowDBNull = false;
+                this.columnid_partipante.Unique = true;
+                this.columnnome_fantasia_participante.MaxLength = 45;
+                this.columnapelido_razao_participante.MaxLength = 45;
+                this.columncpf_cnpj_participante.MaxLength = 45;
+                this.columnrg_ie_participante.MaxLength = 45;
+                this.columnendereco_participante.MaxLength = 45;
+                this.columnnumeroendereco_participante.MaxLength = 45;
+                this.columnbairro_participante.MaxLength = 45;
+                this.columncidade_participante.MaxLength = 45;
+                this.columncep_participante.MaxLength = 45;
+                this.columntelefone_participante.MaxLength = 45;
+                this.columncelular_participante.MaxLength = 45;
+                this.columnuf_partipante.MaxLength = 45;
+                this.columnemail_partipante.MaxLength = 45;
+                this.columndatacadastro_participante.MaxLength = 10;
+                this.columndataalteracao_partipante.MaxLength = 10;
+                this.columnusuariocadastro_partipante.MaxLength = 45;
+                this.columnusuarioalteracao_partipante.MaxLength = 45;
+                this.columnfantasia_empresa.MaxLength = 45;
+                this.columnrazaosocial_empresa.MaxLength = 45;
+                this.columntelefone_empresa.MaxLength = 45;
+                this.columncelular_empresa.MaxLength = 45;
+                this.columnendereco_empresa.MaxLength = 45;
+                this.columnnumero_empresa.MaxLength = 10;
+                this.columnbairro_empresa.MaxLength = 45;
+                this.columncidade_empresa.MaxLength = 45;
+                this.columncep_empresa.MaxLength = 45;
+                this.columncpfcnpj_empresa.MaxLength = 45;
+                this.columnrgIe_empresa.MaxLength = 45;
+                this.columnuf_empresa.MaxLength = 2;
+                this.columnemail_empresa.MaxLength = 45;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRow NewlistarParticipanteEmpresaRow() {
+                return ((listarParticipanteEmpresaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new listarParticipanteEmpresaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(listarParticipanteEmpresaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.listarParticipanteEmpresaRowChanged != null)) {
+                    this.listarParticipanteEmpresaRowChanged(this, new listarParticipanteEmpresaRowChangeEvent(((listarParticipanteEmpresaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.listarParticipanteEmpresaRowChanging != null)) {
+                    this.listarParticipanteEmpresaRowChanging(this, new listarParticipanteEmpresaRowChangeEvent(((listarParticipanteEmpresaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.listarParticipanteEmpresaRowDeleted != null)) {
+                    this.listarParticipanteEmpresaRowDeleted(this, new listarParticipanteEmpresaRowChangeEvent(((listarParticipanteEmpresaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.listarParticipanteEmpresaRowDeleting != null)) {
+                    this.listarParticipanteEmpresaRowDeleting(this, new listarParticipanteEmpresaRowChangeEvent(((listarParticipanteEmpresaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovelistarParticipanteEmpresaRow(listarParticipanteEmpresaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                centaurusDataSet ds = new centaurusDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "listarParticipanteEmpresaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class categoriaRow : global::System.Data.DataRow {
@@ -13122,6 +13956,1015 @@ namespace Centaurus {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class listarParticipanteEmpresaRow : global::System.Data.DataRow {
+            
+            private listarParticipanteEmpresaDataTable tablelistarParticipanteEmpresa;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal listarParticipanteEmpresaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablelistarParticipanteEmpresa = ((listarParticipanteEmpresaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public uint id_partipante {
+                get {
+                    return ((uint)(this[this.tablelistarParticipanteEmpresa.id_partipanteColumn]));
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.id_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string nome_fantasia_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.nome_fantasia_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'nome_fantasia_participante\' na tabela \'listarParticipanteEmpre" +
+                                "sa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.nome_fantasia_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string apelido_razao_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.apelido_razao_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'apelido_razao_participante\' na tabela \'listarParticipanteEmpre" +
+                                "sa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.apelido_razao_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cpf_cnpj_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cpf_cnpj_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cpf_cnpj_participante\' na tabela \'listarParticipanteEmpresa\' é" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cpf_cnpj_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string rg_ie_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.rg_ie_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'rg_ie_participante\' na tabela \'listarParticipanteEmpresa\' é DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.rg_ie_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string endereco_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.endereco_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'endereco_participante\' na tabela \'listarParticipanteEmpresa\' é" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.endereco_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string numeroendereco_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.numeroendereco_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'numeroendereco_participante\' na tabela \'listarParticipanteEmpr" +
+                                "esa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.numeroendereco_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string bairro_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.bairro_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'bairro_participante\' na tabela \'listarParticipanteEmpresa\' é D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.bairro_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cidade_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cidade_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cidade_participante\' na tabela \'listarParticipanteEmpresa\' é D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cidade_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cep_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cep_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cep_participante\' na tabela \'listarParticipanteEmpresa\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cep_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string telefone_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.telefone_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'telefone_participante\' na tabela \'listarParticipanteEmpresa\' é" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.telefone_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string celular_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.celular_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'celular_participante\' na tabela \'listarParticipanteEmpresa\' é " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.celular_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string uf_partipante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.uf_partipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'uf_partipante\' na tabela \'listarParticipanteEmpresa\' é DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.uf_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string email_partipante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.email_partipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'email_partipante\' na tabela \'listarParticipanteEmpresa\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.email_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string datacadastro_participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.datacadastro_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'datacadastro_participante\' na tabela \'listarParticipanteEmpres" +
+                                "a\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.datacadastro_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dataalteracao_partipante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.dataalteracao_partipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'dataalteracao_partipante\' na tabela \'listarParticipanteEmpresa" +
+                                "\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.dataalteracao_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string usuariocadastro_partipante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.usuariocadastro_partipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'usuariocadastro_partipante\' na tabela \'listarParticipanteEmpre" +
+                                "sa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.usuariocadastro_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string usuarioalteracao_partipante {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.usuarioalteracao_partipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'usuarioalteracao_partipante\' na tabela \'listarParticipanteEmpr" +
+                                "esa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.usuarioalteracao_partipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool tipocliente_participante {
+                get {
+                    try {
+                        return ((bool)(this[this.tablelistarParticipanteEmpresa.tipocliente_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'tipocliente_participante\' na tabela \'listarParticipanteEmpresa" +
+                                "\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.tipocliente_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool tipofornecedor_participante {
+                get {
+                    try {
+                        return ((bool)(this[this.tablelistarParticipanteEmpresa.tipofornecedor_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'tipofornecedor_participante\' na tabela \'listarParticipanteEmpr" +
+                                "esa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.tipofornecedor_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool tipofuncionario_participante {
+                get {
+                    try {
+                        return ((bool)(this[this.tablelistarParticipanteEmpresa.tipofuncionario_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'tipofuncionario_participante\' na tabela \'listarParticipanteEmp" +
+                                "resa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.tipofuncionario_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ativo_participante {
+                get {
+                    try {
+                        return ((bool)(this[this.tablelistarParticipanteEmpresa.ativo_participanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'ativo_participante\' na tabela \'listarParticipanteEmpresa\' é DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.ativo_participanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string fantasia_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.fantasia_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'fantasia_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.fantasia_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string razaosocial_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.razaosocial_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'razaosocial_empresa\' na tabela \'listarParticipanteEmpresa\' é D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.razaosocial_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string telefone_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.telefone_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'telefone_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.telefone_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string celular_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.celular_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'celular_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.celular_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string endereco_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.endereco_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'endereco_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.endereco_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string numero_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.numero_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'numero_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.numero_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string bairro_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.bairro_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'bairro_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.bairro_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cidade_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cidade_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cidade_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cidade_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cep_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cep_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cep_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cep_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cpfcnpj_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.cpfcnpj_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cpfcnpj_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.cpfcnpj_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string rgIe_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.rgIe_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'rgIe_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.rgIe_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string uf_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.uf_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'uf_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.uf_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string email_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tablelistarParticipanteEmpresa.email_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'email_empresa\' na tabela \'listarParticipanteEmpresa\' é DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablelistarParticipanteEmpresa.email_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isnome_fantasia_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.nome_fantasia_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setnome_fantasia_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.nome_fantasia_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isapelido_razao_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.apelido_razao_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setapelido_razao_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.apelido_razao_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscpf_cnpj_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cpf_cnpj_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcpf_cnpj_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.cpf_cnpj_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isrg_ie_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.rg_ie_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setrg_ie_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.rg_ie_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isendereco_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.endereco_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setendereco_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.endereco_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isnumeroendereco_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.numeroendereco_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setnumeroendereco_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.numeroendereco_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isbairro_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.bairro_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setbairro_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.bairro_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscidade_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cidade_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcidade_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.cidade_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscep_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cep_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcep_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.cep_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istelefone_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.telefone_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settelefone_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.telefone_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscelular_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.celular_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcelular_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.celular_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isuf_partipanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.uf_partipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setuf_partipanteNull() {
+                this[this.tablelistarParticipanteEmpresa.uf_partipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemail_partipanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.email_partipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemail_partipanteNull() {
+                this[this.tablelistarParticipanteEmpresa.email_partipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdatacadastro_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.datacadastro_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdatacadastro_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.datacadastro_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdataalteracao_partipanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.dataalteracao_partipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdataalteracao_partipanteNull() {
+                this[this.tablelistarParticipanteEmpresa.dataalteracao_partipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isusuariocadastro_partipanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.usuariocadastro_partipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setusuariocadastro_partipanteNull() {
+                this[this.tablelistarParticipanteEmpresa.usuariocadastro_partipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isusuarioalteracao_partipanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.usuarioalteracao_partipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setusuarioalteracao_partipanteNull() {
+                this[this.tablelistarParticipanteEmpresa.usuarioalteracao_partipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istipocliente_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.tipocliente_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settipocliente_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.tipocliente_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istipofornecedor_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.tipofornecedor_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settipofornecedor_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.tipofornecedor_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istipofuncionario_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.tipofuncionario_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settipofuncionario_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.tipofuncionario_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isativo_participanteNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.ativo_participanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setativo_participanteNull() {
+                this[this.tablelistarParticipanteEmpresa.ativo_participanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isfantasia_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.fantasia_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setfantasia_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.fantasia_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Israzaosocial_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.razaosocial_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setrazaosocial_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.razaosocial_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istelefone_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.telefone_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settelefone_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.telefone_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscelular_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.celular_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcelular_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.celular_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isendereco_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.endereco_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setendereco_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.endereco_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isnumero_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.numero_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setnumero_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.numero_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isbairro_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.bairro_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setbairro_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.bairro_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscidade_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cidade_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcidade_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.cidade_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscep_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cep_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcep_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.cep_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscpfcnpj_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.cpfcnpj_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcpfcnpj_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.cpfcnpj_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsrgIe_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.rgIe_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetrgIe_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.rgIe_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isuf_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.uf_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setuf_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.uf_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemail_empresaNull() {
+                return this.IsNull(this.tablelistarParticipanteEmpresa.email_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemail_empresaNull() {
+                this[this.tablelistarParticipanteEmpresa.email_empresaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -13651,6 +15494,40 @@ namespace Centaurus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public viewlocacaoitensRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class listarParticipanteEmpresaRowChangeEvent : global::System.EventArgs {
+            
+            private listarParticipanteEmpresaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRowChangeEvent(listarParticipanteEmpresaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public listarParticipanteEmpresaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -24099,6 +25976,209 @@ namespace Centaurus.centaurusDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class listarParticipanteEmpresaTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public listarParticipanteEmpresaTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "listarParticipanteEmpresa";
+            tableMapping.ColumnMappings.Add("id_partipante", "id_partipante");
+            tableMapping.ColumnMappings.Add("nome_fantasia_participante", "nome_fantasia_participante");
+            tableMapping.ColumnMappings.Add("apelido_razao_participante", "apelido_razao_participante");
+            tableMapping.ColumnMappings.Add("cpf_cnpj_participante", "cpf_cnpj_participante");
+            tableMapping.ColumnMappings.Add("rg_ie_participante", "rg_ie_participante");
+            tableMapping.ColumnMappings.Add("endereco_participante", "endereco_participante");
+            tableMapping.ColumnMappings.Add("numeroendereco_participante", "numeroendereco_participante");
+            tableMapping.ColumnMappings.Add("bairro_participante", "bairro_participante");
+            tableMapping.ColumnMappings.Add("cidade_participante", "cidade_participante");
+            tableMapping.ColumnMappings.Add("cep_participante", "cep_participante");
+            tableMapping.ColumnMappings.Add("telefone_participante", "telefone_participante");
+            tableMapping.ColumnMappings.Add("celular_participante", "celular_participante");
+            tableMapping.ColumnMappings.Add("uf_partipante", "uf_partipante");
+            tableMapping.ColumnMappings.Add("email_partipante", "email_partipante");
+            tableMapping.ColumnMappings.Add("datacadastro_participante", "datacadastro_participante");
+            tableMapping.ColumnMappings.Add("dataalteracao_partipante", "dataalteracao_partipante");
+            tableMapping.ColumnMappings.Add("usuariocadastro_partipante", "usuariocadastro_partipante");
+            tableMapping.ColumnMappings.Add("usuarioalteracao_partipante", "usuarioalteracao_partipante");
+            tableMapping.ColumnMappings.Add("tipocliente_participante", "tipocliente_participante");
+            tableMapping.ColumnMappings.Add("tipofornecedor_participante", "tipofornecedor_participante");
+            tableMapping.ColumnMappings.Add("tipofuncionario_participante", "tipofuncionario_participante");
+            tableMapping.ColumnMappings.Add("ativo_participante", "ativo_participante");
+            tableMapping.ColumnMappings.Add("fantasia_empresa", "fantasia_empresa");
+            tableMapping.ColumnMappings.Add("razaosocial_empresa", "razaosocial_empresa");
+            tableMapping.ColumnMappings.Add("telefone_empresa", "telefone_empresa");
+            tableMapping.ColumnMappings.Add("celular_empresa", "celular_empresa");
+            tableMapping.ColumnMappings.Add("endereco_empresa", "endereco_empresa");
+            tableMapping.ColumnMappings.Add("numero_empresa", "numero_empresa");
+            tableMapping.ColumnMappings.Add("bairro_empresa", "bairro_empresa");
+            tableMapping.ColumnMappings.Add("cidade_empresa", "cidade_empresa");
+            tableMapping.ColumnMappings.Add("cep_empresa", "cep_empresa");
+            tableMapping.ColumnMappings.Add("cpfcnpj_empresa", "cpfcnpj_empresa");
+            tableMapping.ColumnMappings.Add("rgIe_empresa", "rgIe_empresa");
+            tableMapping.ColumnMappings.Add("uf_empresa", "uf_empresa");
+            tableMapping.ColumnMappings.Add("email_empresa", "email_empresa");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Centaurus.Properties.Settings.Default.centaurusConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        participante.*, empresa.fantasia_empresa, empresa.razaosocial_empresa, empresa.telefone_empresa, empresa.celular_empresa, empresa.endereco_empresa, empresa.numero_empresa, empresa.bairro_empresa, 
+                         empresa.cidade_empresa, empresa.cep_empresa, empresa.cpfcnpj_empresa, empresa.rgIe_empresa, empresa.uf_empresa, empresa.email_empresa
+FROM            participante, empresa";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(centaurusDataSet.listarParticipanteEmpresaDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual centaurusDataSet.listarParticipanteEmpresaDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            centaurusDataSet.listarParticipanteEmpresaDataTable dataTable = new centaurusDataSet.listarParticipanteEmpresaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -24420,21 +26500,12 @@ namespace Centaurus.centaurusDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cidadeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._usuarioTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cidadeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._locacaoitensTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.locacaoitens.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._locacaoitensTableAdapter.Update(updatedRows));
+                    result = (result + this._usuarioTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24447,12 +26518,21 @@ namespace Centaurus.centaurusDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._usuarioTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._locacaoitensTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.locacaoitens.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._usuarioTableAdapter.Update(updatedRows));
+                    result = (result + this._locacaoitensTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cidadeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cidadeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24506,19 +26586,11 @@ namespace Centaurus.centaurusDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cidadeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._usuarioTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cidadeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._locacaoitensTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.locacaoitens.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._locacaoitensTableAdapter.Update(addedRows));
+                    result = (result + this._usuarioTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24530,11 +26602,19 @@ namespace Centaurus.centaurusDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._usuarioTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._locacaoitensTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.locacaoitens.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._usuarioTableAdapter.Update(addedRows));
+                    result = (result + this._locacaoitensTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cidadeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cidadeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24548,19 +26628,11 @@ namespace Centaurus.centaurusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(centaurusDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._usuarioTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cidadeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._usuarioTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._produtovariacaoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.produtovariacao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._produtovariacaoTableAdapter.Update(deletedRows));
+                    result = (result + this._cidadeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24572,11 +26644,19 @@ namespace Centaurus.centaurusDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cidadeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.cidade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._produtovariacaoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.produtovariacao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cidadeTableAdapter.Update(deletedRows));
+                    result = (result + this._produtovariacaoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._usuarioTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.usuario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._usuarioTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

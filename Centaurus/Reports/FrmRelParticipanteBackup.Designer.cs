@@ -1,6 +1,6 @@
 ﻿namespace Centaurus.Reports
 {
-    partial class FrmRelParticipante
+    partial class FrmRelParticipanteBackup
     {
         /// <summary>
         /// Required designer variable.
@@ -30,40 +30,41 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.listarParticipanteEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.centaurusDataSet = new Centaurus.centaurusDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.listarParticipanteEmpresaTableAdapter = new Centaurus.centaurusDataSetTableAdapters.listarParticipanteEmpresaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.listarParticipanteEmpresaBindingSource)).BeginInit();
+            this.centaurusDataSet = new Centaurus.centaurusDataSet();
+            this.participanteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.participanteTableAdapter = new Centaurus.centaurusDataSetTableAdapters.participanteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.centaurusDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.participanteBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listarParticipanteEmpresaBindingSource
-            // 
-            this.listarParticipanteEmpresaBindingSource.DataMember = "listarParticipanteEmpresa";
-            this.listarParticipanteEmpresaBindingSource.DataSource = this.centaurusDataSet;
-            // 
-            // centaurusDataSet
-            // 
-            this.centaurusDataSet.DataSetName = "centaurusDataSet";
-            this.centaurusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.DocumentMapWidth = 47;
             reportDataSource1.Name = "DataSetConexao";
-            reportDataSource1.Value = this.listarParticipanteEmpresaBindingSource;
+            reportDataSource1.Value = this.participanteBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Centaurus.Reports.RelParticipante .rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Centaurus.Reports.RelParticipante.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(752, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // listarParticipanteEmpresaTableAdapter
+            // centaurusDataSet
             // 
-            this.listarParticipanteEmpresaTableAdapter.ClearBeforeFill = true;
+            this.centaurusDataSet.DataSetName = "centaurusDataSet";
+            this.centaurusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // participanteBindingSource
+            // 
+            this.participanteBindingSource.DataMember = "participante";
+            this.participanteBindingSource.DataSource = this.centaurusDataSet;
+            // 
+            // participanteTableAdapter
+            // 
+            this.participanteTableAdapter.ClearBeforeFill = true;
             // 
             // FrmRelParticipante
             // 
@@ -74,11 +75,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmRelParticipante";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Relatório Participantes";
-            this.Load += new System.EventHandler(this.FrmTestecs_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.listarParticipanteEmpresaBindingSource)).EndInit();
+            this.Text = "Relatório de Participantes";
+            this.Load += new System.EventHandler(this.FrmRelParticipante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.centaurusDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.participanteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,7 +87,7 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private centaurusDataSet centaurusDataSet;
-        private System.Windows.Forms.BindingSource listarParticipanteEmpresaBindingSource;
-        private centaurusDataSetTableAdapters.listarParticipanteEmpresaTableAdapter listarParticipanteEmpresaTableAdapter;
+        private System.Windows.Forms.BindingSource participanteBindingSource;
+        private centaurusDataSetTableAdapters.participanteTableAdapter participanteTableAdapter;
     }
 }
