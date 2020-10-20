@@ -177,8 +177,14 @@ namespace Centaurus
 
         private void participantesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            FrmFiltroRelatorioParticipantes frmParticipante = new FrmFiltroRelatorioParticipantes();
+            frmParticipante.TopLevel = false;
+            frmParticipante.Visible = true;
+            painelPrincipal.Controls.Add(frmParticipante);
+            /*
             Reports.FrmRelParticipante relParticipante = new Reports.FrmRelParticipante();
             relParticipante.Show();
+            */
         }
 
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
