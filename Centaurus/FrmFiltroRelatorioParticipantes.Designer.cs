@@ -35,10 +35,10 @@
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonVisualizar = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonTodosParticipantes = new System.Windows.Forms.RadioButton();
+            this.radioButtonFornecedor = new System.Windows.Forms.RadioButton();
             this.radioButtonFuncionario = new System.Windows.Forms.RadioButton();
             this.radioButtonCliente = new System.Windows.Forms.RadioButton();
-            this.radioButtonFornecedor = new System.Windows.Forms.RadioButton();
-            this.radioButtonTodosParticipantes = new System.Windows.Forms.RadioButton();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             this.buttonBuscarParticipante.Size = new System.Drawing.Size(25, 25);
             this.buttonBuscarParticipante.TabIndex = 38;
             this.buttonBuscarParticipante.UseVisualStyleBackColor = true;
+            this.buttonBuscarParticipante.Click += new System.EventHandler(this.buttonBuscarParticipante_Click);
             // 
             // toolStripMenusConsultaParticipante
             // 
@@ -107,6 +108,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecione o tipo:";
             // 
+            // radioButtonTodosParticipantes
+            // 
+            this.radioButtonTodosParticipantes.AutoSize = true;
+            this.radioButtonTodosParticipantes.Location = new System.Drawing.Point(225, 23);
+            this.radioButtonTodosParticipantes.Name = "radioButtonTodosParticipantes";
+            this.radioButtonTodosParticipantes.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonTodosParticipantes.TabIndex = 3;
+            this.radioButtonTodosParticipantes.TabStop = true;
+            this.radioButtonTodosParticipantes.Text = "Todos";
+            this.radioButtonTodosParticipantes.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonFornecedor
+            // 
+            this.radioButtonFornecedor.AutoSize = true;
+            this.radioButtonFornecedor.Location = new System.Drawing.Point(140, 23);
+            this.radioButtonFornecedor.Name = "radioButtonFornecedor";
+            this.radioButtonFornecedor.Size = new System.Drawing.Size(79, 17);
+            this.radioButtonFornecedor.TabIndex = 2;
+            this.radioButtonFornecedor.TabStop = true;
+            this.radioButtonFornecedor.Text = "Fornecedor";
+            this.radioButtonFornecedor.UseVisualStyleBackColor = true;
+            // 
             // radioButtonFuncionario
             // 
             this.radioButtonFuncionario.AutoSize = true;
@@ -128,28 +151,6 @@
             this.radioButtonCliente.TabStop = true;
             this.radioButtonCliente.Text = "Cliente";
             this.radioButtonCliente.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonFornecedor
-            // 
-            this.radioButtonFornecedor.AutoSize = true;
-            this.radioButtonFornecedor.Location = new System.Drawing.Point(140, 23);
-            this.radioButtonFornecedor.Name = "radioButtonFornecedor";
-            this.radioButtonFornecedor.Size = new System.Drawing.Size(79, 17);
-            this.radioButtonFornecedor.TabIndex = 2;
-            this.radioButtonFornecedor.TabStop = true;
-            this.radioButtonFornecedor.Text = "Fornecedor";
-            this.radioButtonFornecedor.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTodosParticipantes
-            // 
-            this.radioButtonTodosParticipantes.AutoSize = true;
-            this.radioButtonTodosParticipantes.Location = new System.Drawing.Point(225, 23);
-            this.radioButtonTodosParticipantes.Name = "radioButtonTodosParticipantes";
-            this.radioButtonTodosParticipantes.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodosParticipantes.TabIndex = 3;
-            this.radioButtonTodosParticipantes.TabStop = true;
-            this.radioButtonTodosParticipantes.Text = "Todos";
-            this.radioButtonTodosParticipantes.UseVisualStyleBackColor = true;
             // 
             // FrmFiltroRelatorioParticipantes
             // 
