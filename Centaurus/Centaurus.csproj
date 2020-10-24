@@ -409,6 +409,7 @@
     <None Include="Resources\file-chart.png" />
     <None Include="Resources\factory.png" />
     <None Include="Resources\magnify.png" />
+    <None Include="Resources\baseline_cancel_white_18dp.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

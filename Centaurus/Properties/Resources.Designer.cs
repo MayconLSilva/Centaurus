@@ -63,6 +63,16 @@ namespace Centaurus.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_cancel_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_cancel_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bd {
             get {
                 object obj = ResourceManager.GetObject("bd", resourceCulture);

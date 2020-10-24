@@ -26149,16 +26149,79 @@ namespace Centaurus.centaurusDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        participante.*, empresa.fantasia_empresa, empresa.razaosocial_empresa, empresa.telefone_empresa, empresa.celular_empresa, empresa.endereco_empresa, empresa.numero_empresa, empresa.bairro_empresa, 
                          empresa.cidade_empresa, empresa.cep_empresa, empresa.cpfcnpj_empresa, empresa.rgIe_empresa, empresa.uf_empresa, empresa.email_empresa
-FROM            participante, empresa";
+FROM            participante, empresa where tipocliente_participante = @tipoCli 
+or tipofornecedor_participante = @tipoFor
+ or tipofuncionario_participante = @tipoFun 
+or  participante.nome_fantasia_participante = @nome ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@tipoCli";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "tipocliente_participante";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@tipoFor";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "tipofornecedor_participante";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@tipoFun";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "tipofuncionario_participante";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@nome";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 45;
+            param.IsNullable = true;
+            param.SourceColumn = "nome_fantasia_participante";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[0].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(centaurusDataSet.listarParticipanteEmpresaDataTable dataTable) {
+        public virtual int Fill(centaurusDataSet.listarParticipanteEmpresaDataTable dataTable, object tipoCli, object tipoFor, object tipoFun, string nome) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((tipoCli == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(tipoCli));
+            }
+            if ((tipoFor == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(tipoFor));
+            }
+            if ((tipoFun == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(tipoFun));
+            }
+            if ((nome == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nome));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -26170,8 +26233,32 @@ FROM            participante, empresa";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual centaurusDataSet.listarParticipanteEmpresaDataTable GetData() {
+        public virtual centaurusDataSet.listarParticipanteEmpresaDataTable GetData(object tipoCli, object tipoFor, object tipoFun, string nome) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((tipoCli == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(tipoCli));
+            }
+            if ((tipoFor == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(tipoFor));
+            }
+            if ((tipoFun == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(tipoFun));
+            }
+            if ((nome == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nome));
+            }
             centaurusDataSet.listarParticipanteEmpresaDataTable dataTable = new centaurusDataSet.listarParticipanteEmpresaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

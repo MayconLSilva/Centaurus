@@ -31,14 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFiltroRelatorioParticipantes));
             this.labelNome = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.buttonBuscarParticipante = new System.Windows.Forms.Button();
             this.toolStripMenusConsultaParticipante = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonVisualizar = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButtonTodosParticipantes = new System.Windows.Forms.RadioButton();
             this.radioButtonFornecedor = new System.Windows.Forms.RadioButton();
             this.radioButtonFuncionario = new System.Windows.Forms.RadioButton();
             this.radioButtonCliente = new System.Windows.Forms.RadioButton();
+            this.buttonLimparNome = new System.Windows.Forms.Button();
+            this.toolStripButtonVisualizar = new System.Windows.Forms.ToolStripButton();
+            this.buttonBuscarParticipante = new System.Windows.Forms.Button();
             this.toolStripMenusConsultaParticipante.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,17 +61,6 @@
             this.textBoxNome.Size = new System.Drawing.Size(189, 20);
             this.textBoxNome.TabIndex = 1;
             // 
-            // buttonBuscarParticipante
-            // 
-            this.buttonBuscarParticipante.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarParticipante.Image")));
-            this.buttonBuscarParticipante.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonBuscarParticipante.Location = new System.Drawing.Point(210, 22);
-            this.buttonBuscarParticipante.Name = "buttonBuscarParticipante";
-            this.buttonBuscarParticipante.Size = new System.Drawing.Size(25, 25);
-            this.buttonBuscarParticipante.TabIndex = 38;
-            this.buttonBuscarParticipante.UseVisualStyleBackColor = true;
-            this.buttonBuscarParticipante.Click += new System.EventHandler(this.buttonBuscarParticipante_Click);
-            // 
             // toolStripMenusConsultaParticipante
             // 
             this.toolStripMenusConsultaParticipante.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -82,18 +72,6 @@
             this.toolStripMenusConsultaParticipante.Size = new System.Drawing.Size(534, 25);
             this.toolStripMenusConsultaParticipante.TabIndex = 50;
             this.toolStripMenusConsultaParticipante.Text = "Consulta Participante";
-            // 
-            // toolStripButtonVisualizar
-            // 
-            this.toolStripButtonVisualizar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonVisualizar.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonVisualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonVisualizar.Image")));
-            this.toolStripButtonVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonVisualizar.Name = "toolStripButtonVisualizar";
-            this.toolStripButtonVisualizar.Size = new System.Drawing.Size(74, 22);
-            this.toolStripButtonVisualizar.Text = "VISUALIZAR";
-            this.toolStripButtonVisualizar.Click += new System.EventHandler(this.toolStripButtonVisualizar_Click);
             // 
             // groupBox1
             // 
@@ -152,11 +130,46 @@
             this.radioButtonCliente.Text = "Cliente";
             this.radioButtonCliente.UseVisualStyleBackColor = true;
             // 
+            // buttonLimparNome
+            // 
+            this.buttonLimparNome.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimparNome.Image")));
+            this.buttonLimparNome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonLimparNome.Location = new System.Drawing.Point(241, 22);
+            this.buttonLimparNome.Name = "buttonLimparNome";
+            this.buttonLimparNome.Size = new System.Drawing.Size(25, 25);
+            this.buttonLimparNome.TabIndex = 52;
+            this.buttonLimparNome.UseVisualStyleBackColor = true;
+            this.buttonLimparNome.Click += new System.EventHandler(this.buttonLimparNome_Click);
+            // 
+            // toolStripButtonVisualizar
+            // 
+            this.toolStripButtonVisualizar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonVisualizar.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonVisualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonVisualizar.Image")));
+            this.toolStripButtonVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonVisualizar.Name = "toolStripButtonVisualizar";
+            this.toolStripButtonVisualizar.Size = new System.Drawing.Size(74, 22);
+            this.toolStripButtonVisualizar.Text = "VISUALIZAR";
+            this.toolStripButtonVisualizar.Click += new System.EventHandler(this.toolStripButtonVisualizar_Click);
+            // 
+            // buttonBuscarParticipante
+            // 
+            this.buttonBuscarParticipante.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarParticipante.Image")));
+            this.buttonBuscarParticipante.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonBuscarParticipante.Location = new System.Drawing.Point(210, 22);
+            this.buttonBuscarParticipante.Name = "buttonBuscarParticipante";
+            this.buttonBuscarParticipante.Size = new System.Drawing.Size(25, 25);
+            this.buttonBuscarParticipante.TabIndex = 38;
+            this.buttonBuscarParticipante.UseVisualStyleBackColor = true;
+            this.buttonBuscarParticipante.Click += new System.EventHandler(this.buttonBuscarParticipante_Click);
+            // 
             // FrmFiltroRelatorioParticipantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 211);
+            this.Controls.Add(this.buttonLimparNome);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStripMenusConsultaParticipante);
             this.Controls.Add(this.buttonBuscarParticipante);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.RadioButton radioButtonCliente;
         private System.Windows.Forms.RadioButton radioButtonTodosParticipantes;
         private System.Windows.Forms.RadioButton radioButtonFornecedor;
+        private System.Windows.Forms.Button buttonLimparNome;
     }
 }
