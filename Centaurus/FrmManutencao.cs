@@ -124,5 +124,18 @@ namespace Centaurus
         {
             adapter.popularCidade();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string testoOriginal = "01/02/2020";
+            char[] delimitador = new char[] { '/' };
+            string [] strings = testoOriginal.Split(delimitador);
+            foreach(string s in strings)
+            {
+                Console.WriteLine("A data ficou " + s);
+            }
+
+            
+        }
     }
 }
