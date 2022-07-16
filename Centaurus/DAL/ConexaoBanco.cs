@@ -12,7 +12,7 @@ namespace Centaurus.Dao
     public class ConexaoBanco
     {
         
-        string conecta = "DATABASE=centaurus; SERVER= server2012; UID= sistema; PWD=M12345";
+        string conecta = "DATABASE=centaurus; SERVER=Sputnik2012; UID= sistema; PWD=M12345";
         protected MySqlConnection conexao = null;
         //MySqlCommand comando = null;
 

@@ -246,6 +246,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\FrmRelMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmRelMarca.Designer.cs">
+      <DependentUpon>FrmRelMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\FrmRelParticipanteBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,12 +342,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FrmRelMarca.resx">
+      <DependentUpon>FrmRelMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FrmRelParticipanteBackup.resx">
       <DependentUpon>FrmRelParticipanteBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FrmRelParticipante.resx">
       <DependentUpon>FrmRelParticipante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RelMarca.rdlc" />
     <EmbeddedResource Include="Reports\RelParticipante .rdlc" />
     <EmbeddedResource Include="Reports\RelParticipanteBackup.rdlc" />
     <None Include="centaurusDataSet.xsc">
@@ -356,6 +366,7 @@
       <DependentUpon>centaurusDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Centaurus.Model.MarcaModelo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

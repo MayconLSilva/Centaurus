@@ -159,7 +159,31 @@ namespace Centaurus.Dao
             return modMarca;
         }
 
-        
+        public List<MarcaModelo> listarProdutosRelatorio()
+        {
+            try
+            {
+                AbrirConexao();
+                comando = new MySqlCommand("select *from marca ", conexao);
+                dr = comando.ExecuteReader();
+
+                List<MarcaModelo> listarMarcas = new List<MarcaModelo>();
+
+                while (dr.Read())
+                {
+                    MarcaModelo marcaModelo = new MarcaModelo();
+                    marcaModelo.idMarca = Convert.ToInt32(dr["id_marca"]);
+                    marcaModelo.nomeMarca = Convert.ToString(dr["descricao_marca"]);
+                    listarMarcas.Add(marcaModelo);
+                }
+                return listarMarcas;
+
+            }
+            catch(Exception erro)
+            {
+                throw new Exception("Erro ao buscar marcas " + erro.Message);
+            }
+        }
 
     }
 }
