@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Centaurus.BLL;
 using Centaurus.DTO;
+using Centaurus.Reports;
 
 namespace Centaurus
 {
@@ -190,6 +191,14 @@ namespace Centaurus
             frmEmpresa.TopLevel = false;
             frmEmpresa.Visible = true;
             painelPrincipal.Controls.Add(frmEmpresa);
+        }
+
+        private void marcaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmRelMarca frmRelMarca = new FrmRelMarca();
+            frmRelMarca.TopLevel = false;
+            frmRelMarca.Visible = true;
+            painelPrincipal.Controls.Add(frmRelMarca);
         }
 
 
