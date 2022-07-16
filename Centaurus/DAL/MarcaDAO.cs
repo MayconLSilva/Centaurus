@@ -18,7 +18,8 @@ namespace Centaurus.Dao
     public class MarcaDAO: ConexaoBanco
     {
         MySqlCommand comando = null;
-        MySqlDataReader dr;        
+        MySqlDataReader dr;
+        ConexaoBanco conexao2 = new ConexaoBanco();
 
         public void salvar(MarcaModelo marca) 
         {
@@ -83,25 +84,28 @@ namespace Centaurus.Dao
 
             try
             {
-                AbrirConexao();
-                ConexaoBanco conexao = new ConexaoBanco();
-                conexao.AbrirConexao();
-                if(tipoFiltro == "TODAS")
+                //AbrirConexao();
+                conexao2.AbrirConexao();
+                if (tipoFiltro == "TODAS")
                 {
-                    dt = conexao.RetDataTable("select *from marca");
+                    //dt = conexao.RetDataTable("select *from marca");
+                    dt = conexao2.RetDataTable("select id_marca AS idMarca, descricao_marca as nomeMarca from marca");
                 }
-                else if(tipoFiltro == "MARCA")
+                else if (tipoFiltro == "MARCA")
                 {
-                    dt = conexao.RetDataTable("select *from marca where descricao_marca = '" + filtro + "'");
+                    dt = conexao2.RetDataTable("select *from marca where descricao_marca = '" + filtro + "'");
                 }
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 throw new Exception("Erro ao listar marcar, classe DAO " + erro.Message);
             }
             finally
             {
-                FecharConexao();
+                //FecharConexao();
+                conexao2.FecharConexao();
+
+
             }
             return dt;
         }
