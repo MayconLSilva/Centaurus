@@ -27,41 +27,34 @@ namespace Centaurus
 
         private void toolStripButtonVisualizar_Click(object sender, EventArgs e)
         {
-            string tipoCli = null, tipoFun = null, tipoFor = null;
-            
-            if(String.IsNullOrEmpty(textBoxNome.Text) == true)
-            {
-                //Tipo cliente
-                if (radioButtonCliente.Checked)
-                {
-                    tipoCli = "1";
-                }
+           string tipoConsulta = "", tipoFiltro = "TODOS";
+
+            if (!string.IsNullOrEmpty(textBoxNome.Text))
+                tipoFiltro = "NOME";
+
+           //Tipo cliente
+            if (radioButtonCliente.Checked)
+           {
+              tipoConsulta = "CLIENTE";
+           }
                 //Tipo funcionário
                 if (radioButtonFuncionario.Checked)
                 {
-                    tipoFun = "1";
+                    tipoConsulta = "FUNCIONARIO";
                 }
                 //Tipo fornecedor
                 if (radioButtonFornecedor.Checked)
                 {
-                    tipoFor = "1";
+                    tipoConsulta = "FORNECEDOR";
                 }
                 //Tipo todos
                 if (radioButtonTodosParticipantes.Checked)
                 {
-                    tipoCli = "1";
-                    tipoFun = "1";
-                    tipoFor = "1";
+                    tipoConsulta = "TODOS";
                 }
-            }
-            else
-            {
-                tipoCli = null;
-                tipoFun = null;
-                tipoFor = null;
-            }
+           
 
-            Reports.FrmRelParticipante relParticipante = new Reports.FrmRelParticipante(tipoCli,tipoFor,tipoFun, textBoxNome.Text);
+            Reports.FrmRelParticipante relParticipante = new Reports.FrmRelParticipante(tipoConsulta,tipoFiltro, textBoxNome.Text);
             relParticipante.Show();            
         }
 

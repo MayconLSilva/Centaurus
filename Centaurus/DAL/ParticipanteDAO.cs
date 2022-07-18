@@ -447,6 +447,81 @@ namespace Centaurus.Dao
             return modParticipante;
         }
 
+        public List<ParticipanteModelo> listarParticipanteRelatorio(string tipoConsulta, string tipoFiltro, string filtroConsulta)
+        {
+            try
+            {
+                string filtros = "";
+
+                switch (tipoConsulta)
+                {
+                    case "CLIENTE":
+                        filtros += " and tipocliente_participante = 1";
+                        break;
+                    case "FORNECEDOR":
+                        filtros += " and tipofornecedor_participante = 1";
+                        break;
+                    case "FUNCIONARIO":
+                        filtros += " and tipofuncionario_participante = 1";
+                        break;
+                    case "TODOS":
+                        filtros += " ";
+                        break;
+                }
+
+                switch (tipoFiltro)
+                {
+                    case "TODOS":
+                        filtros += " ";
+                        break;
+                    case "NOME":
+                        filtros += $" and nome_fantasia_participante = '{filtroConsulta.ToString()}'";
+                        break;
+                    case "CPF/CNPJ":
+                        filtros += $" and cpf_cnpj_participante = '{filtroConsulta.ToString()}'";
+                        break;
+                    case "TELEFONE/CELULAR":
+                        filtros += $" and telefone_participante = '{filtroConsulta.ToString()}'";
+                        break;
+                    case "INTELIGENTE":
+                        filtros += $" and like '% '{filtroConsulta.ToString()}''";
+                        break;
+
+                }
+
+                AbrirConexao();
+                comando = new MySqlCommand($"select *from Participante where 1 = 1 {filtros}", conexao);
+                dr = comando.ExecuteReader();
+
+                List<ParticipanteModelo> listaParticipante = new List<ParticipanteModelo>();
+
+                while (dr.Read())
+                {
+                    ParticipanteModelo participanteModelo = new ParticipanteModelo();
+                    participanteModelo.idParticipante = Convert.ToInt32(dr["id_partipante"]);
+                    participanteModelo.nomeParticipante = Convert.ToString(dr["nome_fantasia_participante"]);
+                    participanteModelo.razaosocialapelidoParticipante = Convert.ToString(dr["apelido_razao_participante"]);
+                    participanteModelo.cpfcnpjParticipante = Convert.ToString(dr["cpf_cnpj_participante"]);
+                    participanteModelo.rgieParticipante = Convert.ToString(dr["rg_ie_participante"]);
+                    participanteModelo.enderecoParticipante = Convert.ToString(dr["endereco_participante"]);
+                    participanteModelo.numeroEnderecoParticipante = Convert.ToString(dr["numeroendereco_participante"]);
+                    participanteModelo.bairoParticipante = Convert.ToString(dr["bairro_participante"]);
+                    participanteModelo.cidadeParticipante = Convert.ToString(dr["cidade_participante"]);
+                    participanteModelo.ufParticipante = Convert.ToString(dr["uf_partipante"]);
+                    participanteModelo.cepParticipante = Convert.ToString(dr["cep_participante"]);
+                    participanteModelo.telefoneParticipante = Convert.ToString(dr["telefone_participante"]);
+                    participanteModelo.celularParticipante = Convert.ToString(dr["celular_participante"]);
+                    participanteModelo.emailParticipante = Convert.ToString(dr["email_partipante"]);
+                    listaParticipante.Add(participanteModelo);
+                }
+
+                return listaParticipante;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro ao buscar participantes " + ex.Message);
+            }
+        }
     }
     
 }

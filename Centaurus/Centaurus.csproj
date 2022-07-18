@@ -385,6 +385,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Centaurus.Model.MarcaModelo.datasource" />
+    <None Include="Properties\DataSources\Centaurus.Model.ParticipanteModelo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -439,7 +440,6 @@
     <None Include="Resources\factory.png" />
     <None Include="Resources\magnify.png" />
     <None Include="Resources\baseline_cancel_white_18dp.png" />
-    <Content Include="download.ico" />
     <Content Include="locacao.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

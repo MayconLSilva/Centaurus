@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Centaurus.Dao;
+using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,25 +14,35 @@ namespace Centaurus.Reports
 {
     public partial class FrmRelParticipante : Form
     {
-        private string filtroNome = "";
-        private string filtroCli = null;
-        private string filtroFor = null;
-        private string filtroFun = null;
+        private string _tipoConsulta = "";
+        private string _tipoFiltro = "";
+        private string _nomeCliente = "";
 
-        public FrmRelParticipante(string tipoCli, string tipoFor, string tipoFun,string filtroParti)
+        ParticipanteDAO participanteDAO = new ParticipanteDAO();
+
+        public FrmRelParticipante(string tipoConsulta, string tipoFiltro, string nomeCliente)
         {
             InitializeComponent();
-            filtroNome = filtroParti;
-            filtroCli = tipoCli;
-            filtroFor = tipoFor;
-            filtroFun = tipoFun;
+            _tipoConsulta = tipoConsulta;
+            _tipoFiltro = tipoFiltro;
+            _nomeCliente = nomeCliente;
         }
 
         private void FrmTestecs_Load(object sender, EventArgs e)
-        {            
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
+            this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
+
             // TODO: esta linha de código carrega dados na tabela 'centaurusDataSet.listarParticipanteEmpresa'. Você pode movê-la ou removê-la conforme necessário.
-            this.listarParticipanteEmpresaTableAdapter.Fill(this.centaurusDataSet.listarParticipanteEmpresa, filtroCli,filtroFor,filtroFun, filtroNome);
-            this.reportViewer1.RefreshReport();
+            //this.listarParticipanteEmpresaTableAdapter.Fill(this.centaurusDataSet.listarParticipanteEmpresa, filtroCli,filtroFor,filtroFun, filtroNome);
+            //this.reportViewerParticipantes.RefreshReport();
+
+            var listaParticipante = participanteDAO.listarParticipanteRelatorio(_tipoConsulta,_tipoFiltro,_nomeCliente);
+
+            reportViewerParticipantes.LocalReport.DataSources.Clear();
+            reportViewerParticipantes.LocalReport.DataSources.Add(new ReportDataSource("DataSetRelParticipante", listaParticipante));
+            this.reportViewerParticipantes.RefreshReport();
         }
     }
 }

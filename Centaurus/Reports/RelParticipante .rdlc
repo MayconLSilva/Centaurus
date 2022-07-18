@@ -49,14 +49,14 @@
                   <CellContents>
                     <Rectangle Name="Rectangle1">
                       <ReportItems>
-                        <Textbox Name="id_partipante">
+                        <Textbox Name="idParticipante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!id_partipante.Value</Value>
+                                  <Value>=Fields!idParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -65,7 +65,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>id_partipante</rd:DefaultName>
+                          <rd:DefaultName>idParticipante</rd:DefaultName>
                           <Top>0.6cm</Top>
                           <Height>0.6cm</Height>
                           <Width>1.5cm</Width>
@@ -79,21 +79,21 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="nome_fantasia_participante">
+                        <Textbox Name="nomeParticipante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nome_fantasia_participante.Value</Value>
+                                  <Value>=Fields!nomeParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>nome_fantasia_participante</rd:DefaultName>
+                          <rd:DefaultName>nomeParticipante</rd:DefaultName>
                           <Top>0.6cm</Top>
                           <Left>1.60583cm</Left>
                           <Height>0.6cm</Height>
@@ -170,21 +170,21 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="apelido_razao_participante">
+                        <Textbox Name="razaosocialapelidoParticipante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!apelido_razao_participante.Value</Value>
+                                  <Value>=Fields!razaosocialapelidoParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>apelido_razao_participante</rd:DefaultName>
+                          <rd:DefaultName>razaosocialapelidoParticipante</rd:DefaultName>
                           <Top>0.6cm</Top>
                           <Left>5.79917cm</Left>
                           <Height>0.6cm</Height>
@@ -231,21 +231,21 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="cpf_cnpj_participante">
+                        <Textbox Name="cpfcnpjParticipante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!cpf_cnpj_participante.Value</Value>
+                                  <Value>=Fields!cpfcnpjParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>cpf_cnpj_participante</rd:DefaultName>
+                          <rd:DefaultName>cpfcnpjParticipante</rd:DefaultName>
                           <Top>0.6cm</Top>
                           <Left>9.38396cm</Left>
                           <Height>0.6cm</Height>
@@ -292,21 +292,21 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="rg_ie_participante">
+                        <Textbox Name="rgieParticipante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!rg_ie_participante.Value</Value>
+                                  <Value>=Fields!rgieParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>rg_ie_participante</rd:DefaultName>
+                          <rd:DefaultName>rgieParticipante</rd:DefaultName>
                           <Top>0.6cm</Top>
                           <Left>12.88938cm</Left>
                           <Height>0.6cm</Height>
@@ -360,7 +360,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!endereco_participante.Value</Value>
+                                  <Value>=Fields!enderecoParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -389,7 +389,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!numeroendereco_participante.Value</Value>
+                                  <Value>=Fields!numeroEnderecoParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -479,7 +479,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!bairro_participante.Value</Value>
+                                  <Value>=Fields!bairoParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -509,7 +509,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!cidade_participante.Value</Value>
+                                  <Value>=Fields!cidadeParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -569,7 +569,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!uf_partipante.Value</Value>
+                                  <Value>=Fields!ufParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -628,7 +628,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!cep_participante.Value</Value>
+                                  <Value>=Fields!cepParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -688,7 +688,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!telefone_participante.Value</Value>
+                                  <Value>=Fields!telefoneParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -718,7 +718,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!celular_participante.Value</Value>
+                                  <Value>=Fields!celularParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -748,7 +748,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!email_partipante.Value</Value>
+                                  <Value>=Fields!emailParticipante.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -797,7 +797,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSetConexao</DataSetName>
+        <DataSetName>DataSetRelParticipante</DataSetName>
         <Top>1.11153cm</Top>
         <Left>0.36724cm</Left>
         <Height>2.80748cm</Height>
@@ -838,127 +838,6 @@
             </Border>
           </Style>
         </Image>
-        <Textbox Name="fantasia_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!fantasia_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>fantasia_empresa</rd:DefaultName>
-          <Left>1.9378cm</Left>
-          <Height>0.6cm</Height>
-          <Width>13.4042cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="telefone_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!telefone_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>telefone_empresa</rd:DefaultName>
-          <Top>0.67056cm</Top>
-          <Left>5.53046cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="celular_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!celular_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>celular_empresa</rd:DefaultName>
-          <Top>0.67056cm</Top>
-          <Left>8.03046cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.89688cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="endereco_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!endereco_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>endereco_empresa</rd:DefaultName>
-          <Top>1.27056cm</Top>
-          <Left>2.18246cm</Left>
-          <Height>0.6cm</Height>
-          <Width>4.48437cm</Width>
-          <ZIndex>4</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox17">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -980,37 +859,7 @@
           <Left>6.73739cm</Left>
           <Height>0.6cm</Height>
           <Width>0.53773cm</Width>
-          <ZIndex>5</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="numero_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!numero_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>numero_empresa</rd:DefaultName>
-          <Top>1.27056cm</Top>
-          <Left>7.31039cm</Left>
-          <Height>0.6cm</Height>
-          <Width>0.99678cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1040,67 +889,7 @@
           <Left>8.34245cm</Left>
           <Height>0.6cm</Height>
           <Width>0.40866cm</Width>
-          <ZIndex>7</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="bairro_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!bairro_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>bairro_empresa</rd:DefaultName>
-          <Top>1.27056cm</Top>
-          <Left>8.78639cm</Left>
-          <Height>0.6cm</Height>
-          <Width>3.00911cm</Width>
-          <ZIndex>8</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="cidade_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!cidade_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>cidade_empresa</rd:DefaultName>
-          <Top>1.27056cm</Top>
-          <Left>11.83078cm</Left>
-          <Height>0.6cm</Height>
-          <Width>3.51122cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1132,37 +921,7 @@
           <Left>8.85694cm</Left>
           <Height>0.6cm</Height>
           <Width>0.62361cm</Width>
-          <ZIndex>10</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="uf_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!uf_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>uf_empresa</rd:DefaultName>
-          <Top>1.90472cm</Top>
-          <Left>9.58637cm</Left>
-          <Height>0.6cm</Height>
-          <Width>0.88303cm</Width>
-          <ZIndex>11</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1194,37 +953,7 @@
           <Left>5.75406cm</Left>
           <Height>0.6cm</Height>
           <Width>0.99763cm</Width>
-          <ZIndex>12</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="cep_empresa">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!cep_empresa.Value, "DataSetConexao")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>cep_empresa</rd:DefaultName>
-          <Top>1.90472cm</Top>
-          <Left>6.78697cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.96414cm</Width>
-          <ZIndex>13</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1326,169 +1055,114 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="centaurusDataSet">
+    <DataSource Name="CentaurusModel">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>85102491-552a-485d-81b8-04c28bf53a28</rd:DataSourceID>
+      <rd:DataSourceID>1ee4038a-4b72-4d7d-b92a-9fb7634ac7ff</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetConexao">
+    <DataSet Name="DataSetRelParticipante">
       <Query>
-        <DataSourceName>centaurusDataSet</DataSourceName>
+        <DataSourceName>CentaurusModel</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="id_partipante">
-          <DataField>id_partipante</DataField>
-          <rd:TypeName>System.UInt32</rd:TypeName>
-        </Field>
-        <Field Name="nome_fantasia_participante">
-          <DataField>nome_fantasia_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="apelido_razao_participante">
-          <DataField>apelido_razao_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cpf_cnpj_participante">
-          <DataField>cpf_cnpj_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="rg_ie_participante">
-          <DataField>rg_ie_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="endereco_participante">
-          <DataField>endereco_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="numeroendereco_participante">
-          <DataField>numeroendereco_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="bairro_participante">
-          <DataField>bairro_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cidade_participante">
-          <DataField>cidade_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cep_participante">
-          <DataField>cep_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="telefone_participante">
-          <DataField>telefone_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="celular_participante">
-          <DataField>celular_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="uf_partipante">
-          <DataField>uf_partipante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="email_partipante">
-          <DataField>email_partipante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="datacadastro_participante">
-          <DataField>datacadastro_participante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="dataalteracao_partipante">
-          <DataField>dataalteracao_partipante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="usuariocadastro_partipante">
-          <DataField>usuariocadastro_partipante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="usuarioalteracao_partipante">
-          <DataField>usuarioalteracao_partipante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tipocliente_participante">
-          <DataField>tipocliente_participante</DataField>
+        <Field Name="ativoParticipante">
+          <DataField>ativoParticipante</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="tipofornecedor_participante">
-          <DataField>tipofornecedor_participante</DataField>
+        <Field Name="bairoParticipante">
+          <DataField>bairoParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="celularParticipante">
+          <DataField>celularParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cepParticipante">
+          <DataField>cepParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cidadeParticipante">
+          <DataField>cidadeParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cpfcnpjParticipante">
+          <DataField>cpfcnpjParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dataAlteracaoParticipante">
+          <DataField>dataAlteracaoParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dataCadastroParticipante">
+          <DataField>dataCadastroParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emailParticipante">
+          <DataField>emailParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="enderecoParticipante">
+          <DataField>enderecoParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="idParticipante">
+          <DataField>idParticipante</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="nomeParticipante">
+          <DataField>nomeParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="numeroEnderecoParticipante">
+          <DataField>numeroEnderecoParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="razaosocialapelidoParticipante">
+          <DataField>razaosocialapelidoParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="rgieParticipante">
+          <DataField>rgieParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefoneParticipante">
+          <DataField>telefoneParticipante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipoclienteParticipante">
+          <DataField>tipoclienteParticipante</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="tipofuncionario_participante">
-          <DataField>tipofuncionario_participante</DataField>
+        <Field Name="tipofornecedorParticipante">
+          <DataField>tipofornecedorParticipante</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="ativo_participante">
-          <DataField>ativo_participante</DataField>
+        <Field Name="tipofuncionarioParticipante">
+          <DataField>tipofuncionarioParticipante</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="fantasia_empresa">
-          <DataField>fantasia_empresa</DataField>
+        <Field Name="ufParticipante">
+          <DataField>ufParticipante</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="razaosocial_empresa">
-          <DataField>razaosocial_empresa</DataField>
+        <Field Name="usuarioAlteracaoParticipante">
+          <DataField>usuarioAlteracaoParticipante</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="telefone_empresa">
-          <DataField>telefone_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="celular_empresa">
-          <DataField>celular_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="endereco_empresa">
-          <DataField>endereco_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="numero_empresa">
-          <DataField>numero_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="bairro_empresa">
-          <DataField>bairro_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cidade_empresa">
-          <DataField>cidade_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cep_empresa">
-          <DataField>cep_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cpfcnpj_empresa">
-          <DataField>cpfcnpj_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="rgIe_empresa">
-          <DataField>rgIe_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="uf_empresa">
-          <DataField>uf_empresa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="email_empresa">
-          <DataField>email_empresa</DataField>
+        <Field Name="usuarioCadastroParticipante">
+          <DataField>usuarioCadastroParticipante</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>centaurusDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\PROJETOS\Centaurus\Centaurus\centaurusDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>listarParticipanteEmpresa</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>listarParticipanteEmpresaTableAdapter</rd:TableAdapterName>
+        <rd:DataSetName>Centaurus.Model</rd:DataSetName>
+        <rd:TableName>ParticipanteModelo</rd:TableName>
+        <rd:ObjectDataSourceType>Centaurus.Model.ParticipanteModelo, Centaurus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

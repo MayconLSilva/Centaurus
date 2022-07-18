@@ -32,7 +32,7 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.listarParticipanteEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.centaurusDataSet = new Centaurus.centaurusDataSet();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewerParticipantes = new Microsoft.Reporting.WinForms.ReportViewer();
             this.listarParticipanteEmpresaTableAdapter = new Centaurus.centaurusDataSetTableAdapters.listarParticipanteEmpresaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.listarParticipanteEmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.centaurusDataSet)).BeginInit();
@@ -48,18 +48,18 @@
             this.centaurusDataSet.DataSetName = "centaurusDataSet";
             this.centaurusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // reportViewer1
+            // reportViewerParticipantes
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewerParticipantes.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSetConexao";
             reportDataSource1.Value = this.listarParticipanteEmpresaBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Centaurus.Reports.RelParticipante .rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(752, 450);
-            this.reportViewer1.TabIndex = 0;
+            this.reportViewerParticipantes.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewerParticipantes.LocalReport.ReportEmbeddedResource = "Centaurus.Reports.RelParticipante .rdlc";
+            this.reportViewerParticipantes.Location = new System.Drawing.Point(0, 0);
+            this.reportViewerParticipantes.Name = "reportViewerParticipantes";
+            this.reportViewerParticipantes.ServerReport.BearerToken = null;
+            this.reportViewerParticipantes.Size = new System.Drawing.Size(752, 450);
+            this.reportViewerParticipantes.TabIndex = 0;
             // 
             // listarParticipanteEmpresaTableAdapter
             // 
@@ -70,7 +70,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 450);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.reportViewerParticipantes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmRelParticipante";
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewerParticipantes;
         private centaurusDataSet centaurusDataSet;
         private System.Windows.Forms.BindingSource listarParticipanteEmpresaBindingSource;
         private centaurusDataSetTableAdapters.listarParticipanteEmpresaTableAdapter listarParticipanteEmpresaTableAdapter;
