@@ -24,6 +24,9 @@ namespace Centaurus.Reports
 
         private void FrmRelMarca_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
+            this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
             //EXEMPLO DE COMO PREENCHER UM RELATORIO COM LIST
             //var produtos = new List<MarcaModelo>

@@ -38,14 +38,15 @@ namespace Centaurus.Reports
             // 
             // reportViewerMarca
             // 
+            this.reportViewerMarca.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSetRelMarca";
             reportDataSource1.Value = this.MarcaModeloBindingSource;
             this.reportViewerMarca.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewerMarca.LocalReport.ReportEmbeddedResource = "Centaurus.Reports.RelMarca.rdlc";
-            this.reportViewerMarca.Location = new System.Drawing.Point(3, 0);
+            this.reportViewerMarca.Location = new System.Drawing.Point(0, 0);
             this.reportViewerMarca.Name = "reportViewerMarca";
             this.reportViewerMarca.ServerReport.BearerToken = null;
-            this.reportViewerMarca.Size = new System.Drawing.Size(678, 338);
+            this.reportViewerMarca.Size = new System.Drawing.Size(752, 450);
             this.reportViewerMarca.TabIndex = 0;
             // 
             // MarcaModeloBindingSource
@@ -56,10 +57,13 @@ namespace Centaurus.Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 337);
+            this.ClientSize = new System.Drawing.Size(752, 450);
             this.Controls.Add(this.reportViewerMarca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmRelMarca";
-            this.Text = "FrmRelMarca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Relatório de Marca";
             this.Load += new System.EventHandler(this.FrmRelMarca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MarcaModeloBindingSource)).EndInit();
             this.ResumeLayout(false);
