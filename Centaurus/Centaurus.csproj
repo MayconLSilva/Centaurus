@@ -270,12 +270,6 @@
     <Compile Include="Reports\FrmRelMarca.Designer.cs">
       <DependentUpon>FrmRelMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\FrmRelParticipanteBackup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FrmRelParticipanteBackup.Designer.cs">
-      <DependentUpon>FrmRelParticipanteBackup.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\FrmRelParticipante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,15 +357,11 @@
     <EmbeddedResource Include="Reports\FrmRelMarca.resx">
       <DependentUpon>FrmRelMarca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FrmRelParticipanteBackup.resx">
-      <DependentUpon>FrmRelParticipanteBackup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FrmRelParticipante.resx">
       <DependentUpon>FrmRelParticipante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RelMarca.rdlc" />
     <EmbeddedResource Include="Reports\RelParticipante .rdlc" />
-    <EmbeddedResource Include="Reports\RelParticipanteBackup.rdlc" />
     <None Include="centaurusDataSet.xsc">
       <DependentUpon>centaurusDataSet.xsd</DependentUpon>
     </None>
