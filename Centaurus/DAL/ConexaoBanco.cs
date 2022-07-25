@@ -12,7 +12,8 @@ namespace Centaurus.Dao
     public class ConexaoBanco
     {
         
-        string conecta = "DATABASE=centaurus; SERVER=Sputnik2012; UID= sistema; PWD=M12345";
+        //string conecta = "DATABASE=centaurus; SERVER=Sputnik2012; UID= sistema; PWD=M12345";
+        string conecta = "DATABASE=centaurus; SERVER=192.168.0.117; UID= sistema; PWD=M12345";
         protected MySqlConnection conexao = null;
         //MySqlCommand comando = null;
 
